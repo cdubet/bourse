@@ -31,7 +31,9 @@ dependencies {
 
 	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
 	implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
-	
+	implementation 'info.picocli:picocli:4.5.1'
+	annotationProcessor 'info.picocli:picocli-codegen:4.5.1'
+	    
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
     
