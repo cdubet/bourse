@@ -31,13 +31,16 @@ dependencies {
 
 	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
 	implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+	implementation group: 'org.hsqldb', name: 'hsqldb' ,version: '2.5.1'
+	
 	implementation 'info.picocli:picocli:4.5.1'
 	annotationProcessor 'info.picocli:picocli-codegen:4.5.1'
 	    
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
     
-    jooqGenerator 'com.h2database:h2:1.4.200'
+
+    jooqGenerator 'org.hsqldb:hsqldb:2.5.1'
 }
 
 jooq {
@@ -55,10 +58,10 @@ jooq {
             generationTool {
                 logging = org.jooq.meta.jaxb.Logging.WARN
                 jdbc {
-                    driver = 'org.h2.Driver'
-                    url = 'jdbc:h2:~/test;AUTO_SERVER=TRUE'
-                    user = 'sa'
-                    password = ''
+                    driver = 'org.hsqldb.jdbcDriver'
+                    url = 'jdbc:hsqldb:file:/home/christian/PORTEFEUILLE/portefeuilleDb'
+                    user = 'portefeuille'
+                    password = 'DXbettier!'
                     properties {
                         property {
                             key = 'PAGE_SIZE'
@@ -69,7 +72,7 @@ jooq {
                 generator {
                     name = 'org.jooq.codegen.DefaultGenerator'
                     database {
-                        name = 'org.jooq.meta.h2.H2Database'
+                        name = 'org.jooq.meta.hsqldb.HSQLDBDatabase'
                         forcedTypes {
                             forcedType {
                                 name = 'varchar'
@@ -90,7 +93,7 @@ jooq {
                         fluentSetters = false
                     }
                     target {
-                        packageName = 'nu.studer.sample'
+                        packageName = 'net.tuxanna.database.jooq'
                         directory = 'src/generated/jooq'
                     }
                     strategy.name = "org.jooq.codegen.DefaultGeneratorStrategy"
