@@ -51,7 +51,8 @@ dependencies {
 	    
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
-    
+    //TODO use https://github.com/ferigma/dbunit-gradle-plugin
+    testImplementation 'org.dbunit:dbunit:2.7.0'
 
     jooqGenerator 'org.hsqldb:hsqldb:2.5.1'
 }

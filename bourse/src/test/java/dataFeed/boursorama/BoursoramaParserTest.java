@@ -1,0 +1,147 @@
+package dataFeed.boursorama;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.junit.Test;
+
+import net.tuxanna.portefeuille.Quote;
+import net.tuxanna.portefeuille.dataFeed.Ticker;
+import net.tuxanna.portefeuille.dataFeed.TickerI;
+import net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaParser;
+import net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaQuotationProvider;
+
+public class BoursoramaParserTest
+{
+
+	@Test
+	public void testParseShare()
+	{
+		BoursoramaParser parser=new BoursoramaParser();
+		
+		TestFileJsoupDocProvider jsoupProvider=new TestFileJsoupDocProvider();
+		jsoupProvider.setFileName("TEST_DATA/DATA_FEED/bourso_v3_ALLIANZ Cours Action ALV, Cotation Bourse XETRA - Boursorama.html"
+				+ "");
+		parser.setDocProvider(jsoupProvider);
+		
+		Quote quote=new Quote();
+		assertTrue(parser.parse(true,quote));
+		assertEquals(13.0, quote.getLastTradedPrice().getValue(),0.001);
+		assertEquals(11489, quote.getVolume().getValue(),0.001);
+		assertEquals(13.15, quote.getOpenPrice().getValue(),0.001);
+		assertEquals(13.45, quote.getHighPrice().getValue(),0.001);
+		assertEquals(12.95, quote.getLowPrice().getValue(),0.001);
+		assertEquals(13.50, quote.getPreviousClose().getValue(),0.001);
+		
+		//TODO check non filled values
+	}
+	
+	@Test
+	public void testParseShare2()
+	{
+		BoursoramaParser parser=new BoursoramaParser();
+		
+		TestFileJsoupDocProvider jsoupProvider=new TestFileJsoupDocProvider();
+		jsoupProvider.setFileName("TEST_DATA/DATA_FEED/bourso_v2_SCHNEIDER EL Cours Action SU, Cotation Bourse Euronext Paris - Boursorama.html");
+		parser.setDocProvider(jsoupProvider);
+		
+		Quote quote=new Quote();
+		assertTrue(parser.parse(true,quote));
+		assertEquals(71.34, quote.getLastTradedPrice().getValue(),0.001);
+		assertEquals(0, quote.getVolume().getValue(),0.001);
+		assertEquals(0, quote.getOpenPrice().getValue(),0.001);
+		assertEquals(0, quote.getHighPrice().getValue(),0.001);
+		assertEquals(0, quote.getLowPrice().getValue(),0.001);
+		assertEquals(70.34, quote.getPreviousClose().getValue(),0.001);
+		
+		//TODO check non filled values
+	}
+	
+	@Test
+	public void testParseUsShare()
+	{
+		BoursoramaParser parser=new BoursoramaParser();
+		
+		TestFileJsoupDocProvider jsoupProvider=new TestFileJsoupDocProvider();
+		jsoupProvider.setFileName("TEST_DATA/DATA_FEED/bourso_v2_AMAZON.COM Cours Action AMZN, Cotation Bourse NASDAQ - Boursorama.html");
+		parser.setDocProvider(jsoupProvider);
+		
+		Quote quote=new Quote();
+		assertTrue(parser.parse(true,quote));
+		assertEquals(1495.560, quote.getLastTradedPrice().getValue(),0.001);
+		assertEquals(7925357, quote.getVolume().getValue(),0.001);
+		assertEquals(1539.74, quote.getOpenPrice().getValue(),0.001);
+		assertEquals(1549.02, quote.getHighPrice().getValue(),0.001);
+		assertEquals(1495.36, quote.getLowPrice().getValue(),0.001);
+		assertEquals(1544.92, quote.getPreviousClose().getValue(),0.001);
+		
+		//TODO check non filled values
+	}
+	@Test
+	public void testParseSicav()
+	{
+		BoursoramaParser parser=new BoursoramaParser();
+		
+		TestFileJsoupDocProvider jsoupProvider=new TestFileJsoupDocProvider();
+		jsoupProvider.setFileName("TEST_DATA/DATA_FEED/bourso_v2_sicav_Comgest Growth Asia USD Acc - IE00BQ3D6V05 - Cours OPCVM - Boursorama.html");
+		parser.setDocProvider(jsoupProvider);
+		
+		Quote quote=new Quote();
+		assertTrue(parser.parse(false /* sicav */,quote));
+		assertEquals(63.5900, quote.getLastTradedPrice().getValue(),0.001);
+		assertEquals(-0.19, quote.getChangeInPrice().getValue(),0.001);
+		
+		//TODO check non filled values
+	}
+	
+	@Test
+	public void testWithRealBoursoramaDataFeed_ShareCase()
+	{
+		BoursoramaQuotationProvider provider=new BoursoramaQuotationProvider();
+		ArrayList<TickerI> listTickers=new ArrayList<TickerI> ();
+		listTickers.add(new Ticker("1rPILD",true)); //iliad
+		listTickers.add(new Ticker("AMZN",true)); //amazon
+		listTickers.add(new Ticker("VMW",true)); //vm ware
+		provider.setListTickers(listTickers);
+		HashMap<TickerI,Quote> quoteFromDataFeed=new HashMap<TickerI,Quote>  ();
+		final boolean res=provider.getQuotes(quoteFromDataFeed);
+		
+		assertTrue(res);
+		assertEquals(3, quoteFromDataFeed.size());
+		for (TickerI ticker:listTickers)
+		{
+			Quote quote = quoteFromDataFeed.get(ticker);
+			assertNotNull(quote);
+			assertTrue(quote.getLastTradedPrice().isValid());
+			assertTrue(quote.getVolume().isValid());
+			assertTrue(quote.getOpenPrice().isValid());
+			assertTrue(quote.getHighPrice().isValid());
+			assertTrue(quote.getLowPrice().isValid());
+			assertTrue(quote.getPreviousClose().isValid());
+			
+			System.out.println(quote.toString());
+		}
+	}
+	@Test
+	public void testWithRealBoursoramaDataFeed_SicavCase()
+	{
+		BoursoramaQuotationProvider provider=new BoursoramaQuotationProvider();
+		ArrayList<TickerI> listTickers=new ArrayList<TickerI> ();
+		listTickers.add(new Ticker("MP-806536",false)); //sicav Prévoir Perspectives C - FR0007071931
+		provider.setListTickers(listTickers);
+		HashMap<TickerI,Quote> quoteFromDataFeed=new HashMap<TickerI,Quote>  ();
+		final boolean res=provider.getQuotes(quoteFromDataFeed);
+		
+		assertTrue(res);
+		assertEquals(1, quoteFromDataFeed.size());
+		for (TickerI ticker:listTickers)
+		{
+			Quote quote = quoteFromDataFeed.get(ticker);
+			assertNotNull(quote);
+			assertTrue(quote.getLastTradedPrice().isValid());			
+			System.out.println(quote.toString());
+		}
+	}
+}

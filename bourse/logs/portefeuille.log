@@ -1,0 +1,16 @@
+18:11:21.871 [main] TRACE net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaQuotationProvider - Enter params(3)
+18:11:21.901 [main] DEBUG net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaQuotationProvider - get quotes for:[1rPILD]
+18:11:21.906 [main] DEBUG net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaQuotationProvider - url=[https://www.boursorama.com/cours/1rPILD/]
+18:11:24.884 [main] DEBUG net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaQuotationProvider - get quotes for:[AMZN]
+18:11:24.892 [main] DEBUG net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaQuotationProvider - url=[https://www.boursorama.com/cours/AMZN/]
+18:11:25.090 [main] DEBUG net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaQuotationProvider - get quotes for:[VMW]
+18:11:25.100 [main] DEBUG net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaQuotationProvider - url=[https://www.boursorama.com/cours/VMW/]
+18:11:25.661 [main] DEBUG net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaQuotationProvider - got 3quotations for 3 tickers
+18:11:25.672 [main] ERROR net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaParser - java.io.FileNotFoundException: TEST_DATA/DATA_FEED/bourso_v3_ALLIANZ Cours Action ALV, Cotation Bourse XETRA - Boursorama.html (Aucun fichier ou dossier de ce type)
+18:11:25.677 [main] ERROR net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaParser - java.io.FileNotFoundException: TEST_DATA/DATA_FEED/bourso_v2_sicav_Comgest Growth Asia USD Acc - IE00BQ3D6V05 - Cours OPCVM - Boursorama.html (Aucun fichier ou dossier de ce type)
+18:11:25.678 [main] ERROR net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaParser - java.io.FileNotFoundException: TEST_DATA/DATA_FEED/bourso_v2_SCHNEIDER EL Cours Action SU, Cotation Bourse Euronext Paris - Boursorama.html (Aucun fichier ou dossier de ce type)
+18:11:25.680 [main] ERROR net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaParser - java.io.FileNotFoundException: TEST_DATA/DATA_FEED/bourso_v2_AMAZON.COM Cours Action AMZN, Cotation Bourse NASDAQ - Boursorama.html (Aucun fichier ou dossier de ce type)
+18:11:25.684 [main] TRACE net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaQuotationProvider - Enter params(1)
+18:11:25.684 [main] DEBUG net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaQuotationProvider - get quotes for:[MP-806536]
+18:11:25.684 [main] DEBUG net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaQuotationProvider - url=[https://www.boursorama.com/bourse/opcvm/cours/MP-806536/]
+18:11:26.598 [main] DEBUG net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaQuotationProvider - got 1quotations for 1 tickers
