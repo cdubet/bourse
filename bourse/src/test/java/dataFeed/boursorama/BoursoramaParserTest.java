@@ -36,6 +36,7 @@ public class BoursoramaParserTest
 		assertEquals(194.580, quote.getPreviousClose().getValue(),0.001);
 		
 		//TODO check non filled values
+		
 	}
 	
 	@Test
