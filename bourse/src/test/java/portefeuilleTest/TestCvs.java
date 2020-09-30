@@ -1,4 +1,4 @@
-package protefeuilleTest;
+package portefeuilleTest;
 
 import static org.junit.Assert.assertEquals;
 
