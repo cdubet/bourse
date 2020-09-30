@@ -87,8 +87,8 @@ public class TestBuy
 		Double newQte=ShareOrderMockDataStorage.BOUGHT_QTE_SHARE_3;
 		Double newUnitPrice=ShareOrderMockDataStorage.CURRENT_VALUE_SHARE_3;
 		assertEquals(1,mockData.getNbInsertedShare());
-		assertEquals(new Integer(ShareOrderMockDataStorage.ID_ACCOUNT_1),mockData.getIdAccount());
-		assertEquals(new Integer(ShareOrderMockDataStorage.ID_SHARE_3),mockData.getIdShare());
+		assertEquals(Integer.valueOf(ShareOrderMockDataStorage.ID_ACCOUNT_1),mockData.getIdAccount());
+		assertEquals(Integer.valueOf(ShareOrderMockDataStorage.ID_SHARE_3),mockData.getIdShare());
 		assertEquals(newQte,mockData.getNewQte());
 		assertEquals(newUnitPrice,mockData.getNewUnitPrice());
 		

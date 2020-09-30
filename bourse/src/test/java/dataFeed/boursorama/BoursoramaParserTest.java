@@ -28,12 +28,12 @@ public class BoursoramaParserTest
 		
 		Quote quote=new Quote();
 		assertTrue(parser.parse(true,quote));
-		assertEquals(13.0, quote.getLastTradedPrice().getValue(),0.001);
-		assertEquals(11489, quote.getVolume().getValue(),0.001);
-		assertEquals(13.15, quote.getOpenPrice().getValue(),0.001);
-		assertEquals(13.45, quote.getHighPrice().getValue(),0.001);
-		assertEquals(12.95, quote.getLowPrice().getValue(),0.001);
-		assertEquals(13.50, quote.getPreviousClose().getValue(),0.001);
+		assertEquals(193.04, quote.getLastTradedPrice().getValue(),0.001);
+		assertEquals(1326239, quote.getVolume().getValue(),0.001);
+		assertEquals(0.0, quote.getOpenPrice().getValue(),0.001);
+		assertEquals(0.0, quote.getHighPrice().getValue(),0.001);
+		assertEquals(192.660, quote.getLowPrice().getValue(),0.001);
+		assertEquals(194.580, quote.getPreviousClose().getValue(),0.001);
 		
 		//TODO check non filled values
 	}

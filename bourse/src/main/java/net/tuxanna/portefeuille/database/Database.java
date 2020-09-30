@@ -164,13 +164,13 @@ public class Database implements DatabaseI
 			for (Record portfolioRecord : result)
 			{
 				PortfolioDB portfolioDB=new PortfolioDB();
-				portfolioDB.setIdPortfolio( (int) portfolioRecord.getValue("idPortfolio"));
-				portfolioDB.setIdShare((int) portfolioRecord.getValue("idShare"));
-				portfolioDB.setIdAccount((int) portfolioRecord.getValue("idAccount"));
-				portfolioDB.setQte(new DigitValue((String) portfolioRecord.getValue("qte")));
-				portfolioDB.setUnitPrice(new DigitValue((String) portfolioRecord.getValue("unitPrice")));
+				portfolioDB.setIdPortfolio( (int) portfolioRecord.getValue(Portfolio.PORTFOLIO.IDPORTFOLIO));
+				portfolioDB.setIdShare((int) portfolioRecord.getValue(Portfolio.PORTFOLIO.IDSHARE));
+				portfolioDB.setIdAccount((int) portfolioRecord.getValue(Portfolio.PORTFOLIO.IDACCOUNT));
+				portfolioDB.setQte(new DigitValue( portfolioRecord.getValue(Portfolio.PORTFOLIO.QTE)));
+				portfolioDB.setUnitPrice(new DigitValue(portfolioRecord.getValue(Portfolio.PORTFOLIO.UNITPRICE)));
 
-				portfolioDB.setUseForSummary((int)portfolioRecord.getValue("useForSummary")!=0);
+				portfolioDB.setUseForSummary((int)portfolioRecord.getValue(Portfolio.PORTFOLIO.USEFORSUMMARY)!=0);
 
 				listSharesInPorfolios.add(portfolioDB);
 			}

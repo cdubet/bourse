@@ -1,7 +1,10 @@
 package portefeuilleTest.businessLogic.shareOrders;
 
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+
 import org.jooq.DSLContext;
+import org.jooq.Record8;
 import org.jooq.Result;
 import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
@@ -9,11 +12,8 @@ import org.jooq.tools.jdbc.MockDataProvider;
 import org.jooq.tools.jdbc.MockExecuteContext;
 import org.jooq.tools.jdbc.MockResult;
 
-import net.tuxanna.portefeuille.database.public_.tables.Buy;
-import net.tuxanna.portefeuille.database.public_.tables.Sell;
-import net.tuxanna.portefeuille.database.public_.tables.records.BuyRecord;
-import net.tuxanna.portefeuille.database.public_.tables.records.SellRecord;
-
+import net.tuxanna.database.jooq.public_.tables.Buy;
+import net.tuxanna.database.jooq.public_.tables.Sell;
 
 
 public class ShareOrdersSellBoughtMockDataProvider extends ShareOrderMockDataStorage implements MockDataProvider
@@ -89,28 +89,55 @@ public class ShareOrdersSellBoughtMockDataProvider extends ShareOrderMockDataSto
 	private MockResult[] fillWithSell()
 	{
 		DSLContext create = DSL.using( SQLDialect.HSQLDB);
+		Result<Record8<Integer,Integer,Integer,LocalDateTime,Double,Integer,Double,Double>> result = create.newResult(
+				Sell.SELL.IDSELL,
+				Sell.SELL.IDSHARE, 
+				Sell.SELL.IDACCOUNT,
+				Sell.SELL.DATEEXPIRATION,
+				Sell.SELL.QTE,
+				Sell.SELL.STATE,
+				Sell.SELL.UNITPRICESOLD,
+				Sell.SELL.UNITPRICEREQUESTED);
 
-		Result<SellRecord> result = create.newResult(Sell.SELL);
-		{
-			SellRecord item1=new SellRecord();
-			item1.setIdsell(ID_SELL_2);
-			item1.setIdshare(ID_SHARE_2);
-			item1.setQte(sellQte);
-			item1.setState(0 /* valid*/);
-			item1.setIdaccount(ID_ACCOUNT_1);
-			item1.setUnitpricerequested(SELL_PRICE_SHARE_2); // current price > requested for selling -> sold
-			result.add(item1);
-		}
-		{
-			SellRecord item1=new SellRecord();
-			item1.setIdsell(ID_SELL_1);
-			item1.setIdshare(ID_SHARE_1);
-			item1.setQte(sellQte);
-			item1.setState(0 /* valid*/);
-			item1.setIdaccount(ID_ACCOUNT_1);
-			item1.setUnitpricerequested(CURRENT_VALUE_SHARE_1+1.0); //current price too low for selling
-			result.add(item1);
-		}
+		final Integer stateValid=0;
+		final Double dummyPrice=0.1;
+
+		result.add(create
+				.newRecord(Sell.SELL.IDSELL,
+						Sell.SELL.IDSHARE, 
+						Sell.SELL.IDACCOUNT,
+						Sell.SELL.DATEEXPIRATION,
+						Sell.SELL.QTE,
+						Sell.SELL.STATE,
+						Sell.SELL.UNITPRICESOLD,
+						Sell.SELL.UNITPRICEREQUESTED)
+				.values(ID_SELL_2,
+						ID_SHARE_2,
+						ID_ACCOUNT_1,
+						LocalDateTime.now(),//not used
+						sellQte,
+						stateValid,
+						dummyPrice,
+						SELL_PRICE_SHARE_2)); // current price > requested for selling -> sold
+
+		result.add(create
+				.newRecord(Sell.SELL.IDSELL,
+						Sell.SELL.IDSHARE, 
+						Sell.SELL.IDACCOUNT,
+						Sell.SELL.DATEEXPIRATION,
+						Sell.SELL.QTE,
+						Sell.SELL.STATE,
+						Sell.SELL.UNITPRICESOLD,
+						Sell.SELL.UNITPRICEREQUESTED)
+				.values(ID_SELL_1,
+						ID_SHARE_1,
+						ID_ACCOUNT_1,
+						LocalDateTime.now(),//not used
+						sellQte,
+						stateValid,
+						dummyPrice,
+						CURRENT_VALUE_SHARE_1+1.0)); //current price too low for selling
+		
 		return new MockResult[] {
 				new MockResult(2, result)
 		};
@@ -120,7 +147,15 @@ public class ShareOrdersSellBoughtMockDataProvider extends ShareOrderMockDataSto
 	{
 		DSLContext create = DSL.using( SQLDialect.HSQLDB);
 
-		Result<BuyRecord> result = create.newResult(Buy.BUY);
+		Result<Record8<Integer,Integer,Integer,LocalDateTime,Double,Integer,Double,Double>> result = create.newResult(
+				Buy.BUY.IDBUY,
+				Buy.BUY.IDSHARE, 
+				Buy.BUY.IDACCOUNT,
+				Buy.BUY.DATEEXPIRATION,
+				Buy.BUY.QTE,
+				Buy.BUY.STATE,
+				Buy.BUY.UNITPRICEBOUGHT,
+				Buy.BUY.UNITPRICEREQUESTED);
 
 		return new MockResult[] {
 				new MockResult(0, result)

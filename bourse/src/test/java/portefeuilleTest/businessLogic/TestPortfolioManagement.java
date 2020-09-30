@@ -47,7 +47,7 @@ public class TestPortfolioManagement
 		int idx=0;
 		for (TickerI ticker : listPredefinedTickers)
 		{
-			String name="testShare"+new Integer(idx++).toString();
+			String name="testShare"+Integer.valueOf(idx++).toString();
 			ShareDB share=new ShareDB(idx,name, 
 					ticker.getSymbol(),
 					ShareDB.Currency.DOLLAR_US,

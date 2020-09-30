@@ -390,6 +390,11 @@ public class PortfolioManagement
 		for (Share share : listShares)
 		{
 			QuoteDB quoteDB= listOfQuotationsDB.get(share.getShareDB());
+			if (quoteDB == null)
+			{
+				logger.error("unable to get quotes for"+share.toString());
+				return false;
+			}
 			DigitValue lastTraded = quoteDB.getQuotation().getLastTradedPrice();
 			DigitValue firstTraded = quoteDB.getQuotation().getOpenPrice();	
 		

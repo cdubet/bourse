@@ -148,9 +148,9 @@ public class TestDatabaseWithDbUnit
 		assertEquals(3, listSharesId.size());
 		// id should be 4 0 1
 		Collections.sort(listSharesId);
-		assertEquals(new Integer(0), listSharesId.get(0));
-		assertEquals(new Integer(1), listSharesId.get(1));
-		assertEquals(new Integer(4), listSharesId.get(2));
+		assertEquals(Integer.valueOf(0), listSharesId.get(0));
+		assertEquals(Integer.valueOf(1), listSharesId.get(1));
+		assertEquals(Integer.valueOf(4), listSharesId.get(2));
 	}
 
 	@Test
@@ -164,8 +164,8 @@ public class TestDatabaseWithDbUnit
 		assertEquals(2, listSharesId.size());
 		// id should be 4 0
 		Collections.sort(listSharesId);
-		assertEquals(new Integer(0), listSharesId.get(0));
-		assertEquals(new Integer(4), listSharesId.get(1));
+		assertEquals(Integer.valueOf(0), listSharesId.get(0));
+		assertEquals(Integer.valueOf(4), listSharesId.get(1));
 	}
 
 	@Test

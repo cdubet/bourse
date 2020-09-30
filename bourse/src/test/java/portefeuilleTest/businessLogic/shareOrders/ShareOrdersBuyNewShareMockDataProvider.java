@@ -1,8 +1,10 @@
 package portefeuilleTest.businessLogic.shareOrders;
 
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 
 import org.jooq.DSLContext;
+import org.jooq.Record8;
 import org.jooq.Result;
 import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
@@ -10,10 +12,8 @@ import org.jooq.tools.jdbc.MockDataProvider;
 import org.jooq.tools.jdbc.MockExecuteContext;
 import org.jooq.tools.jdbc.MockResult;
 
-import net.tuxanna.portefeuille.database.public_.tables.Buy;
-import net.tuxanna.portefeuille.database.public_.tables.Sell;
-import net.tuxanna.portefeuille.database.public_.tables.records.BuyRecord;
-import net.tuxanna.portefeuille.database.public_.tables.records.SellRecord;
+import net.tuxanna.database.jooq.public_.tables.Buy;
+import net.tuxanna.database.jooq.public_.tables.Sell;
 
 public class ShareOrdersBuyNewShareMockDataProvider extends ShareOrderMockDataStorage implements MockDataProvider
 {
@@ -23,7 +23,7 @@ public class ShareOrdersBuyNewShareMockDataProvider extends ShareOrderMockDataSt
 	private Double newUnitPrice;
 	private Double newQte;
 	private Integer useForSummary;
-	
+
 	public ShareOrdersBuyNewShareMockDataProvider()
 	{
 		nbInsertedShare=0;
@@ -86,7 +86,7 @@ public class ShareOrdersBuyNewShareMockDataProvider extends ShareOrderMockDataSt
 			Double qte=	(Double)  ctx.bindings()[1];
 			Integer state=(Integer)  ctx.bindings()[2];
 			Integer buyId= (Integer)  ctx.bindings()[3];
-		
+
 
 			//update "public"."buy" set "public"."buy"."unitpricebought" = cast(? as double), "public"."buy"."qte" = cast(? as double), "public"."buy"."state" = cast(? as int) where "public"."buy"."idbuy" = cast(? as int)
 			storeNewBuyValues(buyId,state,qte,valSold);
@@ -99,7 +99,7 @@ public class ShareOrdersBuyNewShareMockDataProvider extends ShareOrderMockDataSt
 			Double newUnitPrice=(Double)  ctx.bindings()[idx++];
 			Double newQte=(Double)  ctx.bindings()[idx++];
 			Integer useForSummary=(Integer)  ctx.bindings()[idx++];
-			
+
 			insert(idAccount,idShare,newUnitPrice,newQte,useForSummary);
 		}
 
@@ -121,15 +121,38 @@ public class ShareOrdersBuyNewShareMockDataProvider extends ShareOrderMockDataSt
 	private MockResult[] fillWithSell()
 	{
 		DSLContext create = DSL.using( SQLDialect.HSQLDB);
+		Result<Record8<Integer,Integer,Integer,LocalDateTime,Double,Integer,Double,Double>> result = create.newResult(
+				Sell.SELL.IDSELL,
+				Sell.SELL.IDSHARE, 
+				Sell.SELL.IDACCOUNT,
+				Sell.SELL.DATEEXPIRATION,
+				Sell.SELL.QTE,
+				Sell.SELL.STATE,
+				Sell.SELL.UNITPRICESOLD,
+				Sell.SELL.UNITPRICEREQUESTED);
 
-		Result<SellRecord> result = create.newResult(Sell.SELL);
-		SellRecord item1=new SellRecord();
-		item1.setIdsell(1);
-		item1.setIdshare(ID_SHARE_2);
-		item1.setQte(100.0);
-		item1.setState(0 /* valid*/);
-		item1.setIdaccount(ID_ACCOUNT_1);
-		result.add(item1);
+		final Integer idSell=1;
+		final Double qte=100.;
+		final Integer stateValid=0;
+		final Double dummyPrice=0.1;
+
+		result.add(create
+				.newRecord(Sell.SELL.IDSELL,
+						Sell.SELL.IDSHARE, 
+						Sell.SELL.IDACCOUNT,
+						Sell.SELL.DATEEXPIRATION,
+						Sell.SELL.QTE,
+						Sell.SELL.STATE,
+						Sell.SELL.UNITPRICESOLD,
+						Sell.SELL.UNITPRICEREQUESTED)
+				.values(idSell,
+						ID_SHARE_2,
+						ID_ACCOUNT_1,
+						LocalDateTime.now(),//not used
+						qte,
+						stateValid,
+						dummyPrice,dummyPrice));
+
 		return new MockResult[] {
 				new MockResult(1, result)
 		};
@@ -138,28 +161,55 @@ public class ShareOrdersBuyNewShareMockDataProvider extends ShareOrderMockDataSt
 	private MockResult[] fillWithBuy()
 	{
 		DSLContext create = DSL.using( SQLDialect.HSQLDB);
+		Result<Record8<Integer,Integer,Integer,LocalDateTime,Double,Integer,Double,Double>> result = create.newResult(
+				Buy.BUY.IDBUY,
+				Buy.BUY.IDSHARE, 
+				Buy.BUY.IDACCOUNT,
+				Buy.BUY.DATEEXPIRATION,
+				Buy.BUY.QTE,
+				Buy.BUY.STATE,
+				Buy.BUY.UNITPRICEBOUGHT,
+				Buy.BUY.UNITPRICEREQUESTED);
 
-		Result<BuyRecord> result = create.newResult(Buy.BUY);
-		{	
-			BuyRecord item1=new BuyRecord();
-			item1.setIdbuy(ID_BUY_SHARE_1);
-			item1.setIdshare(ID_SHARE_1);
-			item1.setIdaccount(ID_ACCOUNT_1);
-			item1.setQte(100.0);
-			item1.setState(0 /* valid*/);
-			item1.setUnitpricerequested(CURRENT_VALUE_SHARE_1-1.0); //below price limit -> not done
-			result.add(item1);
-		}
-		{	
-			BuyRecord item1=new BuyRecord();
-			item1.setIdbuy(ID_BUY_SHARE_3);
-			item1.setIdshare(ID_SHARE_3);
-			item1.setIdaccount(ID_ACCOUNT_1);
-			item1.setQte(BOUGHT_QTE_SHARE_3);
-			item1.setState(0 /* valid*/);
-			item1.setUnitpricerequested(CURRENT_VALUE_SHARE_3); // == current price -> should be performed
-			result.add(item1);
-		}
+		final Double qte=100.;
+		final Integer stateValid=0;
+		final Double dummyPrice=0.1;
+		
+		result.add(create
+				.newRecord(Buy.BUY.IDBUY,
+						Buy.BUY.IDSHARE, 
+						Buy.BUY.IDACCOUNT,
+						Buy.BUY.DATEEXPIRATION,
+						Buy.BUY.QTE,
+						Buy.BUY.STATE,
+						Buy.BUY.UNITPRICEBOUGHT,
+						Buy.BUY.UNITPRICEREQUESTED)
+				.values(ID_BUY_SHARE_1,
+						ID_SHARE_1,
+						ID_ACCOUNT_1,
+						LocalDateTime.now(),//not used
+						qte,
+						stateValid,
+						dummyPrice,
+						CURRENT_VALUE_SHARE_1-1.0));//below price limit -> not done
+		result.add(create
+				.newRecord(Buy.BUY.IDBUY,
+						Buy.BUY.IDSHARE, 
+						Buy.BUY.IDACCOUNT,
+						Buy.BUY.DATEEXPIRATION,
+						Buy.BUY.QTE,
+						Buy.BUY.STATE,
+						Buy.BUY.UNITPRICEBOUGHT,
+						Buy.BUY.UNITPRICEREQUESTED)
+				.values(ID_BUY_SHARE_3,
+						ID_SHARE_3,
+						ID_ACCOUNT_1,
+						LocalDateTime.now(),//not used
+						BOUGHT_QTE_SHARE_3,
+						stateValid,
+						dummyPrice,
+						CURRENT_VALUE_SHARE_3)); // == current price -> should be performed
+
 		return new MockResult[] {
 				new MockResult(1, result)
 		};

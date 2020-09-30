@@ -29,7 +29,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 		{
 			return false;
 		}
-		list = predefinedQuotesToSend;
+		list.clear();
+		list.putAll( predefinedQuotesToSend);
 		return true;
 	}
 
