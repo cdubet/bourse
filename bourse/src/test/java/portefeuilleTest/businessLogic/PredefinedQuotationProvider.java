@@ -40,7 +40,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 	}
 
 	// simulate values from yahoo
-	public void setupWithData_9_dec_2016()
+	public void setupWithData_9_dec_2016(List<TickerI> listTicker)
 	{
 		predefinedQuotesToSend = new HashMap<TickerI, Quote>();
 
@@ -61,7 +61,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPeRatio(6.86);
 			q.setShortRatio(0);
 
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker, q);
 		}
 
@@ -80,7 +80,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("102.75");
 			q.setPeRatio("20.88");
 			q.setShortRatio("0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 
@@ -98,7 +99,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setMobileAverage200Days("3.18");
 			q.setPreviousClose("3.03");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker, q);
 		}
 
@@ -117,7 +118,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("0.18");
 			q.setPeRatio("95.0");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker, q);
 		}
 
@@ -135,7 +137,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setMobileAverage200Days("2.74");
 			q.setPreviousClose("2.62");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -153,7 +156,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("45.01");
 			q.setPeRatio("0.74");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -171,7 +175,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("59.99");
 			q.setPeRatio("21.63");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -189,7 +194,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("20.66");
 			q.setPeRatio("27.57");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -207,7 +213,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("100.45");
 			q.setPeRatio("28.64");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -224,7 +231,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setMobileAverage200Days("1.27");
 			q.setPreviousClose("0.77");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -242,7 +250,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("72.65");
 			q.setPeRatio("19.55");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -259,7 +268,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setMobileAverage200Days("44.86");
 			q.setPreviousClose("50.1");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -277,7 +287,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("162.6");
 			q.setPeRatio("32.65");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -295,7 +305,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("104.85");
 			q.setPeRatio("15.96");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -312,7 +323,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setMobileAverage200Days("0.95");
 			q.setPreviousClose("0.69");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -330,7 +342,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("61.08");
 			q.setPeRatio("15.52");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -348,7 +361,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("82.31");
 			q.setPeRatio("7.59");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -366,7 +380,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("129.25");
 			q.setPeRatio("30.13");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -384,7 +399,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("64.93");
 			q.setPeRatio("24.63");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -402,7 +418,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("13.155");
 			q.setPeRatio("17.606");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -420,7 +437,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("34.06");
 			q.setPeRatio("22.55");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -438,7 +456,8 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("66.92");
 			q.setPeRatio("15.5");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -456,7 +475,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("92.21");
 			q.setPeRatio("27.04");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -474,7 +493,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("158.45");
 			q.setPeRatio("11.05");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -492,7 +511,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("80.75");
 			q.setPeRatio("30.62");
 			q.setShortRatio("10.82");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -501,7 +520,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setChangeInPrice("9.43");
 			q.setVolume("0.0");
 			q.setPreviousClose("1133.2");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -519,7 +538,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("7.4");
 			q.setPeRatio("14.22");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -537,7 +556,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("24.365");
 			q.setPeRatio("10.609");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -555,7 +574,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("22.89");
 			q.setPeRatio("19.02");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -573,7 +592,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("62.94");
 			q.setPeRatio("16.53");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -591,7 +610,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("35.76");
 			q.setPeRatio("10.68");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -609,7 +628,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("107.609");
 			q.setPeRatio("22.485");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -626,7 +645,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setMobileAverage200Days("74.55");
 			q.setPreviousClose("68.7");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -643,7 +662,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setMobileAverage200Days("60.45");
 			q.setPreviousClose("67.8");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -661,7 +680,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("220.4");
 			q.setPeRatio("21.98");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -678,7 +697,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setMobileAverage200Days("243.86");
 			q.setPreviousClose("226.1");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -696,7 +715,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("75.08");
 			q.setPeRatio("23.42");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -714,7 +733,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("46.86");
 			q.setPeRatio("10.04");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -731,7 +750,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setMobileAverage200Days("281.49");
 			q.setPreviousClose("320.3");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -749,7 +768,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("45.915");
 			q.setPeRatio("28.746");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -766,7 +785,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setMobileAverage200Days("210.48");
 			q.setPreviousClose("183.2");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -784,7 +803,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("59.32");
 			q.setPeRatio("17.83");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -802,7 +821,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("767.33");
 			q.setPeRatio("175.68");
 			q.setShortRatio("1.09");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -820,7 +839,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("394.5");
 			q.setPeRatio("79.82");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -837,7 +856,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setMobileAverage200Days("55.23");
 			q.setPreviousClose("49.24");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -855,7 +874,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("176.5");
 			q.setPeRatio("29.7");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 		{
@@ -873,7 +892,7 @@ public class PredefinedQuotationProvider implements QuotationProviderI
 			q.setPreviousClose("56.24");
 			q.setPeRatio("16.5");
 			q.setShortRatio("0.0");
-			TickerI ticker = new FakeShareTicker(idx++);
+			TickerI ticker = listTicker.get(idx++);
 			predefinedQuotesToSend.put(ticker,q);
 		}
 

@@ -34,6 +34,9 @@ public class ShareOrdersBuyNewShareMockDataProvider extends ShareOrderMockDataSt
 		useForSummary=null;
 	}
 
+	/**
+	 *
+	 */
 	@Override
 	public MockResult[] execute(MockExecuteContext ctx) throws SQLException
 	{
@@ -42,6 +45,10 @@ public class ShareOrdersBuyNewShareMockDataProvider extends ShareOrderMockDataSt
 
 		if (sql.contains("select"))
 		{
+//			if (sql.contains("select \"public\".\"buy\".\"idbuy\", \"public\".\"buy\".\"idshare\", \"public\".\"buy\".\"idaccount\", \"public\".\"buy\".\"qte\", \"public\".\"buy\".\"unitpricerequested\", \"public\".\"shares\".\"name\" from \"public\".\"buy\", \"public\".\"shares\" where"))
+//			{
+//				return fillWithBuyWithShareName();
+//			}
 			if (sql.contains("from \"public\".\"sell")) 
 			{
 				return fillWithSell();

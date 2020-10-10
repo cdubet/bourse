@@ -119,9 +119,8 @@ jooq {
 
 jar {
 	    manifest {
-	        attributes "Main-Class": "test.testMain"
+	        attributes "Main-Class": "net.tuxanna.portefeuille.Portefeuille"
 	    }
-	 
 	    from {
 	        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
 	    }

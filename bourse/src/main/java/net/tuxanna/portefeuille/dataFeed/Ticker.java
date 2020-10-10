@@ -77,4 +77,14 @@ public class Ticker implements TickerI
 		return true;
 	}
 
+	@Override
+	public boolean isValid()
+	{
+		if (symbol.length() > 0)
+		{
+			return true;
+		}
+		return false;
+	}
+
 }

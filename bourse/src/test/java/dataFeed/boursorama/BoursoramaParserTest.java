@@ -100,7 +100,7 @@ public class BoursoramaParserTest
 	@Test
 	public void testWithRealBoursoramaDataFeed_ShareCase()
 	{
-		BoursoramaQuotationProvider provider=new BoursoramaQuotationProvider();
+		BoursoramaQuotationProvider provider=new BoursoramaQuotationProvider(3 /*3 threads*/);
 		ArrayList<TickerI> listTickers=new ArrayList<TickerI> ();
 		listTickers.add(new Ticker("1rPILD",true)); //iliad
 		listTickers.add(new Ticker("AMZN",true)); //amazon
@@ -128,7 +128,7 @@ public class BoursoramaParserTest
 	@Test
 	public void testWithRealBoursoramaDataFeed_SicavCase()
 	{
-		BoursoramaQuotationProvider provider=new BoursoramaQuotationProvider();
+		BoursoramaQuotationProvider provider=new BoursoramaQuotationProvider(2 /*threads*/);
 		ArrayList<TickerI> listTickers=new ArrayList<TickerI> ();
 		listTickers.add(new Ticker("MP-806536",false)); //sicav Prévoir Perspectives C - FR0007071931
 		provider.setListTickers(listTickers);

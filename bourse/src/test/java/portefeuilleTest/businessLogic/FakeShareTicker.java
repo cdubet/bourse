@@ -61,4 +61,9 @@ public class FakeShareTicker implements TickerI
 			return false;
 		return true;
 	}
+	@Override
+	public boolean isValid()
+	{
+		return true;
+	}
 }

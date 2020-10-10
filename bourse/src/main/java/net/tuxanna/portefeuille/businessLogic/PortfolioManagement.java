@@ -51,16 +51,16 @@ public class PortfolioManagement
 	private TopWorst5 yesterdayChange;
 	private TopWorst5 weekChange;
 	private TopWorst5 monthChange;
-	
+
 	private QuotationMapStorage quotationMapStorage=new QuotationMapStorage();
-	
+
 	//allow to find the name associate to the id
 	private ShareNameStorage shareNameStorage=new ShareNameStorage();
-	
+
 	private EvaluationStorage evaluationStorage=new EvaluationStorage();
 	private List<ShareOrderManagementI> listOfShareOrderManagement=new ArrayList<ShareOrderManagementI>(2); //for managing sell and buy orders
 	private List<ProblemNotification> problemsToBeNotified=new ArrayList<ProblemNotification>();
-	
+
 	private String version;//SW version (for printing it)
 
 	public void setDatabase(DatabaseI database)
@@ -105,7 +105,7 @@ public class PortfolioManagement
 	}
 
 
-	
+
 	public boolean exportQuoteCsv(File csvFile)
 	{
 		ArrayList<ShareDB> listShares=new ArrayList<>();
@@ -123,7 +123,7 @@ public class PortfolioManagement
 		}
 		return listOfQuotationsDB.exportQuoteCsv(listShares,csvFile);
 	}
-	
+
 	public boolean update()
 	{
 		ArrayList<ShareDB> listShares=new ArrayList<>();
@@ -145,7 +145,7 @@ public class PortfolioManagement
 		buildVariation(listShares,listOfQuotationsDB);
 
 		Date now=clock.getNow();
-		
+
 		boolean orderProcessing=true;
 		for (ShareOrderManagementI order : listOfShareOrderManagement)
 		{
@@ -157,11 +157,11 @@ public class PortfolioManagement
 				orderProcessing=false;
 			}
 		}
-		
+
 		return orderProcessing;
-	
+
 	}
-	
+
 	private void buildListSharesWithFlagKeepOrNot(List<ShareDB> fullListShares,List<Share> listSharesWithKeepOrNot)
 	{
 		List<Integer> listSharesId=new ArrayList<Integer>();
@@ -334,7 +334,7 @@ public class PortfolioManagement
 		}
 
 		boolean missingQuotes=false;
-		
+
 		for (Iterator<Share> iterator = listShares.iterator(); iterator.hasNext();)
 		{
 			Share share = (Share) iterator.next();
@@ -342,39 +342,48 @@ public class PortfolioManagement
 			QuoteDB quoteDB=database.readQuotationAtOneDay(search);
 			if (quoteDB.getQuotation().isLastTradedPriceValid())
 			{
-				Quote storedQuote = listOfQuotationsDB.get(share.getShareDB()).getQuotation();
-
-				// will occur if some quote cannot be found
-				if (storedQuote ==null)
+				QuoteDB oneQuoteDB=listOfQuotationsDB.get(share.getShareDB());
+				if (oneQuoteDB==null)//TODO remove all this null tests
 				{
-					logger.error("buildQuotationVariation share missing"+share.getShareDB().toString());
-					missingQuotes=true;
-				}
-				else if (storedQuote.isLastTradedPriceValid())
-				{
-					double currentValue=storedQuote.getLastTradedPrice().getValue();
-
-					double firstValue=quoteDB.getQuotation().getLastTradedPrice().getValue();
-
-					quotationMapStorage.add(new ShareIdAndDate(share.getShareDB(), newDateBefore), firstValue);
-					if (share.isRequiredForVariation())
-					{
-						QuoteVariation q1;
-						if (addComparisonWithLastWeek)
-						{
-							q1=new QuoteVariationExtended(database,newDateOneWeekBefore, share.getShareDB(), firstValue, currentValue);
-						}
-						else
-						{
-							q1=new QuoteVariation(share.getShareDB().getName(), firstValue, currentValue);
-						}
-						listQuotationVariation.add(q1);
-					}
+					logger.error("buildQuotationVariation share missing in DB"+share.getShareDB().toString());
+					missingQuotes=true;	
 				}
 				else
 				{
-					logger.error("buildQuotationVariation last quotation missing"+share.getShareDB().toString());
-					missingQuotes=true;
+					Quote storedQuote = oneQuoteDB.getQuotation();
+
+					// will occur if some quote cannot be found
+					if (storedQuote ==null)
+					{
+						logger.error("buildQuotationVariation share missing"+share.getShareDB().toString());
+						missingQuotes=true;
+					}
+					else if (storedQuote.isLastTradedPriceValid())
+					{
+						double currentValue=storedQuote.getLastTradedPrice().getValue();
+
+						double firstValue=quoteDB.getQuotation().getLastTradedPrice().getValue();
+
+						quotationMapStorage.add(new ShareIdAndDate(share.getShareDB(), newDateBefore), firstValue);
+						if (share.isRequiredForVariation())
+						{
+							QuoteVariation q1;
+							if (addComparisonWithLastWeek)
+							{
+								q1=new QuoteVariationExtended(database,newDateOneWeekBefore, share.getShareDB(), firstValue, currentValue);
+							}
+							else
+							{
+								q1=new QuoteVariation(share.getShareDB().getName(), firstValue, currentValue);
+							}
+							listQuotationVariation.add(q1);
+						}
+					}
+					else
+					{
+						logger.error("buildQuotationVariation last quotation missing"+share.getShareDB().toString());
+						missingQuotes=true;
+					}
 				}
 			}
 		}
@@ -397,7 +406,7 @@ public class PortfolioManagement
 			}
 			DigitValue lastTraded = quoteDB.getQuotation().getLastTradedPrice();
 			DigitValue firstTraded = quoteDB.getQuotation().getOpenPrice();	
-		
+
 			if (lastTraded.isValid()) 
 			{
 				double currentValue=lastTraded.getValue();
@@ -408,16 +417,16 @@ public class PortfolioManagement
 					DigitValue volume = quoteDB.getQuotation().getVolume();
 					// check value is valid and volume fine
 					if ((firstTraded.getValue() >0.) && 
-					    volume.isValid() && 
-					    (volume.getValue()>0.)	)
-					    {
-					    	double firstValue=firstTraded.getValue();
-							if (share.isRequiredForVariation())
-							{
-								QuoteVariation q1=new QuoteVariationExtended(database,newDateOneWeekBefore, share.getShareDB(), firstValue, currentValue);
-								listQuotationVariation.add(q1);
-							}
-					    }
+							volume.isValid() && 
+							(volume.getValue()>0.)	)
+					{
+						double firstValue=firstTraded.getValue();
+						if (share.isRequiredForVariation())
+						{
+							QuoteVariation q1=new QuoteVariationExtended(database,newDateOneWeekBefore, share.getShareDB(), firstValue, currentValue);
+							listQuotationVariation.add(q1);
+						}
+					}
 				}
 			}
 		}
@@ -452,7 +461,7 @@ public class PortfolioManagement
 		logger.debug("received "+QuotationsForTicker.size()+" quotations");
 
 		fillListOfQuotation(listShares, QuotationsForTicker,listOfQuotationsDB);
-		
+
 		//save them in DB
 		if (!database.storeQuotation(listOfQuotationsDB.getList()))
 		{
@@ -464,8 +473,8 @@ public class PortfolioManagement
 
 
 	private void fillListOfQuotation(List<ShareDB> listShares,
-									 HashMap<TickerI, Quote> QuotationsForTicker,
-									 ShareToQuotations listOfQuotationsDB)
+			HashMap<TickerI, Quote> QuotationsForTicker,
+			ShareToQuotations listOfQuotationsDB)
 	{
 		for (ShareDB share : listShares)
 		{
@@ -606,7 +615,7 @@ public class PortfolioManagement
 		{
 			listReportToPrint.add(evaluationStorage);
 		}
-		
+
 		notifier.setVersion(version);
 		notifier.notifyUser(listReportToPrint);
 		notifier.notifyErrors(problemsToBeNotified);
@@ -748,10 +757,10 @@ public class PortfolioManagement
 		Date now=clock.getNow();
 		java.util.Calendar cal = java.util.Calendar.getInstance();
 		cal.setTime(now);
-  	    cal.add(Calendar.MONTH, -1);// one month less
+		cal.add(Calendar.MONTH, -1);// one month less
 		Date limitDateForDeletion=cal.getTime();
 		logger.debug("deleting outdate quotes from "+limitDateForDeletion.toString());
-		
+
 		database.deleteOutdatedQuotes(limitDateForDeletion);
 	}
 
@@ -761,5 +770,5 @@ public class PortfolioManagement
 		database.checkQuotes();
 	}
 
- 
+
 }

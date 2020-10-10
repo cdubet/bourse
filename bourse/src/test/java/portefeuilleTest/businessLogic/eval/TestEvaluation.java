@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -18,7 +19,10 @@ import net.tuxanna.portefeuille.businessLogic.eval.Evaluation;
 import net.tuxanna.portefeuille.businessLogic.eval.EvaluationStorage;
 import net.tuxanna.portefeuille.businessLogic.eval.QuotationMapStorage;
 import net.tuxanna.portefeuille.businessLogic.util.ShareNameStorage;
+import net.tuxanna.portefeuille.dataFeed.Ticker;
+import net.tuxanna.portefeuille.dataFeed.TickerI;
 import net.tuxanna.portefeuille.database.PortfolioDB;
+import net.tuxanna.portefeuille.database.ShareDB;
 import net.tuxanna.portefeuille.util.DigitValue;
 import portefeuilleTest.businessLogic.FakeDate;
 import portefeuilleTest.businessLogic.PredefinedQuotationProvider;
@@ -231,9 +235,22 @@ public class TestEvaluation
 			clock.setPredefineDayOfMonth(9);
 			clock.setPredefineHourOfDay(23);			
 			portfolio.setClock(clock);
-		
+			
+			//build list of tickers
+			List<ShareDB> listShares=new ArrayList<ShareDB>();
+			testDb.loadShares(listShares);
+			List<TickerI> listTicker=new ArrayList<TickerI>();
+			for (ShareDB shareDb:listShares)
+			{
+				String tickerSymbol=shareDb.getTicker();
+				boolean isShare=shareDb.isShare();
+				Ticker ticker=new Ticker(tickerSymbol , isShare);
+				listTicker.add(ticker);
+			}
+			 
+			
 			PredefinedQuotationProvider quoteProvider=new PredefinedQuotationProvider();
-			quoteProvider.setupWithData_9_dec_2016();
+			quoteProvider.setupWithData_9_dec_2016(listTicker);
 			portfolio.setQuotationProvider(quoteProvider);
 			
 			//now make the test

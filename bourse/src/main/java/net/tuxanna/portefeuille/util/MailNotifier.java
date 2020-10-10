@@ -28,12 +28,40 @@ public class MailNotifier implements PortfolioNotifierI
 
 	private String passwd;
 
+	boolean sanityCheck()
+	{
+		if ((smtpServer==null) || (smtpServer.length()==0))
+		{
+			logger.error("mail stmtpserver not set");
+			return false;
+		}
+		if ((mailTo==null) || (mailTo.length()==0))
+		{
+			logger.error("mail mailTo not set");
+			return false;
+		}
+		if ((user==null) || (user.length()==0))
+		{
+			logger.error("mail user not set");
+			return false;
+		}
+		if ((passwd==null) || (passwd.length()==0))
+		{
+			logger.error("mail passwd not set");
+			return false;
+		}
+		return true;
+	}
 	/* (non-Javadoc)
 	 * @see net.tuxanna.portefeuille.util.PortfolioNotifier#notifyUser(java.lang.String)
 	 */
 	@Override
 	public boolean notifyUser(List<ReportI> report)
 	{
+		if (!sanityCheck())
+		{
+			return false;
+		}
 		//see https://commons.apache.org/proper/commons-email/userguide.html
 
 		//Email email = new SimpleEmail();
@@ -84,6 +112,10 @@ public class MailNotifier implements PortfolioNotifierI
 	@Override
 	public boolean notifyErrors(List<ProblemNotification> err)
 	{
+		if (!sanityCheck())
+		{
+			return false;
+		}
 		if (err.size() ==0)
 		{
 			return true;

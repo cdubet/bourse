@@ -4,4 +4,5 @@ public interface TickerI
 {
 	String getSymbol();
 	boolean isShare() ; //true -> share, false -> sicav
+	boolean isValid();
 }

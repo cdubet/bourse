@@ -197,7 +197,7 @@ public class Portefeuille   implements Runnable  {
 					portfolio.deleteOutdatedQuotes();
 				}
 			}
-
+			
 			//notify
 			PortfolioNotifierI notifier=new MailNotifier(user,password,smtpServer,mailTo);
 			portfolio.notifyResults(notifier);
@@ -220,7 +220,7 @@ public class Portefeuille   implements Runnable  {
 	{
 		PortfolioManagement portfolio=new PortfolioManagement();
 		portfolio.setDatabase(db);
-		portfolio.setQuotationProvider(new BoursoramaQuotationProvider());
+		portfolio.setQuotationProvider(new BoursoramaQuotationProvider(8));//TODO change hard coded
 		portfolio.setVersion(VERSION);
 		return portfolio;
 	}

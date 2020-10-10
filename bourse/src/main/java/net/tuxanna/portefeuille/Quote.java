@@ -398,6 +398,11 @@ public class Quote
 				+ previousClose + ", peRatio=" + peRatio + ", shortRatio=" + shortRatio + "]";
 	}
 
+	public boolean isValid()
+	{
+		return isLastTradedPriceValid();//minimal info
+	}
+
 
 
 
