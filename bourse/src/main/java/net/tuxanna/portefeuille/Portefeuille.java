@@ -7,7 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.tuxanna.portefeuille.businessLogic.PortfolioManagement;
-import net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaQuotationProvider;
+import net.tuxanna.portefeuille.data_feed.boursorama.BoursoramaQuotationProvider;
 import net.tuxanna.portefeuille.database.Database;
 import net.tuxanna.portefeuille.util.MailNotifier;
 import net.tuxanna.portefeuille.util.MailParameters;
@@ -47,21 +47,21 @@ public class Portefeuille   implements Runnable  {
     private boolean checkDatabase;
 	
 	@Option(names = "--user", description="email user")
-	String user;
+	private String user;
 	
 	@Option(names = "--server", description="smtp server")
-	String smtpServer;
+	private String smtpServer;
 	
 	@Option(names = "--mailTo", description="destination mail")
-	String mailTo;
+	private String mailTo;
 	
 	@Option(names = "--p1", arity = "0..1" /* TODO, interactive = true*/)
-	String p1;
+	private String p1;
 	@Option(names = "--p2", arity = "0..1" /* TODO, interactive = true*/)
-	String p2;
+	private String p2;
 	
 	@Option(names = "--threads", description="threads for getting quotes from internet")
-	Integer nbThreads;
+	private Integer nbThreads;
 	
 	public static void main(String[] args) 
 	{
@@ -74,7 +74,6 @@ public class Portefeuille   implements Runnable  {
         { // handle invalid input
             System.err.println(ex.getMessage());
             CommandLine.usage(portefeuille, System.err);
-            return;
         }
 	}
 
@@ -117,13 +116,13 @@ public class Portefeuille   implements Runnable  {
 		
 	}
 
-	private void generateCSV(File csvFileName)
+	private void generateCSV(File csvFileName,int nbThreadsForDownloading)
 	{
 		Database db;
 		try
 		{
 			db = new Database();
-			PortfolioManagement portfolio = setupPortfolio(db);
+			PortfolioManagement portfolio = setupPortfolio(db,nbThreadsForDownloading);
 
 			//do the job
 			portfolio.exportQuoteCsv(csvFileName);
@@ -141,7 +140,7 @@ public class Portefeuille   implements Runnable  {
 		try
 		{
 			Database db = new Database();
-			PortfolioManagement portfolio = setupPortfolio(db);
+			PortfolioManagement portfolio = setupPortfolio(db,1 /*does not matter here*/);
 
 			//do the job
 			portfolio.deleteOutdatedQuotes();
@@ -164,7 +163,7 @@ public class Portefeuille   implements Runnable  {
 		try
 		{
 			Database db = new Database();
-			PortfolioManagement portfolio = setupPortfolio(db);
+			PortfolioManagement portfolio = setupPortfolio(db,1 /*does not matter here*/);
 
 			//do the job
 			portfolio.checkQuotes();
@@ -182,7 +181,7 @@ public class Portefeuille   implements Runnable  {
 		}
 		
 	}
-	private static void updatePortfolio(boolean isEvaluateRequired, String user, String smtpServer, String password, String mailTo)
+	private static void updatePortfolio(boolean isEvaluateRequired, MailParameters mailParam, Integer nbThreadsForDownloadingQuotes)
 	{
 		//update
 		try
@@ -190,7 +189,7 @@ public class Portefeuille   implements Runnable  {
 			Database db = new Database();
 			//
 			// config
-			PortfolioManagement portfolio = setupPortfolio(db);
+			PortfolioManagement portfolio = setupPortfolio(db,nbThreadsForDownloadingQuotes);
 
 			//do the job
 			if (portfolio.update())
@@ -203,29 +202,25 @@ public class Portefeuille   implements Runnable  {
 			}
 			
 			//notify
-			MailParameters mailParam=new MailParameters(VERSION,smtpServer,mailTo,user,password);
 			PortfolioNotifierI notifier=new MailNotifier(mailParam);
 			portfolio.notifyResults(notifier);
 
 			db.shutdown();
 		}
-		catch (SQLException e)
+		catch (SQLException |ClassNotFoundException e)
 		{
 			logger.error("exception received",e);
 			e.printStackTrace();
 		}
-		catch (ClassNotFoundException e)
-		{
-			logger.error("exception received",e);
-			e.printStackTrace();
-		}
+
+
 	}
 
-	private static PortfolioManagement setupPortfolio(Database db)
+	private static PortfolioManagement setupPortfolio(Database db,int nbThreadsForDownloading)
 	{
 		PortfolioManagement portfolio=new PortfolioManagement();
 		portfolio.setDatabase(db);
-		portfolio.setQuotationProvider(new BoursoramaQuotationProvider(8));//TODO change hard coded
+		portfolio.setQuotationProvider(new BoursoramaQuotationProvider(nbThreadsForDownloading));
 		return portfolio;
 	}
 
@@ -239,7 +234,13 @@ public class Portefeuille   implements Runnable  {
 		else if (evaluate)
 		{			
 			final String passwd=p1+p2;
-			updatePortfolio(true /* eval*/,user,smtpServer,passwd,mailTo);
+			MailParameters mailParam=new MailParameters(VERSION,smtpServer,mailTo,user,passwd);
+			if (nbThreads==null)
+			{
+				//use default
+				nbThreads=3;
+			}
+			updatePortfolio(true /* eval*/,mailParam,nbThreads);
 		}
 		else if (stripQuotes)
 		{
@@ -247,7 +248,12 @@ public class Portefeuille   implements Runnable  {
 		}
 		else if (csvFiles !=null)
 		{
-			generateCSV(csvFiles);
+			if (nbThreads==null)
+			{
+				//use default
+				nbThreads=3;
+			}
+			generateCSV(csvFiles,nbThreads);
 		}
 		else if (updateSchema)
 		{
@@ -260,7 +266,14 @@ public class Portefeuille   implements Runnable  {
 		else
 		{
 			//no option
-			updatePortfolio(false /* no eval*/,user,smtpServer,p1+p2,mailTo);
+			final String passwd=p1+p2;
+			MailParameters mailParam=new MailParameters(VERSION,smtpServer,mailTo,user,passwd);
+			if (nbThreads==null)
+			{
+				//use default
+				nbThreads=3;
+			}
+			updatePortfolio(false /* no eval*/,mailParam,nbThreads);
 		}
 	}
 

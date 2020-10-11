@@ -1,4 +1,4 @@
-package net.tuxanna.portefeuille.dataFeed.boursorama;
+package net.tuxanna.portefeuille.data_feed.boursorama;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -31,8 +31,8 @@ public class BoursoramaQuotationProvider implements QuotationProviderI
 {
 	private static final Logger logger = LogManager.getLogger(BoursoramaQuotationProvider.class);
 
-	private static final String boursoramaShareWebPage="https://www.boursorama.com/cours/";
-	private static final String boursoramaSicavWebPage="https://www.boursorama.com/bourse/opcvm/cours/";
+	private static final String BOURSORAMA_SHARE_WEB_PAGE="https://www.boursorama.com/cours/";
+	private static final String BOURSORAMA_SICAV_WEB_PAGE="https://www.boursorama.com/bourse/opcvm/cours/";
 
 	private List<TickerI> listOfTickers;
 	private int nbThreadsForWebDownload;
@@ -112,12 +112,12 @@ public class BoursoramaQuotationProvider implements QuotationProviderI
 		if (ticker.isShare())
 		{
 			//make something like https://www.boursorama.com/cours/2aRO/
-			url=boursoramaShareWebPage+ticker.getSymbol()+"/";
+			url=BOURSORAMA_SHARE_WEB_PAGE+ticker.getSymbol()+"/";
 		}
 		else
 		{
 			//make something like  https://www.boursorama.com/bourse/opcvm/cours/0P0000WXIZ/
-			url=boursoramaSicavWebPage+ticker.getSymbol()+"/";	
+			url=BOURSORAMA_SICAV_WEB_PAGE+ticker.getSymbol()+"/";	
 		}
 		try
 		{

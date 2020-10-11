@@ -154,9 +154,9 @@ public class BuyDB implements ShareOrderI
 		return getIdBuy();
 	}
 	@Override
-	public void setAsExecuted(DigitValue ValueWhenExecuted)
+	public void setAsExecuted(DigitValue valueWhenExecuted)
 	{
-		setAsBought(ValueWhenExecuted);
+		setAsBought(valueWhenExecuted);
 		
 	}
 	@Override

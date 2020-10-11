@@ -1,4 +1,4 @@
-package net.tuxanna.portefeuille.businessLogic.shareOrders;
+package net.tuxanna.portefeuille.businessLogic.share_orders;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -30,7 +30,7 @@ public class BuyManagement implements ShareOrderManagementI
 	private boolean findExecutedBuyOrders(Date date)
 	{
 		boolean result=true; //let s be optimistic
-		List<ShareOrderI> newOrders=new ArrayList<ShareOrderI>();
+		List<ShareOrderI> newOrders=new ArrayList<>();
 		if (database.loadValidBuyOrders(newOrders,date))
 		{
 			listBuyOrdersToPerform.addToList(newOrders);

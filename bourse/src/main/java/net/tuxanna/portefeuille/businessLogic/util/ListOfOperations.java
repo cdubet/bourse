@@ -12,7 +12,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.googlecode.jatl.Html;
 
-import net.tuxanna.portefeuille.businessLogic.shareOrders.OrderInfo;
+import net.tuxanna.portefeuille.businessLogic.share_orders.OrderInfo;
 import net.tuxanna.portefeuille.database.DatabaseI;
 import net.tuxanna.portefeuille.database.QuoteDB;
 import net.tuxanna.portefeuille.database.ShareOrderI;

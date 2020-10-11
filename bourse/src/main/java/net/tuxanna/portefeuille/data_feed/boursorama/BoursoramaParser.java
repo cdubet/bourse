@@ -1,4 +1,4 @@
-package net.tuxanna.portefeuille.dataFeed.boursorama;
+package net.tuxanna.portefeuille.data_feed.boursorama;
 
 import java.io.IOException;
 
@@ -50,7 +50,7 @@ public class BoursoramaParser
 			logger.error("no data found for opening");
 			return false;
 		}
-		if (ouvertureItem.size() ==0)
+		if (ouvertureItem.isEmpty())
 		{
 			logger.error("empty opening found for share");
 			return false;
@@ -68,7 +68,7 @@ public class BoursoramaParser
 			logger.error("no previous close found for share");
 			return false;
 		}
-		if (previousCloseItem.size() ==0)
+		if (previousCloseItem.isEmpty())
 		{
 			logger.error("empty previous close found for share");
 			return false;
@@ -85,7 +85,7 @@ public class BoursoramaParser
 			logger.error("no high found for share");
 			return false;
 		}
-		if (highQuoteItem.size() ==0)
+		if (highQuoteItem.isEmpty())
 		{
 			logger.error("empty high found for share");
 			return false;
@@ -102,7 +102,7 @@ public class BoursoramaParser
 			logger.error("no low quote found for share");
 			return false;
 		}
-		if (lowQuoteItem.size() ==0)
+		if (lowQuoteItem.isEmpty())
 		{
 			logger.error("empty low quote found for share");
 			return false;
@@ -119,7 +119,7 @@ public class BoursoramaParser
 			logger.error("no volume found for share");
 			return false;
 		}
-		if (volumeItem.size() ==0)
+		if (volumeItem.isEmpty())
 		{
 			logger.error("empty volume found for share");
 			return false;
@@ -136,7 +136,7 @@ public class BoursoramaParser
 			logger.error("no last traded found for share");
 			return false;
 		}
-		if (lastTradedItem.size() ==0)
+		if (lastTradedItem.isEmpty())
 		{
 			logger.error("empty last traded found for share");
 			return false;
@@ -155,7 +155,7 @@ public class BoursoramaParser
 			return false;
 		}
 
-		if (headerItem.size() ==0)
+		if (headerItem.isEmpty())
 		{
 			logger.error("empty header found for share\n"+doc.toString()+"\n");
 			return false;
@@ -230,7 +230,7 @@ public class BoursoramaParser
 			logger.error("no header found for sicav\n"+doc.toString()+"\n");
 			return false;
 		}
-		if (headerItem.size() ==0)
+		if (headerItem.isEmpty())
 		{
 			logger.error("empty header found for sicav\n"+doc.toString()+"\n");
 			return false;
@@ -242,7 +242,7 @@ public class BoursoramaParser
 			logger.error("no current quote found for sicav\n"+doc.toString()+"\n");
 			return false;
 		}
-		if (lastQuotationItem.size() ==0)
+		if (lastQuotationItem.isEmpty())
 		{
 			logger.error("empty quote found for sicav\n"+doc.toString()+"\n");
 			return false;
@@ -256,7 +256,7 @@ public class BoursoramaParser
 			logger.error("no variation found for sicav\n"+doc.toString()+"\n");
 			return false;
 		}
-		if (variationItem.size() ==0)
+		if (variationItem.isEmpty())
 		{
 			logger.error("empty variation found for sicav\n"+doc.toString()+"\n");
 			return false;

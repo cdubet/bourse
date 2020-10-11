@@ -1,4 +1,4 @@
-package net.tuxanna.portefeuille.businessLogic.mobileAverage;
+package net.tuxanna.portefeuille.businessLogic.mobile_average;
 
 import java.util.ArrayList;
 import java.util.Calendar;

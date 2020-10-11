@@ -9,7 +9,7 @@ public class AccountDB
 	public AccountDB()
 	{
 		idAccount=Database.NON_ASSIGNED;
-		name=new String();
+		name="";
 	}
 
 	public int getIdAccount()

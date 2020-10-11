@@ -10,8 +10,8 @@ import org.junit.Test;
 import net.tuxanna.portefeuille.Quote;
 import net.tuxanna.portefeuille.dataFeed.Ticker;
 import net.tuxanna.portefeuille.dataFeed.TickerI;
-import net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaParser;
-import net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaQuotationProvider;
+import net.tuxanna.portefeuille.data_feed.boursorama.BoursoramaParser;
+import net.tuxanna.portefeuille.data_feed.boursorama.BoursoramaQuotationProvider;
 
 public class BoursoramaParserTest
 {

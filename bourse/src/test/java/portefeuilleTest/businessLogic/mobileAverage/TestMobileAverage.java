@@ -11,7 +11,7 @@ import java.util.List;
 import org.junit.Test;
 
 import net.tuxanna.portefeuille.Quote;
-import net.tuxanna.portefeuille.businessLogic.mobileAverage.MobileAverage;
+import net.tuxanna.portefeuille.businessLogic.mobile_average.MobileAverage;
 import net.tuxanna.portefeuille.database.QuoteDB;
 import net.tuxanna.portefeuille.database.ShareDB;
 import portefeuilleTest.database.TestRamDatabaseAtOneDay;
