@@ -118,10 +118,15 @@ jooq {
 }
 
 jar {
+   		// Keep jar clean:
+    	exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.MF'
+
+
 	    manifest {
 	        attributes "Main-Class": "net.tuxanna.portefeuille.Portefeuille"
 	    }
 	    from {
+	        // keep jar in jar -Smaller but path is wrong configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { it }
 	        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
 	    }
 	}

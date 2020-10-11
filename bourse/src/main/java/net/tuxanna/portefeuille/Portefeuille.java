@@ -10,6 +10,7 @@ import net.tuxanna.portefeuille.businessLogic.PortfolioManagement;
 import net.tuxanna.portefeuille.dataFeed.boursorama.BoursoramaQuotationProvider;
 import net.tuxanna.portefeuille.database.Database;
 import net.tuxanna.portefeuille.util.MailNotifier;
+import net.tuxanna.portefeuille.util.MailParameters;
 import net.tuxanna.portefeuille.util.PortfolioNotifierI;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
@@ -58,6 +59,9 @@ public class Portefeuille   implements Runnable  {
 	String p1;
 	@Option(names = "--p2", arity = "0..1" /* TODO, interactive = true*/)
 	String p2;
+	
+	@Option(names = "--threads", description="threads for getting quotes from internet")
+	Integer nbThreads;
 	
 	public static void main(String[] args) 
 	{
@@ -199,7 +203,8 @@ public class Portefeuille   implements Runnable  {
 			}
 			
 			//notify
-			PortfolioNotifierI notifier=new MailNotifier(user,password,smtpServer,mailTo);
+			MailParameters mailParam=new MailParameters(VERSION,smtpServer,mailTo,user,password);
+			PortfolioNotifierI notifier=new MailNotifier(mailParam);
 			portfolio.notifyResults(notifier);
 
 			db.shutdown();
@@ -221,7 +226,6 @@ public class Portefeuille   implements Runnable  {
 		PortfolioManagement portfolio=new PortfolioManagement();
 		portfolio.setDatabase(db);
 		portfolio.setQuotationProvider(new BoursoramaQuotationProvider(8));//TODO change hard coded
-		portfolio.setVersion(VERSION);
 		return portfolio;
 	}
 
@@ -234,7 +238,7 @@ public class Portefeuille   implements Runnable  {
 		}
 		else if (evaluate)
 		{			
-			String passwd=p1+p2;
+			final String passwd=p1+p2;
 			updatePortfolio(true /* eval*/,user,smtpServer,passwd,mailTo);
 		}
 		else if (stripQuotes)

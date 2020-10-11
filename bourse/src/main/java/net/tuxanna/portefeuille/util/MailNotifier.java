@@ -18,39 +18,11 @@ public class MailNotifier implements PortfolioNotifierI
 {
 	private static final Logger logger = LogManager.getLogger(MailNotifier.class);
 
-	private String version;
+	private MailParameters mailParameters;
 
-	private String smtpServer;
-
-	private String mailTo;
-
-	private String user;
-
-	private String passwd;
-
-	boolean sanityCheck()
+	private boolean sanityCheck()
 	{
-		if ((smtpServer==null) || (smtpServer.length()==0))
-		{
-			logger.error("mail stmtpserver not set");
-			return false;
-		}
-		if ((mailTo==null) || (mailTo.length()==0))
-		{
-			logger.error("mail mailTo not set");
-			return false;
-		}
-		if ((user==null) || (user.length()==0))
-		{
-			logger.error("mail user not set");
-			return false;
-		}
-		if ((passwd==null) || (passwd.length()==0))
-		{
-			logger.error("mail passwd not set");
-			return false;
-		}
-		return true;
+		return mailParameters.sanityCheck();
 	}
 	/* (non-Javadoc)
 	 * @see net.tuxanna.portefeuille.util.PortfolioNotifier#notifyUser(java.lang.String)
@@ -67,15 +39,15 @@ public class MailNotifier implements PortfolioNotifierI
 		//Email email = new SimpleEmail();
 		HtmlEmail email = new HtmlEmail();
 
-		email.setHostName(smtpServer);
+		email.setHostName(mailParameters.getSmtpServer());
 		email.setSmtpPort(587);//465
-		email.setAuthenticator(new DefaultAuthenticator(user, passwd));
+		email.setAuthenticator(new DefaultAuthenticator(mailParameters.getUser(), mailParameters.getPasswd()));
 		email.setStartTLSEnabled(true) ;
 		try
 		{
 			//email.setDebug(true);
 			email.setFrom("cdubet@gmx.net");
-			email.setSubject("Portefeuille "+version);
+			email.setSubject("Portefeuille "+mailParameters.getVersion());
 			StringBuilder message=new StringBuilder();
 			for (Iterator<ReportI> iterator = report.iterator(); iterator.hasNext();)
 			{
@@ -83,7 +55,7 @@ public class MailNotifier implements PortfolioNotifierI
 				message.append(reportI.toHtml());
 			}
 			email.setHtmlMsg(message.toString());
-			email.addTo(mailTo);
+			email.addTo(mailParameters.getMailTo());
 			email.send();
 		}
 		catch (EmailException e)
@@ -95,18 +67,9 @@ public class MailNotifier implements PortfolioNotifierI
 	}
 
 	//ctor
-	public MailNotifier(String user2, String password, String smtpServer2,String mailTo2)
+	public MailNotifier(MailParameters param)
 	{
-		smtpServer=smtpServer2;
-		mailTo=mailTo2;
-		user=user2;
-		passwd=password;
-	}
-
-	@Override
-	public void setVersion(String vers)
-	{
-		version=vers;
+		mailParameters=param;
 	}
 
 	@Override
@@ -123,15 +86,15 @@ public class MailNotifier implements PortfolioNotifierI
 
 		Email email = new SimpleEmail();
 
-		email.setHostName(smtpServer);
+		email.setHostName(mailParameters.getSmtpServer());
 		email.setSmtpPort(587);//465
-		email.setAuthenticator(new DefaultAuthenticator(user, passwd));
+		email.setAuthenticator(new DefaultAuthenticator(mailParameters.getUser(), mailParameters.getPasswd()));
 		email.setStartTLSEnabled(true) ;
 		try
 		{
 			//email.setDebug(true);
 			email.setFrom("cdubet@gmx.net");
-			email.setSubject("Err Portefeuille "+version);
+			email.setSubject("Err Portefeuille "+mailParameters.getVersion());
 			StringBuilder message=new StringBuilder();
 			for (ProblemNotification problemNotification : err)
 			{
@@ -139,7 +102,7 @@ public class MailNotifier implements PortfolioNotifierI
 				message.append("\n");
 			}
 			email.setMsg(message.toString());
-			email.addTo(mailTo);
+			email.addTo(mailParameters.getMailTo());
 			email.send();
 		}
 		catch (EmailException e)

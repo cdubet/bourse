@@ -61,8 +61,6 @@ public class PortfolioManagement
 	private List<ShareOrderManagementI> listOfShareOrderManagement=new ArrayList<ShareOrderManagementI>(2); //for managing sell and buy orders
 	private List<ProblemNotification> problemsToBeNotified=new ArrayList<ProblemNotification>();
 
-	private String version;//SW version (for printing it)
-
 	public void setDatabase(DatabaseI database)
 	{
 		this.database = database;
@@ -616,15 +614,8 @@ public class PortfolioManagement
 			listReportToPrint.add(evaluationStorage);
 		}
 
-		notifier.setVersion(version);
 		notifier.notifyUser(listReportToPrint);
 		notifier.notifyErrors(problemsToBeNotified);
-	}
-
-	public void setVersion(String VERSION)
-	{
-		version=VERSION;
-
 	}
 
 	private boolean getUniqueListOfShares(ArrayList<PortfolioDB> listSharesInPortfolio)

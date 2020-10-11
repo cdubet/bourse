@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import net.tuxanna.portefeuille.businessLogic.util.ProblemNotification;
 import net.tuxanna.portefeuille.util.MailNotifier;
+import net.tuxanna.portefeuille.util.MailParameters;
 
 public class MailNotificatificationTest
 {
@@ -21,10 +22,10 @@ public class MailNotificatificationTest
 		problemsToBeNotified.add(new ProblemNotification("test pb1"));
 		problemsToBeNotified.add(new ProblemNotification("test pb2"));
 		problemsToBeNotified.add(new ProblemNotification("test pb3"));
-
-		MailNotifier mail=new MailNotifier(null, null, null, null);//TODO do not use real mail
+		MailParameters mailParam=new MailParameters();
+		MailNotifier mail=new MailNotifier(mailParam);//TODO do not use real mail
 		//TODO https://golb.hplar.ch/2019/08/catch-all-smtp.html & https://greenmail-mail-test.github.io/greenmail/
-		mail.setVersion("junit test");
+		
 		
 		//test
 		boolean res=mail.notifyErrors(problemsToBeNotified);

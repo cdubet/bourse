@@ -18,6 +18,7 @@ import net.tuxanna.portefeuille.database.SellDB;
 import net.tuxanna.portefeuille.database.ShareOrderI;
 import net.tuxanna.portefeuille.util.DigitValue;
 import net.tuxanna.portefeuille.util.MailNotifier;
+import net.tuxanna.portefeuille.util.MailParameters;
 import net.tuxanna.portefeuille.util.ReportI;
 
 public class TestHtmlGeneration
@@ -93,11 +94,9 @@ public class TestHtmlGeneration
 		topWorst.setTitle("tst title");
 		String htmlStr=topWorst.toHtml();
 		// TODO check the output instead of sending mail
-		final String user2="";
-		final String password=""; 
-		final String smtpServer2="";
-		final String mailTo2="";
-		MailNotifier mail=new MailNotifier(user2, password,smtpServer2,mailTo2);
+
+		MailParameters mailParam=new MailParameters();
+		MailNotifier mail=new MailNotifier(mailParam);
 		ArrayList<ReportI> report=new ArrayList<ReportI>();
 		report.add(topWorst);
 

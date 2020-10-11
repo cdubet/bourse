@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<properties>
+		<property name="name">portefeuille</property>
+		<property name="pattern">%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</property>
+<!-- 
+It will look like that:
+2013-04-03 07:37:51.993 | WARN  | main       | lnetgateway.Server:56    | My app is logging stuff
+-->
+	</properties>
+	<appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="${pattern}"/>
+		</Console>
+		<RollingFile name="RollingFile" fileName="logs/${name}.log"
+				 filePattern="logs/$${date:yyyy-MM}/${name}-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout>
+				<pattern>${pattern}</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy /><!-- Rotated everyday -->
+				<SizeBasedTriggeringPolicy size="100 MB"/> <!-- Or every 100 MB -->
+			</Policies>
+		</RollingFile>
+	</appenders>
+	<loggers>
+		<Logger name="net.tuxanna" level="TRACE">
+			<AppenderRef ref="Console"/>
+    	</Logger>
+		<root level="ERROR">
+				<appender-ref ref="RollingFile"/> <!-- And to a rotated file -->
+		</root>
+	</loggers>
+</configuration>
