@@ -79,7 +79,7 @@ public class BoursoramaQuotationProvider implements QuotationProviderI
 			}
 			else
 			{
-				logger.debug("invalid quote skipped ticker={0}",quoteForOneTicker.getTicker());
+				logger.debug("invalid quote skipped ticker={}",quoteForOneTicker.getTicker());
 			}
 		}
 		executorService.shutdown();
@@ -97,7 +97,7 @@ public class BoursoramaQuotationProvider implements QuotationProviderI
 		}
 		else
 		{
-			logger.error("problem with symbol {0}",ticker);
+			logger.error("problem with symbol {}",ticker);
 			return new TickerAndQuote();
 		}
 		
@@ -105,7 +105,7 @@ public class BoursoramaQuotationProvider implements QuotationProviderI
 
 	private URI buildUriFromTickers(TickerI ticker ) 
 	{
-		logger.debug("get quotes for:[{0}]",ticker.getSymbol());
+		logger.debug("get quotes for:{}",ticker.getSymbol());
 
 		String url;	
 
@@ -140,10 +140,10 @@ public class BoursoramaQuotationProvider implements QuotationProviderI
 		}
 		catch (InterruptedException | ExecutionException e)
 		{
-			logger.error("getQuotes exception received"+e);
+			logger.error("getQuotes exception received {}",e.toString());
 			return false;
 		}
-		logger.debug("got {0} quotations for {1} tickers",quoteForTicker.size(),listOfTickers.size());
+		logger.debug("got {} quotations for {} tickers",quoteForTicker.size(),listOfTickers.size());
 		return true;
 	
 	}

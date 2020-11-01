@@ -201,7 +201,7 @@ public class TestDatabaseWithDbUnit
 			// LASTTRADEDPRICE="10.03" CHANGEINPRICE="1.05" OPENPRICE="1.08"
 			// HIGHPRICE="1.02" LOWPRICE="1.05"
 			// PREVIOUSCLOSE="1.011" PERATIO="1.09" SHORTRATIO="1.012" />
-			assertEquals(quote.getIdQuote(), 50);
+			assertEquals(50,quote.getIdQuote());
 			assertEquals(10.03, quote.getQuotation().getLastTradedPrice().getValue(), 0.0001 /* delta */);
 		}
 
@@ -219,7 +219,7 @@ public class TestDatabaseWithDbUnit
 
 			// check we have found the right one
 			// should be
-			assertEquals(quote.getIdQuote(), 73);
+			assertEquals(73,quote.getIdQuote());
 			assertEquals(14.0, quote.getQuotation().getLastTradedPrice().getValue(), 0.0001 /* delta */);
 		}
 
@@ -237,7 +237,7 @@ public class TestDatabaseWithDbUnit
 
 			// check we have found the right one
 			// should be
-			assertEquals(quote.getIdQuote(), 40);
+			assertEquals(40,quote.getIdQuote());
 			assertEquals(1.03, quote.getQuotation().getLastTradedPrice().getValue(), 0.0001 /* delta */);
 		}
 	}
@@ -263,15 +263,15 @@ public class TestDatabaseWithDbUnit
 
 			boolean res = testDb.loadValidSellOrders(listOrders, newDateToSearch);
 
-			assertEquals(res, true);
-			assertEquals(listOrders.size(), 1);
+			assertEquals(true,res);
+			assertEquals(1,listOrders.size());
 			// check we have the right values (see xml file)
 
-			assertEquals(listOrders.get(0).getId(), 4);
-			assertEquals(listOrders.get(0).getIdShare(), 3);
-			assertEquals(listOrders.get(0).getIdAccount(), 0);
-			assertEquals(listOrders.get(0).getQte(), 100, 0.1);
-			assertEquals(listOrders.get(0).getUnitPriceRequested(), 5.1, 0.1);
+			assertEquals(4,listOrders.get(0).getId());
+			assertEquals(3,listOrders.get(0).getIdShare());
+			assertEquals(0,listOrders.get(0).getIdAccount());
+			assertEquals(100,listOrders.get(0).getQte(),  0.1);
+			assertEquals( 5.1,listOrders.get(0).getUnitPriceRequested(), 0.1);
 		}
 	}
 
@@ -296,35 +296,35 @@ public class TestDatabaseWithDbUnit
 
 			boolean res = testDb.loadValidBuyOrders(listOrders, newDateToSearch);
 
-			assertEquals(res, true);
-			assertEquals(listOrders.size(), 1);
+			assertEquals(true,res);
+			assertEquals(1,listOrders.size());
 			// check we have the right values (see xml file)
 
-			assertEquals(listOrders.get(0).getId(), 4);
-			assertEquals(listOrders.get(0).getIdShare(), 3);
-			assertEquals(listOrders.get(0).getIdAccount(), 0);
-			assertEquals(listOrders.get(0).getQte(), 99.5, 0.1);
-			assertEquals(listOrders.get(0).getUnitPriceRequested(), 25.1, 0.1);
-			assertEquals(listOrders.get(0).getShareName(), "name4");
+			assertEquals(4,listOrders.get(0).getId());
+			assertEquals(3,listOrders.get(0).getIdShare());
+			assertEquals(0,listOrders.get(0).getIdAccount());
+			assertEquals(99.5,listOrders.get(0).getQte(), 0.1);
+			assertEquals(25.1,listOrders.get(0).getUnitPriceRequested(), 0.1);
+			assertEquals("name4",listOrders.get(0).getShareName() );
 		}
 	}
 	
 	@Test
 	public void testGetHighTradedPrice()
 	{
-		assertEquals(testDb.getHighTradedPrice(4).get(),400.902,0.001);
-		assertEquals(testDb.getHighTradedPrice(2).get(),1.02,0.001);
+		assertEquals(400.902,testDb.getHighTradedPrice(4).get(),0.001);
+		assertEquals(1.02,testDb.getHighTradedPrice(2).get(),0.001);
 		//not existing
-		assertEquals(testDb.getHighTradedPrice(200).isEmpty(),true);
+		assertEquals(true,testDb.getHighTradedPrice(200).isEmpty());
 	}
 	
 	@Test
 	public void testGetLowTradedPrice()
 	{
-		assertEquals(testDb.getLowTradedPrice(4).get(),395.905,0.001);
-		assertEquals(testDb.getLowTradedPrice(2).get(),0.95,0.001);
+		assertEquals(395.905,testDb.getLowTradedPrice(4).get(),0.001);
+		assertEquals(0.95,testDb.getLowTradedPrice(2).get(),0.001);
 		//not existing
-		assertEquals(testDb.getLowTradedPrice(200).isEmpty(),true);
+		assertEquals(true,testDb.getLowTradedPrice(200).isEmpty());
 	}
 	
 	@Test
@@ -434,7 +434,7 @@ public class TestDatabaseWithDbUnit
 
 			boolean res = testDb.updateSellOrder(sold);
 
-			assertEquals(res, true);
+			assertEquals(true,res);
 		}
 
 		ITable actualTable;

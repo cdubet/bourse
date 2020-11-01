@@ -146,16 +146,12 @@ public class Portefeuille   implements Runnable  {
 			portfolio.deleteOutdatedQuotes();
 			db.shutdown();
 		}
-		catch (SQLException e)
+		catch (SQLException | ClassNotFoundException e)
 		{
 			logger.error("exception received",e);
 			e.printStackTrace();
 		}
-		catch (ClassNotFoundException e)
-		{
-			logger.error("exception received",e);
-			e.printStackTrace();
-		}
+
 		
 	}
 	private static void checkDatabase()
@@ -169,17 +165,11 @@ public class Portefeuille   implements Runnable  {
 			portfolio.checkQuotes();
 			db.shutdown();
 		}
-		catch (SQLException e)
+		catch (SQLException | ClassNotFoundException e)
 		{
 			logger.error("exception received",e);
 			e.printStackTrace();
-		}
-		catch (ClassNotFoundException e)
-		{
-			logger.error("exception received",e);
-			e.printStackTrace();
-		}
-		
+		}	
 	}
 	private static void updatePortfolio(boolean isEvaluateRequired, MailParameters mailParam, Integer nbThreadsForDownloadingQuotes)
 	{
@@ -192,13 +182,10 @@ public class Portefeuille   implements Runnable  {
 			PortfolioManagement portfolio = setupPortfolio(db,nbThreadsForDownloadingQuotes);
 
 			//do the job
-			if (portfolio.update())
+			if (portfolio.update() && isEvaluateRequired)
 			{
-				if (isEvaluateRequired)
-				{
-					portfolio.evaluate();
-					portfolio.deleteOutdatedQuotes();
-				}
+				portfolio.evaluate();
+				portfolio.deleteOutdatedQuotes();
 			}
 			
 			//notify

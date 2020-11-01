@@ -189,7 +189,7 @@ public class Quote
 		this.lastTradedPrice =new  DigitValue(p_lastTradedPrice);
 		if (lastTradedPrice.isValid() && lastTradedPrice.getValue()==0.0)
 		{
-			logger.error("invalid p_lastTradedPrice=["+p_lastTradedPrice+"]");
+			logger.error("invalid p_lastTradedPrice={}",p_lastTradedPrice);
 		}
 	}
 	public void setLastTradedPrice(double lastTradedPrice2)
@@ -207,7 +207,7 @@ public class Quote
 		this.changeInPrice = new  DigitValue(p_changeInPrice);
 		if (changeInPrice.isValid() && changeInPrice.getValue()==0.0)
 		{
-			logger.error("invalid p_changeInPrice=["+p_changeInPrice+"]");
+			logger.error("invalid p_changeInPrice={}",p_changeInPrice);
 		}
 	}
 	public void setChangeInPrice(double changeInPrice)
@@ -225,7 +225,7 @@ public class Quote
 		this.openPrice = new  DigitValue(p_openPrice);
 		if (openPrice.isValid() && openPrice.getValue()==0.0)
 		{
-			logger.error("invalid p_openPrice=["+p_openPrice+"]");
+			logger.error("invalid p_openPrice={}",p_openPrice);
 		}
 	}
 	public void setOpenPrice(double openPrice)
@@ -335,12 +335,12 @@ public class Quote
 		return previousClose;
 	}
 
-	public void setPreviousClose(String p_previousClose)
+	public void setPreviousClose(String strPreviousClose)
 	{
-		this.previousClose = new  DigitValue(p_previousClose);
+		this.previousClose = new  DigitValue(strPreviousClose);
 		if (previousClose.isValid() && previousClose.getValue()==0.0)
 		{
-			logger.error("invalid p_previousClose=["+p_previousClose+"]");
+			logger.error("invalid p_previousClose={}",strPreviousClose);
 		}
 	}
 	public void setPreviousClose(double previousClose)
