@@ -24,7 +24,7 @@ import net.tuxanna.portefeuille.dataFeed.QuotationProviderI;
 import net.tuxanna.portefeuille.dataFeed.TickerAndQuote;
 import net.tuxanna.portefeuille.dataFeed.TickerI;
 import net.tuxanna.portefeuille.dataFeed.JsoupDocumentProviderFromString;
-import net.tuxanna.portefeuille.dataFeed.JsoupDocumentProviderFromUrl;
+
 
 
 public class BoursoramaQuotationProvider implements QuotationProviderI
@@ -79,7 +79,7 @@ public class BoursoramaQuotationProvider implements QuotationProviderI
 			}
 			else
 			{
-				logger.debug("invalid quote skipped ticker="+quoteForOneTicker.getTicker());
+				logger.debug("invalid quote skipped ticker={0}",quoteForOneTicker.getTicker());
 			}
 		}
 		executorService.shutdown();
@@ -97,7 +97,7 @@ public class BoursoramaQuotationProvider implements QuotationProviderI
 		}
 		else
 		{
-			logger.error("problem with symbol"+ticker);
+			logger.error("problem with symbol {0}",ticker);
 			return new TickerAndQuote();
 		}
 		
@@ -105,7 +105,7 @@ public class BoursoramaQuotationProvider implements QuotationProviderI
 
 	private URI buildUriFromTickers(TickerI ticker ) 
 	{
-		logger.debug("get quotes for:["+ticker.getSymbol()+"]");
+		logger.debug("get quotes for:[{0}]",ticker.getSymbol());
 
 		String url;	
 
@@ -143,49 +143,9 @@ public class BoursoramaQuotationProvider implements QuotationProviderI
 			logger.error("getQuotes exception received"+e);
 			return false;
 		}
-		logger.debug("got "+quoteForTicker.size()+"quotations for "+listOfTickers.size()+" tickers");
+		logger.debug("got {0} quotations for {1} tickers",quoteForTicker.size(),listOfTickers.size());
 		return true;
 	
-//		BoursoramaParser parser=new BoursoramaParser();
-//		boolean res=true;
-//		JsoupDocumentProviderFromUrl jsoupProvider=new JsoupDocumentProviderFromUrl();
-//		for (TickerI ticker : listOfTickers)
-//		{
-//			logger.debug("get quotes for:["+ticker.getSymbol()+"]");
-//
-//			String url;
-//
-//
-//			if (ticker.isShare())
-//			{
-//				//make something like https://www.boursorama.com/cours/2aRO/
-//				url=boursoramaShareWebPage+ticker.getSymbol()+"/";
-//			}
-//			else
-//			{
-//				//make something like  https://www.boursorama.com/bourse/opcvm/cours/0P0000WXIZ/
-//				url=boursoramaSicavWebPage+ticker.getSymbol()+"/";	
-//			}
-//
-//			logger.debug("url=["+url.toString()+"]");
-//
-//			jsoupProvider.setUrl(url);
-//			parser.setDocProvider(jsoupProvider);
-//			Quote quote=new Quote();
-//
-//			if (parser.parse(ticker.isShare(),quote))
-//			{
-//				quoteForTicker.put(ticker, quote);
-//			}
-//			else
-//			{
-//				logger.error("problem with symbol"+ticker);
-//				res= false;
-//			}
-//		}
-//
-//		logger.debug("got "+quoteForTicker.size()+"quotations for "+listOfTickers.size()+" tickers");
-//		return res;
 	}
 
 }

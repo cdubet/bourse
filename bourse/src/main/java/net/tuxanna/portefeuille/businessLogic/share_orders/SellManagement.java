@@ -3,6 +3,7 @@ package net.tuxanna.portefeuille.businessLogic.share_orders;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -50,8 +51,8 @@ public class SellManagement implements ShareOrderManagementI
 				final int shareId=sellDB.getIdShare();
 				final int accountId=sellDB.getIdAccount();
 				
-				double lastQuote=database.getLastTradedPrice(shareId);
-				if (lastQuote != 0.0 && lastQuote >= sellDB.getUnitPriceRequested() )
+				Optional<Double> highestPrice=database.getHighTradedPrice(shareId);
+				if (highestPrice.isPresent() && highestPrice.get() >= sellDB.getUnitPriceRequested() )
 				{
 					//sold :-)
 					sellDB.setAsExecuted(new DigitValue(sellDB.getUnitPriceRequested()));//we assume here big capitalisation where we can buy at the price we offer

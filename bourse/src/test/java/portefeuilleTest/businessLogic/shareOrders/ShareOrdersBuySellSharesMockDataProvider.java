@@ -2,8 +2,11 @@ package portefeuilleTest.businessLogic.shareOrders;
 
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.jooq.DSLContext;
+import org.jooq.Record6;
 import org.jooq.Record8;
 import org.jooq.Result;
 import org.jooq.SQLDialect;
@@ -14,8 +17,9 @@ import org.jooq.tools.jdbc.MockResult;
 
 import net.tuxanna.database.jooq.public_.tables.Buy;
 import net.tuxanna.database.jooq.public_.tables.Sell;
+import net.tuxanna.database.jooq.public_.tables.Shares;
 
-public class ShareOrdersBuyNewShareMockDataProvider extends ShareOrderMockDataStorage implements MockDataProvider
+public class ShareOrdersBuySellSharesMockDataProvider extends ShareOrderMockDataStorage implements MockDataProvider
 {
 	private int nbInsertedShare;
 	private Integer idAccount;
@@ -23,8 +27,12 @@ public class ShareOrdersBuyNewShareMockDataProvider extends ShareOrderMockDataSt
 	private Double newUnitPrice;
 	private Double newQte;
 	private Integer useForSummary;
-
-	public ShareOrdersBuyNewShareMockDataProvider()
+	
+	private List<FakeBuy> fakeBuyToAnswer;
+	private List<FakeSell> fakeSellToAnswer;
+	
+	
+	public ShareOrdersBuySellSharesMockDataProvider()
 	{
 		nbInsertedShare=0;
 		idAccount=null;
@@ -32,6 +40,9 @@ public class ShareOrdersBuyNewShareMockDataProvider extends ShareOrderMockDataSt
 		newUnitPrice=null;
 		newQte=null;
 		useForSummary=null;
+		
+		fakeBuyToAnswer=new ArrayList<>();
+		fakeSellToAnswer=new ArrayList<>();
 	}
 
 	/**
@@ -45,10 +56,10 @@ public class ShareOrdersBuyNewShareMockDataProvider extends ShareOrderMockDataSt
 
 		if (sql.contains("select"))
 		{
-//			if (sql.contains("select \"public\".\"buy\".\"idbuy\", \"public\".\"buy\".\"idshare\", \"public\".\"buy\".\"idaccount\", \"public\".\"buy\".\"qte\", \"public\".\"buy\".\"unitpricerequested\", \"public\".\"shares\".\"name\" from \"public\".\"buy\", \"public\".\"shares\" where"))
-//			{
-//				return fillWithBuyWithShareName();
-//			}
+			if (sql.contains("select \"public\".\"buy\".\"idbuy\", \"public\".\"buy\".\"idshare\", \"public\".\"buy\".\"idaccount\", \"public\".\"buy\".\"qte\", \"public\".\"buy\".\"unitpricerequested\", \"public\".\"shares\".\"name\" from \"public\".\"buy\", \"public\".\"shares\" where"))
+			{
+				return fillWithBuyWithShareName();
+			}
 			if (sql.contains("from \"public\".\"sell")) 
 			{
 				return fillWithSell();
@@ -125,6 +136,47 @@ public class ShareOrdersBuyNewShareMockDataProvider extends ShareOrderMockDataSt
 		nbInsertedShare++;
 	}
 
+	private MockResult[] fillWithBuyWithShareName()
+	{
+		//buy.idbuy idshare idaccount qte unitpricerequested shares.name
+		DSLContext create = DSL.using( SQLDialect.HSQLDB);
+		Result<Record6<Integer,Integer,Integer,Double,Double,String>> result = create.newResult(
+				Buy.BUY.IDBUY,
+				Buy.BUY.IDSHARE, 
+				Buy.BUY.IDACCOUNT,
+				Buy.BUY.QTE,
+				Buy.BUY.UNITPRICEREQUESTED,
+				Shares.SHARES.NAME);
+		
+		fakeBuyToAnswer.forEach(fakeBuy -> {
+			Integer idBuy=fakeBuy.getIdBuy();
+			Integer idShare=fakeBuy.getIdShare();
+			Integer idAccount=fakeBuy.getIdAccount();
+			
+			Double qte=fakeBuy.getBoughtQteShare();
+			Double unitPricerequested=fakeBuy.getPriceRequested();
+			String shareName=fakeBuy.getShareName();
+			
+			result.add(create
+					.newRecord(Buy.BUY.IDBUY,
+							Buy.BUY.IDSHARE, 
+							Buy.BUY.IDACCOUNT,
+							Buy.BUY.QTE,
+							Buy.BUY.UNITPRICEREQUESTED,
+							Shares.SHARES.NAME)
+					.values(idBuy,
+							idShare,
+							idAccount,
+							qte,
+							unitPricerequested,
+							shareName));			
+		});
+
+
+		return new MockResult[] {
+				new MockResult(1, result)
+		};
+	}
 	private MockResult[] fillWithSell()
 	{
 		DSLContext create = DSL.using( SQLDialect.HSQLDB);
@@ -138,27 +190,30 @@ public class ShareOrdersBuyNewShareMockDataProvider extends ShareOrderMockDataSt
 				Sell.SELL.UNITPRICESOLD,
 				Sell.SELL.UNITPRICEREQUESTED);
 
-		final Integer idSell=1;
-		final Double qte=100.;
-		final Integer stateValid=0;
-		final Double dummyPrice=0.1;
+		fakeSellToAnswer.forEach(fakeSell->{
+			final Integer idSell=fakeSell.getIdSell();
+			final Double qte=fakeSell.getQte();
+			final Integer stateValid=0;
+			final Double dummyPrice=0.1;
 
-		result.add(create
-				.newRecord(Sell.SELL.IDSELL,
-						Sell.SELL.IDSHARE, 
-						Sell.SELL.IDACCOUNT,
-						Sell.SELL.DATEEXPIRATION,
-						Sell.SELL.QTE,
-						Sell.SELL.STATE,
-						Sell.SELL.UNITPRICESOLD,
-						Sell.SELL.UNITPRICEREQUESTED)
-				.values(idSell,
-						ID_SHARE_2,
-						ID_ACCOUNT_1,
-						LocalDateTime.now(),//not used
-						qte,
-						stateValid,
-						dummyPrice,dummyPrice));
+			result.add(create
+					.newRecord(Sell.SELL.IDSELL,
+							Sell.SELL.IDSHARE, 
+							Sell.SELL.IDACCOUNT,
+							Sell.SELL.DATEEXPIRATION,
+							Sell.SELL.QTE,
+							Sell.SELL.STATE,
+							Sell.SELL.UNITPRICESOLD,
+							Sell.SELL.UNITPRICEREQUESTED)
+					.values(idSell,
+							ID_SHARE_2,
+							ID_ACCOUNT_1,
+							LocalDateTime.now(),//not used
+							qte,
+							stateValid,
+							dummyPrice,dummyPrice));
+	
+		});
 
 		return new MockResult[] {
 				new MockResult(1, result)
@@ -250,6 +305,16 @@ public class ShareOrdersBuyNewShareMockDataProvider extends ShareOrderMockDataSt
 	public Integer getUseForSummary()
 	{
 		return useForSummary;
+	}
+
+	public void addFakeBuy(FakeBuy fakeBuy)
+	{
+		fakeBuyToAnswer.add(fakeBuy);
+	}
+
+	public void addFakeSell(FakeSell fakeSell)
+	{
+		fakeSellToAnswer.add(fakeSell);
 	}
 
 }

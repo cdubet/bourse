@@ -2,6 +2,7 @@ package net.tuxanna.portefeuille.database;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public interface DatabaseI
 {
@@ -17,7 +18,8 @@ public interface DatabaseI
 	boolean loadValidBuyOrders(List<ShareOrderI> list, Date date);
 	
 	QuoteDB readQuotationAtOneDay(SearchQuoteAtOneDay seachQuote);
-	double getLastTradedPrice(int shareId);//return 0.0 is error
+	Optional<Double> getHighTradedPrice(int shareId);
+	Optional<Double> getLowTradedPrice(int shareId);
 	
 	boolean readQuotations(List<QuoteDB> listQuote, SearchQuoteI seachQuote);
 	
@@ -31,6 +33,7 @@ public interface DatabaseI
 	
 	boolean updateSchema();
 	List<Integer> checkQuotes();
+
 
 	
 

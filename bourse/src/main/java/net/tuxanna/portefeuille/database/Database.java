@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -970,30 +970,65 @@ public class Database implements DatabaseI
 	}
 
 	@Override
-	public double getLastTradedPrice(int shareId)
+	public Optional<Double> getHighTradedPrice(int shareId)
 	{
+		Optional<Double> highPrice ;
 		try
 		{
 			DSLContext create = DSL.using(conn, SQLDialect.HSQLDB);
-			Record1<Double>result=create.select(Quotes.QUOTES.LASTTRADEDPRICE).
+			Record1<Double>result=create.select(Quotes.QUOTES.HIGHPRICE).
 					from(Quotes.QUOTES).
 					where(Quotes.QUOTES.IDSHARE.eq(shareId)).
-					orderBy(Quotes.QUOTES.DATEQUOTE).
+					orderBy(Quotes.QUOTES.DATEQUOTE.desc()).
 					limit(1).
 					fetchOne();
-			if (result==null)
+			if (result == null)
 			{
-				return 0.0;			
+				highPrice= Optional.ofNullable(null);
 			}
-			return result.value1();
+			else
+			{
+				highPrice= Optional.of(result.value1());			
+			}
 		}
 		catch (org.jooq.exception.DataAccessException e)
 		{
 			logger.error(e);
-			return 0.;
+			highPrice= Optional.ofNullable(null);
 		}
+		return highPrice; 
 	}  
-
+	
+	@Override
+	public Optional<Double> getLowTradedPrice(int shareId)
+	{
+		Optional<Double> lowPrice ;
+		try
+		{
+			DSLContext create = DSL.using(conn, SQLDialect.HSQLDB);
+			Record1<Double>result=create.select(Quotes.QUOTES.LOWPRICE).
+					from(Quotes.QUOTES).
+					where(Quotes.QUOTES.IDSHARE.eq(shareId)).
+					orderBy(Quotes.QUOTES.DATEQUOTE.desc()).
+					limit(1).
+					fetchOne();
+			if (result == null)
+			{
+				lowPrice= Optional.ofNullable(null);
+			}
+			else
+			{
+				lowPrice= Optional.of(result.value1());			
+			}
+		}
+		catch (org.jooq.exception.DataAccessException e)
+		{
+			logger.error(e);
+			lowPrice= Optional.ofNullable(null);
+		}
+		return lowPrice; 
+	}  
+	
 	private void deleteQuotesWithId(List<Integer> listIdToBeDeleted)
 	{
 		final int MAX_DELETE_ID=100;// do not give a 1000 list to sql

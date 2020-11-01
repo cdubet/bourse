@@ -2,7 +2,7 @@ package portefeuilleTest.businessLogic.mobileAverage;
 
 import java.util.Date;
 import java.util.List;
-
+import java.util.Optional;
 
 import net.tuxanna.portefeuille.database.DatabaseI;
 import net.tuxanna.portefeuille.database.PortfolioDB;
@@ -114,10 +114,14 @@ public class FakeDatabase implements DatabaseI
 	}
 
 	@Override
-	public double getLastTradedPrice(int shareId)
+	public Optional<Double> getHighTradedPrice(int shareId)
 	{
-		// TODO Auto-generated method stub
-		return 0.0;
+		return Optional.ofNullable(null);
+	}
+	@Override
+	public Optional<Double> getLowTradedPrice(int shareId)
+	{
+		return Optional.ofNullable(null);
 	}
 
 	@Override

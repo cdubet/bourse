@@ -201,7 +201,7 @@ public class TestDatabaseWithDbUnit
 			// LASTTRADEDPRICE="10.03" CHANGEINPRICE="1.05" OPENPRICE="1.08"
 			// HIGHPRICE="1.02" LOWPRICE="1.05"
 			// PREVIOUSCLOSE="1.011" PERATIO="1.09" SHORTRATIO="1.012" />
-			assertEquals(quote.getIdQuote(), 10);
+			assertEquals(quote.getIdQuote(), 50);
 			assertEquals(10.03, quote.getQuotation().getLastTradedPrice().getValue(), 0.0001 /* delta */);
 		}
 
@@ -219,7 +219,7 @@ public class TestDatabaseWithDbUnit
 
 			// check we have found the right one
 			// should be
-			assertEquals(quote.getIdQuote(), 13);
+			assertEquals(quote.getIdQuote(), 73);
 			assertEquals(14.0, quote.getQuotation().getLastTradedPrice().getValue(), 0.0001 /* delta */);
 		}
 
@@ -237,7 +237,7 @@ public class TestDatabaseWithDbUnit
 
 			// check we have found the right one
 			// should be
-			assertEquals(quote.getIdQuote(), 0);
+			assertEquals(quote.getIdQuote(), 40);
 			assertEquals(1.03, quote.getQuotation().getLastTradedPrice().getValue(), 0.0001 /* delta */);
 		}
 	}
@@ -310,13 +310,23 @@ public class TestDatabaseWithDbUnit
 	}
 	
 	@Test
-	public void testGetLastTradedPrice()
+	public void testGetHighTradedPrice()
 	{
-		assertEquals(testDb.getLastTradedPrice(4),561.02,0.001);
-		assertEquals(testDb.getLastTradedPrice(2),553.03,0.001);
+		assertEquals(testDb.getHighTradedPrice(4).get(),400.902,0.001);
+		assertEquals(testDb.getHighTradedPrice(2).get(),1.02,0.001);
 		//not existing
-		assertEquals(testDb.getLastTradedPrice(200),0.0,0.001);
+		assertEquals(testDb.getHighTradedPrice(200).isEmpty(),true);
 	}
+	
+	@Test
+	public void testGetLowTradedPrice()
+	{
+		assertEquals(testDb.getLowTradedPrice(4).get(),395.905,0.001);
+		assertEquals(testDb.getLowTradedPrice(2).get(),0.95,0.001);
+		//not existing
+		assertEquals(testDb.getLowTradedPrice(200).isEmpty(),true);
+	}
+	
 	@Test
 	public void testGetShareInPortfolio_NonExistingShareCase()
 	{

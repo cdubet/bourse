@@ -20,14 +20,27 @@ public class TestBuy
 	@Test
 	public void testBuyAlreadyBoughtShare()
 	{
-
 		//test set up
+		final int idBuyShare=ShareOrderMockDataStorage.ID_BUY_SHARE_2;
+		double boughtQteShare=ShareOrderMockDataStorage.BOUGHT_QTE_SHARE_2;
+		double currentValueShare=0; //should be filled by test
+		double priceRequested=ShareOrderMockDataStorage.CURRENT_VALUE_SHARE_2+1;//above the current price
+		int idAccount=ShareOrderMockDataStorage.ID_ACCOUNT_1;
+		int idShare=ShareOrderMockDataStorage.ID_SHARE_2;
+		int idPortfolio=ShareOrderMockDataStorage.ID_PORTOFOLIO_2;
+
+		String shareName="does not matter here";
+
 		BuyManagement buyManagement=new BuyManagement();
 		DatabaseI db;
-		ShareOrdersBuyAlreadyBoughtMockDataProvider mockData;
+		ShareOrdersBuySellSharesMockDataProvider mockData;
 		try
 		{
-			mockData=new ShareOrdersBuyAlreadyBoughtMockDataProvider();
+			mockData=new ShareOrdersBuySellSharesMockDataProvider();
+
+			mockData.addFakeBuy(new FakeBuy(idBuyShare,boughtQteShare, currentValueShare,priceRequested,
+					idAccount, idShare, shareName,idPortfolio));
+
 			MockConnection connection = new MockConnection(mockData);
 			db = new MockDatabase(connection);
 			buyManagement.setDatabase(db);
@@ -38,23 +51,26 @@ public class TestBuy
 			fail("exception");
 			return;
 		}
+
 		FakeDate date = new FakeDate();
-		
+
 		//fct to test
 		buyManagement.update(date.getNow());
-		
+
 		//check result
-		Double newQte=(ShareOrderMockDataStorage.BOUGHT_QTE_SHARE_2+ShareOrderMockDataStorage.NUMBER_SHARE_2_IN_ACCOUNT_1);
-		Double newUnitPrice=(ShareOrderMockDataStorage.NUMBER_SHARE_2_IN_ACCOUNT_1*ShareOrderMockDataStorage.UNIT_PRICE_SHARE_2_ACCOUNT_1+ShareOrderMockDataStorage.BOUGHT_QTE_SHARE_2*ShareOrderMockDataStorage.CURRENT_VALUE_SHARE_2)
-							/newQte;
-		assertTrue(mockData.hasNewPortfolioThisUnitPrice(ShareOrderMockDataStorage.ID_PORTOFOLIO_2, newUnitPrice));
-		
-		assertTrue(mockData.hasNewPortfolioThisQte(ShareOrderMockDataStorage.ID_PORTOFOLIO_2, newQte));
-		
+		Double executedValue=priceRequested;//do not use  ShareOrderMockDataStorage.CURRENT_VALUE_SHARE_2 for share value. we assume big volume so we buy at the price we offer
+		Double newQte=(boughtQteShare+ShareOrderMockDataStorage.NUMBER_SHARE_2_IN_ACCOUNT_1);
+		Double newUnitPrice=(ShareOrderMockDataStorage.NUMBER_SHARE_2_IN_ACCOUNT_1*ShareOrderMockDataStorage.UNIT_PRICE_SHARE_2_ACCOUNT_1
+							+boughtQteShare*executedValue) 
+				/newQte;
+		assertTrue(mockData.hasNewPortfolioThisUnitPrice(idPortfolio, newUnitPrice));
+
+		assertTrue(mockData.hasNewPortfolioThisQte(idPortfolio, newQte));
+
 		//for the buy table
-		assertTrue(mockData.hasBuySellOrderThisState(ShareOrderMockDataStorage.ID_BUY_SHARE_2, 1 /* executed*/));
-		assertTrue(mockData.hasBuySellThisQte(ShareOrderMockDataStorage.ID_BUY_SHARE_2, ShareOrderMockDataStorage.BOUGHT_QTE_SHARE_2));
-		assertTrue(mockData.hasBuySellThisExecutedValue(ShareOrderMockDataStorage.ID_BUY_SHARE_2, ShareOrderMockDataStorage.CURRENT_VALUE_SHARE_2));
+		assertTrue(mockData.hasBuySellOrderThisState(idBuyShare, 1 /* executed*/));
+		assertTrue(mockData.hasBuySellThisQte(idBuyShare, boughtQteShare));
+		assertTrue(mockData.hasBuySellThisExecutedValue(idBuyShare,executedValue));
 	}
 
 	@Test
@@ -64,10 +80,27 @@ public class TestBuy
 		//test set up
 		BuyManagement buyManagement=new BuyManagement();
 		DatabaseI db;
-		ShareOrdersBuyNewShareMockDataProvider mockData;
+		ShareOrdersBuySellSharesMockDataProvider mockData;
+		final Double newQte=ShareOrderMockDataStorage.BOUGHT_QTE_SHARE_3;
+		final Double requestedPrice = ShareOrderMockDataStorage.CURRENT_VALUE_SHARE_3;
+		final Double newUnitPrice=requestedPrice;
+		final int idAccount = ShareOrderMockDataStorage.ID_ACCOUNT_1;
+		final int idShare3 = ShareOrderMockDataStorage.ID_SHARE_3;
+		final Integer idBuyShare = ShareOrderMockDataStorage.ID_BUY_SHARE_3;
+		final int idPortfolio=ShareOrderMockDataStorage.ID_PORTOFOLIO_1;
+
 		try
 		{
-			mockData=new ShareOrdersBuyNewShareMockDataProvider();
+			mockData=new ShareOrdersBuySellSharesMockDataProvider();
+			mockData.addFakeBuy(new FakeBuy(
+					idBuyShare,
+					newQte,
+					0,
+					requestedPrice, 
+					idAccount,
+					idShare3,
+					"new share bought",
+					idPortfolio));
 			MockConnection connection = new MockConnection(mockData);
 			db = new MockDatabase(connection);
 			buyManagement.setDatabase(db);
@@ -79,23 +112,23 @@ public class TestBuy
 			return;
 		}
 		FakeDate date = new FakeDate();
-		
+
+
 		//fct to test
 		buyManagement.update(date.getNow());
-		
+
 		//check result
-		Double newQte=ShareOrderMockDataStorage.BOUGHT_QTE_SHARE_3;
-		Double newUnitPrice=ShareOrderMockDataStorage.CURRENT_VALUE_SHARE_3;
+
 		assertEquals(1,mockData.getNbInsertedShare());
-		assertEquals(Integer.valueOf(ShareOrderMockDataStorage.ID_ACCOUNT_1),mockData.getIdAccount());
-		assertEquals(Integer.valueOf(ShareOrderMockDataStorage.ID_SHARE_3),mockData.getIdShare());
+		assertEquals(Integer.valueOf(idAccount),mockData.getIdAccount());
+		assertEquals(Integer.valueOf(idShare3),mockData.getIdShare());
 		assertEquals(newQte,mockData.getNewQte());
 		assertEquals(newUnitPrice,mockData.getNewUnitPrice());
-		
+
 		//for the buy table
-		assertTrue(mockData.hasBuySellOrderThisState(ShareOrderMockDataStorage.ID_BUY_SHARE_3, 1 /* executed*/));
-		assertTrue(mockData.hasBuySellThisQte(ShareOrderMockDataStorage.ID_BUY_SHARE_3, ShareOrderMockDataStorage.BOUGHT_QTE_SHARE_3));
-		assertTrue(mockData.hasBuySellThisExecutedValue(ShareOrderMockDataStorage.ID_BUY_SHARE_3, ShareOrderMockDataStorage.CURRENT_VALUE_SHARE_3));
+		assertTrue(mockData.hasBuySellOrderThisState(idBuyShare, 1 /* executed*/));
+		assertTrue(mockData.hasBuySellThisQte(idBuyShare, newQte));
+		assertTrue(mockData.hasBuySellThisExecutedValue(idBuyShare, requestedPrice));
 	}
 
 }
