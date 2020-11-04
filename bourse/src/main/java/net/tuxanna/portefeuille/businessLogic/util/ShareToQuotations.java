@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,24 +29,17 @@ public class ShareToQuotations
 
 	public ShareToQuotations()
 	{
-		shareToQuote=new HashMap<Integer, QuoteDB>();
+		shareToQuote=new HashMap<>();
 		clock=new RealClock();
 	}
 
-	public boolean getQuotationFromList(QuoteDB quoteDB, int quoteId)
+	public Optional<QuoteDB> getQuotationFromList( int quoteId)
 	{
 		Integer key=quoteId;
-		quoteDB=shareToQuote.get(key);
-		if (quoteDB == null)
-		{
-			return false;
-		}
-		else
-		{
-			//found 
-			return true;
-		}
+		QuoteDB quoteDB = shareToQuote.get(key);
+		return Optional.ofNullable(quoteDB);
 	}
+	
 	public void setClock(ClockI clock)
 	{
 		this.clock = clock;
@@ -70,41 +64,42 @@ public class ShareToQuotations
 
 	public List<QuoteDB> getList()
 	{
-		List<QuoteDB> listOfQuotationsDB=new ArrayList<QuoteDB>(shareToQuote.values());
+		List<QuoteDB> listOfQuotationsDB=new ArrayList<>(shareToQuote.values());
 		return listOfQuotationsDB;
 	}
 
 	public boolean exportQuoteCsv(List<ShareDB> listShares,File csvFile) 
 	{
+		if (listShares.isEmpty())
+		{
+			return true;
+		}
 		try (FileOutputStream fic=new FileOutputStream(csvFile))
 		{
 			DecimalFormat df = new DecimalFormat("######.00"); //only 2 digit after .
-					
+				
+			//list is sorted by ID
+			int expectedId = listShares.get(0).getId();
+			
 			for (ShareDB shareDB : listShares)
 			{
-				QuoteDB quote=get(shareDB);
-				if (quote==null)
+				String str;
+				if (expectedId==shareDB.getId())
 				{
-					logger.error("no quotation for "+
-							shareDB.getTicker() +","+
-							shareDB.getName());
-				}
-				else if (!quote.getQuotation().getLastTradedPrice().isValid())
-				{
-					logger.error("no last quotation for "+
-							shareDB.getTicker() +","+
-							shareDB.getName());
-							;					
+					str=printOneShare( df, shareDB);
 				}
 				else
 				{
-					String value=df.format(quote.getQuotation().getLastTradedPrice().getValue());
-					String valueWithComma=value.replace('.',',');
-					String str=shareDB.getName()+"\t"+
-						   shareDB.getTicker()+"\t"+
-						   valueWithComma+"\n";
-					fic.write(str.getBytes());
+					StringBuilder textWithMissingId=new StringBuilder();
+					for (int i=expectedId;i<shareDB.getId();++i)
+					{
+						textWithMissingId.append(i+"\tno more in DB\n");
+					}
+					textWithMissingId.append(printOneShare( df, shareDB));
+					str=textWithMissingId.toString();
 				}
+				fic.write(str.getBytes());
+				expectedId=shareDB.getId()+1;
 			}
 
 			//add the date			
@@ -112,8 +107,7 @@ public class ShareToQuotations
 			String formatted =format1.format(clock.getNow().getTime());
 			fic.write(formatted.getBytes());
 			
-			fic.close();
-			logger.debug(listShares.size()+" quotes written");
+			logger.debug("{} quotes written",listShares.size() );
 			return true;
 		}
 		catch (IOException e) 
@@ -123,5 +117,32 @@ public class ShareToQuotations
 		}
 
 
+	}
+
+	private String printOneShare(DecimalFormat df, ShareDB shareDB) throws IOException
+	{
+		QuoteDB quote=get(shareDB);
+		if (quote==null)
+		{
+			logger.error("no quotation for {},{}",	shareDB.getTicker() ,shareDB.getName());
+			final String str=shareDB.getId()+"\tno quotation\n";
+			return str;
+		}
+		else if (!quote.getQuotation().getLastTradedPrice().isValid())
+		{
+			logger.error("no last quotation for {},{}",	shareDB.getTicker(),shareDB.getName());
+			final String str=shareDB.getId()+"\tno Last quotation\n";
+			return str;
+		}
+		else
+		{
+			String value=df.format(quote.getQuotation().getLastTradedPrice().getValue());
+			
+			final String str=shareDB.getId()+"\t"+
+					shareDB.getName()+"\t"+
+					shareDB.getTicker()+"\t"+
+					value+"\n";
+			return str;
+		}
 	}
 }

@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -139,15 +140,16 @@ public class ListOfOperations implements ReportI
 		}
 		for (Iterator<ShareOrderI> iterator = listOrders.iterator(); iterator.hasNext();)
 		{
-			ShareOrderI sellDB = (ShareOrderI) iterator.next();
+			ShareOrderI sellDB =  iterator.next();
 			
 			//find today quotation
-			QuoteDB quoteDB=new QuoteDB();
-			if (listOfQuotationsDB.getQuotationFromList( quoteDB,sellDB.getIdShare()))
+			Optional<QuoteDB> quoteDB=listOfQuotationsDB.getQuotationFromList( sellDB.getIdShare());
+			
+			if (quoteDB.isPresent())
 			{
-				if (quoteDB.getQuotation().getHighPrice().isValid() )
+				if (quoteDB.get().getQuotation().getHighPrice().isValid() )
 				{
-					if (sellDB.getUnitPriceRequested()< quoteDB.getQuotation().getHighPrice().getValue() )
+					if (sellDB.getUnitPriceRequested()< quoteDB.get().getQuotation().getHighPrice().getValue() )
 					{
 						//sold
 						//we assume here that everything has been sold to the price we have requested. true normally for big capitalisation but wrong elsewehre
@@ -159,12 +161,12 @@ public class ListOfOperations implements ReportI
 				}
 				else
 				{
-					logger.error("unable to get max for id="+sellDB.getIdShare());
+					logger.error("unable to get max for id {}",sellDB.getIdShare());
 				}
 			}
 			else
 			{
-				logger.error("unable to get quote for id="+sellDB.getIdShare());
+				logger.error("unable to get quote for id {}",sellDB.getIdShare());
 			}
 		}
 		
