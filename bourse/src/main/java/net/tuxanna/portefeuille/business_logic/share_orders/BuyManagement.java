@@ -1,4 +1,4 @@
-package net.tuxanna.portefeuille.businessLogic.share_orders;
+package net.tuxanna.portefeuille.business_logic.share_orders;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,7 +8,7 @@ import java.util.Optional;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.tuxanna.portefeuille.businessLogic.util.ListOfOperations;
+import net.tuxanna.portefeuille.business_logic.util.ListOfOperations;
 import net.tuxanna.portefeuille.database.DatabaseI;
 import net.tuxanna.portefeuille.database.PortfolioDB;
 import net.tuxanna.portefeuille.database.ShareOrderI;

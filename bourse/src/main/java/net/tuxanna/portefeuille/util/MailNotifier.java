@@ -11,7 +11,7 @@ import org.apache.commons.mail.SimpleEmail;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.tuxanna.portefeuille.businessLogic.util.ProblemNotification;
+import net.tuxanna.portefeuille.business_logic.util.ProblemNotification;
 
 
 public class MailNotifier implements PortfolioNotifierI

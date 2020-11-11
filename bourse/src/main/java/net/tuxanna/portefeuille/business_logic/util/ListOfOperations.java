@@ -1,4 +1,4 @@
-package net.tuxanna.portefeuille.businessLogic.util;
+package net.tuxanna.portefeuille.business_logic.util;
 
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.googlecode.jatl.Html;
 
-import net.tuxanna.portefeuille.businessLogic.share_orders.OrderInfo;
+import net.tuxanna.portefeuille.business_logic.share_orders.OrderInfo;
 import net.tuxanna.portefeuille.database.DatabaseI;
 import net.tuxanna.portefeuille.database.QuoteDB;
 import net.tuxanna.portefeuille.database.ShareOrderI;

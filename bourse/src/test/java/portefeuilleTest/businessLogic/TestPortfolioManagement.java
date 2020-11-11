@@ -9,8 +9,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import net.tuxanna.portefeuille.businessLogic.PortfolioManagement;
-import net.tuxanna.portefeuille.businessLogic.util.ShareToQuotations;
+import net.tuxanna.portefeuille.business_logic.PortfolioManagement;
+import net.tuxanna.portefeuille.business_logic.util.ShareToQuotations;
 import net.tuxanna.portefeuille.dataFeed.TickerI;
 import net.tuxanna.portefeuille.database.ShareDB;
 

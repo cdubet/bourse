@@ -1,4 +1,4 @@
-package net.tuxanna.portefeuille.businessLogic;
+package net.tuxanna.portefeuille.business_logic;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -15,16 +15,16 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.tuxanna.portefeuille.Quote;
-import net.tuxanna.portefeuille.businessLogic.eval.Evaluation;
-import net.tuxanna.portefeuille.businessLogic.eval.EvaluationStorage;
-import net.tuxanna.portefeuille.businessLogic.eval.QuotationMapStorage;
-import net.tuxanna.portefeuille.businessLogic.eval.ShareIdAndDate;
-import net.tuxanna.portefeuille.businessLogic.mobile_average.MobileAverage;
-import net.tuxanna.portefeuille.businessLogic.share_orders.SellManagement;
-import net.tuxanna.portefeuille.businessLogic.share_orders.ShareOrderManagementI;
-import net.tuxanna.portefeuille.businessLogic.util.ShareToQuotations;
-import net.tuxanna.portefeuille.businessLogic.util.ProblemNotification;
-import net.tuxanna.portefeuille.businessLogic.util.ShareNameStorage;
+import net.tuxanna.portefeuille.business_logic.eval.Evaluation;
+import net.tuxanna.portefeuille.business_logic.eval.EvaluationStorage;
+import net.tuxanna.portefeuille.business_logic.eval.QuotationMapStorage;
+import net.tuxanna.portefeuille.business_logic.eval.ShareIdAndDate;
+import net.tuxanna.portefeuille.business_logic.mobile_average.MobileAverage;
+import net.tuxanna.portefeuille.business_logic.share_orders.SellManagement;
+import net.tuxanna.portefeuille.business_logic.share_orders.ShareOrderManagementI;
+import net.tuxanna.portefeuille.business_logic.util.ProblemNotification;
+import net.tuxanna.portefeuille.business_logic.util.ShareNameStorage;
+import net.tuxanna.portefeuille.business_logic.util.ShareToQuotations;
 import net.tuxanna.portefeuille.dataFeed.QuotationProviderI;
 import net.tuxanna.portefeuille.dataFeed.Ticker;
 import net.tuxanna.portefeuille.dataFeed.TickerI;
@@ -58,8 +58,8 @@ public class PortfolioManagement
 	private ShareNameStorage shareNameStorage=new ShareNameStorage();
 
 	private EvaluationStorage evaluationStorage=new EvaluationStorage();
-	private List<ShareOrderManagementI> listOfShareOrderManagement=new ArrayList<ShareOrderManagementI>(2); //for managing sell and buy orders
-	private List<ProblemNotification> problemsToBeNotified=new ArrayList<ProblemNotification>();
+	private List<ShareOrderManagementI> listOfShareOrderManagement=new ArrayList<>(2); //for managing sell and buy orders
+	private List<ProblemNotification> problemsToBeNotified=new ArrayList<>();
 
 	public void setDatabase(DatabaseI database)
 	{
@@ -89,7 +89,7 @@ public class PortfolioManagement
 	private void buildVariation(List<ShareDB> fullListShares,ShareToQuotations listOfQuotationsDB)
 	{
 		// get rid of quotes we no longer own or just not meaningful as we do not care about their value (investment without hope)
-		List<Share> listSharesWithIndicationToUseOrNot=new ArrayList<Share>();
+		List<Share> listSharesWithIndicationToUseOrNot=new ArrayList<>();
 
 		buildListSharesWithFlagKeepOrNot(fullListShares,listSharesWithIndicationToUseOrNot);
 
@@ -162,7 +162,7 @@ public class PortfolioManagement
 
 	private void buildListSharesWithFlagKeepOrNot(List<ShareDB> fullListShares,List<Share> listSharesWithKeepOrNot)
 	{
-		List<Integer> listSharesId=new ArrayList<Integer>();
+		List<Integer> listSharesId=new ArrayList<>();
 		final boolean keepNonMeaningfullShares=false;
 		if (database.loadSharesIdInPortfolio(listSharesId, keepNonMeaningfullShares))
 		{
@@ -253,7 +253,7 @@ public class PortfolioManagement
 		{
 			SimpleDateFormat dateFormat =new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.ENGLISH);
 			String strDate = dateFormat.format(cal.getTime());
-			logger.debug("from "+strDate);
+			logger.debug("from {}",strDate);
 		}
 
 		cal.add(Calendar.DAY_OF_YEAR, -1);
@@ -263,7 +263,7 @@ public class PortfolioManagement
 		{
 			SimpleDateFormat dateFormat =new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.ENGLISH);
 			String strDate = dateFormat.format(newDateBefore.getTime());
-			logger.debug("to "+strDate);
+			logger.debug("to {}",strDate);
 		}
 		return newDateBefore;
 	}
@@ -273,10 +273,8 @@ public class PortfolioManagement
 		java.util.Date newDateBefore=getDateOfYesterday();
 
 		ArrayList<QuoteVariation> listQuotationVariation=new ArrayList<>(listOfQuotationsDB.size());
-		if (buildQuotationVariation(listShares, listOfQuotationsDB, newDateBefore, listQuotationVariation,true /* addComparisonWithLastWeek*/))
-		{
-			yesterdayChange=new TopWorst5(listQuotationVariation);	
-		}
+		buildQuotationVariation(listShares, listOfQuotationsDB, newDateBefore, listQuotationVariation,true /* addComparisonWithLastWeek*/);
+		yesterdayChange=new TopWorst5(listQuotationVariation);			
 	}
 
 	private void buildWeekChange(List<Share> listShares,ShareToQuotations listOfQuotationsDB)
@@ -285,10 +283,8 @@ public class PortfolioManagement
 		java.util.Date newDateBefore = getDateOneWeekBefore();
 
 		ArrayList<QuoteVariation> listQuotationVariation=new ArrayList<>(listOfQuotationsDB.size());
-		if (buildQuotationVariation(listShares, listOfQuotationsDB, newDateBefore, listQuotationVariation,false/* addComparisonWithLastWeek*/))
-		{
-			weekChange=new TopWorst5(listQuotationVariation);	
-		}
+		buildQuotationVariation(listShares, listOfQuotationsDB, newDateBefore, listQuotationVariation,false/* addComparisonWithLastWeek*/);
+		weekChange=new TopWorst5(listQuotationVariation);			
 	}
 
 	private java.util.Date getDateOneWeekBefore()
@@ -313,10 +309,9 @@ public class PortfolioManagement
 		java.util.Date newDateBefore=skipWeekEnd(cal);
 
 		ArrayList<QuoteVariation> listQuotationVariation=new ArrayList<>(listOfQuotationsDB.size());
-		if (buildQuotationVariation(listShares, listOfQuotationsDB, newDateBefore, listQuotationVariation,true /* addComparisonWithLastWeek*/))
-		{
-			monthChange=new TopWorst5(listQuotationVariation);	
-		}
+		buildQuotationVariation(listShares, listOfQuotationsDB, newDateBefore, listQuotationVariation,true /* addComparisonWithLastWeek*/);
+		monthChange=new TopWorst5(listQuotationVariation);	
+		
 	}
 
 	private boolean buildQuotationVariation(List<Share> listShares,
@@ -335,7 +330,7 @@ public class PortfolioManagement
 
 		for (Iterator<Share> iterator = listShares.iterator(); iterator.hasNext();)
 		{
-			Share share = (Share) iterator.next();
+			Share share = iterator.next();
 			SearchQuoteAtOneDay search=new SearchQuoteAtOneDay(share.getShareDB(), newDateBefore);
 			QuoteDB quoteDB=database.readQuotationAtOneDay(search);
 			if (quoteDB.getQuotation().isLastTradedPriceValid())
@@ -343,7 +338,7 @@ public class PortfolioManagement
 				QuoteDB oneQuoteDB=listOfQuotationsDB.get(share.getShareDB());
 				if (oneQuoteDB==null)//TODO remove all this null tests
 				{
-					logger.error("buildQuotationVariation share missing in DB"+share.getShareDB().toString());
+					logger.error("buildQuotationVariation share missing in DB {}",share.getShareDB());
 					missingQuotes=true;	
 				}
 				else
@@ -353,7 +348,7 @@ public class PortfolioManagement
 					// will occur if some quote cannot be found
 					if (storedQuote ==null)
 					{
-						logger.error("buildQuotationVariation share missing"+share.getShareDB().toString());
+						logger.error("buildQuotationVariation share missing {}",share.getShareDB().toString());
 						missingQuotes=true;
 					}
 					else if (storedQuote.isLastTradedPriceValid())
@@ -379,7 +374,7 @@ public class PortfolioManagement
 					}
 					else
 					{
-						logger.error("buildQuotationVariation last quotation missing"+share.getShareDB().toString());
+						logger.error("buildQuotationVariation last quotation missing {}",share.getShareDB().toString());
 						missingQuotes=true;
 					}
 				}
@@ -388,7 +383,7 @@ public class PortfolioManagement
 		return !missingQuotes;
 	}
 
-	private boolean buildTodayChange(List<Share> listShares,ShareToQuotations listOfQuotationsDB)
+	private void buildTodayChange(List<Share> listShares,ShareToQuotations listOfQuotationsDB)
 	{
 		Date newDateOneWeekBefore = getDateOneWeekBefore();
 		Date dateNow=	clock.getNow();
@@ -399,66 +394,68 @@ public class PortfolioManagement
 			QuoteDB quoteDB= listOfQuotationsDB.get(share.getShareDB());
 			if (quoteDB == null)
 			{
-				logger.error("unable to get quotes for"+share.toString());
-				return false;
+				logger.warn("unable to get quotes for {}",share.toString());
+				problemsToBeNotified.add(new ProblemNotification(String.format("no quotation for [%s]",share.toString())));
 			}
-			DigitValue lastTraded = quoteDB.getQuotation().getLastTradedPrice();
-			DigitValue firstTraded = quoteDB.getQuotation().getOpenPrice();	
-
-			if (lastTraded.isValid()) 
+			else
 			{
-				double currentValue=lastTraded.getValue();
-				//get the name. both array are sync -> same index
-				quotationMapStorage.add(new ShareIdAndDate(share.getShareDB(), dateNow), currentValue);
-				if (firstTraded.isValid())
+				DigitValue lastTraded = quoteDB.getQuotation().getLastTradedPrice();
+				DigitValue firstTraded = quoteDB.getQuotation().getOpenPrice();	
+
+				if (lastTraded.isValid()) 
 				{
-					DigitValue volume = quoteDB.getQuotation().getVolume();
-					// check value is valid and volume fine
-					if ((firstTraded.getValue() >0.) && 
-							volume.isValid() && 
-							(volume.getValue()>0.)	)
+					double currentValue=lastTraded.getValue();
+					//get the name. both array are sync -> same index
+					quotationMapStorage.add(new ShareIdAndDate(share.getShareDB(), dateNow), currentValue);
+					if (firstTraded.isValid())
 					{
-						double firstValue=firstTraded.getValue();
-						if (share.isRequiredForVariation())
+						DigitValue volume = quoteDB.getQuotation().getVolume();
+						// check value is valid and volume fine
+						if ((firstTraded.getValue() >0.) && 
+								volume.isValid() && 
+								(volume.getValue()>0.)	)
 						{
-							QuoteVariation q1=new QuoteVariationExtended(database,newDateOneWeekBefore, share.getShareDB(), firstValue, currentValue);
-							listQuotationVariation.add(q1);
+							double firstValue=firstTraded.getValue();
+							if (share.isRequiredForVariation())
+							{
+								QuoteVariation q1=new QuoteVariationExtended(database,newDateOneWeekBefore, share.getShareDB(), firstValue, currentValue);
+								listQuotationVariation.add(q1);
+							}
 						}
 					}
 				}
 			}
 		}
 		todayChange=new TopWorst5(listQuotationVariation);
-		return true;
 	}
 
 	public boolean getLatestQuotationFromInternetAndStoreThem(List<ShareDB> listShares,ShareToQuotations listOfQuotationsDB)
 	{
 		//build list of tickers from listShares and sent it to data feed
-		ArrayList<TickerI> listTicker=new ArrayList<TickerI>(listShares.size());
+		ArrayList<TickerI> listTicker=new ArrayList<>(listShares.size());
 		for (ShareDB shareDB : listShares)
 		{
 			listTicker.add(new Ticker(shareDB.getTicker(),shareDB.isShare()) );
 		}
 
 		quotationProvider.setListTickers(listTicker);
-		HashMap<TickerI,Quote> QuotationsForTicker=new HashMap<>(listTicker.size());
-		if (!quotationProvider.getQuotes(QuotationsForTicker))
+		HashMap<TickerI,Quote> quotationsForTicker=new HashMap<>(listTicker.size());
+		if (!quotationProvider.getQuotes(quotationsForTicker))
 		{
 			logger.error("unable to get list of quotes");
 			problemsToBeNotified.add(new ProblemNotification("unable to get list of quotes"));
-			return false;//TODO do not abort is some are missing
+			return false;
 		}
 
 
-		if (QuotationsForTicker.size() != listTicker.size())
+		if (quotationsForTicker.size() != listTicker.size())
 		{
 			//some are missing, cannot assign quotation to shares !
-			logger.warn("received "+QuotationsForTicker.size()+" quotations for "+listTicker.size()+" shares");
+			logger.warn("received {} quotations for {} shares",quotationsForTicker.size(),listTicker.size());
 		}
-		logger.debug("received "+QuotationsForTicker.size()+" quotations");
+		logger.debug("received {} quotations",quotationsForTicker.size());
 
-		fillListOfQuotation(listShares, QuotationsForTicker,listOfQuotationsDB);
+		fillListOfQuotation(listShares, quotationsForTicker,listOfQuotationsDB);
 
 		//save them in DB
 		if (!database.storeQuotation(listOfQuotationsDB.getList()))
@@ -471,13 +468,13 @@ public class PortfolioManagement
 
 
 	private void fillListOfQuotation(List<ShareDB> listShares,
-			HashMap<TickerI, Quote> QuotationsForTicker,
+			HashMap<TickerI, Quote> quotationsForTicker,
 			ShareToQuotations listOfQuotationsDB)
 	{
 		for (ShareDB share : listShares)
 		{
 			TickerI ticker=new Ticker(share.getTicker(),share.isShare());
-			Quote quotation = QuotationsForTicker.get(ticker);
+			Quote quotation = quotationsForTicker.get(ticker);
 			if (quotation != null)
 			{
 				if (quotation.isLastTradedPriceValid())
@@ -490,7 +487,7 @@ public class PortfolioManagement
 						Double computedAverage50=average50.compute();
 						if (computedAverage50 == null)
 						{
-							logger.debug("no average 50 for ["+ticker.getSymbol()+"]");
+							logger.debug("no average 50 for [ {} ]",ticker.getSymbol());
 						}
 						else
 						{
@@ -500,11 +497,11 @@ public class PortfolioManagement
 					if (!quotation.getMobileAverage200Days().isValid())
 					{
 						//compute it
-						MobileAverage average200=new MobileAverage(share, database, 50);
+						MobileAverage average200=new MobileAverage(share, database, 200);
 						Double computedAverage200=average200.compute();
 						if (computedAverage200 == null)
 						{
-							logger.debug("no average 200 for ["+ticker.getSymbol()+"]");
+							logger.debug("no average 200 for [ {} ]",ticker.getSymbol());
 						}
 						else
 						{
@@ -515,13 +512,13 @@ public class PortfolioManagement
 				}
 				else
 				{
-					logger.debug("no quotation for ["+ticker.getSymbol()+"]");
+					logger.debug("no quotation for {}",ticker.getSymbol());
 					problemsToBeNotified.add(new ProblemNotification("no quotation for ["+ticker.getSymbol()+"]"));
 				}
 			}
 			else
 			{
-				logger.debug("unable to get quote for ["+ticker.getSymbol()+"]");
+				logger.debug("unable to get quote for {}",ticker.getSymbol());
 				problemsToBeNotified.add(new ProblemNotification("unable to get quote for ["+ticker.getSymbol()+"]"));
 			}
 		}
@@ -592,7 +589,7 @@ public class PortfolioManagement
 		System.out.println("today "+todayChange.getWorst5().toString());
 		System.out.println("yesterday "+yesterdayChange.getWorst5().toString());
 
-		ArrayList<ReportI> listReportToPrint=new ArrayList<ReportI>();
+		ArrayList<ReportI> listReportToPrint=new ArrayList<>();
 
 		todayChange.setTitle("today");
 		yesterdayChange.setTitle("yesterday");
@@ -659,14 +656,14 @@ public class PortfolioManagement
 				listSharesInPortfolio.remove(idx+1);
 			}
 		}
-		logger.debug("after merge "+listSharesInPortfolio.size()+" items");
+		logger.debug("after merge {} items",listSharesInPortfolio.size());
 		return true;
 	}
 
 
 	public boolean evaluate()
 	{
-		ArrayList<PortfolioDB> listSharesInPortfolio=new ArrayList<PortfolioDB>();
+		ArrayList<PortfolioDB> listSharesInPortfolio=new ArrayList<>();
 		Date dateOfYesterday=getDateOfYesterday();
 		Date now=clock.getNow();
 
@@ -684,8 +681,8 @@ public class PortfolioManagement
 				if (quotationYesterday== null)
 				{
 					//not found/ should not happen !
-					logger.debug("cannot find "+keyYesterday.toString());
-					logger.debug("quotationMapStorage "+quotationMapStorage.toString());
+					logger.debug("cannot find {}",keyYesterday.toString());
+					logger.debug("quotationMapStorage {}",quotationMapStorage.toString());
 					result= false;
 				}
 				else
@@ -694,8 +691,8 @@ public class PortfolioManagement
 					if (quotationNow== null)
 					{
 						//not found/ should not happen !
-						logger.debug("cannot find "+keyNow.toString());
-						logger.debug("quotationMapStorage "+quotationMapStorage.toString());
+						logger.debug("cannot find {}",keyNow.toString());
+						logger.debug("quotationMapStorage {}",quotationMapStorage.toString());
 						result= false;
 
 					}
@@ -750,7 +747,7 @@ public class PortfolioManagement
 		cal.setTime(now);
 		cal.add(Calendar.MONTH, -1);// one month less
 		Date limitDateForDeletion=cal.getTime();
-		logger.debug("deleting outdate quotes from "+limitDateForDeletion.toString());
+		logger.debug("deleting outdate quotes from {}",limitDateForDeletion.toString());
 
 		database.deleteOutdatedQuotes(limitDateForDeletion);
 	}

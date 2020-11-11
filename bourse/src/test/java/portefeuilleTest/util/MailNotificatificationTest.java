@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import net.tuxanna.portefeuille.businessLogic.util.ProblemNotification;
+import net.tuxanna.portefeuille.business_logic.util.ProblemNotification;
 import net.tuxanna.portefeuille.util.MailNotifier;
 import net.tuxanna.portefeuille.util.MailParameters;
 

@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.tuxanna.portefeuille.businessLogic.PortfolioManagement;
+import net.tuxanna.portefeuille.business_logic.PortfolioManagement;
 import net.tuxanna.portefeuille.data_feed.boursorama.BoursoramaQuotationProvider;
 import net.tuxanna.portefeuille.database.Database;
 import net.tuxanna.portefeuille.util.MailNotifier;

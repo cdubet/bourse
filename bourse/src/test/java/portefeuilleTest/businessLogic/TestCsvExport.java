@@ -13,7 +13,7 @@ import java.util.List;
 import org.junit.Test;
 
 import net.tuxanna.portefeuille.Quote;
-import net.tuxanna.portefeuille.businessLogic.util.ShareToQuotations;
+import net.tuxanna.portefeuille.business_logic.util.ShareToQuotations;
 import net.tuxanna.portefeuille.database.QuoteDB;
 import net.tuxanna.portefeuille.database.ShareDB;
 import net.tuxanna.portefeuille.database.ShareDB.Currency;

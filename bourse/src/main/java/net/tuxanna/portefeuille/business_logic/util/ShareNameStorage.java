@@ -1,4 +1,4 @@
-package net.tuxanna.portefeuille.businessLogic.util;
+package net.tuxanna.portefeuille.business_logic.util;
 
 import java.util.HashMap;
 import java.util.List;

@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.jooq.tools.jdbc.MockConnection;
 import org.junit.Test;
 
-import net.tuxanna.portefeuille.businessLogic.share_orders.SellManagement;
+import net.tuxanna.portefeuille.business_logic.share_orders.SellManagement;
 import net.tuxanna.portefeuille.database.DatabaseI;
 import portefeuilleTest.businessLogic.FakeDate;
 

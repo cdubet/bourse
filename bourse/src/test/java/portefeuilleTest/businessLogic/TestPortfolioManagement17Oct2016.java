@@ -19,8 +19,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import net.tuxanna.portefeuille.businessLogic.PortfolioManagement;
-import net.tuxanna.portefeuille.businessLogic.TopWorst5;
+import net.tuxanna.portefeuille.business_logic.PortfolioManagement;
+import net.tuxanna.portefeuille.business_logic.TopWorst5;
 import net.tuxanna.portefeuille.database.Database;
 import portefeuilleTest.database.TestRamDatabase;
 

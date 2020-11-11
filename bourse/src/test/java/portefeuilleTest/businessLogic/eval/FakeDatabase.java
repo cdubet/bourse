@@ -5,11 +5,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import net.tuxanna.portefeuille.businessLogic.eval.Evaluation;
-import net.tuxanna.portefeuille.businessLogic.eval.EvaluationStorage;
-import net.tuxanna.portefeuille.businessLogic.eval.QuotationMapStorage;
-import net.tuxanna.portefeuille.businessLogic.eval.ShareIdAndDate;
-import net.tuxanna.portefeuille.businessLogic.util.ShareNameStorage;
+import net.tuxanna.portefeuille.business_logic.eval.Evaluation;
+import net.tuxanna.portefeuille.business_logic.eval.EvaluationStorage;
+import net.tuxanna.portefeuille.business_logic.eval.QuotationMapStorage;
+import net.tuxanna.portefeuille.business_logic.eval.ShareIdAndDate;
+import net.tuxanna.portefeuille.business_logic.util.ShareNameStorage;
 import net.tuxanna.portefeuille.database.DatabaseI;
 import net.tuxanna.portefeuille.database.PortfolioDB;
 import net.tuxanna.portefeuille.database.QuoteDB;

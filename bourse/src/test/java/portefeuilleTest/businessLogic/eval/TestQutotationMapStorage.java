@@ -7,8 +7,8 @@ import java.util.Date;
 
 import org.junit.Test;
 
-import net.tuxanna.portefeuille.businessLogic.eval.QuotationMapStorage;
-import net.tuxanna.portefeuille.businessLogic.eval.ShareIdAndDate;
+import net.tuxanna.portefeuille.business_logic.eval.QuotationMapStorage;
+import net.tuxanna.portefeuille.business_logic.eval.ShareIdAndDate;
 import net.tuxanna.portefeuille.database.ShareDB;
 
 public class TestQutotationMapStorage

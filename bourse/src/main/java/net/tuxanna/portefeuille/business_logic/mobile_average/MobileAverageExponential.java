@@ -1,4 +1,4 @@
-package net.tuxanna.portefeuille.businessLogic.mobile_average;
+package net.tuxanna.portefeuille.business_logic.mobile_average;
 
 public class MobileAverageExponential
 {

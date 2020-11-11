@@ -14,11 +14,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import net.tuxanna.portefeuille.businessLogic.PortfolioManagement;
-import net.tuxanna.portefeuille.businessLogic.eval.Evaluation;
-import net.tuxanna.portefeuille.businessLogic.eval.EvaluationStorage;
-import net.tuxanna.portefeuille.businessLogic.eval.QuotationMapStorage;
-import net.tuxanna.portefeuille.businessLogic.util.ShareNameStorage;
+import net.tuxanna.portefeuille.business_logic.PortfolioManagement;
+import net.tuxanna.portefeuille.business_logic.eval.Evaluation;
+import net.tuxanna.portefeuille.business_logic.eval.EvaluationStorage;
+import net.tuxanna.portefeuille.business_logic.eval.QuotationMapStorage;
+import net.tuxanna.portefeuille.business_logic.util.ShareNameStorage;
 import net.tuxanna.portefeuille.dataFeed.Ticker;
 import net.tuxanna.portefeuille.dataFeed.TickerI;
 import net.tuxanna.portefeuille.database.PortfolioDB;

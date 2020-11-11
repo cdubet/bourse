@@ -9,11 +9,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import net.tuxanna.portefeuille.businessLogic.QuoteVariation;
-import net.tuxanna.portefeuille.businessLogic.TopWorst5;
-import net.tuxanna.portefeuille.businessLogic.eval.Evaluation;
-import net.tuxanna.portefeuille.businessLogic.eval.EvaluationStorage;
-import net.tuxanna.portefeuille.businessLogic.util.ListOfOperations;
+import net.tuxanna.portefeuille.business_logic.QuoteVariation;
+import net.tuxanna.portefeuille.business_logic.TopWorst5;
+import net.tuxanna.portefeuille.business_logic.eval.Evaluation;
+import net.tuxanna.portefeuille.business_logic.eval.EvaluationStorage;
+import net.tuxanna.portefeuille.business_logic.util.ListOfOperations;
 import net.tuxanna.portefeuille.database.SellDB;
 import net.tuxanna.portefeuille.database.ShareOrderI;
 import net.tuxanna.portefeuille.util.DigitValue;

@@ -1,4 +1,4 @@
-package net.tuxanna.portefeuille.businessLogic.eval;
+package net.tuxanna.portefeuille.business_logic.eval;
 
 import java.util.Comparator;
 import net.tuxanna.portefeuille.database.PortfolioDB;

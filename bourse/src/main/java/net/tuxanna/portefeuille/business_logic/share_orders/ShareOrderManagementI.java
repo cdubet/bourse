@@ -1,4 +1,4 @@
-package net.tuxanna.portefeuille.businessLogic.share_orders;
+package net.tuxanna.portefeuille.business_logic.share_orders;
 
 import java.util.Date;
 import java.util.List;

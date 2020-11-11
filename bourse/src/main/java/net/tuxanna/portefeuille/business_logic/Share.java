@@ -1,4 +1,4 @@
-package net.tuxanna.portefeuille.businessLogic;
+package net.tuxanna.portefeuille.business_logic;
 
 import net.tuxanna.portefeuille.database.ShareDB;
 

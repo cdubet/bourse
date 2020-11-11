@@ -1,4 +1,4 @@
-package net.tuxanna.portefeuille.businessLogic;
+package net.tuxanna.portefeuille.business_logic;
 
 import java.util.ArrayList;
 import java.util.List;
