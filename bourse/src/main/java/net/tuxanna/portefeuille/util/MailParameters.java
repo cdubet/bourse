@@ -3,7 +3,7 @@ package net.tuxanna.portefeuille.util;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class MailParameters
+public class MailParameters implements MailParametersI
 {
 	private static final Logger logger = LogManager.getLogger(MailParameters.class);
 	private String version;
@@ -34,6 +34,7 @@ public class MailParameters
 		this.passwd = passwd;
 	}
 
+	@Override
 	public boolean sanityCheck()
 	{
 		if ((smtpServer==null) || (smtpServer.length()==0))
@@ -60,7 +61,7 @@ public class MailParameters
 	}
 	
 
-
+	@Override
 	public String getVersion()
 	{
 		return version;
@@ -80,7 +81,7 @@ public class MailParameters
 	{
 		this.smtpServer = smtpServer;
 	}
-
+	@Override
 	public String getMailTo()
 	{
 		return mailTo;

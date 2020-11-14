@@ -187,52 +187,6 @@ public class PortfolioManagement
 		}
 	}
 
-	//	private void stripShareList(ArrayList<ShareDB> fullListShares,
-	//								List<ShareDB> stripListShares,List<QuoteDB> stripListOfQuotationsDB)
-	//	{
-	//		List<Integer> listSharesId=new ArrayList<Integer>();
-	//		final boolean keepNonMeaningfullShares=false;
-	//		if (database.loadSharesIdInPortfolio(listSharesId, keepNonMeaningfullShares))
-	//		{
-	//			//sort the list to be able to search in it
-	//			Collections.sort(listSharesId);
-	//			//we rely here on the fact that the 2 lists have the same size and at each index have the same quote
-	//			//sanity check
-	//			if (fullListShares.size() != listOfQuotationsDB.size())
-	//			{
-	//				logger.error("not same size both list !", fullListShares.size() , listOfQuotationsDB.size());
-	//				return;
-	//			}
-	//			
-	//			for (int index=0;index<fullListShares.size();index++)
-	//			{
-	//				QuoteDB quoteDb =  listOfQuotationsDB.get(index);
-	//				Integer idToSearch=quoteDb.getIdShare();
-	//				int indexFound=Collections.binarySearch(listSharesId, idToSearch);
-	//				if (indexFound >= 0)// own and care
-	//				{
-	//					stripListOfQuotationsDB.add(quoteDb);
-	//					ShareDB shareDB=fullListShares.get(index);
-	//					stripListShares.add(shareDB);
-	//					
-	//					//sanity check
-	//					if (shareDB.getId() != quoteDb.getIdShare())
-	//					{
-	//						logger.error("not same ID in both list !", shareDB.getId() , quoteDb.getIdShare());
-	//						return;
-	//					}
-	//				}
-	//				else
-	//				{
-	//					// drop item
-	//					logger.debug("dropping id="+quoteDb.getIdShare());
-	//				}
-	//			} 
-	//		}
-	//		logger.debug("reduced size ", fullListShares.size(), " to ", stripListShares.size());
-	//	}
-
-
 	private Date skipWeekEnd(Calendar cal)
 	{
 		if ((cal.get(Calendar.DAY_OF_WEEK)== Calendar.SUNDAY) || (cal.get(Calendar.DAY_OF_WEEK)== Calendar.SATURDAY))

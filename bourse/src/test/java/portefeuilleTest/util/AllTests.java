@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestDigitalValue.class ,MailNotificatificationTest.class})
+@SuiteClasses({ TestDigitalValue.class ,MailNotificatificationTest.class,TestCsv.class})
 public class AllTests
 {
 

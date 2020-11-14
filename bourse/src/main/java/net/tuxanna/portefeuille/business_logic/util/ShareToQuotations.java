@@ -3,11 +3,14 @@ package net.tuxanna.portefeuille.business_logic.util;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
 
@@ -76,36 +79,7 @@ public class ShareToQuotations
 		}
 		try (FileOutputStream fic=new FileOutputStream(csvFile))
 		{
-			DecimalFormat df = new DecimalFormat("######.00"); //only 2 digit after .
-				
-			//list is sorted by ID
-			int expectedId = listShares.get(0).getId();
-			
-			for (ShareDB shareDB : listShares)
-			{
-				String str;
-				if (expectedId==shareDB.getId())
-				{
-					str=printOneShare( df, shareDB);
-				}
-				else
-				{
-					StringBuilder textWithMissingId=new StringBuilder();
-					for (int i=expectedId;i<shareDB.getId();++i)
-					{
-						textWithMissingId.append(i+"\tno more in DB\n");
-					}
-					textWithMissingId.append(printOneShare( df, shareDB));
-					str=textWithMissingId.toString();
-				}
-				fic.write(str.getBytes());
-				expectedId=shareDB.getId()+1;
-			}
-
-			//add the date			
-			SimpleDateFormat format1 = new SimpleDateFormat("'\ngenerated 'dd-MM-yyyy 'at' HH:mm:ss'\n'");
-			String formatted =format1.format(clock.getNow().getTime());
-			fic.write(formatted.getBytes());
+			exportListSharesAsCsv(listShares, fic);
 			
 			logger.debug("{} quotes written",listShares.size() );
 			return true;
@@ -117,6 +91,44 @@ public class ShareToQuotations
 		}
 
 
+	}
+
+	public void exportListSharesAsCsv(List<ShareDB> listShares, OutputStream fic) throws IOException
+	{
+		Locale currentLocale = Locale.getDefault();
+		DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(currentLocale);
+		otherSymbols.setDecimalSeparator('.');
+		DecimalFormat df = new DecimalFormat("######.00", otherSymbols); //only 2 digit after .
+		
+	    
+		//list is sorted by ID
+		int expectedId = listShares.get(0).getId();
+		
+		for (ShareDB shareDB : listShares)
+		{
+			String str;
+			if (expectedId==shareDB.getId())
+			{
+				str=printOneShare( df, shareDB);
+			}
+			else
+			{
+				StringBuilder textWithMissingId=new StringBuilder();
+				for (int i=expectedId;i<shareDB.getId();++i)
+				{
+					textWithMissingId.append(i+"\tno more in DB\n");
+				}
+				textWithMissingId.append(printOneShare( df, shareDB));
+				str=textWithMissingId.toString();
+			}
+			fic.write(str.getBytes());
+			expectedId=shareDB.getId()+1;
+		}
+
+		//add the date			
+		SimpleDateFormat format1 = new SimpleDateFormat("'\ngenerated 'dd-MM-yyyy 'at' HH:mm:ss'\n'");
+		String formatted =format1.format(clock.getNow().getTime());
+		fic.write(formatted.getBytes());
 	}
 
 	private String printOneShare(DecimalFormat df, ShareDB shareDB) throws IOException
