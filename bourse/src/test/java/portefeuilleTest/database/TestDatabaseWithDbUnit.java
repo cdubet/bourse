@@ -411,7 +411,7 @@ public class TestDatabaseWithDbUnit
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			assertEquals(false,true);//fail
+			fail("exception received");//fail
 		}
 
 	}
