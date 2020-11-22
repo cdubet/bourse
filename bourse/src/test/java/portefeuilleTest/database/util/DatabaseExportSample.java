@@ -1,4 +1,4 @@
-package portefeuilleTest.database;
+package portefeuilleTest.database.util;
 
 import java.io.FileOutputStream;
 import java.sql.Connection;
@@ -21,7 +21,7 @@ public class DatabaseExportSample
     public static void main(String[] args) throws Exception
     {
         // database connection
-    	TestTempFileDatabase tempDB=new TestTempFileDatabase();
+    	TempFileDatabaseForTest tempDB=new TempFileDatabaseForTest();
     	
         @SuppressWarnings({ "rawtypes", "unused" })
 		Class driverClass = Class.forName("org.hsqldb.jdbcDriver");

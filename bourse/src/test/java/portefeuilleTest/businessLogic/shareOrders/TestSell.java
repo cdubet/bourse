@@ -13,6 +13,7 @@ import org.junit.Test;
 import net.tuxanna.portefeuille.business_logic.share_orders.SellManagement;
 import net.tuxanna.portefeuille.database.DatabaseI;
 import portefeuilleTest.businessLogic.FakeDate;
+import portefeuilleTest.database.util.MockDatabase;
 
 public class TestSell
 {

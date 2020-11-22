@@ -1,4 +1,4 @@
-package portefeuilleTest.database;
+package portefeuilleTest.database.util;
 
 import java.sql.SQLException;
 
@@ -7,11 +7,11 @@ import org.apache.logging.log4j.Logger;
 
 import net.tuxanna.portefeuille.database.Database;
 
-public class TestTempFileDatabase extends Database
+public class TempFileDatabaseForTest extends Database
 {
 
-	private static final Logger logger = LogManager.getLogger(TestTempFileDatabase.class);
-	public TestTempFileDatabase() throws ClassNotFoundException, SQLException
+	private static final Logger logger = LogManager.getLogger(TempFileDatabaseForTest.class);
+	public TempFileDatabaseForTest() throws ClassNotFoundException, SQLException
 	{
 		// TODO Auto-generated constructor stub
 	}

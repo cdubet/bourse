@@ -11,10 +11,11 @@ import org.junit.Test;
 import net.tuxanna.portefeuille.database.QuoteDB;
 import net.tuxanna.portefeuille.database.SearchLimitedNumberOfQuote;
 import net.tuxanna.portefeuille.database.ShareDB;
+import portefeuilleTest.database.util.RamDatabaseForTestAtOneDay;
 
 public class TestSearch
 {
-	private TestRamDatabaseAtOneDay testDb;
+	private RamDatabaseForTestAtOneDay testDb;
 	@After
 	public void tearDown() throws Exception
 	{
@@ -26,7 +27,7 @@ public class TestSearch
 	{
 		try
 		{
-			testDb=new TestRamDatabaseAtOneDay("TEST_DATA/quotes_for_2_shares.xml");
+			testDb=new RamDatabaseForTestAtOneDay("TEST_DATA/quotes_for_2_shares.xml");
 			assertTrue(testDb.setup());
 			
 			

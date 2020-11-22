@@ -22,20 +22,20 @@ import org.junit.Test;
 import net.tuxanna.portefeuille.business_logic.PortfolioManagement;
 import net.tuxanna.portefeuille.business_logic.TopWorst5;
 import net.tuxanna.portefeuille.database.Database;
-import portefeuilleTest.database.TestRamDatabase;
+import portefeuilleTest.database.util.RamDatabaseForTest;
 
 public class TestPortfolioManagement17Oct2016
 {
 
 	private static PortfolioManagement testPortfolio; //class under test
-	private static TestRamDatabase testDb;
+	private static RamDatabaseForTest testDb;
 
 	private static final Logger logger = LogManager.getLogger(TestPortfolioManagement17Oct2016.class);
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception
 	{
-		testDb =new TestRamDatabase();
+		testDb =new RamDatabaseForTest();
 		assertTrue(testDb.createSchema());
 		testPortfolio= new PortfolioManagement();
 		testPortfolio.setClock(new FakeDate());

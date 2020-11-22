@@ -14,7 +14,7 @@ import org.apache.logging.log4j.Logger;
 import com.googlecode.jatl.Html;
 
 import net.tuxanna.portefeuille.business_logic.share_orders.OrderInfo;
-import net.tuxanna.portefeuille.database.DatabaseI;
+import net.tuxanna.portefeuille.database.BuyAndSellI;
 import net.tuxanna.portefeuille.database.QuoteDB;
 import net.tuxanna.portefeuille.database.ShareOrderI;
 import net.tuxanna.portefeuille.util.DigitValue;
@@ -129,7 +129,7 @@ public class ListOfOperations implements ReportI
 	}
 
 
-	public void checkIfSharesSold(Date now, DatabaseI database,ShareToQuotations listOfQuotationsDB,ShareNameStorage shareNameStorage)
+	public void checkIfSharesSold(Date now, BuyAndSellI database,ShareToQuotations listOfQuotationsDB,ShareNameStorage shareNameStorage)
 	{
 		List<ShareOrderI> listOrders=new ArrayList<ShareOrderI>();
 		

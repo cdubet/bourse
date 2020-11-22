@@ -14,7 +14,7 @@ import net.tuxanna.portefeuille.Quote;
 import net.tuxanna.portefeuille.business_logic.mobile_average.MobileAverage;
 import net.tuxanna.portefeuille.database.QuoteDB;
 import net.tuxanna.portefeuille.database.ShareDB;
-import portefeuilleTest.database.TestRamDatabaseAtOneDay;
+import portefeuilleTest.database.util.RamDatabaseForTestAtOneDay;
 
 public class TestMobileAverage
 {
@@ -276,7 +276,7 @@ public class TestMobileAverage
 	{
 		try
 		{
-			TestRamDatabaseAtOneDay testDb=new TestRamDatabaseAtOneDay("TEST_DATA/portfolio_9_dec_2016.xml");
+			RamDatabaseForTestAtOneDay testDb=new RamDatabaseForTestAtOneDay("TEST_DATA/portfolio_9_dec_2016.xml");
 			assertTrue(testDb.setup());
 			
 			ShareDB share=new ShareDB();

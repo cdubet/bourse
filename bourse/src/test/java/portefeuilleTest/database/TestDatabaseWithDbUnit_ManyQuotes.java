@@ -21,18 +21,19 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import net.tuxanna.portefeuille.database.Database;
+import portefeuilleTest.database.util.RamDatabaseForTest;
 
 
 public class TestDatabaseWithDbUnit_ManyQuotes
 {
 
-	private static TestRamDatabase testDb;
+	private static RamDatabaseForTest testDb;
 	private IDatabaseTester databaseTester;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception
 	{
-		testDb = new TestRamDatabase();
+		testDb = new RamDatabaseForTest();
 		assertTrue(testDb.createSchema());
 	}
 

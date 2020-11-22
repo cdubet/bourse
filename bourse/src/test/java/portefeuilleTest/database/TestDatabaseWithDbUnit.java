@@ -35,17 +35,18 @@ import net.tuxanna.portefeuille.database.SellDB;
 import net.tuxanna.portefeuille.database.ShareDB;
 import net.tuxanna.portefeuille.database.ShareOrderI;
 import net.tuxanna.portefeuille.util.DigitValue;
+import portefeuilleTest.database.util.RamDatabaseForTest;
 
 public class TestDatabaseWithDbUnit
 {
 
-	private static TestRamDatabase testDb;
+	private static RamDatabaseForTest testDb;
 	private IDatabaseTester databaseTester;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception
 	{
-		testDb = new TestRamDatabase();
+		testDb = new RamDatabaseForTest();
 		assertTrue(testDb.createSchema());
 	}
 
@@ -461,7 +462,28 @@ public class TestDatabaseWithDbUnit
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			assertEquals(false,true);//fail
+			fail("exception received");
 		}
+	}
+	
+	@Test
+	public void whenOnlyOneNameMatch_LoadShareFromName_returnsOneShare()
+	{
+		//<SHARES IDSHARE="0" NAME="name1" TICKER="ticker1" IS_SHARE="y" CURRENCY="E"/>
+
+		String shareName="name1";
+		ShareDB share=testDb.loadShare(shareName);
+			
+		assertNotNull(share);
+		assertEquals(shareName,share.getName());
+		assertEquals(0,share.getId());
+	}
+	@Test
+	public void whenMoreThanOneNameMatch_LoadShareFromName_returnsNull()
+	{
+		String shareName="name";
+		ShareDB share=testDb.loadShare(shareName);
+			
+		assertNull(share);
 	}
 }

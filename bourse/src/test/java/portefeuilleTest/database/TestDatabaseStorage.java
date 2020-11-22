@@ -18,8 +18,9 @@ import net.tuxanna.portefeuille.database.QuoteDB;
 import net.tuxanna.portefeuille.database.SearchQuoteI;
 import net.tuxanna.portefeuille.database.SearchQuoteStandard;
 import net.tuxanna.portefeuille.database.ShareDB;
+import portefeuilleTest.database.util.RamDatabaseForTest;
 
-public class TestDatabase
+public class TestDatabaseStorage
 {
 
 	private static final String TICKER5 = "ticker5";
@@ -103,7 +104,7 @@ public class TestDatabase
 	private static final double shortRatio_4 = 25.9012;
 	private static final double volume_4 = 25.9013;
 	
-	private TestRamDatabase testDb;
+	private RamDatabaseForTest testDb;
 	//private TestTempFileDatabase testDb;
 	
 	@BeforeClass
@@ -121,7 +122,7 @@ public class TestDatabase
 	public void setUp() throws Exception
 	{
 		//testDb =new TestTempFileDatabase();
-		testDb =new TestRamDatabase();
+		testDb =new RamDatabaseForTest();
 		assertTrue(testDb.createSchema());
 	}
 

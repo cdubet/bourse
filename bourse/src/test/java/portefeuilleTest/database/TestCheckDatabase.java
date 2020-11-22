@@ -8,10 +8,12 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Test;
 
+import portefeuilleTest.database.util.RamDatabaseForTestAtOneDay;
+
 
 public class TestCheckDatabase
 {
-	private TestRamDatabaseAtOneDay testDb;
+	private RamDatabaseForTestAtOneDay testDb;
 
 	@After
 	public void tearDown() throws Exception
@@ -24,7 +26,7 @@ public class TestCheckDatabase
 	{
 		try
 		{
-			testDb=new TestRamDatabaseAtOneDay("TEST_DATA/portfolio_withLastQuotationIntradayInvalid.xml");
+			testDb=new RamDatabaseForTestAtOneDay("TEST_DATA/portfolio_withLastQuotationIntradayInvalid.xml");
 			assertTrue(testDb.setup());
 			
 			
@@ -56,7 +58,7 @@ public class TestCheckDatabase
 	{
 		try
 		{
-			testDb=new TestRamDatabaseAtOneDay("TEST_DATA/portfolio_withLastQuotationNextDayInvalid.xml");
+			testDb=new RamDatabaseForTestAtOneDay("TEST_DATA/portfolio_withLastQuotationNextDayInvalid.xml");
 			assertTrue(testDb.setup());
 			
 			

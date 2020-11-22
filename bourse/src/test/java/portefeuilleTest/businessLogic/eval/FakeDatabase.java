@@ -359,4 +359,11 @@ public class FakeDatabase implements DatabaseI
 		return null;
 	}
 
+	@Override
+	public ShareDB loadShare(String shareName)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

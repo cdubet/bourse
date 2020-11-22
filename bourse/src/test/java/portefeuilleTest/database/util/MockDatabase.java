@@ -1,4 +1,4 @@
-package portefeuilleTest.businessLogic.shareOrders;
+package portefeuilleTest.database.util;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -13,7 +13,5 @@ public class MockDatabase extends Database
 	{
 		super(connection);
 	}
-
-	
 
 }

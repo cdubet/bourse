@@ -1276,4 +1276,51 @@ public class Database implements DatabaseI
 		}
 		return true;
 	}
+
+	@Override
+	public ShareDB loadShare(String shareName)
+	{
+		try
+		{
+			DSLContext create = DSL.using(conn, SQLDialect.HSQLDB);
+			List<ShareDB> listShares=new ArrayList<>();
+			
+			Result<?>result=create.select(Shares.SHARES.IDSHARE,
+					Shares.SHARES.NAME,
+					Shares.SHARES.CURRENCY,
+					Shares.SHARES.IS_SHARE,
+					Shares.SHARES.TICKER).from(Shares.SHARES).
+					where(Shares.SHARES.NAME.startsWithIgnoreCase(shareName)).fetch();
+			for (Record shareRecord : result)
+			{
+				ShareDB shareDb=new ShareDB();
+				shareDb.setId(shareRecord.get(Shares.SHARES.IDSHARE));
+				shareDb.setName(shareRecord.get(Shares.SHARES.NAME));
+				shareDb.setCurrency(DataConverter.convertToCurrency(shareRecord.get(Shares.SHARES.CURRENCY).charAt(0)));
+				shareDb.setIsShare(DataConverter.convertIsShare(shareRecord.get(Shares.SHARES.IS_SHARE).charAt(0)));
+				shareDb.setTicker(shareRecord.get(Shares.SHARES.TICKER));
+
+				listShares.add(shareDb);
+			}
+			if (listShares.size()==1)
+			{
+				return listShares.get(0);
+			}
+			else
+			{
+				logger.error("too much matches for {}",shareName);
+				for (ShareDB share:listShares)
+				{
+					logger.error(share.getName());
+				}
+			}
+			return null;
+		}
+		catch (org.jooq.exception.DataAccessException e)
+		{
+			logger.error(e);
+			return null;
+		}
+	}
+	
 }

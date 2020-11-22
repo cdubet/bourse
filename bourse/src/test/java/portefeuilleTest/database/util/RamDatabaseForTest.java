@@ -1,13 +1,13 @@
-package portefeuilleTest.database;
+package portefeuilleTest.database.util;
 
 import java.sql.SQLException;
 
 import net.tuxanna.portefeuille.database.Database;
 
-public class TestRamDatabase extends Database
+public class RamDatabaseForTest extends Database
 {
 
-	public TestRamDatabase() throws ClassNotFoundException, SQLException
+	public RamDatabaseForTest() throws ClassNotFoundException, SQLException
 	{
 		super();
 		// TODO Auto-generated constructor stub

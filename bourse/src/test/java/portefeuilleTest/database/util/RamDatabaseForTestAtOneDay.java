@@ -1,4 +1,4 @@
-package portefeuilleTest.database;
+package portefeuilleTest.database.util;
 
 import java.io.File;
 import java.sql.SQLException;
@@ -13,7 +13,7 @@ import org.dbunit.operation.DatabaseOperation;
 
 import net.tuxanna.portefeuille.database.Database;
 
-public class TestRamDatabaseAtOneDay extends TestRamDatabase
+public class RamDatabaseForTestAtOneDay extends RamDatabaseForTest
 {
 	private String xmlFileName;
 	
@@ -34,7 +34,7 @@ public class TestRamDatabaseAtOneDay extends TestRamDatabase
 		databaseTester.onSetup();
 	}
 
-	public TestRamDatabaseAtOneDay(String xmlFilenameToLoad) throws ClassNotFoundException, SQLException
+	public RamDatabaseForTestAtOneDay(String xmlFilenameToLoad) throws ClassNotFoundException, SQLException
 	{
 		xmlFileName=xmlFilenameToLoad;
 	}

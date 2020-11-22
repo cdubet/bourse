@@ -2,8 +2,8 @@ package net.tuxanna.portefeuille.business_logic;
 
 import java.util.List;
 
-import net.tuxanna.portefeuille.database.DatabaseI;
 import net.tuxanna.portefeuille.database.QuoteDB;
+import net.tuxanna.portefeuille.database.QuoteI;
 import net.tuxanna.portefeuille.database.SearchQuoteAtOneDay;
 import net.tuxanna.portefeuille.database.ShareDB;
 
@@ -11,9 +11,9 @@ public class QuoteVariationExtended extends QuoteVariation
 {
 	private ShareDB shareDB;
 	java.util.Date newDateBefore;
-	DatabaseI database;
+	QuoteI database;
 	
-	public QuoteVariationExtended(DatabaseI p_database,java.util.Date p_newDateBefore,ShareDB share, double oldPrice, double newPrice)
+	public QuoteVariationExtended(QuoteI p_database,java.util.Date p_newDateBefore,ShareDB share, double oldPrice, double newPrice)
 	{
 		super(share.getName(), oldPrice, newPrice);
 		shareDB=share;
@@ -29,7 +29,7 @@ public class QuoteVariationExtended extends QuoteVariation
 		list.add("% 1 week");
 		return list;
 	}
-	
+	@Override
 	public List<String>getContentForReport()
 	{
 		List<String> list=super.getContentForReport();

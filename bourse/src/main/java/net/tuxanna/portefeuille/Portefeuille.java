@@ -2,6 +2,9 @@ package net.tuxanna.portefeuille;
 
 import java.io.File;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -62,6 +65,18 @@ public class Portefeuille   implements Runnable  {
 	
 	@Option(names = "--threads", description="threads for getting quotes from internet")
 	private Integer nbThreads;
+	
+	@Option(names = "-divide", description="share division")
+	private boolean divideShare;
+	
+	@Option(names = "--date", description="date share division (format dd-mm-yy ex 30-10-20")
+	private String divideShareDate;
+	
+	@Option(names = "--ratio", description="share division ratio. ex 10 means 1 old = 10 new")
+	private Double divideShareRatio;
+	
+	@Option(names = "--share", description="share name")
+	private String share;
 	
 	public static void main(String[] args) 
 	{
@@ -250,6 +265,10 @@ public class Portefeuille   implements Runnable  {
 		{
 			checkDatabase();
 		}
+		else if (divideShare)
+		{
+			divideShare();
+		}
 		else
 		{
 			//no option
@@ -262,6 +281,59 @@ public class Portefeuille   implements Runnable  {
 			}
 			updatePortfolio(false /* no eval*/,mailParam,nbThreads);
 		}
+	}
+
+	private void divideShare() 
+	{
+		if (divideShareDate==null)
+		{
+			System.err.println("no date found");
+			CommandLine.usage(this, System.err);
+			return;
+		}
+		if (divideShareRatio==null)
+		{
+			System.err.println("no ratio found");
+			CommandLine.usage(this, System.err);
+			return;
+		}
+		if (share==null)
+		{
+			System.err.println("no share name found");
+			CommandLine.usage(this, System.err);
+			return;
+		}
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yy");
+
+		try
+		{
+			Date dateSplit = formatter.parse(divideShareDate);
+			divideShare(share,dateSplit,divideShareRatio);
+		}
+		catch (ParseException e)
+		{
+			System.err.println("invalid date "+divideShareDate);
+			CommandLine.usage(this, System.err);
+		}  		
+	}
+
+	private void divideShare(String share, Date dateSplit, Double divideShareRatio)
+	{
+		try
+		{
+			Database db = new Database();
+			PortfolioManagement portfolio = setupPortfolio(db,1 /*does not matter here*/);
+
+			//do the job
+			portfolio.divideShare( share,  dateSplit,  divideShareRatio);
+			db.shutdown();
+		}
+		catch (SQLException | ClassNotFoundException e)
+		{
+			logger.error("exception received",e);
+			e.printStackTrace();
+		}
+		
 	}
 
 }

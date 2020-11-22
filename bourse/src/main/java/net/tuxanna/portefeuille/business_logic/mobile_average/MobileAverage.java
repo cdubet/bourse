@@ -9,19 +9,19 @@ import java.util.ListIterator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.tuxanna.portefeuille.database.DatabaseI;
 import net.tuxanna.portefeuille.database.QuoteDB;
+import net.tuxanna.portefeuille.database.QuoteI;
 import net.tuxanna.portefeuille.database.SearchLimitedNumberOfQuote;
 import net.tuxanna.portefeuille.database.ShareDB;
 
 public class MobileAverage
 {
 	private int nbDay;
-	private DatabaseI db;
+	private QuoteI db;
 	private ShareDB share;
 	private static final Logger logger = LogManager.getLogger(MobileAverage.class);
 
-	public MobileAverage(ShareDB p_share,DatabaseI p_db, int p_nbDay)
+	public MobileAverage(ShareDB p_share,QuoteI p_db, int p_nbDay)
 	{
 		db=p_db;
 		nbDay=p_nbDay;

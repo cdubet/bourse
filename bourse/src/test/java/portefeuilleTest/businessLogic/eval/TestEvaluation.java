@@ -26,7 +26,7 @@ import net.tuxanna.portefeuille.database.ShareDB;
 import net.tuxanna.portefeuille.util.DigitValue;
 import portefeuilleTest.businessLogic.FakeDate;
 import portefeuilleTest.businessLogic.PredefinedQuotationProvider;
-import portefeuilleTest.database.TestRamDatabaseAtOneDay;
+import portefeuilleTest.database.util.RamDatabaseForTestAtOneDay;
 
 public class TestEvaluation
 {
@@ -223,7 +223,7 @@ public class TestEvaluation
 	{
 		try
 		{
-			TestRamDatabaseAtOneDay testDb=new TestRamDatabaseAtOneDay("TEST_DATA/portfolio_9_dec_2016.xml");
+			RamDatabaseForTestAtOneDay testDb=new RamDatabaseForTestAtOneDay("TEST_DATA/portfolio_9_dec_2016.xml");
 			assertTrue(testDb.setup());
 			
 			PortfolioManagement portfolio=new PortfolioManagement();			
