@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 
@@ -27,6 +28,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import net.tuxanna.portefeuille.database.ConditionQuoteDateBefore;
+import net.tuxanna.portefeuille.database.ConditionQuoteI;
 import net.tuxanna.portefeuille.database.Database;
 import net.tuxanna.portefeuille.database.PortfolioDB;
 import net.tuxanna.portefeuille.database.QuoteDB;
@@ -485,5 +488,90 @@ public class TestDatabaseWithDbUnit
 		ShareDB share=testDb.loadShare(shareName);
 			
 		assertNull(share);
+	}
+	
+	@Test
+	public void LoadQuotesBeforeDefinedDate()
+	{
+		Calendar cal = Calendar.getInstance(); 
+		cal.set(Calendar.YEAR, 2016);
+		cal.set(Calendar.MONTH, 9); //month starts at 0
+		cal.set(Calendar.DAY_OF_MONTH, 15);
+		cal.set(Calendar.HOUR_OF_DAY, 01);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		
+		Date testTime = cal.getTime();
+		Integer shareIdToSearchFor=3;
+		
+		ConditionQuoteI searchCondition=new ConditionQuoteDateBefore(testTime,shareIdToSearchFor);
+		List<QuoteDB>  listQuote=testDb.readQuotations(searchCondition);
+			
+		assertNotNull(listQuote);
+		assertEquals(1, listQuote.size());
+		
+		 cal.setTime(listQuote.get(0).getDate());
+
+		//expected 
+		 //	<QUOTES IDQUOTES="33" IDSHARE="3" DATEQUOTE="2016-10-14 09:41:42.0"
+		 //LASTTRADEDPRICE="560.0" CHANGEINPRICE="40.05" OPENPRICE="40.08"
+		 //HIGHPRICE="40.02" LOWPRICE="40.05" VOLUME="40.013" LOW52WEEK="40.04"
+		 //HIGH52WEEK="40.01" MOBILEAVERAGE50DAYS="40.07" MOBILEAVERAGE200DAYS="40.06"
+		 //PREVIOUSCLOSE="40.011" PERATIO="40.09" SHORTRATIO="40.012" />
+		assertEquals(14, cal.get(Calendar.DAY_OF_MONTH));
+		assertEquals(2016, cal.get(Calendar.YEAR));
+		assertEquals(9, cal.get(Calendar.MONTH)); //month starts at 0
+		
+		assertEquals(40.013,listQuote.get(0).getQuotation().getVolume().getValue(),0.001);
+		assertEquals(560.0,listQuote.get(0).getQuotation().getLastTradedPrice().getValue(),0.001);
+		assertEquals(40.08,listQuote.get(0).getQuotation().getOpenPrice().getValue(),0.001);
+		
+		assertEquals(33,listQuote.get(0).getIdQuote());
+		assertEquals(shareIdToSearchFor.intValue(),listQuote.get(0).getIdShare());
+	}
+	
+	@Test
+	public void whenNotFoundId_is_given_then_LoadQuotesBeforeDefinedDate_returnsEmpty()
+	{
+		Calendar cal = Calendar.getInstance(); 
+		cal.set(Calendar.YEAR, 2016);
+		cal.set(Calendar.MONTH, 9); //month starts at 0
+		cal.set(Calendar.DAY_OF_MONTH, 15);
+		cal.set(Calendar.HOUR_OF_DAY, 01);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		
+		Date testTime = cal.getTime();
+		Integer shareIdToSearchFor=453;
+		
+		ConditionQuoteI searchCondition=new ConditionQuoteDateBefore(testTime,shareIdToSearchFor);
+		List<QuoteDB>  listQuote=testDb.readQuotations(searchCondition);
+			
+		assertNotNull(listQuote);
+		assertEquals(0, listQuote.size());
+	}
+	
+	@Test
+	public void whenNoId_isGiven_LoadQuotesBeforeDefinedDate_allItempsMatchingDate()
+	{
+		Calendar cal = Calendar.getInstance(); 
+		cal.set(Calendar.YEAR, 2016);
+		cal.set(Calendar.MONTH, 9); //month starts at 0
+		cal.set(Calendar.DAY_OF_MONTH, 15);
+		cal.set(Calendar.HOUR_OF_DAY, 01);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		
+		Date testTime = cal.getTime();
+		
+		ConditionQuoteI searchCondition=new ConditionQuoteDateBefore(testTime);
+		List<QuoteDB>  listQuote=testDb.readQuotations(searchCondition);
+			
+		assertNotNull(listQuote);
+		assertEquals(4, listQuote.size());
+		assertEquals(31,listQuote.get(0).getIdQuote());
+		assertEquals(32,listQuote.get(1).getIdQuote());
+		assertEquals(33,listQuote.get(2).getIdQuote());
+		assertEquals(34,listQuote.get(3).getIdQuote());
 	}
 }

@@ -715,9 +715,14 @@ public class PortfolioManagement
 
 	public void divideShare(String shareName, Date dateSplit, Double divideShareRatio)
 	{
+		ShareDB shareDB=database.loadShare(shareName);
+		if (shareDB == null)
+		{
+			return;
+		}
+		//update quotation
 		
-		ShareDB ShareDB=database.loadShare(shareName);
-		
+		//update portfolio
 	}
 
 
