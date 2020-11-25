@@ -24,6 +24,9 @@ import org.jooq.Result;
 import org.jooq.SQLDialect;
 import org.jooq.SelectQuery;
 import org.jooq.TableField;
+import org.jooq.UpdateConditionStep;
+import org.jooq.UpdateSetFirstStep;
+import org.jooq.UpdateSetMoreStep;
 import org.jooq.impl.DSL;
 
 import net.tuxanna.database.jooq.public_.tables.Shares;
@@ -366,7 +369,7 @@ public class Database implements DatabaseI
 	 * @see net.tuxanna.database.jooq.DatabaseI#storeQuotation(java.util.List)
 	 */
 	@Override
-	public boolean storeQuotation(List<QuoteDB> listQuote)
+	public boolean insertQuotation(List<QuoteDB> listQuote)
 	{
 		final String INSERT_QUOTE = "insert into QUOTES(idShare,dateQuote,lastTradedPrice,changeInPrice,openPrice,highPrice,lowPrice,volume,low52Week,high52Week,mobileAverage50Days,mobileAverage200Days,previousClose,peRatio,shortRatio) values (?,?,?,?,?,?,? ,? ,?,?,?,?,?,?,?)";
 		PreparedStatement insertStatement;
@@ -1417,6 +1420,95 @@ public class Database implements DatabaseI
 		}
 		quoteDb.setQuotation(quote);
 	}
+	@Override
+	public boolean updateQuotationInDatabase(List<QuoteDB> quoteList)
+	{
+		List<UpdateConditionStep<Record>> updates = new ArrayList<>();
+		DSLContext dslContext = DSL.using(conn, SQLDialect.HSQLDB);
 
+		for (QuoteDB quoteDB : quoteList)
+		{
+			UpdateConditionStep<Record> updateCondition=updateQuotationInDatabase(dslContext,quoteDB);
+			if (updateCondition!= null)
+			{
+				updates.add(updateCondition);
+			}
+		}
+
+		int[] result = dslContext.batch(updates).execute();
+		//TODO check result
+		return true;
+	}
+	
+	private UpdateConditionStep<Record> updateQuotationInDatabase(DSLContext dslContext, QuoteDB quoteDB)
+	{
+		UpdateSetFirstStep<Record> updateRequest = dslContext.update(Quotes.QUOTES);
+		
+		Quote quote=quoteDB.getQuotation();
+		UpdateSetMoreStep<Record> req=null;
+		if (quote.getChangeInPrice().isValid())
+		{
+			req = updateRequest.set(Quotes.QUOTES.CHANGEINPRICE, quote.getChangeInPrice().getValue());
+		}
+		if (quote.getHigh52Week().isValid())
+		{
+			updateRequest.set(Quotes.QUOTES.HIGH52WEEK, quote.getHigh52Week().getValue());
+		}
+		if (quote.getHighPrice().isValid())
+		{
+			updateRequest.set(Quotes.QUOTES.HIGHPRICE, quote.getHighPrice().getValue());
+		}
+		if (quote.getLow52Week().isValid())
+		{
+			updateRequest.set(Quotes.QUOTES.LOW52WEEK, quote.getLow52Week().getValue());
+		}
+		if (quote.getLowPrice().isValid())
+		{
+			updateRequest.set(Quotes.QUOTES.LOWPRICE, quote.getLowPrice().getValue());
+		}
+		if (quote.getLastTradedPrice().isValid())
+		{
+			updateRequest.set(Quotes.QUOTES.LASTTRADEDPRICE, quote.getLastTradedPrice().getValue());
+		}
+		if (quote.getMobileAverage200Days().isValid())
+		{
+			updateRequest.set(Quotes.QUOTES.MOBILEAVERAGE200DAYS, quote.getMobileAverage200Days().getValue());
+		}		
+		if (quote.getMobileAverage50Days().isValid())
+		{
+			updateRequest.set(Quotes.QUOTES.MOBILEAVERAGE50DAYS, quote.getMobileAverage50Days().getValue());
+		}		
+		if (quote.getOpenPrice().isValid())
+		{
+			updateRequest.set(Quotes.QUOTES.OPENPRICE, quote.getOpenPrice().getValue());
+		}
+		if (quote.getPeRatio().isValid())
+		{
+			updateRequest.set(Quotes.QUOTES.PERATIO, quote.getPeRatio().getValue());
+		}
+		if (quote.getPreviousClose().isValid())
+		{
+			updateRequest.set(Quotes.QUOTES.PREVIOUSCLOSE, quote.getPreviousClose().getValue());
+		}
+		if (quote.getShortRatio().isValid())
+		{
+			updateRequest.set(Quotes.QUOTES.SHORTRATIO, quote.getShortRatio().getValue());
+		}
+		if (quote.getVolume().isValid())
+		{
+			updateRequest.set(Quotes.QUOTES.VOLUME, quote.getVolume().getValue());
+		}
+		if (req == null)
+		{
+			logger.error("no update param found");
+			return null;
+		}
+		return req.where(Quotes.QUOTES.IDQUOTES.eq(quoteDB.getIdQuote()));
+		
+//	      .set(Quotes.QUOTES.HIGH52WEEK, 12.0)
+	//      .set(AUTHOR.LAST_NAME, "Hesse")
+	  //    .where(Quotes.QUOTES.IDQUOTES.eq(3))
+	     // .execute();
+	}
 }
 

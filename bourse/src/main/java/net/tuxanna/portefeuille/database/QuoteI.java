@@ -15,12 +15,14 @@ public interface QuoteI
 	//new version using jooq
 	List<QuoteDB> readQuotations(ConditionQuoteI condition);
 	
-	boolean storeQuotation(List<QuoteDB> listQuote);
+	boolean insertQuotation(List<QuoteDB> listQuote);
+	boolean updateQuotationInDatabase(List<QuoteDB> quoteList);
 	
 	void deleteOutdatedQuotes(Date limitDateForDeletion);
 
 	//return list ID to be checked
 	List<Integer> checkQuotes();
+
 	
 
 }

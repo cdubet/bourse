@@ -412,7 +412,7 @@ public class PortfolioManagement
 		fillListOfQuotation(listShares, quotationsForTicker,listOfQuotationsDB);
 
 		//save them in DB
-		if (!database.storeQuotation(listOfQuotationsDB.getList()))
+		if (!database.insertQuotation(listOfQuotationsDB.getList()))
 		{
 			logger.error("enable to save-> aborting ");
 			return false;

@@ -490,8 +490,11 @@ public class TestDatabaseWithDbUnit
 		assertNull(share);
 	}
 	
-	@Test
-	public void LoadQuotesBeforeDefinedDate()
+	private Integer getShareIdToSearchFor()
+	{
+		return 3;
+	}
+	private ConditionQuoteI getSearchConditionToGetOneQuoteFromDatabase()
 	{
 		Calendar cal = Calendar.getInstance(); 
 		cal.set(Calendar.YEAR, 2016);
@@ -502,32 +505,38 @@ public class TestDatabaseWithDbUnit
 		cal.set(Calendar.SECOND, 0);
 		
 		Date testTime = cal.getTime();
-		Integer shareIdToSearchFor=3;
+
 		
-		ConditionQuoteI searchCondition=new ConditionQuoteDateBefore(testTime,shareIdToSearchFor);
-		List<QuoteDB>  listQuote=testDb.readQuotations(searchCondition);
-			
+		return new ConditionQuoteDateBefore(testTime,getShareIdToSearchFor());
+	}
+	
+	@Test
+	public void LoadQuotesBeforeDefinedDate()
+	{
+
+		List<QuoteDB>  listQuote=testDb.readQuotations(getSearchConditionToGetOneQuoteFromDatabase());
+
 		assertNotNull(listQuote);
 		assertEquals(1, listQuote.size());
-		
-		 cal.setTime(listQuote.get(0).getDate());
+		Calendar cal = Calendar.getInstance(); 
+		cal.setTime(listQuote.get(0).getDate());
 
 		//expected 
-		 //	<QUOTES IDQUOTES="33" IDSHARE="3" DATEQUOTE="2016-10-14 09:41:42.0"
-		 //LASTTRADEDPRICE="560.0" CHANGEINPRICE="40.05" OPENPRICE="40.08"
-		 //HIGHPRICE="40.02" LOWPRICE="40.05" VOLUME="40.013" LOW52WEEK="40.04"
-		 //HIGH52WEEK="40.01" MOBILEAVERAGE50DAYS="40.07" MOBILEAVERAGE200DAYS="40.06"
-		 //PREVIOUSCLOSE="40.011" PERATIO="40.09" SHORTRATIO="40.012" />
+		//	<QUOTES IDQUOTES="33" IDSHARE="3" DATEQUOTE="2016-10-14 09:41:42.0"
+		//LASTTRADEDPRICE="560.0" CHANGEINPRICE="40.05" OPENPRICE="40.08"
+		//HIGHPRICE="40.02" LOWPRICE="40.05" VOLUME="40.013" LOW52WEEK="40.04"
+		//HIGH52WEEK="40.01" MOBILEAVERAGE50DAYS="40.07" MOBILEAVERAGE200DAYS="40.06"
+		//PREVIOUSCLOSE="40.011" PERATIO="40.09" SHORTRATIO="40.012" />
 		assertEquals(14, cal.get(Calendar.DAY_OF_MONTH));
 		assertEquals(2016, cal.get(Calendar.YEAR));
 		assertEquals(9, cal.get(Calendar.MONTH)); //month starts at 0
-		
+
 		assertEquals(40.013,listQuote.get(0).getQuotation().getVolume().getValue(),0.001);
 		assertEquals(560.0,listQuote.get(0).getQuotation().getLastTradedPrice().getValue(),0.001);
 		assertEquals(40.08,listQuote.get(0).getQuotation().getOpenPrice().getValue(),0.001);
-		
+
 		assertEquals(33,listQuote.get(0).getIdQuote());
-		assertEquals(shareIdToSearchFor.intValue(),listQuote.get(0).getIdShare());
+		assertEquals(getShareIdToSearchFor().intValue(),listQuote.get(0).getIdShare());
 	}
 	
 	@Test
@@ -573,5 +582,25 @@ public class TestDatabaseWithDbUnit
 		assertEquals(32,listQuote.get(1).getIdQuote());
 		assertEquals(33,listQuote.get(2).getIdQuote());
 		assertEquals(34,listQuote.get(3).getIdQuote());
+	}
+	
+	@Test
+	public void SaveExistingQuote()
+	{
+		List<QuoteDB>  listQuote=testDb.readQuotations(getSearchConditionToGetOneQuoteFromDatabase());
+		assertNotNull(listQuote);
+		assertEquals(1, listQuote.size());
+		double lastTradedPriceExpected=9846.123;
+		listQuote.get(0).getQuotation().setLastTradedPrice(lastTradedPriceExpected);
+		
+		//act
+		boolean res=testDb.updateQuotationInDatabase(listQuote);
+		
+		assertTrue(res);
+		List<QuoteDB>  newListQuote=testDb.readQuotations(getSearchConditionToGetOneQuoteFromDatabase());
+		assertNotNull(newListQuote);
+		assertEquals(1, newListQuote.size());
+		assertEquals(lastTradedPriceExpected,newListQuote.get(0).getQuotation().getLastTradedPrice().getValue(),0.01);
+		
 	}
 }

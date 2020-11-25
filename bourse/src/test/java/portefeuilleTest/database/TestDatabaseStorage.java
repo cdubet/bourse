@@ -186,7 +186,7 @@ public class TestDatabaseStorage
 			fullQuotationsToWrite.add(quoteDb);
 		}
 		
-		res=testDb.storeQuotation(fullQuotationsToWrite);
+		res=testDb.insertQuotation(fullQuotationsToWrite);
 		assertTrue(res);
 		
 		Calendar cal = Calendar.getInstance(); // creates calendar
@@ -209,7 +209,7 @@ public class TestDatabaseStorage
 			quoteDb.setDate(newDate);
 			partiallyFilledQuotationsToWrite.add(quoteDb);
 		}
-		res=testDb.storeQuotation(partiallyFilledQuotationsToWrite);
+		res=testDb.insertQuotation(partiallyFilledQuotationsToWrite);
 		assertTrue(res);
 		
 		// now read and check;

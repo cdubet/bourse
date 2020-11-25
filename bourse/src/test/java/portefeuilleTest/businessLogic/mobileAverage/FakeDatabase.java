@@ -60,7 +60,7 @@ public class FakeDatabase implements DatabaseI
 	}
 
 	@Override
-	public boolean storeQuotation(List<QuoteDB> listQuote)
+	public boolean insertQuotation(List<QuoteDB> listQuote)
 	{
 		// TODO Auto-generated method stub
 		return false;
@@ -154,6 +154,13 @@ public class FakeDatabase implements DatabaseI
 	{
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean updateQuotationInDatabase(List<QuoteDB> quoteList)
+	{
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
