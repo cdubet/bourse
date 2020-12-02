@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class InformationSchemaCatalogName extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -1835333727;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.INFORMATION_SCHEMA_CATALOG_NAME</code>
@@ -42,13 +43,14 @@ public class InformationSchemaCatalogName extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.INFORMATION_SCHEMA_CATALOG_NAME.CATALOG_NAME</code>. catalog name
      */
-    public final TableField<Record, String> CATALOG_NAME = createField(DSL.name("CATALOG_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "catalog name");
+    public final TableField<Record, String> CATALOG_NAME = createField(DSL.name("CATALOG_NAME"), SQLDataType.VARCHAR(128), this, "catalog name");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.INFORMATION_SCHEMA_CATALOG_NAME</code> table reference
-     */
-    public InformationSchemaCatalogName() {
-        this(DSL.name("INFORMATION_SCHEMA_CATALOG_NAME"), null);
+    private InformationSchemaCatalogName(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private InformationSchemaCatalogName(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("the catalog defined within this database"), TableOptions.table());
     }
 
     /**
@@ -65,12 +67,11 @@ public class InformationSchemaCatalogName extends TableImpl<Record> {
         this(alias, INFORMATION_SCHEMA_CATALOG_NAME);
     }
 
-    private InformationSchemaCatalogName(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private InformationSchemaCatalogName(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("the catalog defined within this database"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.INFORMATION_SCHEMA_CATALOG_NAME</code> table reference
+     */
+    public InformationSchemaCatalogName() {
+        this(DSL.name("INFORMATION_SCHEMA_CATALOG_NAME"), null);
     }
 
     public <O extends Record> InformationSchemaCatalogName(Table<O> child, ForeignKey<O, Record> key) {

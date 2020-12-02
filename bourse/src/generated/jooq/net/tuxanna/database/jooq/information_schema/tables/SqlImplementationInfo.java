@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SqlImplementationInfo extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 566281860;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO</code>
@@ -42,33 +43,34 @@ public class SqlImplementationInfo extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.IMPLEMENTATION_INFO_ID</code>.
      */
-    public final TableField<Record, Long> IMPLEMENTATION_INFO_ID = createField(DSL.name("IMPLEMENTATION_INFO_ID"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> IMPLEMENTATION_INFO_ID = createField(DSL.name("IMPLEMENTATION_INFO_ID"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.IMPLEMENTATION_INFO_NAME</code>.
      */
-    public final TableField<Record, String> IMPLEMENTATION_INFO_NAME = createField(DSL.name("IMPLEMENTATION_INFO_NAME"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> IMPLEMENTATION_INFO_NAME = createField(DSL.name("IMPLEMENTATION_INFO_NAME"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.INTEGER_VALUE</code>.
      */
-    public final TableField<Record, Long> INTEGER_VALUE = createField(DSL.name("INTEGER_VALUE"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> INTEGER_VALUE = createField(DSL.name("INTEGER_VALUE"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.CHARACTER_VALUE</code>.
      */
-    public final TableField<Record, String> CHARACTER_VALUE = createField(DSL.name("CHARACTER_VALUE"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> CHARACTER_VALUE = createField(DSL.name("CHARACTER_VALUE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.COMMENTS</code>.
      */
-    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), SQLDataType.VARCHAR(65536), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO</code> table reference
-     */
-    public SqlImplementationInfo() {
-        this(DSL.name("SQL_IMPLEMENTATION_INFO"), null);
+    private SqlImplementationInfo(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private SqlImplementationInfo(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("list of implementation specific limits"), TableOptions.table());
     }
 
     /**
@@ -85,12 +87,11 @@ public class SqlImplementationInfo extends TableImpl<Record> {
         this(alias, SQL_IMPLEMENTATION_INFO);
     }
 
-    private SqlImplementationInfo(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private SqlImplementationInfo(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("list of implementation specific limits"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO</code> table reference
+     */
+    public SqlImplementationInfo() {
+        this(DSL.name("SQL_IMPLEMENTATION_INFO"), null);
     }
 
     public <O extends Record> SqlImplementationInfo(Table<O> child, ForeignKey<O, Record> key) {

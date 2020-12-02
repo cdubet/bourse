@@ -28,6 +28,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import net.tuxanna.portefeuille.database.ConditionPortfolioI;
+import net.tuxanna.portefeuille.database.ConditionPortfolioSharesMatchShareId;
 import net.tuxanna.portefeuille.database.ConditionQuoteDateBefore;
 import net.tuxanna.portefeuille.database.ConditionQuoteI;
 import net.tuxanna.portefeuille.database.Database;
@@ -601,6 +603,22 @@ public class TestDatabaseWithDbUnit
 		assertNotNull(newListQuote);
 		assertEquals(1, newListQuote.size());
 		assertEquals(lastTradedPriceExpected,newListQuote.get(0).getQuotation().getLastTradedPrice().getValue(),0.01);
+		
+	}
+	
+	@Test
+	public void whenMoreThanOneNameMatch_LoadPortfolio_returnsAll()
+	{
+		Integer idShareIn2Portfolios=4;
+		ConditionPortfolioI condition = new ConditionPortfolioSharesMatchShareId(idShareIn2Portfolios);
+		
+		//act
+		List<PortfolioDB> listSharesinPortfolio = testDb.loadSharesInPortfolio(condition);
+
+		assertEquals(2,listSharesinPortfolio.size());
+		assertEquals(idShareIn2Portfolios.intValue(),listSharesinPortfolio.get(0).getIdShare());
+		assertEquals(idShareIn2Portfolios.intValue(),listSharesinPortfolio.get(1).getIdShare());
+		assertNotEquals(listSharesinPortfolio.get(1).getIdPortfolio(), listSharesinPortfolio.get(0).getIdPortfolio());
 		
 	}
 }

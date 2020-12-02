@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SystemTabletypes extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 677027510;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_TABLETYPES</code>
@@ -42,13 +43,14 @@ public class SystemTabletypes extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLETYPES.TABLE_TYPE</code>. table type name
      */
-    public final TableField<Record, String> TABLE_TYPE = createField(DSL.name("TABLE_TYPE"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "table type name");
+    public final TableField<Record, String> TABLE_TYPE = createField(DSL.name("TABLE_TYPE"), SQLDataType.VARCHAR(128), this, "table type name");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_TABLETYPES</code> table reference
-     */
-    public SystemTabletypes() {
-        this(DSL.name("SYSTEM_TABLETYPES"), null);
+    private SystemTabletypes(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private SystemTabletypes(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("the types of tables that can be created/found within this database"), TableOptions.table());
     }
 
     /**
@@ -65,12 +67,11 @@ public class SystemTabletypes extends TableImpl<Record> {
         this(alias, SYSTEM_TABLETYPES);
     }
 
-    private SystemTabletypes(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private SystemTabletypes(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("the types of tables that can be created/found within this database"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_TABLETYPES</code> table reference
+     */
+    public SystemTabletypes() {
+        this(DSL.name("SYSTEM_TABLETYPES"), null);
     }
 
     public <O extends Record> SystemTabletypes(Table<O> child, ForeignKey<O, Record> key) {

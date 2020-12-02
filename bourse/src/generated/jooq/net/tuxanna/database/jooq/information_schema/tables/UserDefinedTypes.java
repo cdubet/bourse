@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UserDefinedTypes extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -538115762;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES</code>
@@ -42,188 +43,189 @@ public class UserDefinedTypes extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.USER_DEFINED_TYPE_CATALOG</code>.
      */
-    public final TableField<Record, String> USER_DEFINED_TYPE_CATALOG = createField(DSL.name("USER_DEFINED_TYPE_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> USER_DEFINED_TYPE_CATALOG = createField(DSL.name("USER_DEFINED_TYPE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.USER_DEFINED_TYPE_SCHEMA</code>.
      */
-    public final TableField<Record, String> USER_DEFINED_TYPE_SCHEMA = createField(DSL.name("USER_DEFINED_TYPE_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> USER_DEFINED_TYPE_SCHEMA = createField(DSL.name("USER_DEFINED_TYPE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.USER_DEFINED_TYPE_NAME</code>.
      */
-    public final TableField<Record, String> USER_DEFINED_TYPE_NAME = createField(DSL.name("USER_DEFINED_TYPE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> USER_DEFINED_TYPE_NAME = createField(DSL.name("USER_DEFINED_TYPE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.USER_DEFINED_TYPE_CATEGORY</code>.
      */
-    public final TableField<Record, String> USER_DEFINED_TYPE_CATEGORY = createField(DSL.name("USER_DEFINED_TYPE_CATEGORY"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> USER_DEFINED_TYPE_CATEGORY = createField(DSL.name("USER_DEFINED_TYPE_CATEGORY"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.IS_INSTANTIABLE</code>.
      */
-    public final TableField<Record, String> IS_INSTANTIABLE = createField(DSL.name("IS_INSTANTIABLE"), org.jooq.impl.SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_INSTANTIABLE = createField(DSL.name("IS_INSTANTIABLE"), SQLDataType.VARCHAR(3), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.IS_FINAL</code>.
      */
-    public final TableField<Record, String> IS_FINAL = createField(DSL.name("IS_FINAL"), org.jooq.impl.SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_FINAL = createField(DSL.name("IS_FINAL"), SQLDataType.VARCHAR(3), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.ORDERING_FORM</code>.
      */
-    public final TableField<Record, String> ORDERING_FORM = createField(DSL.name("ORDERING_FORM"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ORDERING_FORM = createField(DSL.name("ORDERING_FORM"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.ORDERING_CATEGORY</code>.
      */
-    public final TableField<Record, String> ORDERING_CATEGORY = createField(DSL.name("ORDERING_CATEGORY"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ORDERING_CATEGORY = createField(DSL.name("ORDERING_CATEGORY"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.ORDERING_ROUTINE_CATALOG</code>.
      */
-    public final TableField<Record, String> ORDERING_ROUTINE_CATALOG = createField(DSL.name("ORDERING_ROUTINE_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ORDERING_ROUTINE_CATALOG = createField(DSL.name("ORDERING_ROUTINE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.ORDERING_ROUTINE_SCHEMA</code>.
      */
-    public final TableField<Record, String> ORDERING_ROUTINE_SCHEMA = createField(DSL.name("ORDERING_ROUTINE_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ORDERING_ROUTINE_SCHEMA = createField(DSL.name("ORDERING_ROUTINE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.ORDERING_ROUTINE_NAME</code>.
      */
-    public final TableField<Record, String> ORDERING_ROUTINE_NAME = createField(DSL.name("ORDERING_ROUTINE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ORDERING_ROUTINE_NAME = createField(DSL.name("ORDERING_ROUTINE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.REFERENCE_TYPE</code>.
      */
-    public final TableField<Record, String> REFERENCE_TYPE = createField(DSL.name("REFERENCE_TYPE"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> REFERENCE_TYPE = createField(DSL.name("REFERENCE_TYPE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.DATA_TYPE</code>.
      */
-    public final TableField<Record, String> DATA_TYPE = createField(DSL.name("DATA_TYPE"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> DATA_TYPE = createField(DSL.name("DATA_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.CHARACTER_MAXIMUM_LENGTH</code>.
      */
-    public final TableField<Record, Long> CHARACTER_MAXIMUM_LENGTH = createField(DSL.name("CHARACTER_MAXIMUM_LENGTH"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> CHARACTER_MAXIMUM_LENGTH = createField(DSL.name("CHARACTER_MAXIMUM_LENGTH"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.CHARACTER_OCTET_LENGTH</code>.
      */
-    public final TableField<Record, Long> CHARACTER_OCTET_LENGTH = createField(DSL.name("CHARACTER_OCTET_LENGTH"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> CHARACTER_OCTET_LENGTH = createField(DSL.name("CHARACTER_OCTET_LENGTH"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.CHARACTER_SET_CATALOG</code>.
      */
-    public final TableField<Record, String> CHARACTER_SET_CATALOG = createField(DSL.name("CHARACTER_SET_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> CHARACTER_SET_CATALOG = createField(DSL.name("CHARACTER_SET_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.CHARACTER_SET_SCHEMA</code>.
      */
-    public final TableField<Record, String> CHARACTER_SET_SCHEMA = createField(DSL.name("CHARACTER_SET_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> CHARACTER_SET_SCHEMA = createField(DSL.name("CHARACTER_SET_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.CHARACTER_SET_NAME</code>.
      */
-    public final TableField<Record, String> CHARACTER_SET_NAME = createField(DSL.name("CHARACTER_SET_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> CHARACTER_SET_NAME = createField(DSL.name("CHARACTER_SET_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.COLLATION_CATALOG</code>.
      */
-    public final TableField<Record, String> COLLATION_CATALOG = createField(DSL.name("COLLATION_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> COLLATION_CATALOG = createField(DSL.name("COLLATION_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.COLLATION_SCHEMA</code>.
      */
-    public final TableField<Record, String> COLLATION_SCHEMA = createField(DSL.name("COLLATION_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> COLLATION_SCHEMA = createField(DSL.name("COLLATION_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.COLLATION_NAME</code>.
      */
-    public final TableField<Record, String> COLLATION_NAME = createField(DSL.name("COLLATION_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> COLLATION_NAME = createField(DSL.name("COLLATION_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.NUMERIC_PRECISION</code>.
      */
-    public final TableField<Record, Long> NUMERIC_PRECISION = createField(DSL.name("NUMERIC_PRECISION"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> NUMERIC_PRECISION = createField(DSL.name("NUMERIC_PRECISION"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.NUMERIC_PRECISION_RADIX</code>.
      */
-    public final TableField<Record, Long> NUMERIC_PRECISION_RADIX = createField(DSL.name("NUMERIC_PRECISION_RADIX"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> NUMERIC_PRECISION_RADIX = createField(DSL.name("NUMERIC_PRECISION_RADIX"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.NUMERIC_SCALE</code>.
      */
-    public final TableField<Record, Long> NUMERIC_SCALE = createField(DSL.name("NUMERIC_SCALE"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> NUMERIC_SCALE = createField(DSL.name("NUMERIC_SCALE"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.DATETIME_PRECISION</code>.
      */
-    public final TableField<Record, Long> DATETIME_PRECISION = createField(DSL.name("DATETIME_PRECISION"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> DATETIME_PRECISION = createField(DSL.name("DATETIME_PRECISION"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.INTERVAL_TYPE</code>.
      */
-    public final TableField<Record, String> INTERVAL_TYPE = createField(DSL.name("INTERVAL_TYPE"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> INTERVAL_TYPE = createField(DSL.name("INTERVAL_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.INTERVAL_PRECISION</code>.
      */
-    public final TableField<Record, Long> INTERVAL_PRECISION = createField(DSL.name("INTERVAL_PRECISION"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> INTERVAL_PRECISION = createField(DSL.name("INTERVAL_PRECISION"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.SOURCE_DTD_IDENTIFIER</code>.
      */
-    public final TableField<Record, String> SOURCE_DTD_IDENTIFIER = createField(DSL.name("SOURCE_DTD_IDENTIFIER"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> SOURCE_DTD_IDENTIFIER = createField(DSL.name("SOURCE_DTD_IDENTIFIER"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.REF_DTD_IDENTIFIER</code>.
      */
-    public final TableField<Record, String> REF_DTD_IDENTIFIER = createField(DSL.name("REF_DTD_IDENTIFIER"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> REF_DTD_IDENTIFIER = createField(DSL.name("REF_DTD_IDENTIFIER"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.DECLARED_DATA_TYPE</code>.
      */
-    public final TableField<Record, String> DECLARED_DATA_TYPE = createField(DSL.name("DECLARED_DATA_TYPE"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> DECLARED_DATA_TYPE = createField(DSL.name("DECLARED_DATA_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.DECLARED_NUMERIC_PRECISION</code>.
      */
-    public final TableField<Record, Long> DECLARED_NUMERIC_PRECISION = createField(DSL.name("DECLARED_NUMERIC_PRECISION"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> DECLARED_NUMERIC_PRECISION = createField(DSL.name("DECLARED_NUMERIC_PRECISION"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.DECLARED_NUMERIC_SCALE</code>.
      */
-    public final TableField<Record, Long> DECLARED_NUMERIC_SCALE = createField(DSL.name("DECLARED_NUMERIC_SCALE"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> DECLARED_NUMERIC_SCALE = createField(DSL.name("DECLARED_NUMERIC_SCALE"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.MAXIMUM_CARDINALITY</code>.
      */
-    public final TableField<Record, Long> MAXIMUM_CARDINALITY = createField(DSL.name("MAXIMUM_CARDINALITY"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> MAXIMUM_CARDINALITY = createField(DSL.name("MAXIMUM_CARDINALITY"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.EXTERNAL_NAME</code>.
      */
-    public final TableField<Record, String> EXTERNAL_NAME = createField(DSL.name("EXTERNAL_NAME"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> EXTERNAL_NAME = createField(DSL.name("EXTERNAL_NAME"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.EXTERNAL_LANGUAGE</code>.
      */
-    public final TableField<Record, String> EXTERNAL_LANGUAGE = createField(DSL.name("EXTERNAL_LANGUAGE"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> EXTERNAL_LANGUAGE = createField(DSL.name("EXTERNAL_LANGUAGE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.JAVA_INTERFACE</code>.
      */
-    public final TableField<Record, String> JAVA_INTERFACE = createField(DSL.name("JAVA_INTERFACE"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> JAVA_INTERFACE = createField(DSL.name("JAVA_INTERFACE"), SQLDataType.VARCHAR(65536), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES</code> table reference
-     */
-    public UserDefinedTypes() {
-        this(DSL.name("USER_DEFINED_TYPES"), null);
+    private UserDefinedTypes(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private UserDefinedTypes(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("one row for each user defined type"), TableOptions.table());
     }
 
     /**
@@ -240,12 +242,11 @@ public class UserDefinedTypes extends TableImpl<Record> {
         this(alias, USER_DEFINED_TYPES);
     }
 
-    private UserDefinedTypes(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private UserDefinedTypes(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("one row for each user defined type"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES</code> table reference
+     */
+    public UserDefinedTypes() {
+        this(DSL.name("USER_DEFINED_TYPES"), null);
     }
 
     public <O extends Record> UserDefinedTypes(Table<O> child, ForeignKey<O, Record> key) {

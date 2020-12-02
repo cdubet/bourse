@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -25,7 +26,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SystemIndexstats extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 1020387005;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS</code>
@@ -43,68 +44,69 @@ public class SystemIndexstats extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.TABLE_CATALOG</code>.
      */
-    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.TABLE_SCHEMA</code>.
      */
-    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.TABLE_NAME</code>.
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.TABLE_TYPE</code>.
      */
-    public final TableField<Record, String> TABLE_TYPE = createField(DSL.name("TABLE_TYPE"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_TYPE = createField(DSL.name("TABLE_TYPE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.INDEX_NAME</code>.
      */
-    public final TableField<Record, String> INDEX_NAME = createField(DSL.name("INDEX_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> INDEX_NAME = createField(DSL.name("INDEX_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.ORDINAL_POSITION</code>.
      */
-    public final TableField<Record, Long> ORDINAL_POSITION = createField(DSL.name("ORDINAL_POSITION"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> ORDINAL_POSITION = createField(DSL.name("ORDINAL_POSITION"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.CARDINALITY</code>.
      */
-    public final TableField<Record, Long> CARDINALITY = createField(DSL.name("CARDINALITY"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> CARDINALITY = createField(DSL.name("CARDINALITY"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.ALLOCATED_ROWS</code>.
      */
-    public final TableField<Record, Long> ALLOCATED_ROWS = createField(DSL.name("ALLOCATED_ROWS"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> ALLOCATED_ROWS = createField(DSL.name("ALLOCATED_ROWS"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.USED_SPACE</code>.
      */
-    public final TableField<Record, Long> USED_SPACE = createField(DSL.name("USED_SPACE"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> USED_SPACE = createField(DSL.name("USED_SPACE"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.ALLOCATED_SPACE</code>.
      */
-    public final TableField<Record, Long> ALLOCATED_SPACE = createField(DSL.name("ALLOCATED_SPACE"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> ALLOCATED_SPACE = createField(DSL.name("ALLOCATED_SPACE"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.SPACE_ID</code>.
      */
-    public final TableField<Record, Long> SPACE_ID = createField(DSL.name("SPACE_ID"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> SPACE_ID = createField(DSL.name("SPACE_ID"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.BASE_SPACE</code>.
      */
-    public final TableField<Record, Long> BASE_SPACE = createField(DSL.name("BASE_SPACE"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> BASE_SPACE = createField(DSL.name("BASE_SPACE"), SQLDataType.BIGINT, this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS</code> table reference
-     */
-    public SystemIndexstats() {
-        this(DSL.name("SYSTEM_INDEXSTATS"), null);
+    private SystemIndexstats(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private SystemIndexstats(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("storage space used by the indices of each accessible table defined within this database"), TableOptions.table());
     }
 
     /**
@@ -121,12 +123,11 @@ public class SystemIndexstats extends TableImpl<Record> {
         this(alias, SYSTEM_INDEXSTATS);
     }
 
-    private SystemIndexstats(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private SystemIndexstats(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("storage space used by the indices of each accessible table defined within this database"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS</code> table reference
+     */
+    public SystemIndexstats() {
+        this(DSL.name("SYSTEM_INDEXSTATS"), null);
     }
 
     public <O extends Record> SystemIndexstats(Table<O> child, ForeignKey<O, Record> key) {

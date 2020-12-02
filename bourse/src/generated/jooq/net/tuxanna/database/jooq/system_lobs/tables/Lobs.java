@@ -20,6 +20,7 @@ import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -29,7 +30,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Lobs extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -973672424;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>SYSTEM_LOBS.LOBS</code>
@@ -47,28 +48,29 @@ public class Lobs extends TableImpl<Record> {
     /**
      * The column <code>SYSTEM_LOBS.LOBS.BLOCK_ADDR</code>.
      */
-    public final TableField<Record, Integer> BLOCK_ADDR = createField(DSL.name("BLOCK_ADDR"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<Record, Integer> BLOCK_ADDR = createField(DSL.name("BLOCK_ADDR"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>SYSTEM_LOBS.LOBS.BLOCK_COUNT</code>.
      */
-    public final TableField<Record, Integer> BLOCK_COUNT = createField(DSL.name("BLOCK_COUNT"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<Record, Integer> BLOCK_COUNT = createField(DSL.name("BLOCK_COUNT"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>SYSTEM_LOBS.LOBS.BLOCK_OFFSET</code>.
      */
-    public final TableField<Record, Integer> BLOCK_OFFSET = createField(DSL.name("BLOCK_OFFSET"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<Record, Integer> BLOCK_OFFSET = createField(DSL.name("BLOCK_OFFSET"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>SYSTEM_LOBS.LOBS.LOB_ID</code>.
      */
-    public final TableField<Record, Long> LOB_ID = createField(DSL.name("LOB_ID"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> LOB_ID = createField(DSL.name("LOB_ID"), SQLDataType.BIGINT, this, "");
 
-    /**
-     * Create a <code>SYSTEM_LOBS.LOBS</code> table reference
-     */
-    public Lobs() {
-        this(DSL.name("LOBS"), null);
+    private Lobs(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private Lobs(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
     }
 
     /**
@@ -85,12 +87,11 @@ public class Lobs extends TableImpl<Record> {
         this(alias, LOBS);
     }
 
-    private Lobs(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private Lobs(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
+    /**
+     * Create a <code>SYSTEM_LOBS.LOBS</code> table reference
+     */
+    public Lobs() {
+        this(DSL.name("LOBS"), null);
     }
 
     public <O extends Record> Lobs(Table<O> child, ForeignKey<O, Record> key) {

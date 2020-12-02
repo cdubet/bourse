@@ -17,6 +17,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -26,7 +27,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Triggers extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -910862590;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.TRIGGERS</code>
@@ -44,93 +45,94 @@ public class Triggers extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_CATALOG</code>.
      */
-    public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_SCHEMA</code>.
      */
-    public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_NAME</code>.
      */
-    public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.EVENT_MANIPULATION</code>.
      */
-    public final TableField<Record, String> EVENT_MANIPULATION = createField(DSL.name("EVENT_MANIPULATION"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> EVENT_MANIPULATION = createField(DSL.name("EVENT_MANIPULATION"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.EVENT_OBJECT_CATALOG</code>.
      */
-    public final TableField<Record, String> EVENT_OBJECT_CATALOG = createField(DSL.name("EVENT_OBJECT_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> EVENT_OBJECT_CATALOG = createField(DSL.name("EVENT_OBJECT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.EVENT_OBJECT_SCHEMA</code>.
      */
-    public final TableField<Record, String> EVENT_OBJECT_SCHEMA = createField(DSL.name("EVENT_OBJECT_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> EVENT_OBJECT_SCHEMA = createField(DSL.name("EVENT_OBJECT_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.EVENT_OBJECT_TABLE</code>.
      */
-    public final TableField<Record, String> EVENT_OBJECT_TABLE = createField(DSL.name("EVENT_OBJECT_TABLE"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> EVENT_OBJECT_TABLE = createField(DSL.name("EVENT_OBJECT_TABLE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_ORDER</code>.
      */
-    public final TableField<Record, Long> ACTION_ORDER = createField(DSL.name("ACTION_ORDER"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> ACTION_ORDER = createField(DSL.name("ACTION_ORDER"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_CONDITION</code>.
      */
-    public final TableField<Record, String> ACTION_CONDITION = createField(DSL.name("ACTION_CONDITION"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> ACTION_CONDITION = createField(DSL.name("ACTION_CONDITION"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_STATEMENT</code>.
      */
-    public final TableField<Record, String> ACTION_STATEMENT = createField(DSL.name("ACTION_STATEMENT"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> ACTION_STATEMENT = createField(DSL.name("ACTION_STATEMENT"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_ORIENTATION</code>.
      */
-    public final TableField<Record, String> ACTION_ORIENTATION = createField(DSL.name("ACTION_ORIENTATION"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> ACTION_ORIENTATION = createField(DSL.name("ACTION_ORIENTATION"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_TIMING</code>.
      */
-    public final TableField<Record, String> ACTION_TIMING = createField(DSL.name("ACTION_TIMING"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> ACTION_TIMING = createField(DSL.name("ACTION_TIMING"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_REFERENCE_OLD_TABLE</code>.
      */
-    public final TableField<Record, String> ACTION_REFERENCE_OLD_TABLE = createField(DSL.name("ACTION_REFERENCE_OLD_TABLE"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ACTION_REFERENCE_OLD_TABLE = createField(DSL.name("ACTION_REFERENCE_OLD_TABLE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_REFERENCE_NEW_TABLE</code>.
      */
-    public final TableField<Record, String> ACTION_REFERENCE_NEW_TABLE = createField(DSL.name("ACTION_REFERENCE_NEW_TABLE"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ACTION_REFERENCE_NEW_TABLE = createField(DSL.name("ACTION_REFERENCE_NEW_TABLE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_REFERENCE_OLD_ROW</code>.
      */
-    public final TableField<Record, String> ACTION_REFERENCE_OLD_ROW = createField(DSL.name("ACTION_REFERENCE_OLD_ROW"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ACTION_REFERENCE_OLD_ROW = createField(DSL.name("ACTION_REFERENCE_OLD_ROW"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_REFERENCE_NEW_ROW</code>.
      */
-    public final TableField<Record, String> ACTION_REFERENCE_NEW_ROW = createField(DSL.name("ACTION_REFERENCE_NEW_ROW"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ACTION_REFERENCE_NEW_ROW = createField(DSL.name("ACTION_REFERENCE_NEW_ROW"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.CREATED</code>.
      */
-    public final TableField<Record, LocalDateTime> CREATED = createField(DSL.name("CREATED"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "");
+    public final TableField<Record, LocalDateTime> CREATED = createField(DSL.name("CREATED"), SQLDataType.LOCALDATETIME(6), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.TRIGGERS</code> table reference
-     */
-    public Triggers() {
-        this(DSL.name("TRIGGERS"), null);
+    private Triggers(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private Triggers(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("one row for each trigger definition"), TableOptions.table());
     }
 
     /**
@@ -147,12 +149,11 @@ public class Triggers extends TableImpl<Record> {
         this(alias, TRIGGERS);
     }
 
-    private Triggers(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private Triggers(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("one row for each trigger definition"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.TRIGGERS</code> table reference
+     */
+    public Triggers() {
+        this(DSL.name("TRIGGERS"), null);
     }
 
     public <O extends Record> Triggers(Table<O> child, ForeignKey<O, Record> key) {

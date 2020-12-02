@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SqlSizing extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -1760587309;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.SQL_SIZING</code>
@@ -42,28 +43,29 @@ public class SqlSizing extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_SIZING.SIZING_ID</code>.
      */
-    public final TableField<Record, Long> SIZING_ID = createField(DSL.name("SIZING_ID"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> SIZING_ID = createField(DSL.name("SIZING_ID"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_SIZING.SIZING_NAME</code>.
      */
-    public final TableField<Record, String> SIZING_NAME = createField(DSL.name("SIZING_NAME"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> SIZING_NAME = createField(DSL.name("SIZING_NAME"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_SIZING.SUPPORTED_VALUE</code>.
      */
-    public final TableField<Record, Long> SUPPORTED_VALUE = createField(DSL.name("SUPPORTED_VALUE"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> SUPPORTED_VALUE = createField(DSL.name("SUPPORTED_VALUE"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_SIZING.COMMENTS</code>.
      */
-    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), SQLDataType.VARCHAR(65536), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.SQL_SIZING</code> table reference
-     */
-    public SqlSizing() {
-        this(DSL.name("SQL_SIZING"), null);
+    private SqlSizing(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private SqlSizing(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("list of size limits for names and database objects"), TableOptions.table());
     }
 
     /**
@@ -80,12 +82,11 @@ public class SqlSizing extends TableImpl<Record> {
         this(alias, SQL_SIZING);
     }
 
-    private SqlSizing(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private SqlSizing(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("list of size limits for names and database objects"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.SQL_SIZING</code> table reference
+     */
+    public SqlSizing() {
+        this(DSL.name("SQL_SIZING"), null);
     }
 
     public <O extends Record> SqlSizing(Table<O> child, ForeignKey<O, Record> key) {

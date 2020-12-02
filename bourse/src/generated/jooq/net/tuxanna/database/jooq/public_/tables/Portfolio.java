@@ -21,6 +21,7 @@ import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -30,7 +31,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Portfolio extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 585079122;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>PUBLIC.PORTFOLIO</code>
@@ -48,38 +49,39 @@ public class Portfolio extends TableImpl<Record> {
     /**
      * The column <code>PUBLIC.PORTFOLIO.IDPORTFOLIO</code>.
      */
-    public final TableField<Record, Integer> IDPORTFOLIO = createField(DSL.name("IDPORTFOLIO"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "");
+    public final TableField<Record, Integer> IDPORTFOLIO = createField(DSL.name("IDPORTFOLIO"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>PUBLIC.PORTFOLIO.IDSHARE</code>.
      */
-    public final TableField<Record, Integer> IDSHARE = createField(DSL.name("IDSHARE"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<Record, Integer> IDSHARE = createField(DSL.name("IDSHARE"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>PUBLIC.PORTFOLIO.IDACCOUNT</code>.
      */
-    public final TableField<Record, Integer> IDACCOUNT = createField(DSL.name("IDACCOUNT"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<Record, Integer> IDACCOUNT = createField(DSL.name("IDACCOUNT"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>PUBLIC.PORTFOLIO.QTE</code>.
      */
-    public final TableField<Record, Double> QTE = createField(DSL.name("QTE"), org.jooq.impl.SQLDataType.DOUBLE, this, "");
+    public final TableField<Record, Double> QTE = createField(DSL.name("QTE"), SQLDataType.DOUBLE, this, "");
 
     /**
      * The column <code>PUBLIC.PORTFOLIO.UNITPRICE</code>.
      */
-    public final TableField<Record, Double> UNITPRICE = createField(DSL.name("UNITPRICE"), org.jooq.impl.SQLDataType.DOUBLE, this, "");
+    public final TableField<Record, Double> UNITPRICE = createField(DSL.name("UNITPRICE"), SQLDataType.DOUBLE, this, "");
 
     /**
      * The column <code>PUBLIC.PORTFOLIO.USEFORSUMMARY</code>.
      */
-    public final TableField<Record, Integer> USEFORSUMMARY = createField(DSL.name("USEFORSUMMARY"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<Record, Integer> USEFORSUMMARY = createField(DSL.name("USEFORSUMMARY"), SQLDataType.INTEGER.nullable(false), this, "");
 
-    /**
-     * Create a <code>PUBLIC.PORTFOLIO</code> table reference
-     */
-    public Portfolio() {
-        this(DSL.name("PORTFOLIO"), null);
+    private Portfolio(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private Portfolio(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
     }
 
     /**
@@ -96,12 +98,11 @@ public class Portfolio extends TableImpl<Record> {
         this(alias, PORTFOLIO);
     }
 
-    private Portfolio(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private Portfolio(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
+    /**
+     * Create a <code>PUBLIC.PORTFOLIO</code> table reference
+     */
+    public Portfolio() {
+        this(DSL.name("PORTFOLIO"), null);
     }
 
     public <O extends Record> Portfolio(Table<O> child, ForeignKey<O, Record> key) {
@@ -115,7 +116,7 @@ public class Portfolio extends TableImpl<Record> {
 
     @Override
     public Identity<Record, Integer> getIdentity() {
-        return Keys.IDENTITY_PORTFOLIO;
+        return (Identity<Record, Integer>) super.getIdentity();
     }
 
     @Override

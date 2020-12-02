@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -25,7 +26,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SystemComments extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -1256547875;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_COMMENTS</code>
@@ -43,38 +44,39 @@ public class SystemComments extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COMMENTS.OBJECT_CATALOG</code>.
      */
-    public final TableField<Record, String> OBJECT_CATALOG = createField(DSL.name("OBJECT_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> OBJECT_CATALOG = createField(DSL.name("OBJECT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COMMENTS.OBJECT_SCHEMA</code>.
      */
-    public final TableField<Record, String> OBJECT_SCHEMA = createField(DSL.name("OBJECT_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> OBJECT_SCHEMA = createField(DSL.name("OBJECT_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COMMENTS.OBJECT_NAME</code>.
      */
-    public final TableField<Record, String> OBJECT_NAME = createField(DSL.name("OBJECT_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> OBJECT_NAME = createField(DSL.name("OBJECT_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COMMENTS.OBJECT_TYPE</code>.
      */
-    public final TableField<Record, String> OBJECT_TYPE = createField(DSL.name("OBJECT_TYPE"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> OBJECT_TYPE = createField(DSL.name("OBJECT_TYPE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COMMENTS.COLUMN_NAME</code>.
      */
-    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COMMENTS.COMMENT</code>.
      */
-    public final TableField<Record, String> COMMENT = createField(DSL.name("COMMENT"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> COMMENT = createField(DSL.name("COMMENT"), SQLDataType.VARCHAR(65536), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_COMMENTS</code> table reference
-     */
-    public SystemComments() {
-        this(DSL.name("SYSTEM_COMMENTS"), null);
+    private SystemComments(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private SystemComments(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("comments on tables, views, columns, sequences, triggers and routines defined by users or system"), TableOptions.table());
     }
 
     /**
@@ -91,12 +93,11 @@ public class SystemComments extends TableImpl<Record> {
         this(alias, SYSTEM_COMMENTS);
     }
 
-    private SystemComments(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private SystemComments(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("comments on tables, views, columns, sequences, triggers and routines defined by users or system"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_COMMENTS</code> table reference
+     */
+    public SystemComments() {
+        this(DSL.name("SYSTEM_COMMENTS"), null);
     }
 
     public <O extends Record> SystemComments(Table<O> child, ForeignKey<O, Record> key) {

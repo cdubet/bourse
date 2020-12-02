@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SystemUsers extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 529112248;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_USERS</code>
@@ -42,33 +43,34 @@ public class SystemUsers extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_USERS.USER_NAME</code>. user name
      */
-    public final TableField<Record, String> USER_NAME = createField(DSL.name("USER_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "user name");
+    public final TableField<Record, String> USER_NAME = createField(DSL.name("USER_NAME"), SQLDataType.VARCHAR(128), this, "user name");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_USERS.ADMIN</code>. has the administrative privilege?
      */
-    public final TableField<Record, Boolean> ADMIN = createField(DSL.name("ADMIN"), org.jooq.impl.SQLDataType.BOOLEAN, this, "has the administrative privilege?");
+    public final TableField<Record, Boolean> ADMIN = createField(DSL.name("ADMIN"), SQLDataType.BOOLEAN, this, "has the administrative privilege?");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_USERS.INITIAL_SCHEMA</code>. initial schema for user
      */
-    public final TableField<Record, String> INITIAL_SCHEMA = createField(DSL.name("INITIAL_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "initial schema for user");
+    public final TableField<Record, String> INITIAL_SCHEMA = createField(DSL.name("INITIAL_SCHEMA"), SQLDataType.VARCHAR(128), this, "initial schema for user");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_USERS.AUTHENTICATION</code>. method of identification for the user
      */
-    public final TableField<Record, String> AUTHENTICATION = createField(DSL.name("AUTHENTICATION"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "method of identification for the user");
+    public final TableField<Record, String> AUTHENTICATION = createField(DSL.name("AUTHENTICATION"), SQLDataType.VARCHAR(128), this, "method of identification for the user");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_USERS.PASSWORD_DIGEST</code>. password digest
      */
-    public final TableField<Record, String> PASSWORD_DIGEST = createField(DSL.name("PASSWORD_DIGEST"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "password digest");
+    public final TableField<Record, String> PASSWORD_DIGEST = createField(DSL.name("PASSWORD_DIGEST"), SQLDataType.VARCHAR(128), this, "password digest");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_USERS</code> table reference
-     */
-    public SystemUsers() {
-        this(DSL.name("SYSTEM_USERS"), null);
+    private SystemUsers(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private SystemUsers(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("users defined within this database"), TableOptions.table());
     }
 
     /**
@@ -85,12 +87,11 @@ public class SystemUsers extends TableImpl<Record> {
         this(alias, SYSTEM_USERS);
     }
 
-    private SystemUsers(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private SystemUsers(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("users defined within this database"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_USERS</code> table reference
+     */
+    public SystemUsers() {
+        this(DSL.name("SYSTEM_USERS"), null);
     }
 
     public <O extends Record> SystemUsers(Table<O> child, ForeignKey<O, Record> key) {

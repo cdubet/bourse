@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DataTypePrivileges extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -1235588758;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES</code>
@@ -42,33 +43,34 @@ public class DataTypePrivileges extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES.OBJECT_CATALOG</code>.
      */
-    public final TableField<Record, String> OBJECT_CATALOG = createField(DSL.name("OBJECT_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> OBJECT_CATALOG = createField(DSL.name("OBJECT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES.OBJECT_SCHEMA</code>.
      */
-    public final TableField<Record, String> OBJECT_SCHEMA = createField(DSL.name("OBJECT_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> OBJECT_SCHEMA = createField(DSL.name("OBJECT_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES.OBJECT_NAME</code>.
      */
-    public final TableField<Record, String> OBJECT_NAME = createField(DSL.name("OBJECT_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> OBJECT_NAME = createField(DSL.name("OBJECT_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES.OBJECT_TYPE</code>.
      */
-    public final TableField<Record, String> OBJECT_TYPE = createField(DSL.name("OBJECT_TYPE"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> OBJECT_TYPE = createField(DSL.name("OBJECT_TYPE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES.DTD_IDENTIFIER</code>.
      */
-    public final TableField<Record, String> DTD_IDENTIFIER = createField(DSL.name("DTD_IDENTIFIER"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> DTD_IDENTIFIER = createField(DSL.name("DTD_IDENTIFIER"), SQLDataType.VARCHAR(128), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES</code> table reference
-     */
-    public DataTypePrivileges() {
-        this(DSL.name("DATA_TYPE_PRIVILEGES"), null);
+    private DataTypePrivileges(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private DataTypePrivileges(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("one row for each usage privilege granted on a user defined type"), TableOptions.table());
     }
 
     /**
@@ -85,12 +87,11 @@ public class DataTypePrivileges extends TableImpl<Record> {
         this(alias, DATA_TYPE_PRIVILEGES);
     }
 
-    private DataTypePrivileges(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private DataTypePrivileges(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("one row for each usage privilege granted on a user defined type"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES</code> table reference
+     */
+    public DataTypePrivileges() {
+        this(DSL.name("DATA_TYPE_PRIVILEGES"), null);
     }
 
     public <O extends Record> DataTypePrivileges(Table<O> child, ForeignKey<O, Record> key) {

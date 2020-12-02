@@ -103,7 +103,7 @@ import net.tuxanna.database.jooq.information_schema.tables.Views;
 
 
 /**
- * Convenience access to all tables in INFORMATION_SCHEMA
+ * Convenience access to all tables in INFORMATION_SCHEMA.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {

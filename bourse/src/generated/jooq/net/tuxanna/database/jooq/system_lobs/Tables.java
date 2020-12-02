@@ -11,7 +11,7 @@ import net.tuxanna.database.jooq.system_lobs.tables.Parts;
 
 
 /**
- * Convenience access to all tables in SYSTEM_LOBS
+ * Convenience access to all tables in SYSTEM_LOBS.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {

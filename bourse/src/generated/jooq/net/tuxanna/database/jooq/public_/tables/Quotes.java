@@ -22,6 +22,7 @@ import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -31,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Quotes extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -208778895;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>PUBLIC.QUOTES</code>
@@ -49,88 +50,89 @@ public class Quotes extends TableImpl<Record> {
     /**
      * The column <code>PUBLIC.QUOTES.IDQUOTES</code>.
      */
-    public final TableField<Record, Integer> IDQUOTES = createField(DSL.name("IDQUOTES"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "");
+    public final TableField<Record, Integer> IDQUOTES = createField(DSL.name("IDQUOTES"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>PUBLIC.QUOTES.IDSHARE</code>.
      */
-    public final TableField<Record, Integer> IDSHARE = createField(DSL.name("IDSHARE"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<Record, Integer> IDSHARE = createField(DSL.name("IDSHARE"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>PUBLIC.QUOTES.DATEQUOTE</code>.
      */
-    public final TableField<Record, LocalDateTime> DATEQUOTE = createField(DSL.name("DATEQUOTE"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false), this, "");
+    public final TableField<Record, LocalDateTime> DATEQUOTE = createField(DSL.name("DATEQUOTE"), SQLDataType.LOCALDATETIME(6).nullable(false), this, "");
 
     /**
      * The column <code>PUBLIC.QUOTES.LASTTRADEDPRICE</code>.
      */
-    public final TableField<Record, Double> LASTTRADEDPRICE = createField(DSL.name("LASTTRADEDPRICE"), org.jooq.impl.SQLDataType.DOUBLE.nullable(false), this, "");
+    public final TableField<Record, Double> LASTTRADEDPRICE = createField(DSL.name("LASTTRADEDPRICE"), SQLDataType.DOUBLE.nullable(false), this, "");
 
     /**
      * The column <code>PUBLIC.QUOTES.CHANGEINPRICE</code>.
      */
-    public final TableField<Record, Double> CHANGEINPRICE = createField(DSL.name("CHANGEINPRICE"), org.jooq.impl.SQLDataType.DOUBLE, this, "");
+    public final TableField<Record, Double> CHANGEINPRICE = createField(DSL.name("CHANGEINPRICE"), SQLDataType.DOUBLE, this, "");
 
     /**
      * The column <code>PUBLIC.QUOTES.OPENPRICE</code>.
      */
-    public final TableField<Record, Double> OPENPRICE = createField(DSL.name("OPENPRICE"), org.jooq.impl.SQLDataType.DOUBLE, this, "");
+    public final TableField<Record, Double> OPENPRICE = createField(DSL.name("OPENPRICE"), SQLDataType.DOUBLE, this, "");
 
     /**
      * The column <code>PUBLIC.QUOTES.HIGHPRICE</code>.
      */
-    public final TableField<Record, Double> HIGHPRICE = createField(DSL.name("HIGHPRICE"), org.jooq.impl.SQLDataType.DOUBLE, this, "");
+    public final TableField<Record, Double> HIGHPRICE = createField(DSL.name("HIGHPRICE"), SQLDataType.DOUBLE, this, "");
 
     /**
      * The column <code>PUBLIC.QUOTES.LOWPRICE</code>.
      */
-    public final TableField<Record, Double> LOWPRICE = createField(DSL.name("LOWPRICE"), org.jooq.impl.SQLDataType.DOUBLE, this, "");
+    public final TableField<Record, Double> LOWPRICE = createField(DSL.name("LOWPRICE"), SQLDataType.DOUBLE, this, "");
 
     /**
      * The column <code>PUBLIC.QUOTES.VOLUME</code>.
      */
-    public final TableField<Record, Double> VOLUME = createField(DSL.name("VOLUME"), org.jooq.impl.SQLDataType.DOUBLE, this, "");
+    public final TableField<Record, Double> VOLUME = createField(DSL.name("VOLUME"), SQLDataType.DOUBLE, this, "");
 
     /**
      * The column <code>PUBLIC.QUOTES.LOW52WEEK</code>.
      */
-    public final TableField<Record, Double> LOW52WEEK = createField(DSL.name("LOW52WEEK"), org.jooq.impl.SQLDataType.DOUBLE, this, "");
+    public final TableField<Record, Double> LOW52WEEK = createField(DSL.name("LOW52WEEK"), SQLDataType.DOUBLE, this, "");
 
     /**
      * The column <code>PUBLIC.QUOTES.HIGH52WEEK</code>.
      */
-    public final TableField<Record, Double> HIGH52WEEK = createField(DSL.name("HIGH52WEEK"), org.jooq.impl.SQLDataType.DOUBLE, this, "");
+    public final TableField<Record, Double> HIGH52WEEK = createField(DSL.name("HIGH52WEEK"), SQLDataType.DOUBLE, this, "");
 
     /**
      * The column <code>PUBLIC.QUOTES.MOBILEAVERAGE50DAYS</code>.
      */
-    public final TableField<Record, Double> MOBILEAVERAGE50DAYS = createField(DSL.name("MOBILEAVERAGE50DAYS"), org.jooq.impl.SQLDataType.DOUBLE, this, "");
+    public final TableField<Record, Double> MOBILEAVERAGE50DAYS = createField(DSL.name("MOBILEAVERAGE50DAYS"), SQLDataType.DOUBLE, this, "");
 
     /**
      * The column <code>PUBLIC.QUOTES.MOBILEAVERAGE200DAYS</code>.
      */
-    public final TableField<Record, Double> MOBILEAVERAGE200DAYS = createField(DSL.name("MOBILEAVERAGE200DAYS"), org.jooq.impl.SQLDataType.DOUBLE, this, "");
+    public final TableField<Record, Double> MOBILEAVERAGE200DAYS = createField(DSL.name("MOBILEAVERAGE200DAYS"), SQLDataType.DOUBLE, this, "");
 
     /**
      * The column <code>PUBLIC.QUOTES.PREVIOUSCLOSE</code>.
      */
-    public final TableField<Record, Double> PREVIOUSCLOSE = createField(DSL.name("PREVIOUSCLOSE"), org.jooq.impl.SQLDataType.DOUBLE, this, "");
+    public final TableField<Record, Double> PREVIOUSCLOSE = createField(DSL.name("PREVIOUSCLOSE"), SQLDataType.DOUBLE, this, "");
 
     /**
      * The column <code>PUBLIC.QUOTES.PERATIO</code>.
      */
-    public final TableField<Record, Double> PERATIO = createField(DSL.name("PERATIO"), org.jooq.impl.SQLDataType.DOUBLE, this, "");
+    public final TableField<Record, Double> PERATIO = createField(DSL.name("PERATIO"), SQLDataType.DOUBLE, this, "");
 
     /**
      * The column <code>PUBLIC.QUOTES.SHORTRATIO</code>.
      */
-    public final TableField<Record, Double> SHORTRATIO = createField(DSL.name("SHORTRATIO"), org.jooq.impl.SQLDataType.DOUBLE, this, "");
+    public final TableField<Record, Double> SHORTRATIO = createField(DSL.name("SHORTRATIO"), SQLDataType.DOUBLE, this, "");
 
-    /**
-     * Create a <code>PUBLIC.QUOTES</code> table reference
-     */
-    public Quotes() {
-        this(DSL.name("QUOTES"), null);
+    private Quotes(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private Quotes(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
     }
 
     /**
@@ -147,12 +149,11 @@ public class Quotes extends TableImpl<Record> {
         this(alias, QUOTES);
     }
 
-    private Quotes(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private Quotes(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
+    /**
+     * Create a <code>PUBLIC.QUOTES</code> table reference
+     */
+    public Quotes() {
+        this(DSL.name("QUOTES"), null);
     }
 
     public <O extends Record> Quotes(Table<O> child, ForeignKey<O, Record> key) {
@@ -166,7 +167,7 @@ public class Quotes extends TableImpl<Record> {
 
     @Override
     public Identity<Record, Integer> getIdentity() {
-        return Keys.IDENTITY_QUOTES;
+        return (Identity<Record, Integer>) super.getIdentity();
     }
 
     @Override

@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Periods extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -16872258;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.PERIODS</code>
@@ -42,38 +43,39 @@ public class Periods extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.PERIODS.TABLE_CATALOG</code>.
      */
-    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.PERIODS.TABLE_SCHEMA</code>.
      */
-    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.PERIODS.TABLE_NAME</code>.
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.PERIODS.PERIOD_NAME</code>.
      */
-    public final TableField<Record, String> PERIOD_NAME = createField(DSL.name("PERIOD_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> PERIOD_NAME = createField(DSL.name("PERIOD_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.PERIODS.START_COLUMN_NAME</code>.
      */
-    public final TableField<Record, String> START_COLUMN_NAME = createField(DSL.name("START_COLUMN_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> START_COLUMN_NAME = createField(DSL.name("START_COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.PERIODS.END_COLUMN_NAME</code>.
      */
-    public final TableField<Record, String> END_COLUMN_NAME = createField(DSL.name("END_COLUMN_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> END_COLUMN_NAME = createField(DSL.name("END_COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.PERIODS</code> table reference
-     */
-    public Periods() {
-        this(DSL.name("PERIODS"), null);
+    private Periods(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private Periods(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("one row for each system time or application period"), TableOptions.table());
     }
 
     /**
@@ -90,12 +92,11 @@ public class Periods extends TableImpl<Record> {
         this(alias, PERIODS);
     }
 
-    private Periods(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private Periods(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("one row for each system time or application period"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.PERIODS</code> table reference
+     */
+    public Periods() {
+        this(DSL.name("PERIODS"), null);
     }
 
     public <O extends Record> Periods(Table<O> child, ForeignKey<O, Record> key) {

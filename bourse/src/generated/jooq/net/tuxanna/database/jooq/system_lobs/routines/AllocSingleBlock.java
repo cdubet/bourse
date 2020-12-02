@@ -9,6 +9,7 @@ import net.tuxanna.database.jooq.system_lobs.SystemLobs;
 import org.jooq.Parameter;
 import org.jooq.impl.AbstractRoutine;
 import org.jooq.impl.Internal;
+import org.jooq.impl.SQLDataType;
 
 
 /**
@@ -17,22 +18,22 @@ import org.jooq.impl.Internal;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class AllocSingleBlock extends AbstractRoutine<java.lang.Void> {
 
-    private static final long serialVersionUID = 1024114302;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The parameter <code>SYSTEM_LOBS.ALLOC_SINGLE_BLOCK.B_COUNT</code>.
      */
-    public static final Parameter<Integer> B_COUNT = Internal.createParameter("B_COUNT", org.jooq.impl.SQLDataType.INTEGER, false, false);
+    public static final Parameter<Integer> B_COUNT = Internal.createParameter("B_COUNT", SQLDataType.INTEGER, false, false);
 
     /**
      * The parameter <code>SYSTEM_LOBS.ALLOC_SINGLE_BLOCK.B_OFFSET</code>.
      */
-    public static final Parameter<Integer> B_OFFSET = Internal.createParameter("B_OFFSET", org.jooq.impl.SQLDataType.INTEGER, false, false);
+    public static final Parameter<Integer> B_OFFSET = Internal.createParameter("B_OFFSET", SQLDataType.INTEGER, false, false);
 
     /**
      * The parameter <code>SYSTEM_LOBS.ALLOC_SINGLE_BLOCK.L_ID</code>.
      */
-    public static final Parameter<Long> L_ID = Internal.createParameter("L_ID", org.jooq.impl.SQLDataType.BIGINT, false, false);
+    public static final Parameter<Long> L_ID = Internal.createParameter("L_ID", SQLDataType.BIGINT, false, false);
 
     /**
      * Create a new routine call instance

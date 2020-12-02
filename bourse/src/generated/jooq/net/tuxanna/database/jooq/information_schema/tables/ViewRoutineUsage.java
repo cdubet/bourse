@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -27,7 +28,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewRoutineUsage extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -676999502;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE</code>
@@ -45,38 +46,39 @@ public class ViewRoutineUsage extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE.VIEW_CATALOG</code>.
      */
-    public final TableField<Record, String> VIEW_CATALOG = createField(DSL.name("VIEW_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> VIEW_CATALOG = createField(DSL.name("VIEW_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE.VIEW_SCHEMA</code>.
      */
-    public final TableField<Record, String> VIEW_SCHEMA = createField(DSL.name("VIEW_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> VIEW_SCHEMA = createField(DSL.name("VIEW_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE.VIEW_NAME</code>.
      */
-    public final TableField<Record, String> VIEW_NAME = createField(DSL.name("VIEW_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> VIEW_NAME = createField(DSL.name("VIEW_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE.SPECIFIC_CATALOG</code>.
      */
-    public final TableField<Record, String> SPECIFIC_CATALOG = createField(DSL.name("SPECIFIC_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_CATALOG = createField(DSL.name("SPECIFIC_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE.SPECIFIC_SCHEMA</code>.
      */
-    public final TableField<Record, String> SPECIFIC_SCHEMA = createField(DSL.name("SPECIFIC_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_SCHEMA = createField(DSL.name("SPECIFIC_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE.SPECIFIC_NAME</code>.
      */
-    public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), SQLDataType.VARCHAR(128), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE</code> table reference
-     */
-    public ViewRoutineUsage() {
-        this(DSL.name("VIEW_ROUTINE_USAGE"), null);
+    private ViewRoutineUsage(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private ViewRoutineUsage(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("one row for each SQL-invoked routine identified as the subject routine of either a <routine invocation>, a <method reference>, a <method invocation>, or a <static method invocation> contained in a <view definition>"), TableOptions.table());
     }
 
     /**
@@ -93,12 +95,11 @@ public class ViewRoutineUsage extends TableImpl<Record> {
         this(alias, VIEW_ROUTINE_USAGE);
     }
 
-    private ViewRoutineUsage(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private ViewRoutineUsage(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("one row for each SQL-invoked routine identified as the subject routine of either a <routine invocation>, a <method reference>, a <method invocation>, or a <static method invocation> contained in a <view definition>"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE</code> table reference
+     */
+    public ViewRoutineUsage() {
+        this(DSL.name("VIEW_ROUTINE_USAGE"), null);
     }
 
     public <O extends Record> ViewRoutineUsage(Table<O> child, ForeignKey<O, Record> key) {

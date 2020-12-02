@@ -22,6 +22,7 @@ import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -31,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class LobIds extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 1381235127;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>SYSTEM_LOBS.LOB_IDS</code>
@@ -49,28 +50,29 @@ public class LobIds extends TableImpl<Record> {
     /**
      * The column <code>SYSTEM_LOBS.LOB_IDS.LOB_ID</code>.
      */
-    public final TableField<Record, Long> LOB_ID = createField(DSL.name("LOB_ID"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> LOB_ID = createField(DSL.name("LOB_ID"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>SYSTEM_LOBS.LOB_IDS.LOB_LENGTH</code>.
      */
-    public final TableField<Record, Long> LOB_LENGTH = createField(DSL.name("LOB_LENGTH"), org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
+    public final TableField<Record, Long> LOB_LENGTH = createField(DSL.name("LOB_LENGTH"), SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
      * The column <code>SYSTEM_LOBS.LOB_IDS.LOB_USAGE_COUNT</code>.
      */
-    public final TableField<Record, Integer> LOB_USAGE_COUNT = createField(DSL.name("LOB_USAGE_COUNT"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("0", org.jooq.impl.SQLDataType.INTEGER)), this, "");
+    public final TableField<Record, Integer> LOB_USAGE_COUNT = createField(DSL.name("LOB_USAGE_COUNT"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field("0", SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>SYSTEM_LOBS.LOB_IDS.LOB_TYPE</code>.
      */
-    public final TableField<Record, Short> LOB_TYPE = createField(DSL.name("LOB_TYPE"), org.jooq.impl.SQLDataType.SMALLINT.nullable(false), this, "");
+    public final TableField<Record, Short> LOB_TYPE = createField(DSL.name("LOB_TYPE"), SQLDataType.SMALLINT.nullable(false), this, "");
 
-    /**
-     * Create a <code>SYSTEM_LOBS.LOB_IDS</code> table reference
-     */
-    public LobIds() {
-        this(DSL.name("LOB_IDS"), null);
+    private LobIds(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private LobIds(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
     }
 
     /**
@@ -87,12 +89,11 @@ public class LobIds extends TableImpl<Record> {
         this(alias, LOB_IDS);
     }
 
-    private LobIds(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private LobIds(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
+    /**
+     * Create a <code>SYSTEM_LOBS.LOB_IDS</code> table reference
+     */
+    public LobIds() {
+        this(DSL.name("LOB_IDS"), null);
     }
 
     public <O extends Record> LobIds(Table<O> child, ForeignKey<O, Record> key) {

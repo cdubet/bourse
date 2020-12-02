@@ -12,83 +12,40 @@ import net.tuxanna.database.jooq.public_.tables.Sell;
 import net.tuxanna.database.jooq.public_.tables.Shares;
 
 import org.jooq.ForeignKey;
-import org.jooq.Identity;
 import org.jooq.Record;
 import org.jooq.TableField;
 import org.jooq.UniqueKey;
+import org.jooq.impl.DSL;
 import org.jooq.impl.Internal;
 
 
 /**
- * A class modelling foreign key relationships and constraints of tables of 
- * the <code>PUBLIC</code> schema.
+ * A class modelling foreign key relationships and constraints of tables in 
+ * PUBLIC.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Keys {
 
     // -------------------------------------------------------------------------
-    // IDENTITY definitions
-    // -------------------------------------------------------------------------
-
-    public static final Identity<Record, Integer> IDENTITY_ACCOUNT = Identities0.IDENTITY_ACCOUNT;
-    public static final Identity<Record, Integer> IDENTITY_BUY = Identities0.IDENTITY_BUY;
-    public static final Identity<Record, Integer> IDENTITY_PORTFOLIO = Identities0.IDENTITY_PORTFOLIO;
-    public static final Identity<Record, Integer> IDENTITY_QUOTES = Identities0.IDENTITY_QUOTES;
-    public static final Identity<Record, Integer> IDENTITY_SELL = Identities0.IDENTITY_SELL;
-    public static final Identity<Record, Integer> IDENTITY_SHARES = Identities0.IDENTITY_SHARES;
-
-    // -------------------------------------------------------------------------
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final UniqueKey<Record> SYS_PK_10115 = UniqueKeys0.SYS_PK_10115;
-    public static final UniqueKey<Record> SYS_PK_10151 = UniqueKeys0.SYS_PK_10151;
-    public static final UniqueKey<Record> SYS_PK_10121 = UniqueKeys0.SYS_PK_10121;
-    public static final UniqueKey<Record> SYS_PK_10104 = UniqueKeys0.SYS_PK_10104;
-    public static final UniqueKey<Record> SYS_PK_10133 = UniqueKeys0.SYS_PK_10133;
-    public static final UniqueKey<Record> SYS_PK_10092 = UniqueKeys0.SYS_PK_10092;
+    public static final UniqueKey<Record> SYS_PK_10115 = Internal.createUniqueKey(Account.ACCOUNT, DSL.name("SYS_PK_10115"), new TableField[] { Account.ACCOUNT.IDACCOUNT }, true);
+    public static final UniqueKey<Record> SYS_PK_10151 = Internal.createUniqueKey(Buy.BUY, DSL.name("SYS_PK_10151"), new TableField[] { Buy.BUY.IDBUY }, true);
+    public static final UniqueKey<Record> SYS_PK_10121 = Internal.createUniqueKey(Portfolio.PORTFOLIO, DSL.name("SYS_PK_10121"), new TableField[] { Portfolio.PORTFOLIO.IDPORTFOLIO }, true);
+    public static final UniqueKey<Record> SYS_PK_10104 = Internal.createUniqueKey(Quotes.QUOTES, DSL.name("SYS_PK_10104"), new TableField[] { Quotes.QUOTES.IDQUOTES }, true);
+    public static final UniqueKey<Record> SYS_PK_10133 = Internal.createUniqueKey(Sell.SELL, DSL.name("SYS_PK_10133"), new TableField[] { Sell.SELL.IDSELL }, true);
+    public static final UniqueKey<Record> SYS_PK_10092 = Internal.createUniqueKey(Shares.SHARES, DSL.name("SYS_PK_10092"), new TableField[] { Shares.SHARES.IDSHARE }, true);
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final ForeignKey<Record, Record> SYS_FK_10156 = ForeignKeys0.SYS_FK_10156;
-    public static final ForeignKey<Record, Record> SYS_FK_10157 = ForeignKeys0.SYS_FK_10157;
-    public static final ForeignKey<Record, Record> SYS_FK_10123 = ForeignKeys0.SYS_FK_10123;
-    public static final ForeignKey<Record, Record> SYS_FK_10124 = ForeignKeys0.SYS_FK_10124;
-    public static final ForeignKey<Record, Record> SYS_FK_10107 = ForeignKeys0.SYS_FK_10107;
-    public static final ForeignKey<Record, Record> SYS_FK_10138 = ForeignKeys0.SYS_FK_10138;
-    public static final ForeignKey<Record, Record> SYS_FK_10139 = ForeignKeys0.SYS_FK_10139;
-
-    // -------------------------------------------------------------------------
-    // [#1459] distribute members to avoid static initialisers > 64kb
-    // -------------------------------------------------------------------------
-
-    private static class Identities0 {
-        public static Identity<Record, Integer> IDENTITY_ACCOUNT = Internal.createIdentity(Account.ACCOUNT, Account.ACCOUNT.IDACCOUNT);
-        public static Identity<Record, Integer> IDENTITY_BUY = Internal.createIdentity(Buy.BUY, Buy.BUY.IDBUY);
-        public static Identity<Record, Integer> IDENTITY_PORTFOLIO = Internal.createIdentity(Portfolio.PORTFOLIO, Portfolio.PORTFOLIO.IDPORTFOLIO);
-        public static Identity<Record, Integer> IDENTITY_QUOTES = Internal.createIdentity(Quotes.QUOTES, Quotes.QUOTES.IDQUOTES);
-        public static Identity<Record, Integer> IDENTITY_SELL = Internal.createIdentity(Sell.SELL, Sell.SELL.IDSELL);
-        public static Identity<Record, Integer> IDENTITY_SHARES = Internal.createIdentity(Shares.SHARES, Shares.SHARES.IDSHARE);
-    }
-
-    private static class UniqueKeys0 {
-        public static final UniqueKey<Record> SYS_PK_10115 = Internal.createUniqueKey(Account.ACCOUNT, "SYS_PK_10115", new TableField[] { Account.ACCOUNT.IDACCOUNT }, true);
-        public static final UniqueKey<Record> SYS_PK_10151 = Internal.createUniqueKey(Buy.BUY, "SYS_PK_10151", new TableField[] { Buy.BUY.IDBUY }, true);
-        public static final UniqueKey<Record> SYS_PK_10121 = Internal.createUniqueKey(Portfolio.PORTFOLIO, "SYS_PK_10121", new TableField[] { Portfolio.PORTFOLIO.IDPORTFOLIO }, true);
-        public static final UniqueKey<Record> SYS_PK_10104 = Internal.createUniqueKey(Quotes.QUOTES, "SYS_PK_10104", new TableField[] { Quotes.QUOTES.IDQUOTES }, true);
-        public static final UniqueKey<Record> SYS_PK_10133 = Internal.createUniqueKey(Sell.SELL, "SYS_PK_10133", new TableField[] { Sell.SELL.IDSELL }, true);
-        public static final UniqueKey<Record> SYS_PK_10092 = Internal.createUniqueKey(Shares.SHARES, "SYS_PK_10092", new TableField[] { Shares.SHARES.IDSHARE }, true);
-    }
-
-    private static class ForeignKeys0 {
-        public static final ForeignKey<Record, Record> SYS_FK_10156 = Internal.createForeignKey(Keys.SYS_PK_10092, Buy.BUY, "SYS_FK_10156", new TableField[] { Buy.BUY.IDSHARE }, true);
-        public static final ForeignKey<Record, Record> SYS_FK_10157 = Internal.createForeignKey(Keys.SYS_PK_10115, Buy.BUY, "SYS_FK_10157", new TableField[] { Buy.BUY.IDACCOUNT }, true);
-        public static final ForeignKey<Record, Record> SYS_FK_10123 = Internal.createForeignKey(Keys.SYS_PK_10092, Portfolio.PORTFOLIO, "SYS_FK_10123", new TableField[] { Portfolio.PORTFOLIO.IDSHARE }, true);
-        public static final ForeignKey<Record, Record> SYS_FK_10124 = Internal.createForeignKey(Keys.SYS_PK_10115, Portfolio.PORTFOLIO, "SYS_FK_10124", new TableField[] { Portfolio.PORTFOLIO.IDACCOUNT }, true);
-        public static final ForeignKey<Record, Record> SYS_FK_10107 = Internal.createForeignKey(Keys.SYS_PK_10092, Quotes.QUOTES, "SYS_FK_10107", new TableField[] { Quotes.QUOTES.IDSHARE }, true);
-        public static final ForeignKey<Record, Record> SYS_FK_10138 = Internal.createForeignKey(Keys.SYS_PK_10092, Sell.SELL, "SYS_FK_10138", new TableField[] { Sell.SELL.IDSHARE }, true);
-        public static final ForeignKey<Record, Record> SYS_FK_10139 = Internal.createForeignKey(Keys.SYS_PK_10115, Sell.SELL, "SYS_FK_10139", new TableField[] { Sell.SELL.IDACCOUNT }, true);
-    }
+    public static final ForeignKey<Record, Record> SYS_FK_10156 = Internal.createForeignKey(Buy.BUY, DSL.name("SYS_FK_10156"), new TableField[] { Buy.BUY.IDSHARE }, Keys.SYS_PK_10092, new TableField[] { Shares.SHARES.IDSHARE }, true);
+    public static final ForeignKey<Record, Record> SYS_FK_10157 = Internal.createForeignKey(Buy.BUY, DSL.name("SYS_FK_10157"), new TableField[] { Buy.BUY.IDACCOUNT }, Keys.SYS_PK_10115, new TableField[] { Account.ACCOUNT.IDACCOUNT }, true);
+    public static final ForeignKey<Record, Record> SYS_FK_10123 = Internal.createForeignKey(Portfolio.PORTFOLIO, DSL.name("SYS_FK_10123"), new TableField[] { Portfolio.PORTFOLIO.IDSHARE }, Keys.SYS_PK_10092, new TableField[] { Shares.SHARES.IDSHARE }, true);
+    public static final ForeignKey<Record, Record> SYS_FK_10124 = Internal.createForeignKey(Portfolio.PORTFOLIO, DSL.name("SYS_FK_10124"), new TableField[] { Portfolio.PORTFOLIO.IDACCOUNT }, Keys.SYS_PK_10115, new TableField[] { Account.ACCOUNT.IDACCOUNT }, true);
+    public static final ForeignKey<Record, Record> SYS_FK_10107 = Internal.createForeignKey(Quotes.QUOTES, DSL.name("SYS_FK_10107"), new TableField[] { Quotes.QUOTES.IDSHARE }, Keys.SYS_PK_10092, new TableField[] { Shares.SHARES.IDSHARE }, true);
+    public static final ForeignKey<Record, Record> SYS_FK_10138 = Internal.createForeignKey(Sell.SELL, DSL.name("SYS_FK_10138"), new TableField[] { Sell.SELL.IDSHARE }, Keys.SYS_PK_10092, new TableField[] { Shares.SHARES.IDSHARE }, true);
+    public static final ForeignKey<Record, Record> SYS_FK_10139 = Internal.createForeignKey(Sell.SELL, DSL.name("SYS_FK_10139"), new TableField[] { Sell.SELL.IDACCOUNT }, Keys.SYS_PK_10115, new TableField[] { Account.ACCOUNT.IDACCOUNT }, true);
 }

@@ -168,16 +168,7 @@ public class Database implements DatabaseI
 			//TODO use JPA annotation and fetch().into(PortfolioDB.class);  instead of looping
 			for (Record portfolioRecord : result)
 			{
-				PortfolioDB portfolioDB=new PortfolioDB();
-				portfolioDB.setIdPortfolio( (int) portfolioRecord.getValue(Portfolio.PORTFOLIO.IDPORTFOLIO));
-				portfolioDB.setIdShare((int) portfolioRecord.getValue(Portfolio.PORTFOLIO.IDSHARE));
-				portfolioDB.setIdAccount((int) portfolioRecord.getValue(Portfolio.PORTFOLIO.IDACCOUNT));
-				portfolioDB.setQte(new DigitValue( portfolioRecord.getValue(Portfolio.PORTFOLIO.QTE)));
-				portfolioDB.setUnitPrice(new DigitValue(portfolioRecord.getValue(Portfolio.PORTFOLIO.UNITPRICE)));
-
-				portfolioDB.setUseForSummary((int)portfolioRecord.getValue(Portfolio.PORTFOLIO.USEFORSUMMARY)!=0);
-
-				listSharesInPorfolios.add(portfolioDB);
+				listSharesInPorfolios.add(fillPortfolioFromRecord(portfolioRecord));
 			}
 			return true;
 		}
@@ -186,6 +177,19 @@ public class Database implements DatabaseI
 			logger.error(e);
 			return false;
 		}
+	}
+
+	private PortfolioDB fillPortfolioFromRecord(Record portfolioRecord)
+	{
+		PortfolioDB portfolioDB=new PortfolioDB();
+		portfolioDB.setIdPortfolio( (int) portfolioRecord.getValue(Portfolio.PORTFOLIO.IDPORTFOLIO));
+		portfolioDB.setIdShare((int) portfolioRecord.getValue(Portfolio.PORTFOLIO.IDSHARE));
+		portfolioDB.setIdAccount((int) portfolioRecord.getValue(Portfolio.PORTFOLIO.IDACCOUNT));
+		portfolioDB.setQte(new DigitValue( portfolioRecord.getValue(Portfolio.PORTFOLIO.QTE)));
+		portfolioDB.setUnitPrice(new DigitValue(portfolioRecord.getValue(Portfolio.PORTFOLIO.UNITPRICE)));
+
+		portfolioDB.setUseForSummary((int)portfolioRecord.getValue(Portfolio.PORTFOLIO.USEFORSUMMARY)!=0);
+		return portfolioDB;
 	}
 
 
@@ -1509,6 +1513,35 @@ public class Database implements DatabaseI
 	//      .set(AUTHOR.LAST_NAME, "Hesse")
 	  //    .where(Quotes.QUOTES.IDQUOTES.eq(3))
 	     // .execute();
+	}
+
+
+	@Override
+	public List<PortfolioDB> loadSharesInPortfolio(ConditionPortfolioI condition)
+	{
+		DSLContext create = DSL.using(conn, SQLDialect.HSQLDB);
+		SelectQuery<Record> query = create.selectQuery();
+		query.addFrom(Portfolio.PORTFOLIO);
+		query.addConditions(condition.getCondition());
+
+		Result<?> result = query.fetch();
+		List<PortfolioDB> listSharesInPorfolios=new ArrayList<>();
+		for (Record portfolioRecord : result)
+		{
+			listSharesInPorfolios.add(fillPortfolioFromRecord(portfolioRecord));
+		}
+		return listSharesInPorfolios;
+	}
+
+	@Override
+	public boolean updateListPortfolio(List<PortfolioDB> listToSave)
+	{
+		boolean result=true;
+		for (PortfolioDB portfolioDB : listToSave)
+		{
+			result= (result && updatePortfolio(portfolioDB));
+		}
+		return result;
 	}
 }
 

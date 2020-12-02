@@ -9,6 +9,7 @@ import net.tuxanna.database.jooq.system_lobs.SystemLobs;
 import org.jooq.Parameter;
 import org.jooq.impl.AbstractRoutine;
 import org.jooq.impl.Internal;
+import org.jooq.impl.SQLDataType;
 
 
 /**
@@ -17,12 +18,12 @@ import org.jooq.impl.Internal;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DeleteUnused extends AbstractRoutine<java.lang.Void> {
 
-    private static final long serialVersionUID = -519985581;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The parameter <code>SYSTEM_LOBS.DELETE_UNUSED.L_IDS</code>.
      */
-    public static final Parameter<Long[]> L_IDS = Internal.createParameter("L_IDS", org.jooq.impl.SQLDataType.BIGINT.getArrayDataType(), false, false);
+    public static final Parameter<Long[]> L_IDS = Internal.createParameter("L_IDS", SQLDataType.BIGINT.getArrayDataType(), false, false);
 
     /**
      * Create a new routine call instance

@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -25,7 +26,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SystemProcedures extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 870131732;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES</code>
@@ -43,53 +44,54 @@ public class SystemProcedures extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.PROCEDURE_CAT</code>. catalog in which procedure is defined
      */
-    public final TableField<Record, String> PROCEDURE_CAT = createField(DSL.name("PROCEDURE_CAT"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "catalog in which procedure is defined");
+    public final TableField<Record, String> PROCEDURE_CAT = createField(DSL.name("PROCEDURE_CAT"), SQLDataType.VARCHAR(128), this, "catalog in which procedure is defined");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.PROCEDURE_SCHEM</code>. schema in which procedure is defined
      */
-    public final TableField<Record, String> PROCEDURE_SCHEM = createField(DSL.name("PROCEDURE_SCHEM"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "schema in which procedure is defined");
+    public final TableField<Record, String> PROCEDURE_SCHEM = createField(DSL.name("PROCEDURE_SCHEM"), SQLDataType.VARCHAR(128), this, "schema in which procedure is defined");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.PROCEDURE_NAME</code>. procedure identifier
      */
-    public final TableField<Record, String> PROCEDURE_NAME = createField(DSL.name("PROCEDURE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "procedure identifier");
+    public final TableField<Record, String> PROCEDURE_NAME = createField(DSL.name("PROCEDURE_NAME"), SQLDataType.VARCHAR(128), this, "procedure identifier");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.COL_4</code>.
      */
-    public final TableField<Record, Integer> COL_4 = createField(DSL.name("COL_4"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<Record, Integer> COL_4 = createField(DSL.name("COL_4"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.COL_5</code>.
      */
-    public final TableField<Record, Integer> COL_5 = createField(DSL.name("COL_5"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<Record, Integer> COL_5 = createField(DSL.name("COL_5"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.COL_6</code>.
      */
-    public final TableField<Record, Integer> COL_6 = createField(DSL.name("COL_6"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<Record, Integer> COL_6 = createField(DSL.name("COL_6"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.REMARKS</code>. explanatory comment on the procedure
      */
-    public final TableField<Record, String> REMARKS = createField(DSL.name("REMARKS"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "explanatory comment on the procedure");
+    public final TableField<Record, String> REMARKS = createField(DSL.name("REMARKS"), SQLDataType.VARCHAR(65536), this, "explanatory comment on the procedure");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.PROCEDURE_TYPE</code>. kind of procedure: { Unknown | No Result | Returns Result }
      */
-    public final TableField<Record, Short> PROCEDURE_TYPE = createField(DSL.name("PROCEDURE_TYPE"), org.jooq.impl.SQLDataType.SMALLINT, this, "kind of procedure: { Unknown | No Result | Returns Result }");
+    public final TableField<Record, Short> PROCEDURE_TYPE = createField(DSL.name("PROCEDURE_TYPE"), SQLDataType.SMALLINT, this, "kind of procedure: { Unknown | No Result | Returns Result }");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.SPECIFIC_NAME</code>. typically, (but not limited to) the fully qualified name and signature of the Java method providing the SQL-invoked routine's entry point
      */
-    public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "typically, (but not limited to) the fully qualified name and signature of the Java method providing the SQL-invoked routine's entry point");
+    public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), SQLDataType.VARCHAR(128), this, "typically, (but not limited to) the fully qualified name and signature of the Java method providing the SQL-invoked routine's entry point");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES</code> table reference
-     */
-    public SystemProcedures() {
-        this(DSL.name("SYSTEM_PROCEDURES"), null);
+    private SystemProcedures(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private SystemProcedures(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("the procedures, SQL functions, trigger body routines and UDT methods defined within the database"), TableOptions.table());
     }
 
     /**
@@ -106,12 +108,11 @@ public class SystemProcedures extends TableImpl<Record> {
         this(alias, SYSTEM_PROCEDURES);
     }
 
-    private SystemProcedures(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private SystemProcedures(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("the procedures, SQL functions, trigger body routines and UDT methods defined within the database"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES</code> table reference
+     */
+    public SystemProcedures() {
+        this(DSL.name("SYSTEM_PROCEDURES"), null);
     }
 
     public <O extends Record> SystemProcedures(Table<O> child, ForeignKey<O, Record> key) {

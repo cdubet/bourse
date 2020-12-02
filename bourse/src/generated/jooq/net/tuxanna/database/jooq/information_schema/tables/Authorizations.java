@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Authorizations extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 2039187607;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.AUTHORIZATIONS</code>
@@ -42,18 +43,19 @@ public class Authorizations extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.AUTHORIZATIONS.AUTHORIZATION_NAME</code>.
      */
-    public final TableField<Record, String> AUTHORIZATION_NAME = createField(DSL.name("AUTHORIZATION_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> AUTHORIZATION_NAME = createField(DSL.name("AUTHORIZATION_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.AUTHORIZATIONS.AUTHORIZATION_TYPE</code>.
      */
-    public final TableField<Record, String> AUTHORIZATION_TYPE = createField(DSL.name("AUTHORIZATION_TYPE"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> AUTHORIZATION_TYPE = createField(DSL.name("AUTHORIZATION_TYPE"), SQLDataType.VARCHAR(128), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.AUTHORIZATIONS</code> table reference
-     */
-    public Authorizations() {
-        this(DSL.name("AUTHORIZATIONS"), null);
+    private Authorizations(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private Authorizations(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("one row for each user and one row for each role"), TableOptions.table());
     }
 
     /**
@@ -70,12 +72,11 @@ public class Authorizations extends TableImpl<Record> {
         this(alias, AUTHORIZATIONS);
     }
 
-    private Authorizations(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private Authorizations(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("one row for each user and one row for each role"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.AUTHORIZATIONS</code> table reference
+     */
+    public Authorizations() {
+        this(DSL.name("AUTHORIZATIONS"), null);
     }
 
     public <O extends Record> Authorizations(Table<O> child, ForeignKey<O, Record> key) {

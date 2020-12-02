@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -25,7 +26,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SystemBestrowidentifier extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 1863497006;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER</code>
@@ -43,73 +44,74 @@ public class SystemBestrowidentifier extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.SCOPE</code>. actual scope of result, as defined in java.sql.DatabaseMetadata
      */
-    public final TableField<Record, Short> SCOPE = createField(DSL.name("SCOPE"), org.jooq.impl.SQLDataType.SMALLINT, this, "actual scope of result, as defined in java.sql.DatabaseMetadata");
+    public final TableField<Record, Short> SCOPE = createField(DSL.name("SCOPE"), SQLDataType.SMALLINT, this, "actual scope of result, as defined in java.sql.DatabaseMetadata");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.COLUMN_NAME</code>. simple column name
      */
-    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "simple column name");
+    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "simple column name");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.DATA_TYPE</code>. SQL data type.  This may be a java.sql.Types data type, a SQL 200n data type or an HSQLDB-specific data type.  For datetime or interval data types, this column returns the concise data type (such as SQL_­TYPE_­TIME or SQL_­INTERVAL_­YEAR_­TO_­MONTH).
      */
-    public final TableField<Record, Short> DATA_TYPE = createField(DSL.name("DATA_TYPE"), org.jooq.impl.SQLDataType.SMALLINT, this, "SQL data type.  This may be a java.sql.Types data type, a SQL 200n data type or an HSQLDB-specific data type.  For datetime or interval data types, this column returns the concise data type (such as SQL_­TYPE_­TIME or SQL_­INTERVAL_­YEAR_­TO_­MONTH).");
+    public final TableField<Record, Short> DATA_TYPE = createField(DSL.name("DATA_TYPE"), SQLDataType.SMALLINT, this, "SQL data type.  This may be a java.sql.Types data type, a SQL 200n data type or an HSQLDB-specific data type.  For datetime or interval data types, this column returns the concise data type (such as SQL_­TYPE_­TIME or SQL_­INTERVAL_­YEAR_­TO_­MONTH).");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.TYPE_NAME</code>. the HSQLDB-specific data type name; this is the canonical name used in CREATE TABLE and ALTER TABLE statements.
      */
-    public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "the HSQLDB-specific data type name; this is the canonical name used in CREATE TABLE and ALTER TABLE statements.");
+    public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), SQLDataType.VARCHAR(128), this, "the HSQLDB-specific data type name; this is the canonical name used in CREATE TABLE and ALTER TABLE statements.");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.COLUMN_SIZE</code>. precision for number types; length for variable sized types; NULL for others
      */
-    public final TableField<Record, Integer> COLUMN_SIZE = createField(DSL.name("COLUMN_SIZE"), org.jooq.impl.SQLDataType.INTEGER, this, "precision for number types; length for variable sized types; NULL for others");
+    public final TableField<Record, Integer> COLUMN_SIZE = createField(DSL.name("COLUMN_SIZE"), SQLDataType.INTEGER, this, "precision for number types; length for variable sized types; NULL for others");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.BUFFER_LENGTH</code>. The maximum length in bytes of data, if definitely known, that would be transferred to a buffer on a fetch operation.  For numeric data, this size may be different than the size of the data stored on the data source.  This value is the same as the COLUMN_SIZE column for binary data. This value is the twice the COLUMN_SIZE column for character data.  If the actual value is larger than can be represented in an INTEGER column value, this is NULL.
      */
-    public final TableField<Record, Integer> BUFFER_LENGTH = createField(DSL.name("BUFFER_LENGTH"), org.jooq.impl.SQLDataType.INTEGER, this, "The maximum length in bytes of data, if definitely known, that would be transferred to a buffer on a fetch operation.  For numeric data, this size may be different than the size of the data stored on the data source.  This value is the same as the COLUMN_SIZE column for binary data. This value is the twice the COLUMN_SIZE column for character data.  If the actual value is larger than can be represented in an INTEGER column value, this is NULL.");
+    public final TableField<Record, Integer> BUFFER_LENGTH = createField(DSL.name("BUFFER_LENGTH"), SQLDataType.INTEGER, this, "The maximum length in bytes of data, if definitely known, that would be transferred to a buffer on a fetch operation.  For numeric data, this size may be different than the size of the data stored on the data source.  This value is the same as the COLUMN_SIZE column for binary data. This value is the twice the COLUMN_SIZE column for character data.  If the actual value is larger than can be represented in an INTEGER column value, this is NULL.");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.DECIMAL_DIGITS</code>. scale of column for number types
      */
-    public final TableField<Record, Short> DECIMAL_DIGITS = createField(DSL.name("DECIMAL_DIGITS"), org.jooq.impl.SQLDataType.SMALLINT, this, "scale of column for number types");
+    public final TableField<Record, Short> DECIMAL_DIGITS = createField(DSL.name("DECIMAL_DIGITS"), SQLDataType.SMALLINT, this, "scale of column for number types");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.PSEUDO_COLUMN</code>. is this a pseudo column like an Oracle ROWID?
      */
-    public final TableField<Record, Short> PSEUDO_COLUMN = createField(DSL.name("PSEUDO_COLUMN"), org.jooq.impl.SQLDataType.SMALLINT, this, "is this a pseudo column like an Oracle ROWID?");
+    public final TableField<Record, Short> PSEUDO_COLUMN = createField(DSL.name("PSEUDO_COLUMN"), SQLDataType.SMALLINT, this, "is this a pseudo column like an Oracle ROWID?");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.TABLE_CAT</code>. catalog in which the table containing the column is defined
      */
-    public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "catalog in which the table containing the column is defined");
+    public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), SQLDataType.VARCHAR(128), this, "catalog in which the table containing the column is defined");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.TABLE_SCHEM</code>. schema in which the table containing the column is defined
      */
-    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "schema in which the table containing the column is defined");
+    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "schema in which the table containing the column is defined");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.TABLE_NAME</code>. simple name of the table containing the column
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "simple name of the table containing the column");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "simple name of the table containing the column");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.NULLABLE</code>. is the column nullable?
      */
-    public final TableField<Record, Short> NULLABLE = createField(DSL.name("NULLABLE"), org.jooq.impl.SQLDataType.SMALLINT, this, "is the column nullable?");
+    public final TableField<Record, Short> NULLABLE = createField(DSL.name("NULLABLE"), SQLDataType.SMALLINT, this, "is the column nullable?");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.IN_KEY</code>. does column participate in primary or alternate key?
      */
-    public final TableField<Record, Boolean> IN_KEY = createField(DSL.name("IN_KEY"), org.jooq.impl.SQLDataType.BOOLEAN, this, "does column participate in primary or alternate key?");
+    public final TableField<Record, Boolean> IN_KEY = createField(DSL.name("IN_KEY"), SQLDataType.BOOLEAN, this, "does column participate in primary or alternate key?");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER</code> table reference
-     */
-    public SystemBestrowidentifier() {
-        this(DSL.name("SYSTEM_BESTROWIDENTIFIER"), null);
+    private SystemBestrowidentifier(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private SystemBestrowidentifier(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("for each accessible table defined within this database, the optimal set of visible columns that uniquely identifies a row"), TableOptions.table());
     }
 
     /**
@@ -126,12 +128,11 @@ public class SystemBestrowidentifier extends TableImpl<Record> {
         this(alias, SYSTEM_BESTROWIDENTIFIER);
     }
 
-    private SystemBestrowidentifier(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private SystemBestrowidentifier(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("for each accessible table defined within this database, the optimal set of visible columns that uniquely identifies a row"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER</code> table reference
+     */
+    public SystemBestrowidentifier() {
+        this(DSL.name("SYSTEM_BESTROWIDENTIFIER"), null);
     }
 
     public <O extends Record> SystemBestrowidentifier(Table<O> child, ForeignKey<O, Record> key) {

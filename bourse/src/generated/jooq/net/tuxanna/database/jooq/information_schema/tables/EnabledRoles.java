@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class EnabledRoles extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 1543694590;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.ENABLED_ROLES</code>
@@ -42,13 +43,14 @@ public class EnabledRoles extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.ENABLED_ROLES.ROLE_NAME</code>.
      */
-    public final TableField<Record, String> ROLE_NAME = createField(DSL.name("ROLE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ROLE_NAME = createField(DSL.name("ROLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.ENABLED_ROLES</code> table reference
-     */
-    public EnabledRoles() {
-        this(DSL.name("ENABLED_ROLES"), null);
+    private EnabledRoles(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private EnabledRoles(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
     }
 
     /**
@@ -65,12 +67,11 @@ public class EnabledRoles extends TableImpl<Record> {
         this(alias, ENABLED_ROLES);
     }
 
-    private EnabledRoles(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private EnabledRoles(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.ENABLED_ROLES</code> table reference
+     */
+    public EnabledRoles() {
+        this(DSL.name("ENABLED_ROLES"), null);
     }
 
     public <O extends Record> EnabledRoles(Table<O> child, ForeignKey<O, Record> key) {

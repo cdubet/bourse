@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SqlParts extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 55020625;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.SQL_PARTS</code>
@@ -42,33 +43,34 @@ public class SqlParts extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_PARTS.PART</code>.
      */
-    public final TableField<Record, String> PART = createField(DSL.name("PART"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> PART = createField(DSL.name("PART"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_PARTS.NAME</code>.
      */
-    public final TableField<Record, String> NAME = createField(DSL.name("NAME"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> NAME = createField(DSL.name("NAME"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_PARTS.IS_SUPPORTED</code>.
      */
-    public final TableField<Record, String> IS_SUPPORTED = createField(DSL.name("IS_SUPPORTED"), org.jooq.impl.SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_SUPPORTED = createField(DSL.name("IS_SUPPORTED"), SQLDataType.VARCHAR(3), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_PARTS.IS_VERIFIED_BY</code>.
      */
-    public final TableField<Record, String> IS_VERIFIED_BY = createField(DSL.name("IS_VERIFIED_BY"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> IS_VERIFIED_BY = createField(DSL.name("IS_VERIFIED_BY"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_PARTS.COMMENTS</code>.
      */
-    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), SQLDataType.VARCHAR(65536), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.SQL_PARTS</code> table reference
-     */
-    public SqlParts() {
-        this(DSL.name("SQL_PARTS"), null);
+    private SqlParts(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private SqlParts(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("list of supported SQL Standard parts"), TableOptions.table());
     }
 
     /**
@@ -85,12 +87,11 @@ public class SqlParts extends TableImpl<Record> {
         this(alias, SQL_PARTS);
     }
 
-    private SqlParts(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private SqlParts(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("list of supported SQL Standard parts"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.SQL_PARTS</code> table reference
+     */
+    public SqlParts() {
+        this(DSL.name("SQL_PARTS"), null);
     }
 
     public <O extends Record> SqlParts(Table<O> child, ForeignKey<O, Record> key) {

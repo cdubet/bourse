@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -25,7 +26,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewColumnUsage extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -1145493127;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE</code>
@@ -43,43 +44,44 @@ public class ViewColumnUsage extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.VIEW_CATALOG</code>.
      */
-    public final TableField<Record, String> VIEW_CATALOG = createField(DSL.name("VIEW_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> VIEW_CATALOG = createField(DSL.name("VIEW_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.VIEW_SCHEMA</code>.
      */
-    public final TableField<Record, String> VIEW_SCHEMA = createField(DSL.name("VIEW_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> VIEW_SCHEMA = createField(DSL.name("VIEW_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.VIEW_NAME</code>.
      */
-    public final TableField<Record, String> VIEW_NAME = createField(DSL.name("VIEW_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> VIEW_NAME = createField(DSL.name("VIEW_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.TABLE_CATALOG</code>.
      */
-    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.TABLE_SCHEMA</code>.
      */
-    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.TABLE_NAME</code>.
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.COLUMN_NAME</code>.
      */
-    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE</code> table reference
-     */
-    public ViewColumnUsage() {
-        this(DSL.name("VIEW_COLUMN_USAGE"), null);
+    private ViewColumnUsage(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private ViewColumnUsage(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("one row for each column of a table that is explicitly or implicitly referenced in the <query expression> of the view being described"), TableOptions.table());
     }
 
     /**
@@ -96,12 +98,11 @@ public class ViewColumnUsage extends TableImpl<Record> {
         this(alias, VIEW_COLUMN_USAGE);
     }
 
-    private ViewColumnUsage(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private ViewColumnUsage(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("one row for each column of a table that is explicitly or implicitly referenced in the <query expression> of the view being described"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE</code> table reference
+     */
+    public ViewColumnUsage() {
+        this(DSL.name("VIEW_COLUMN_USAGE"), null);
     }
 
     public <O extends Record> ViewColumnUsage(Table<O> child, ForeignKey<O, Record> key) {

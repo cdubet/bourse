@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -28,7 +29,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class CheckConstraintRoutineUsage extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 348580855;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.CHECK_CONSTRAINT_ROUTINE_USAGE</code>
@@ -46,38 +47,39 @@ public class CheckConstraintRoutineUsage extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.CHECK_CONSTRAINT_ROUTINE_USAGE.CONSTRAINT_CATALOG</code>.
      */
-    public final TableField<Record, String> CONSTRAINT_CATALOG = createField(DSL.name("CONSTRAINT_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> CONSTRAINT_CATALOG = createField(DSL.name("CONSTRAINT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.CHECK_CONSTRAINT_ROUTINE_USAGE.CONSTRAINT_SCHEMA</code>.
      */
-    public final TableField<Record, String> CONSTRAINT_SCHEMA = createField(DSL.name("CONSTRAINT_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> CONSTRAINT_SCHEMA = createField(DSL.name("CONSTRAINT_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.CHECK_CONSTRAINT_ROUTINE_USAGE.CONSTRAINT_NAME</code>.
      */
-    public final TableField<Record, String> CONSTRAINT_NAME = createField(DSL.name("CONSTRAINT_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> CONSTRAINT_NAME = createField(DSL.name("CONSTRAINT_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.CHECK_CONSTRAINT_ROUTINE_USAGE.SPECIFIC_CATALOG</code>.
      */
-    public final TableField<Record, String> SPECIFIC_CATALOG = createField(DSL.name("SPECIFIC_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_CATALOG = createField(DSL.name("SPECIFIC_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.CHECK_CONSTRAINT_ROUTINE_USAGE.SPECIFIC_SCHEMA</code>.
      */
-    public final TableField<Record, String> SPECIFIC_SCHEMA = createField(DSL.name("SPECIFIC_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_SCHEMA = createField(DSL.name("SPECIFIC_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.CHECK_CONSTRAINT_ROUTINE_USAGE.SPECIFIC_NAME</code>.
      */
-    public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), SQLDataType.VARCHAR(128), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.CHECK_CONSTRAINT_ROUTINE_USAGE</code> table reference
-     */
-    public CheckConstraintRoutineUsage() {
-        this(DSL.name("CHECK_CONSTRAINT_ROUTINE_USAGE"), null);
+    private CheckConstraintRoutineUsage(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private CheckConstraintRoutineUsage(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("one row for each SQL-invoked routine identified as the subject routine of either a <routine invocation>, a <method reference>, a  <method invocation>, or a <static method invocation>  contained in an <assertion definition>, a <domain constraint>, or a <table constraint definition>."), TableOptions.table());
     }
 
     /**
@@ -94,12 +96,11 @@ public class CheckConstraintRoutineUsage extends TableImpl<Record> {
         this(alias, CHECK_CONSTRAINT_ROUTINE_USAGE);
     }
 
-    private CheckConstraintRoutineUsage(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private CheckConstraintRoutineUsage(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("one row for each SQL-invoked routine identified as the subject routine of either a <routine invocation>, a <method reference>, a  <method invocation>, or a <static method invocation>  contained in an <assertion definition>, a <domain constraint>, or a <table constraint definition>."), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.CHECK_CONSTRAINT_ROUTINE_USAGE</code> table reference
+     */
+    public CheckConstraintRoutineUsage() {
+        this(DSL.name("CHECK_CONSTRAINT_ROUTINE_USAGE"), null);
     }
 
     public <O extends Record> CheckConstraintRoutineUsage(Table<O> child, ForeignKey<O, Record> key) {

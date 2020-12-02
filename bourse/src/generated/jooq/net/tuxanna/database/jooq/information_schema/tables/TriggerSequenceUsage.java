@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TriggerSequenceUsage extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -1084277069;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE</code>
@@ -42,38 +43,39 @@ public class TriggerSequenceUsage extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.TRIGGER_CATALOG</code>.
      */
-    public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.TRIGGER_SCHEMA</code>.
      */
-    public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.TRIGGER_NAME</code>.
      */
-    public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.SEQUENCE_CATALOG</code>.
      */
-    public final TableField<Record, String> SEQUENCE_CATALOG = createField(DSL.name("SEQUENCE_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SEQUENCE_CATALOG = createField(DSL.name("SEQUENCE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.SEQUENCE_SCHEMA</code>.
      */
-    public final TableField<Record, String> SEQUENCE_SCHEMA = createField(DSL.name("SEQUENCE_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SEQUENCE_SCHEMA = createField(DSL.name("SEQUENCE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.SEQUENCE_NAME</code>.
      */
-    public final TableField<Record, String> SEQUENCE_NAME = createField(DSL.name("SEQUENCE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SEQUENCE_NAME = createField(DSL.name("SEQUENCE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE</code> table reference
-     */
-    public TriggerSequenceUsage() {
-        this(DSL.name("TRIGGER_SEQUENCE_USAGE"), null);
+    private TriggerSequenceUsage(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private TriggerSequenceUsage(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("one row for each usage of a sequence in a trigger definition"), TableOptions.table());
     }
 
     /**
@@ -90,12 +92,11 @@ public class TriggerSequenceUsage extends TableImpl<Record> {
         this(alias, TRIGGER_SEQUENCE_USAGE);
     }
 
-    private TriggerSequenceUsage(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private TriggerSequenceUsage(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("one row for each usage of a sequence in a trigger definition"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE</code> table reference
+     */
+    public TriggerSequenceUsage() {
+        this(DSL.name("TRIGGER_SEQUENCE_USAGE"), null);
     }
 
     public <O extends Record> TriggerSequenceUsage(Table<O> child, ForeignKey<O, Record> key) {

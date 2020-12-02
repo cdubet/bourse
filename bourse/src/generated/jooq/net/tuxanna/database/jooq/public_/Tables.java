@@ -13,7 +13,7 @@ import net.tuxanna.database.jooq.public_.tables.Shares;
 
 
 /**
- * Convenience access to all tables in PUBLIC
+ * Convenience access to all tables in PUBLIC.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {

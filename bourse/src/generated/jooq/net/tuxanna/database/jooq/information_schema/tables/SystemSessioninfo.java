@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SystemSessioninfo extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 747536639;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO</code>
@@ -42,18 +43,19 @@ public class SystemSessioninfo extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO.KEY</code>. KEY: { SESSION_ID | AUTOCOMMIT | USER | CONNECTION_READONLY | DATABASE_READONLY | MAXROWS | DATABASE | IDENTITY ... }
      */
-    public final TableField<Record, String> KEY = createField(DSL.name("KEY"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "KEY: { SESSION_ID | AUTOCOMMIT | USER | CONNECTION_READONLY | DATABASE_READONLY | MAXROWS | DATABASE | IDENTITY ... }");
+    public final TableField<Record, String> KEY = createField(DSL.name("KEY"), SQLDataType.VARCHAR(65536), this, "KEY: { SESSION_ID | AUTOCOMMIT | USER | CONNECTION_READONLY | DATABASE_READONLY | MAXROWS | DATABASE | IDENTITY ... }");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO.VALUE</code>. VALUE: the value corresponding to the indicated key (see JavaDocs)
      */
-    public final TableField<Record, String> VALUE = createField(DSL.name("VALUE"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "VALUE: the value corresponding to the indicated key (see JavaDocs)");
+    public final TableField<Record, String> VALUE = createField(DSL.name("VALUE"), SQLDataType.VARCHAR(65536), this, "VALUE: the value corresponding to the indicated key (see JavaDocs)");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO</code> table reference
-     */
-    public SystemSessioninfo() {
-        this(DSL.name("SYSTEM_SESSIONINFO"), null);
+    private SystemSessioninfo(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private SystemSessioninfo(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("information about the current database session"), TableOptions.table());
     }
 
     /**
@@ -70,12 +72,11 @@ public class SystemSessioninfo extends TableImpl<Record> {
         this(alias, SYSTEM_SESSIONINFO);
     }
 
-    private SystemSessioninfo(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private SystemSessioninfo(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("information about the current database session"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO</code> table reference
+     */
+    public SystemSessioninfo() {
+        this(DSL.name("SYSTEM_SESSIONINFO"), null);
     }
 
     public <O extends Record> SystemSessioninfo(Table<O> child, ForeignKey<O, Record> key) {

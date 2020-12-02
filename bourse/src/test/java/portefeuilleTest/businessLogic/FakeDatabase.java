@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import net.tuxanna.portefeuille.database.ConditionPortfolioI;
 import net.tuxanna.portefeuille.database.ConditionQuoteI;
 import net.tuxanna.portefeuille.database.DatabaseI;
 import net.tuxanna.portefeuille.database.PortfolioDB;
@@ -164,6 +165,20 @@ public class FakeDatabase implements DatabaseI
 
 	@Override
 	public boolean updateQuotationInDatabase(List<QuoteDB> quoteList)
+	{
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<PortfolioDB> loadSharesInPortfolio(ConditionPortfolioI shareId)
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean updateListPortfolio(List<PortfolioDB> listToSave)
 	{
 		// TODO Auto-generated method stub
 		return false;

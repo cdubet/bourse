@@ -21,6 +21,7 @@ import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -30,7 +31,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Shares extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -1614916205;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>PUBLIC.SHARES</code>
@@ -48,33 +49,34 @@ public class Shares extends TableImpl<Record> {
     /**
      * The column <code>PUBLIC.SHARES.IDSHARE</code>.
      */
-    public final TableField<Record, Integer> IDSHARE = createField(DSL.name("IDSHARE"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "");
+    public final TableField<Record, Integer> IDSHARE = createField(DSL.name("IDSHARE"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>PUBLIC.SHARES.NAME</code>.
      */
-    public final TableField<Record, String> NAME = createField(DSL.name("NAME"), org.jooq.impl.SQLDataType.VARCHAR(30).nullable(false), this, "");
+    public final TableField<Record, String> NAME = createField(DSL.name("NAME"), SQLDataType.VARCHAR(30).nullable(false), this, "");
 
     /**
      * The column <code>PUBLIC.SHARES.TICKER</code>.
      */
-    public final TableField<Record, String> TICKER = createField(DSL.name("TICKER"), org.jooq.impl.SQLDataType.VARCHAR(20).nullable(false), this, "");
+    public final TableField<Record, String> TICKER = createField(DSL.name("TICKER"), SQLDataType.VARCHAR(20).nullable(false), this, "");
 
     /**
      * The column <code>PUBLIC.SHARES.IS_SHARE</code>.
      */
-    public final TableField<Record, String> IS_SHARE = createField(DSL.name("IS_SHARE"), org.jooq.impl.SQLDataType.CHAR(1).nullable(false).defaultValue(org.jooq.impl.DSL.field("'Y'", org.jooq.impl.SQLDataType.CHAR)), this, "");
+    public final TableField<Record, String> IS_SHARE = createField(DSL.name("IS_SHARE"), SQLDataType.CHAR(1).nullable(false).defaultValue(DSL.field("'Y'", SQLDataType.CHAR)), this, "");
 
     /**
      * The column <code>PUBLIC.SHARES.CURRENCY</code>.
      */
-    public final TableField<Record, String> CURRENCY = createField(DSL.name("CURRENCY"), org.jooq.impl.SQLDataType.CHAR(1).nullable(false).defaultValue(org.jooq.impl.DSL.field("'E'", org.jooq.impl.SQLDataType.CHAR)), this, "");
+    public final TableField<Record, String> CURRENCY = createField(DSL.name("CURRENCY"), SQLDataType.CHAR(1).nullable(false).defaultValue(DSL.field("'E'", SQLDataType.CHAR)), this, "");
 
-    /**
-     * Create a <code>PUBLIC.SHARES</code> table reference
-     */
-    public Shares() {
-        this(DSL.name("SHARES"), null);
+    private Shares(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private Shares(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
     }
 
     /**
@@ -91,12 +93,11 @@ public class Shares extends TableImpl<Record> {
         this(alias, SHARES);
     }
 
-    private Shares(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private Shares(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
+    /**
+     * Create a <code>PUBLIC.SHARES</code> table reference
+     */
+    public Shares() {
+        this(DSL.name("SHARES"), null);
     }
 
     public <O extends Record> Shares(Table<O> child, ForeignKey<O, Record> key) {
@@ -110,7 +111,7 @@ public class Shares extends TableImpl<Record> {
 
     @Override
     public Identity<Record, Integer> getIdentity() {
-        return Keys.IDENTITY_SHARES;
+        return (Identity<Record, Integer>) super.getIdentity();
     }
 
     @Override

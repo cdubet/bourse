@@ -21,6 +21,7 @@ import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -30,7 +31,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Account extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 2124417761;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>PUBLIC.ACCOUNT</code>
@@ -48,18 +49,19 @@ public class Account extends TableImpl<Record> {
     /**
      * The column <code>PUBLIC.ACCOUNT.IDACCOUNT</code>.
      */
-    public final TableField<Record, Integer> IDACCOUNT = createField(DSL.name("IDACCOUNT"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "");
+    public final TableField<Record, Integer> IDACCOUNT = createField(DSL.name("IDACCOUNT"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>PUBLIC.ACCOUNT.NAME</code>.
      */
-    public final TableField<Record, String> NAME = createField(DSL.name("NAME"), org.jooq.impl.SQLDataType.VARCHAR(30).nullable(false), this, "");
+    public final TableField<Record, String> NAME = createField(DSL.name("NAME"), SQLDataType.VARCHAR(30).nullable(false), this, "");
 
-    /**
-     * Create a <code>PUBLIC.ACCOUNT</code> table reference
-     */
-    public Account() {
-        this(DSL.name("ACCOUNT"), null);
+    private Account(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private Account(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
     }
 
     /**
@@ -76,12 +78,11 @@ public class Account extends TableImpl<Record> {
         this(alias, ACCOUNT);
     }
 
-    private Account(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private Account(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
+    /**
+     * Create a <code>PUBLIC.ACCOUNT</code> table reference
+     */
+    public Account() {
+        this(DSL.name("ACCOUNT"), null);
     }
 
     public <O extends Record> Account(Table<O> child, ForeignKey<O, Record> key) {
@@ -95,7 +96,7 @@ public class Account extends TableImpl<Record> {
 
     @Override
     public Identity<Record, Integer> getIdentity() {
-        return Keys.IDENTITY_ACCOUNT;
+        return (Identity<Record, Integer>) super.getIdentity();
     }
 
     @Override

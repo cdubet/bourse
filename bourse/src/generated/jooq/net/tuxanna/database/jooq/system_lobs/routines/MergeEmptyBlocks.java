@@ -15,7 +15,7 @@ import org.jooq.impl.AbstractRoutine;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class MergeEmptyBlocks extends AbstractRoutine<java.lang.Void> {
 
-    private static final long serialVersionUID = 366269367;
+    private static final long serialVersionUID = 1L;
 
     /**
      * Create a new routine call instance

@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RoleTableGrants extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 449164004;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS</code>
@@ -42,48 +43,49 @@ public class RoleTableGrants extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.GRANTOR</code>.
      */
-    public final TableField<Record, String> GRANTOR = createField(DSL.name("GRANTOR"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> GRANTOR = createField(DSL.name("GRANTOR"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.GRANTEE</code>.
      */
-    public final TableField<Record, String> GRANTEE = createField(DSL.name("GRANTEE"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> GRANTEE = createField(DSL.name("GRANTEE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.TABLE_CATALOG</code>.
      */
-    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.TABLE_SCHEMA</code>.
      */
-    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.TABLE_NAME</code>.
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.PRIVILEGE_TYPE</code>.
      */
-    public final TableField<Record, String> PRIVILEGE_TYPE = createField(DSL.name("PRIVILEGE_TYPE"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> PRIVILEGE_TYPE = createField(DSL.name("PRIVILEGE_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.IS_GRANTABLE</code>.
      */
-    public final TableField<Record, String> IS_GRANTABLE = createField(DSL.name("IS_GRANTABLE"), org.jooq.impl.SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_GRANTABLE = createField(DSL.name("IS_GRANTABLE"), SQLDataType.VARCHAR(3), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.WITH_HIERARCHY</code>.
      */
-    public final TableField<Record, String> WITH_HIERARCHY = createField(DSL.name("WITH_HIERARCHY"), org.jooq.impl.SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> WITH_HIERARCHY = createField(DSL.name("WITH_HIERARCHY"), SQLDataType.VARCHAR(3), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS</code> table reference
-     */
-    public RoleTableGrants() {
-        this(DSL.name("ROLE_TABLE_GRANTS"), null);
+    private RoleTableGrants(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private RoleTableGrants(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("one row for each privilege grant on a table to a role"), TableOptions.table());
     }
 
     /**
@@ -100,12 +102,11 @@ public class RoleTableGrants extends TableImpl<Record> {
         this(alias, ROLE_TABLE_GRANTS);
     }
 
-    private RoleTableGrants(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private RoleTableGrants(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("one row for each privilege grant on a table to a role"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS</code> table reference
+     */
+    public RoleTableGrants() {
+        this(DSL.name("ROLE_TABLE_GRANTS"), null);
     }
 
     public <O extends Record> RoleTableGrants(Table<O> child, ForeignKey<O, Record> key) {

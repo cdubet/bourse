@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SqlFeatures extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -811337084;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.SQL_FEATURES</code>
@@ -42,43 +43,44 @@ public class SqlFeatures extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_FEATURES.FEATURE_ID</code>.
      */
-    public final TableField<Record, String> FEATURE_ID = createField(DSL.name("FEATURE_ID"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> FEATURE_ID = createField(DSL.name("FEATURE_ID"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_FEATURES.FEATURE_NAME</code>.
      */
-    public final TableField<Record, String> FEATURE_NAME = createField(DSL.name("FEATURE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> FEATURE_NAME = createField(DSL.name("FEATURE_NAME"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_FEATURES.SUB_FEATURE_ID</code>.
      */
-    public final TableField<Record, String> SUB_FEATURE_ID = createField(DSL.name("SUB_FEATURE_ID"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> SUB_FEATURE_ID = createField(DSL.name("SUB_FEATURE_ID"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_FEATURES.SUB_FEATURE_NAME</code>.
      */
-    public final TableField<Record, String> SUB_FEATURE_NAME = createField(DSL.name("SUB_FEATURE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> SUB_FEATURE_NAME = createField(DSL.name("SUB_FEATURE_NAME"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_FEATURES.IS_SUPPORTED</code>.
      */
-    public final TableField<Record, String> IS_SUPPORTED = createField(DSL.name("IS_SUPPORTED"), org.jooq.impl.SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_SUPPORTED = createField(DSL.name("IS_SUPPORTED"), SQLDataType.VARCHAR(3), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_FEATURES.IS_VERIFIED_BY</code>.
      */
-    public final TableField<Record, String> IS_VERIFIED_BY = createField(DSL.name("IS_VERIFIED_BY"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> IS_VERIFIED_BY = createField(DSL.name("IS_VERIFIED_BY"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_FEATURES.COMMENTS</code>.
      */
-    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), SQLDataType.VARCHAR(65536), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.SQL_FEATURES</code> table reference
-     */
-    public SqlFeatures() {
-        this(DSL.name("SQL_FEATURES"), null);
+    private SqlFeatures(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private SqlFeatures(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("list of supported SQL Standard features"), TableOptions.table());
     }
 
     /**
@@ -95,12 +97,11 @@ public class SqlFeatures extends TableImpl<Record> {
         this(alias, SQL_FEATURES);
     }
 
-    private SqlFeatures(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private SqlFeatures(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("list of supported SQL Standard features"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.SQL_FEATURES</code> table reference
+     */
+    public SqlFeatures() {
+        this(DSL.name("SQL_FEATURES"), null);
     }
 
     public <O extends Record> SqlFeatures(Table<O> child, ForeignKey<O, Record> key) {

@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SystemConnectionProperties extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -1816419810;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES</code>
@@ -42,28 +43,29 @@ public class SystemConnectionProperties extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES.NAME</code>.
      */
-    public final TableField<Record, String> NAME = createField(DSL.name("NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> NAME = createField(DSL.name("NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES.MAX_LEN</code>.
      */
-    public final TableField<Record, Integer> MAX_LEN = createField(DSL.name("MAX_LEN"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<Record, Integer> MAX_LEN = createField(DSL.name("MAX_LEN"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES.DEFAULT_VALUE</code>.
      */
-    public final TableField<Record, String> DEFAULT_VALUE = createField(DSL.name("DEFAULT_VALUE"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> DEFAULT_VALUE = createField(DSL.name("DEFAULT_VALUE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES.DESCRIPTION</code>.
      */
-    public final TableField<Record, String> DESCRIPTION = createField(DSL.name("DESCRIPTION"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> DESCRIPTION = createField(DSL.name("DESCRIPTION"), SQLDataType.VARCHAR(128), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES</code> table reference
-     */
-    public SystemConnectionProperties() {
-        this(DSL.name("SYSTEM_CONNECTION_PROPERTIES"), null);
+    private SystemConnectionProperties(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private SystemConnectionProperties(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("properties defined for the current connection"), TableOptions.table());
     }
 
     /**
@@ -80,12 +82,11 @@ public class SystemConnectionProperties extends TableImpl<Record> {
         this(alias, SYSTEM_CONNECTION_PROPERTIES);
     }
 
-    private SystemConnectionProperties(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private SystemConnectionProperties(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("properties defined for the current connection"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES</code> table reference
+     */
+    public SystemConnectionProperties() {
+        this(DSL.name("SYSTEM_CONNECTION_PROPERTIES"), null);
     }
 
     public <O extends Record> SystemConnectionProperties(Table<O> child, ForeignKey<O, Record> key) {

@@ -22,6 +22,7 @@ import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -31,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Blocks extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -28057951;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>SYSTEM_LOBS.BLOCKS</code>
@@ -49,23 +50,24 @@ public class Blocks extends TableImpl<Record> {
     /**
      * The column <code>SYSTEM_LOBS.BLOCKS.BLOCK_ADDR</code>.
      */
-    public final TableField<Record, Integer> BLOCK_ADDR = createField(DSL.name("BLOCK_ADDR"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<Record, Integer> BLOCK_ADDR = createField(DSL.name("BLOCK_ADDR"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>SYSTEM_LOBS.BLOCKS.BLOCK_COUNT</code>.
      */
-    public final TableField<Record, Integer> BLOCK_COUNT = createField(DSL.name("BLOCK_COUNT"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<Record, Integer> BLOCK_COUNT = createField(DSL.name("BLOCK_COUNT"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>SYSTEM_LOBS.BLOCKS.TX_ID</code>.
      */
-    public final TableField<Record, Long> TX_ID = createField(DSL.name("TX_ID"), org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
+    public final TableField<Record, Long> TX_ID = createField(DSL.name("TX_ID"), SQLDataType.BIGINT.nullable(false), this, "");
 
-    /**
-     * Create a <code>SYSTEM_LOBS.BLOCKS</code> table reference
-     */
-    public Blocks() {
-        this(DSL.name("BLOCKS"), null);
+    private Blocks(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private Blocks(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
     }
 
     /**
@@ -82,12 +84,11 @@ public class Blocks extends TableImpl<Record> {
         this(alias, BLOCKS);
     }
 
-    private Blocks(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private Blocks(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
+    /**
+     * Create a <code>SYSTEM_LOBS.BLOCKS</code> table reference
+     */
+    public Blocks() {
+        this(DSL.name("BLOCKS"), null);
     }
 
     public <O extends Record> Blocks(Table<O> child, ForeignKey<O, Record> key) {

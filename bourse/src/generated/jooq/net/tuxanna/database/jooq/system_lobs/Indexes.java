@@ -9,11 +9,12 @@ import net.tuxanna.database.jooq.system_lobs.tables.LobIds;
 
 import org.jooq.Index;
 import org.jooq.OrderField;
+import org.jooq.impl.DSL;
 import org.jooq.impl.Internal;
 
 
 /**
- * A class modelling indexes of tables of the <code>SYSTEM_LOBS</code> schema.
+ * A class modelling indexes of tables in SYSTEM_LOBS.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Indexes {
@@ -22,15 +23,6 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
-    public static final Index BLOCKS_IDX1 = Indexes0.BLOCKS_IDX1;
-    public static final Index LOBS_IDX2 = Indexes0.LOBS_IDX2;
-
-    // -------------------------------------------------------------------------
-    // [#1459] distribute members to avoid static initialisers > 64kb
-    // -------------------------------------------------------------------------
-
-    private static class Indexes0 {
-        public static Index BLOCKS_IDX1 = Internal.createIndex("BLOCKS_IDX1", Blocks.BLOCKS, new OrderField[] { Blocks.BLOCKS.BLOCK_COUNT }, false);
-        public static Index LOBS_IDX2 = Internal.createIndex("LOBS_IDX2", LobIds.LOB_IDS, new OrderField[] { LobIds.LOB_IDS.LOB_USAGE_COUNT }, false);
-    }
+    public static final Index BLOCKS_IDX1 = Internal.createIndex(DSL.name("BLOCKS_IDX1"), Blocks.BLOCKS, new OrderField[] { Blocks.BLOCKS.BLOCK_COUNT }, false);
+    public static final Index LOBS_IDX2 = Internal.createIndex(DSL.name("LOBS_IDX2"), LobIds.LOB_IDS, new OrderField[] { LobIds.LOB_IDS.LOB_USAGE_COUNT }, false);
 }

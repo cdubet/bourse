@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SqlSizingProfiles extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 328800876;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES</code>
@@ -42,38 +43,39 @@ public class SqlSizingProfiles extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.SIZING_ID</code>.
      */
-    public final TableField<Record, Long> SIZING_ID = createField(DSL.name("SIZING_ID"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> SIZING_ID = createField(DSL.name("SIZING_ID"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.SIZING_NAME</code>.
      */
-    public final TableField<Record, String> SIZING_NAME = createField(DSL.name("SIZING_NAME"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> SIZING_NAME = createField(DSL.name("SIZING_NAME"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.PROFILE_ID</code>.
      */
-    public final TableField<Record, Long> PROFILE_ID = createField(DSL.name("PROFILE_ID"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> PROFILE_ID = createField(DSL.name("PROFILE_ID"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.PROFILE_NAME</code>.
      */
-    public final TableField<Record, String> PROFILE_NAME = createField(DSL.name("PROFILE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> PROFILE_NAME = createField(DSL.name("PROFILE_NAME"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.REQUIRED_VALUE</code>.
      */
-    public final TableField<Record, Long> REQUIRED_VALUE = createField(DSL.name("REQUIRED_VALUE"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> REQUIRED_VALUE = createField(DSL.name("REQUIRED_VALUE"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.COMMENTS</code>.
      */
-    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), SQLDataType.VARCHAR(65536), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES</code> table reference
-     */
-    public SqlSizingProfiles() {
-        this(DSL.name("SQL_SIZING_PROFILES"), null);
+    private SqlSizingProfiles(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private SqlSizingProfiles(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("list of supported SQL Standard packages"), TableOptions.table());
     }
 
     /**
@@ -90,12 +92,11 @@ public class SqlSizingProfiles extends TableImpl<Record> {
         this(alias, SQL_SIZING_PROFILES);
     }
 
-    private SqlSizingProfiles(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private SqlSizingProfiles(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("list of supported SQL Standard packages"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES</code> table reference
+     */
+    public SqlSizingProfiles() {
+        this(DSL.name("SQL_SIZING_PROFILES"), null);
     }
 
     public <O extends Record> SqlSizingProfiles(Table<O> child, ForeignKey<O, Record> key) {

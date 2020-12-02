@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SystemSchemas extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -68933329;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS</code>
@@ -42,23 +43,24 @@ public class SystemSchemas extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS.TABLE_SCHEM</code>. schema name
      */
-    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "schema name");
+    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "schema name");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS.TABLE_CATALOG</code>. catalog in which schema is defined
      */
-    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "catalog in which schema is defined");
+    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "catalog in which schema is defined");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS.IS_DEFAULT</code>. whether the described schema is the default schema
      */
-    public final TableField<Record, Boolean> IS_DEFAULT = createField(DSL.name("IS_DEFAULT"), org.jooq.impl.SQLDataType.BOOLEAN, this, "whether the described schema is the default schema");
+    public final TableField<Record, Boolean> IS_DEFAULT = createField(DSL.name("IS_DEFAULT"), SQLDataType.BOOLEAN, this, "whether the described schema is the default schema");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS</code> table reference
-     */
-    public SystemSchemas() {
-        this(DSL.name("SYSTEM_SCHEMAS"), null);
+    private SystemSchemas(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private SystemSchemas(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("the accessible schemas defined within this database"), TableOptions.table());
     }
 
     /**
@@ -75,12 +77,11 @@ public class SystemSchemas extends TableImpl<Record> {
         this(alias, SYSTEM_SCHEMAS);
     }
 
-    private SystemSchemas(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private SystemSchemas(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("the accessible schemas defined within this database"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS</code> table reference
+     */
+    public SystemSchemas() {
+        this(DSL.name("SYSTEM_SCHEMAS"), null);
     }
 
     public <O extends Record> SystemSchemas(Table<O> child, ForeignKey<O, Record> key) {

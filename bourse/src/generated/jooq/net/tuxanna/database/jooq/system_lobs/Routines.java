@@ -19,7 +19,7 @@ import org.jooq.Configuration;
 
 
 /**
- * Convenience access to all stored procedures and functions in SYSTEM_LOBS
+ * Convenience access to all stored procedures and functions in SYSTEM_LOBS.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Routines {
@@ -27,7 +27,12 @@ public class Routines {
     /**
      * Call <code>SYSTEM_LOBS.ALLOC_BLOCKS</code>
      */
-    public static void allocBlocks(Configuration configuration, Integer bCount, Integer bOffset, Long lId) {
+    public static void allocBlocks(
+          Configuration configuration
+        , Integer bCount
+        , Integer bOffset
+        , Long lId
+    ) {
         AllocBlocks p = new AllocBlocks();
         p.setBCount(bCount);
         p.setBOffset(bOffset);
@@ -39,7 +44,12 @@ public class Routines {
     /**
      * Call <code>SYSTEM_LOBS.ALLOC_SINGLE_BLOCK</code>
      */
-    public static void allocSingleBlock(Configuration configuration, Integer bCount, Integer bOffset, Long lId) {
+    public static void allocSingleBlock(
+          Configuration configuration
+        , Integer bCount
+        , Integer bOffset
+        , Long lId
+    ) {
         AllocSingleBlock p = new AllocSingleBlock();
         p.setBCount(bCount);
         p.setBOffset(bOffset);
@@ -51,7 +61,13 @@ public class Routines {
     /**
      * Call <code>SYSTEM_LOBS.CONVERT_BLOCK</code>
      */
-    public static void convertBlock(Configuration configuration, Integer bAddr, Integer bCount, Integer bOffset, Long lId) {
+    public static void convertBlock(
+          Configuration configuration
+        , Integer bAddr
+        , Integer bCount
+        , Integer bOffset
+        , Long lId
+    ) {
         ConvertBlock p = new ConvertBlock();
         p.setBAddr(bAddr);
         p.setBCount(bCount);
@@ -64,7 +80,11 @@ public class Routines {
     /**
      * Call <code>SYSTEM_LOBS.CREATE_EMPTY_BLOCK</code>
      */
-    public static Integer createEmptyBlock(Configuration configuration, Integer bAddr, Integer bCount) {
+    public static Integer createEmptyBlock(
+          Configuration configuration
+        , Integer bAddr
+        , Integer bCount
+    ) {
         CreateEmptyBlock p = new CreateEmptyBlock();
         p.setBAddr(bAddr);
         p.setBCount(bCount);
@@ -76,7 +96,13 @@ public class Routines {
     /**
      * Call <code>SYSTEM_LOBS.DELETE_BLOCKS</code>
      */
-    public static void deleteBlocks(Configuration configuration, Long lId, Integer bOffset, Integer bLimit, Long txId) {
+    public static void deleteBlocks(
+          Configuration configuration
+        , Long lId
+        , Integer bOffset
+        , Integer bLimit
+        , Long txId
+    ) {
         DeleteBlocks p = new DeleteBlocks();
         p.setLId(lId);
         p.setBOffset(bOffset);
@@ -89,7 +115,11 @@ public class Routines {
     /**
      * Call <code>SYSTEM_LOBS.DELETE_LOB</code>
      */
-    public static void deleteLob(Configuration configuration, Long lId, Long txId) {
+    public static void deleteLob(
+          Configuration configuration
+        , Long lId
+        , Long txId
+    ) {
         DeleteLob p = new DeleteLob();
         p.setLId(lId);
         p.setTxId(txId);
@@ -100,7 +130,10 @@ public class Routines {
     /**
      * Call <code>SYSTEM_LOBS.DELETE_UNUSED</code>
      */
-    public static void deleteUnused(Configuration configuration, Long[] lIds) {
+    public static void deleteUnused(
+          Configuration configuration
+        , Long[] lIds
+    ) {
         DeleteUnused p = new DeleteUnused();
         p.setLIds(lIds);
 
@@ -110,7 +143,10 @@ public class Routines {
     /**
      * Call <code>SYSTEM_LOBS.DELETE_UNUSED_LOBS</code>
      */
-    public static Integer deleteUnusedLobs(Configuration configuration, Long limitId) {
+    public static Integer deleteUnusedLobs(
+          Configuration configuration
+        , Long limitId
+    ) {
         DeleteUnusedLobs p = new DeleteUnusedLobs();
         p.setLimitId(limitId);
 
@@ -121,7 +157,11 @@ public class Routines {
     /**
      * Call <code>SYSTEM_LOBS.DIVIDE_BLOCK</code>
      */
-    public static void divideBlock(Configuration configuration, Integer bOffset, Long lId) {
+    public static void divideBlock(
+          Configuration configuration
+        , Integer bOffset
+        , Long lId
+    ) {
         DivideBlock p = new DivideBlock();
         p.setBOffset(bOffset);
         p.setLId(lId);
@@ -132,7 +172,9 @@ public class Routines {
     /**
      * Call <code>SYSTEM_LOBS.MERGE_EMPTY_BLOCKS</code>
      */
-    public static void mergeEmptyBlocks(Configuration configuration) {
+    public static void mergeEmptyBlocks(
+          Configuration configuration
+    ) {
         MergeEmptyBlocks p = new MergeEmptyBlocks();
 
         p.execute(configuration);

@@ -22,6 +22,7 @@ import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -31,7 +32,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Sell extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 1098357969;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>PUBLIC.SELL</code>
@@ -49,48 +50,49 @@ public class Sell extends TableImpl<Record> {
     /**
      * The column <code>PUBLIC.SELL.IDSELL</code>.
      */
-    public final TableField<Record, Integer> IDSELL = createField(DSL.name("IDSELL"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).identity(true), this, "");
+    public final TableField<Record, Integer> IDSELL = createField(DSL.name("IDSELL"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>PUBLIC.SELL.IDSHARE</code>.
      */
-    public final TableField<Record, Integer> IDSHARE = createField(DSL.name("IDSHARE"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<Record, Integer> IDSHARE = createField(DSL.name("IDSHARE"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>PUBLIC.SELL.IDACCOUNT</code>.
      */
-    public final TableField<Record, Integer> IDACCOUNT = createField(DSL.name("IDACCOUNT"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<Record, Integer> IDACCOUNT = createField(DSL.name("IDACCOUNT"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>PUBLIC.SELL.QTE</code>.
      */
-    public final TableField<Record, Double> QTE = createField(DSL.name("QTE"), org.jooq.impl.SQLDataType.DOUBLE.nullable(false), this, "");
+    public final TableField<Record, Double> QTE = createField(DSL.name("QTE"), SQLDataType.DOUBLE.nullable(false), this, "");
 
     /**
      * The column <code>PUBLIC.SELL.UNITPRICEREQUESTED</code>.
      */
-    public final TableField<Record, Double> UNITPRICEREQUESTED = createField(DSL.name("UNITPRICEREQUESTED"), org.jooq.impl.SQLDataType.DOUBLE.nullable(false), this, "");
+    public final TableField<Record, Double> UNITPRICEREQUESTED = createField(DSL.name("UNITPRICEREQUESTED"), SQLDataType.DOUBLE.nullable(false), this, "");
 
     /**
      * The column <code>PUBLIC.SELL.UNITPRICESOLD</code>.
      */
-    public final TableField<Record, Double> UNITPRICESOLD = createField(DSL.name("UNITPRICESOLD"), org.jooq.impl.SQLDataType.DOUBLE, this, "");
+    public final TableField<Record, Double> UNITPRICESOLD = createField(DSL.name("UNITPRICESOLD"), SQLDataType.DOUBLE, this, "");
 
     /**
      * The column <code>PUBLIC.SELL.STATE</code>.
      */
-    public final TableField<Record, Integer> STATE = createField(DSL.name("STATE"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<Record, Integer> STATE = createField(DSL.name("STATE"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>PUBLIC.SELL.DATEEXPIRATION</code>.
      */
-    public final TableField<Record, LocalDateTime> DATEEXPIRATION = createField(DSL.name("DATEEXPIRATION"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false), this, "");
+    public final TableField<Record, LocalDateTime> DATEEXPIRATION = createField(DSL.name("DATEEXPIRATION"), SQLDataType.LOCALDATETIME(6).nullable(false), this, "");
 
-    /**
-     * Create a <code>PUBLIC.SELL</code> table reference
-     */
-    public Sell() {
-        this(DSL.name("SELL"), null);
+    private Sell(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private Sell(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
     }
 
     /**
@@ -107,12 +109,11 @@ public class Sell extends TableImpl<Record> {
         this(alias, SELL);
     }
 
-    private Sell(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private Sell(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
+    /**
+     * Create a <code>PUBLIC.SELL</code> table reference
+     */
+    public Sell() {
+        this(DSL.name("SELL"), null);
     }
 
     public <O extends Record> Sell(Table<O> child, ForeignKey<O, Record> key) {
@@ -126,7 +127,7 @@ public class Sell extends TableImpl<Record> {
 
     @Override
     public Identity<Record, Integer> getIdentity() {
-        return Keys.IDENTITY_SELL;
+        return (Identity<Record, Integer>) super.getIdentity();
     }
 
     @Override

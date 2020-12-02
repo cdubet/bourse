@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TriggeredUpdateColumns extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -21540716;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS</code>
@@ -42,43 +43,44 @@ public class TriggeredUpdateColumns extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.TRIGGER_CATALOG</code>.
      */
-    public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.TRIGGER_SCHEMA</code>.
      */
-    public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.TRIGGER_NAME</code>.
      */
-    public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.EVENT_OBJECT_CATALOG</code>.
      */
-    public final TableField<Record, String> EVENT_OBJECT_CATALOG = createField(DSL.name("EVENT_OBJECT_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> EVENT_OBJECT_CATALOG = createField(DSL.name("EVENT_OBJECT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.EVENT_OBJECT_SCHEMA</code>.
      */
-    public final TableField<Record, String> EVENT_OBJECT_SCHEMA = createField(DSL.name("EVENT_OBJECT_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> EVENT_OBJECT_SCHEMA = createField(DSL.name("EVENT_OBJECT_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.EVENT_OBJECT_TABLE</code>.
      */
-    public final TableField<Record, String> EVENT_OBJECT_TABLE = createField(DSL.name("EVENT_OBJECT_TABLE"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> EVENT_OBJECT_TABLE = createField(DSL.name("EVENT_OBJECT_TABLE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.EVENT_OBJECT_COLUMN</code>.
      */
-    public final TableField<Record, String> EVENT_OBJECT_COLUMN = createField(DSL.name("EVENT_OBJECT_COLUMN"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> EVENT_OBJECT_COLUMN = createField(DSL.name("EVENT_OBJECT_COLUMN"), SQLDataType.VARCHAR(128), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS</code> table reference
-     */
-    public TriggeredUpdateColumns() {
-        this(DSL.name("TRIGGERED_UPDATE_COLUMNS"), null);
+    private TriggeredUpdateColumns(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private TriggeredUpdateColumns(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("one row for each column in a foreign key cascade action"), TableOptions.table());
     }
 
     /**
@@ -95,12 +97,11 @@ public class TriggeredUpdateColumns extends TableImpl<Record> {
         this(alias, TRIGGERED_UPDATE_COLUMNS);
     }
 
-    private TriggeredUpdateColumns(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private TriggeredUpdateColumns(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("one row for each column in a foreign key cascade action"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS</code> table reference
+     */
+    public TriggeredUpdateColumns() {
+        this(DSL.name("TRIGGERED_UPDATE_COLUMNS"), null);
     }
 
     public <O extends Record> TriggeredUpdateColumns(Table<O> child, ForeignKey<O, Record> key) {

@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SystemTablestats extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -681572532;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS</code>
@@ -42,53 +43,54 @@ public class SystemTablestats extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS.TABLE_CATALOG</code>.
      */
-    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS.TABLE_SCHEMA</code>.
      */
-    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS.TABLE_NAME</code>.
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS.TABLE_TYPE</code>.
      */
-    public final TableField<Record, String> TABLE_TYPE = createField(DSL.name("TABLE_TYPE"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_TYPE = createField(DSL.name("TABLE_TYPE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS.CARDINALITY</code>.
      */
-    public final TableField<Record, Long> CARDINALITY = createField(DSL.name("CARDINALITY"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> CARDINALITY = createField(DSL.name("CARDINALITY"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS.SPACE_ID</code>.
      */
-    public final TableField<Record, Long> SPACE_ID = createField(DSL.name("SPACE_ID"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> SPACE_ID = createField(DSL.name("SPACE_ID"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS.USED_SPACE</code>.
      */
-    public final TableField<Record, Long> USED_SPACE = createField(DSL.name("USED_SPACE"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> USED_SPACE = createField(DSL.name("USED_SPACE"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS.ALLOCATED_SPACE</code>.
      */
-    public final TableField<Record, Long> ALLOCATED_SPACE = createField(DSL.name("ALLOCATED_SPACE"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> ALLOCATED_SPACE = createField(DSL.name("ALLOCATED_SPACE"), SQLDataType.BIGINT, this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS.USED_MEMORY</code>.
      */
-    public final TableField<Record, Long> USED_MEMORY = createField(DSL.name("USED_MEMORY"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> USED_MEMORY = createField(DSL.name("USED_MEMORY"), SQLDataType.BIGINT, this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS</code> table reference
-     */
-    public SystemTablestats() {
-        this(DSL.name("SYSTEM_TABLESTATS"), null);
+    private SystemTablestats(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private SystemTablestats(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("cardinality and storage space used by tables and table spaces"), TableOptions.table());
     }
 
     /**
@@ -105,12 +107,11 @@ public class SystemTablestats extends TableImpl<Record> {
         this(alias, SYSTEM_TABLESTATS);
     }
 
-    private SystemTablestats(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private SystemTablestats(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("cardinality and storage space used by tables and table spaces"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS</code> table reference
+     */
+    public SystemTablestats() {
+        this(DSL.name("SYSTEM_TABLESTATS"), null);
     }
 
     public <O extends Record> SystemTablestats(Table<O> child, ForeignKey<O, Record> key) {

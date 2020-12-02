@@ -9,6 +9,7 @@ import net.tuxanna.database.jooq.system_lobs.SystemLobs;
 import org.jooq.Parameter;
 import org.jooq.impl.AbstractRoutine;
 import org.jooq.impl.Internal;
+import org.jooq.impl.SQLDataType;
 
 
 /**
@@ -17,17 +18,17 @@ import org.jooq.impl.Internal;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DeleteUnusedLobs extends AbstractRoutine<java.lang.Void> {
 
-    private static final long serialVersionUID = -1970504015;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The parameter <code>SYSTEM_LOBS.DELETE_UNUSED_LOBS.LIMIT_ID</code>.
      */
-    public static final Parameter<Long> LIMIT_ID = Internal.createParameter("LIMIT_ID", org.jooq.impl.SQLDataType.BIGINT, false, false);
+    public static final Parameter<Long> LIMIT_ID = Internal.createParameter("LIMIT_ID", SQLDataType.BIGINT, false, false);
 
     /**
      * The parameter <code>SYSTEM_LOBS.DELETE_UNUSED_LOBS.TOTAL_COUNT</code>.
      */
-    public static final Parameter<Integer> TOTAL_COUNT = Internal.createParameter("TOTAL_COUNT", org.jooq.impl.SQLDataType.INTEGER, false, false);
+    public static final Parameter<Integer> TOTAL_COUNT = Internal.createParameter("TOTAL_COUNT", SQLDataType.INTEGER, false, false);
 
     /**
      * Create a new routine call instance

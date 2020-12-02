@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class JarJarUsage extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 1083908901;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.JAR_JAR_USAGE</code>
@@ -42,38 +43,39 @@ public class JarJarUsage extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.JAR_JAR_USAGE.PATH_JAR_CATALOG</code>.
      */
-    public final TableField<Record, String> PATH_JAR_CATALOG = createField(DSL.name("PATH_JAR_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> PATH_JAR_CATALOG = createField(DSL.name("PATH_JAR_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.JAR_JAR_USAGE.PATH_JAR_SCHAMA</code>.
      */
-    public final TableField<Record, String> PATH_JAR_SCHAMA = createField(DSL.name("PATH_JAR_SCHAMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> PATH_JAR_SCHAMA = createField(DSL.name("PATH_JAR_SCHAMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.JAR_JAR_USAGE.PATH_JAR_NAME</code>.
      */
-    public final TableField<Record, String> PATH_JAR_NAME = createField(DSL.name("PATH_JAR_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> PATH_JAR_NAME = createField(DSL.name("PATH_JAR_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.JAR_JAR_USAGE.JAR_CATALOG</code>.
      */
-    public final TableField<Record, String> JAR_CATALOG = createField(DSL.name("JAR_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> JAR_CATALOG = createField(DSL.name("JAR_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.JAR_JAR_USAGE.JAR_SCHEMA</code>.
      */
-    public final TableField<Record, String> JAR_SCHEMA = createField(DSL.name("JAR_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> JAR_SCHEMA = createField(DSL.name("JAR_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.JAR_JAR_USAGE.JAR_NAME</code>.
      */
-    public final TableField<Record, String> JAR_NAME = createField(DSL.name("JAR_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> JAR_NAME = createField(DSL.name("JAR_NAME"), SQLDataType.VARCHAR(128), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.JAR_JAR_USAGE</code> table reference
-     */
-    public JarJarUsage() {
-        this(DSL.name("JAR_JAR_USAGE"), null);
+    private JarJarUsage(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private JarJarUsage(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
     }
 
     /**
@@ -90,12 +92,11 @@ public class JarJarUsage extends TableImpl<Record> {
         this(alias, JAR_JAR_USAGE);
     }
 
-    private JarJarUsage(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private JarJarUsage(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.JAR_JAR_USAGE</code> table reference
+     */
+    public JarJarUsage() {
+        this(DSL.name("JAR_JAR_USAGE"), null);
     }
 
     public <O extends Record> JarJarUsage(Table<O> child, ForeignKey<O, Record> key) {

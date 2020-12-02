@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class TriggerPeriodUsage extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 1114247428;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.TRIGGER_PERIOD_USAGE</code>
@@ -42,43 +43,44 @@ public class TriggerPeriodUsage extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGER_PERIOD_USAGE.TRIGGER_CATALOG</code>.
      */
-    public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGER_PERIOD_USAGE.TRIGGER_SCHEMA</code>.
      */
-    public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGER_PERIOD_USAGE.TRIGGER_NAME</code>.
      */
-    public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGER_PERIOD_USAGE.TABLE_CATALOG</code>.
      */
-    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGER_PERIOD_USAGE.TABLE_SCHEMA</code>.
      */
-    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGER_PERIOD_USAGE.TABLE_NAME</code>.
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGER_PERIOD_USAGE.PERIOD_NAME</code>.
      */
-    public final TableField<Record, String> PERIOD_NAME = createField(DSL.name("PERIOD_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> PERIOD_NAME = createField(DSL.name("PERIOD_NAME"), SQLDataType.VARCHAR(128), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.TRIGGER_PERIOD_USAGE</code> table reference
-     */
-    public TriggerPeriodUsage() {
-        this(DSL.name("TRIGGER_PERIOD_USAGE"), null);
+    private TriggerPeriodUsage(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private TriggerPeriodUsage(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("one row for each usage of a period in a trigger definition"), TableOptions.table());
     }
 
     /**
@@ -95,12 +97,11 @@ public class TriggerPeriodUsage extends TableImpl<Record> {
         this(alias, TRIGGER_PERIOD_USAGE);
     }
 
-    private TriggerPeriodUsage(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private TriggerPeriodUsage(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("one row for each usage of a period in a trigger definition"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.TRIGGER_PERIOD_USAGE</code> table reference
+     */
+    public TriggerPeriodUsage() {
+        this(DSL.name("TRIGGER_PERIOD_USAGE"), null);
     }
 
     public <O extends Record> TriggerPeriodUsage(Table<O> child, ForeignKey<O, Record> key) {

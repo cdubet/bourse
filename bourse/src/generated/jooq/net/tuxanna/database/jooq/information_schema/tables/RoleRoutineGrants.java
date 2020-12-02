@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -24,7 +25,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class RoleRoutineGrants extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 1573413786;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS</code>
@@ -42,58 +43,59 @@ public class RoleRoutineGrants extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.GRANTOR</code>.
      */
-    public final TableField<Record, String> GRANTOR = createField(DSL.name("GRANTOR"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> GRANTOR = createField(DSL.name("GRANTOR"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.GRANTEE</code>.
      */
-    public final TableField<Record, String> GRANTEE = createField(DSL.name("GRANTEE"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> GRANTEE = createField(DSL.name("GRANTEE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.SPECIFIC_CATALOG</code>.
      */
-    public final TableField<Record, String> SPECIFIC_CATALOG = createField(DSL.name("SPECIFIC_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_CATALOG = createField(DSL.name("SPECIFIC_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.SPECIFIC_SCHEMA</code>.
      */
-    public final TableField<Record, String> SPECIFIC_SCHEMA = createField(DSL.name("SPECIFIC_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_SCHEMA = createField(DSL.name("SPECIFIC_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.SPECIFIC_NAME</code>.
      */
-    public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.ROUTINE_CATALOG</code>.
      */
-    public final TableField<Record, String> ROUTINE_CATALOG = createField(DSL.name("ROUTINE_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ROUTINE_CATALOG = createField(DSL.name("ROUTINE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.ROUTINE_SCHEMA</code>.
      */
-    public final TableField<Record, String> ROUTINE_SCHEMA = createField(DSL.name("ROUTINE_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ROUTINE_SCHEMA = createField(DSL.name("ROUTINE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.ROUTINE_NAME</code>.
      */
-    public final TableField<Record, String> ROUTINE_NAME = createField(DSL.name("ROUTINE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ROUTINE_NAME = createField(DSL.name("ROUTINE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.PRIVILEGE_TYPE</code>.
      */
-    public final TableField<Record, String> PRIVILEGE_TYPE = createField(DSL.name("PRIVILEGE_TYPE"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> PRIVILEGE_TYPE = createField(DSL.name("PRIVILEGE_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.IS_GRANTABLE</code>.
      */
-    public final TableField<Record, String> IS_GRANTABLE = createField(DSL.name("IS_GRANTABLE"), org.jooq.impl.SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_GRANTABLE = createField(DSL.name("IS_GRANTABLE"), SQLDataType.VARCHAR(3), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS</code> table reference
-     */
-    public RoleRoutineGrants() {
-        this(DSL.name("ROLE_ROUTINE_GRANTS"), null);
+    private RoleRoutineGrants(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private RoleRoutineGrants(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("one row for each usage grant on a routine to a role"), TableOptions.table());
     }
 
     /**
@@ -110,12 +112,11 @@ public class RoleRoutineGrants extends TableImpl<Record> {
         this(alias, ROLE_ROUTINE_GRANTS);
     }
 
-    private RoleRoutineGrants(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private RoleRoutineGrants(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("one row for each usage grant on a routine to a role"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS</code> table reference
+     */
+    public RoleRoutineGrants() {
+        this(DSL.name("ROLE_ROUTINE_GRANTS"), null);
     }
 
     public <O extends Record> RoleRoutineGrants(Table<O> child, ForeignKey<O, Record> key) {

@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -26,7 +27,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewTableUsage extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 1791657314;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE</code>
@@ -44,38 +45,39 @@ public class ViewTableUsage extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE.VIEW_CATALOG</code>.
      */
-    public final TableField<Record, String> VIEW_CATALOG = createField(DSL.name("VIEW_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> VIEW_CATALOG = createField(DSL.name("VIEW_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE.VIEW_SCHEMA</code>.
      */
-    public final TableField<Record, String> VIEW_SCHEMA = createField(DSL.name("VIEW_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> VIEW_SCHEMA = createField(DSL.name("VIEW_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE.VIEW_NAME</code>.
      */
-    public final TableField<Record, String> VIEW_NAME = createField(DSL.name("VIEW_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> VIEW_NAME = createField(DSL.name("VIEW_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE.TABLE_CATALOG</code>.
      */
-    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE.TABLE_SCHEMA</code>.
      */
-    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE.TABLE_NAME</code>.
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), org.jooq.impl.SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE</code> table reference
-     */
-    public ViewTableUsage() {
-        this(DSL.name("VIEW_TABLE_USAGE"), null);
+    private ViewTableUsage(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private ViewTableUsage(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("one row for each table identified by a <table name> simply contained in a <table reference> that is contained in the <query expression> of a view"), TableOptions.table());
     }
 
     /**
@@ -92,12 +94,11 @@ public class ViewTableUsage extends TableImpl<Record> {
         this(alias, VIEW_TABLE_USAGE);
     }
 
-    private ViewTableUsage(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private ViewTableUsage(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("one row for each table identified by a <table name> simply contained in a <table reference> that is contained in the <query expression> of a view"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE</code> table reference
+     */
+    public ViewTableUsage() {
+        this(DSL.name("VIEW_TABLE_USAGE"), null);
     }
 
     public <O extends Record> ViewTableUsage(Table<O> child, ForeignKey<O, Record> key) {

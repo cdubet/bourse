@@ -15,6 +15,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -25,7 +26,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SystemProperties extends TableImpl<Record> {
 
-    private static final long serialVersionUID = -1190042932;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES</code>
@@ -43,33 +44,34 @@ public class SystemProperties extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_SCOPE</code>. the scope of the property, e.g. ( TEMPORARY | TRANSACTION | SESSION | ...}
      */
-    public final TableField<Record, String> PROPERTY_SCOPE = createField(DSL.name("PROPERTY_SCOPE"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "the scope of the property, e.g. ( TEMPORARY | TRANSACTION | SESSION | ...}");
+    public final TableField<Record, String> PROPERTY_SCOPE = createField(DSL.name("PROPERTY_SCOPE"), SQLDataType.VARCHAR(65536), this, "the scope of the property, e.g. ( TEMPORARY | TRANSACTION | SESSION | ...}");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_NAMESPACE</code>. the namespace in which the property is applicable, e.g. ( database.properties | org.hsqldb.Database | java.sql.DatabaseMetaData | ...)
      */
-    public final TableField<Record, String> PROPERTY_NAMESPACE = createField(DSL.name("PROPERTY_NAMESPACE"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "the namespace in which the property is applicable, e.g. ( database.properties | org.hsqldb.Database | java.sql.DatabaseMetaData | ...)");
+    public final TableField<Record, String> PROPERTY_NAMESPACE = createField(DSL.name("PROPERTY_NAMESPACE"), SQLDataType.VARCHAR(65536), this, "the namespace in which the property is applicable, e.g. ( database.properties | org.hsqldb.Database | java.sql.DatabaseMetaData | ...)");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_NAME</code>. the name of the property
      */
-    public final TableField<Record, String> PROPERTY_NAME = createField(DSL.name("PROPERTY_NAME"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "the name of the property");
+    public final TableField<Record, String> PROPERTY_NAME = createField(DSL.name("PROPERTY_NAME"), SQLDataType.VARCHAR(65536), this, "the name of the property");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_VALUE</code>. the current value of the property
      */
-    public final TableField<Record, String> PROPERTY_VALUE = createField(DSL.name("PROPERTY_VALUE"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "the current value of the property");
+    public final TableField<Record, String> PROPERTY_VALUE = createField(DSL.name("PROPERTY_VALUE"), SQLDataType.VARCHAR(65536), this, "the current value of the property");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_CLASS</code>. the type of the value, e.g. ( int | boolean | java.lang.String | ...)
      */
-    public final TableField<Record, String> PROPERTY_CLASS = createField(DSL.name("PROPERTY_CLASS"), org.jooq.impl.SQLDataType.VARCHAR(65536), this, "the type of the value, e.g. ( int | boolean | java.lang.String | ...)");
+    public final TableField<Record, String> PROPERTY_CLASS = createField(DSL.name("PROPERTY_CLASS"), SQLDataType.VARCHAR(65536), this, "the type of the value, e.g. ( int | boolean | java.lang.String | ...)");
 
-    /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES</code> table reference
-     */
-    public SystemProperties() {
-        this(DSL.name("SYSTEM_PROPERTIES"), null);
+    private SystemProperties(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private SystemProperties(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment("the static and dynamic system properties and operating parameters of this database"), TableOptions.table());
     }
 
     /**
@@ -86,12 +88,11 @@ public class SystemProperties extends TableImpl<Record> {
         this(alias, SYSTEM_PROPERTIES);
     }
 
-    private SystemProperties(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private SystemProperties(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("the static and dynamic system properties and operating parameters of this database"), TableOptions.table());
+    /**
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES</code> table reference
+     */
+    public SystemProperties() {
+        this(DSL.name("SYSTEM_PROPERTIES"), null);
     }
 
     public <O extends Record> SystemProperties(Table<O> child, ForeignKey<O, Record> key) {

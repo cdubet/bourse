@@ -25,7 +25,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SystemLobs extends SchemaImpl {
 
-    private static final long serialVersionUID = 1491176187;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>SYSTEM_LOBS</code>

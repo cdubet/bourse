@@ -20,6 +20,7 @@ import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
+import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -29,7 +30,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Parts extends TableImpl<Record> {
 
-    private static final long serialVersionUID = 891641232;
+    private static final long serialVersionUID = 1L;
 
     /**
      * The reference instance of <code>SYSTEM_LOBS.PARTS</code>
@@ -47,38 +48,39 @@ public class Parts extends TableImpl<Record> {
     /**
      * The column <code>SYSTEM_LOBS.PARTS.BLOCK_COUNT</code>.
      */
-    public final TableField<Record, Integer> BLOCK_COUNT = createField(DSL.name("BLOCK_COUNT"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<Record, Integer> BLOCK_COUNT = createField(DSL.name("BLOCK_COUNT"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>SYSTEM_LOBS.PARTS.BLOCK_OFFSET</code>.
      */
-    public final TableField<Record, Integer> BLOCK_OFFSET = createField(DSL.name("BLOCK_OFFSET"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<Record, Integer> BLOCK_OFFSET = createField(DSL.name("BLOCK_OFFSET"), SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>SYSTEM_LOBS.PARTS.PART_OFFSET</code>.
      */
-    public final TableField<Record, Long> PART_OFFSET = createField(DSL.name("PART_OFFSET"), org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
+    public final TableField<Record, Long> PART_OFFSET = createField(DSL.name("PART_OFFSET"), SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
      * The column <code>SYSTEM_LOBS.PARTS.PART_LENGTH</code>.
      */
-    public final TableField<Record, Long> PART_LENGTH = createField(DSL.name("PART_LENGTH"), org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
+    public final TableField<Record, Long> PART_LENGTH = createField(DSL.name("PART_LENGTH"), SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
      * The column <code>SYSTEM_LOBS.PARTS.PART_BYTES</code>.
      */
-    public final TableField<Record, Long> PART_BYTES = createField(DSL.name("PART_BYTES"), org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
+    public final TableField<Record, Long> PART_BYTES = createField(DSL.name("PART_BYTES"), SQLDataType.BIGINT.nullable(false), this, "");
 
     /**
      * The column <code>SYSTEM_LOBS.PARTS.LOB_ID</code>.
      */
-    public final TableField<Record, Long> LOB_ID = createField(DSL.name("LOB_ID"), org.jooq.impl.SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> LOB_ID = createField(DSL.name("LOB_ID"), SQLDataType.BIGINT, this, "");
 
-    /**
-     * Create a <code>SYSTEM_LOBS.PARTS</code> table reference
-     */
-    public Parts() {
-        this(DSL.name("PARTS"), null);
+    private Parts(Name alias, Table<Record> aliased) {
+        this(alias, aliased, null);
+    }
+
+    private Parts(Name alias, Table<Record> aliased, Field<?>[] parameters) {
+        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
     }
 
     /**
@@ -95,12 +97,11 @@ public class Parts extends TableImpl<Record> {
         this(alias, PARTS);
     }
 
-    private Parts(Name alias, Table<Record> aliased) {
-        this(alias, aliased, null);
-    }
-
-    private Parts(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment(""), TableOptions.table());
+    /**
+     * Create a <code>SYSTEM_LOBS.PARTS</code> table reference
+     */
+    public Parts() {
+        this(DSL.name("PARTS"), null);
     }
 
     public <O extends Record> Parts(Table<O> child, ForeignKey<O, Record> key) {
