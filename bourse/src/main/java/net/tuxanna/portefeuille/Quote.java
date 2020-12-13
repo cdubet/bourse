@@ -403,6 +403,51 @@ public class Quote
 		return isLastTradedPriceValid();//minimal info
 	}
 
+	public void divideShare(Double divideShareRatio)
+	{
+		if (lastTradedPrice.isValid())
+		{
+			lastTradedPrice.setValue(lastTradedPrice.getValue()/divideShareRatio);
+		}
+		if (openPrice.isValid())
+		{
+			openPrice.setValue(openPrice.getValue()/divideShareRatio);
+		}
+		if (highPrice.isValid())
+		{
+			highPrice.setValue(highPrice.getValue()/divideShareRatio);
+		}
+		if (lowPrice.isValid())
+		{
+			lowPrice.setValue(lowPrice.getValue()/divideShareRatio);
+		}		
+		if (volume.isValid())
+		{
+			volume.setValue(volume.getValue() * divideShareRatio);
+		}		
+		if (low52Week.isValid())
+		{
+			low52Week.setValue(low52Week.getValue() / divideShareRatio);
+		}		
+		if (high52Week.isValid())
+		{
+			high52Week.setValue(high52Week.getValue() / divideShareRatio);
+		}		
+		if (mobileAverage50Days.isValid())
+		{
+			mobileAverage50Days.setValue(mobileAverage50Days.getValue() / divideShareRatio);
+		}	
+		if (mobileAverage200Days.isValid())
+		{
+			mobileAverage200Days.setValue(mobileAverage200Days.getValue() / divideShareRatio);
+		}	
+		if (previousClose.isValid())
+		{
+			previousClose.setValue(previousClose.getValue() / divideShareRatio);
+		}	
+		
+	}
+
 
 
 

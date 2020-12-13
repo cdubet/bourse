@@ -9,7 +9,8 @@ import org.junit.runners.Suite.SuiteClasses;
 				TestPortfolioManagement.class, 
 				TestPortfolioManagement17Oct2016.class, 
 				TestCsvExport.class,
-				TestQuoteVariation.class })
+				TestQuoteVariation.class ,
+				TestShareDivision.class})
 public class AllTests
 {
 

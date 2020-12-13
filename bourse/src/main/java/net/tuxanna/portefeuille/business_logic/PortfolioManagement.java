@@ -28,6 +28,10 @@ import net.tuxanna.portefeuille.business_logic.util.ShareToQuotations;
 import net.tuxanna.portefeuille.dataFeed.QuotationProviderI;
 import net.tuxanna.portefeuille.dataFeed.Ticker;
 import net.tuxanna.portefeuille.dataFeed.TickerI;
+import net.tuxanna.portefeuille.database.ConditionPortfolioI;
+import net.tuxanna.portefeuille.database.ConditionPortfolioSharesMatchShareId;
+import net.tuxanna.portefeuille.database.ConditionQuoteDateBefore;
+import net.tuxanna.portefeuille.database.ConditionQuoteI;
 import net.tuxanna.portefeuille.database.DatabaseI;
 import net.tuxanna.portefeuille.database.PortfolioDB;
 import net.tuxanna.portefeuille.database.QuoteDB;
@@ -713,16 +717,80 @@ public class PortfolioManagement
 	}
 
 
-	public void divideShare(String shareName, Date dateSplit, Double divideShareRatio)
+	public boolean divideShare(String shareName, Date dateSplit, Double divideShareRatio)
 	{
 		ShareDB shareDB=database.loadShare(shareName);
 		if (shareDB == null)
 		{
-			return;
+			return false;
 		}
-		//update quotation
-		
+		//
+		updateQuotesInCaseOfDivision(dateSplit, divideShareRatio, shareDB);
 		//update portfolio
+		if (!updatePortfolionInCaseOfDivision(divideShareRatio, shareDB))
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+
+	private boolean updatePortfolionInCaseOfDivision(Double divideShareRatio, ShareDB shareDB)
+	{
+		ConditionPortfolioI searchCondition=new ConditionPortfolioSharesMatchShareId(shareDB.getId());
+		List<PortfolioDB>  listSharesInPortfolios=database.loadSharesInPortfolio(searchCondition);
+		for (PortfolioDB portfolioDB : listSharesInPortfolios)
+		{
+			if (!updateSharesInPortfolioWhenDivide(divideShareRatio, portfolioDB))
+			{
+				return false;
+			}
+		}
+		return database.updateListPortfolio(listSharesInPortfolios);
+	}
+
+
+	private boolean updateSharesInPortfolioWhenDivide(Double divideShareRatio, PortfolioDB portfolioDB)
+	{
+		boolean success=true;
+		double newAmount;
+		if (portfolioDB.getQte().isValid())
+		{
+			newAmount = portfolioDB.getQte().getValue()* divideShareRatio;
+		}
+		else
+		{
+			logger.error("no qte in portfolio id {}",portfolioDB.getQte());
+			newAmount=0;
+			success=false;
+		}
+		portfolioDB.setQte(new DigitValue(newAmount));
+		double newUnitPrice;
+		if (portfolioDB.getUnitPrice().isValid())
+		{
+			newUnitPrice=portfolioDB.getUnitPrice().getValue()/divideShareRatio;
+		}
+		else
+		{
+			logger.error("no unit price in portfolio id {}",portfolioDB.getQte());
+			newUnitPrice=0;
+			success=false;
+		}
+		portfolioDB.setUnitPrice(new DigitValue(newUnitPrice));
+		return success;
+	}
+
+
+	private boolean updateQuotesInCaseOfDivision(Date dateSplit, Double divideShareRatio, ShareDB shareDB)
+	{
+		ConditionQuoteI searchCondition=new ConditionQuoteDateBefore(dateSplit,shareDB.getId());
+		List<QuoteDB>  listQuote=database.readQuotations(searchCondition);
+		for (QuoteDB quoteDB : listQuote)
+		{
+			quoteDB.getQuotation().divideShare(divideShareRatio);
+		}
+		return database.updateQuotationInDatabase(listQuote);
 	}
 
 

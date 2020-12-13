@@ -8,7 +8,7 @@ public class ShareDB
 	    DOLLAR_US, 
 	    EURO,
 	    CHF,
-	    LIVRE_STERLING	     
+	    ENGLISH_POUND	     
 	}
 	
 	private String name;

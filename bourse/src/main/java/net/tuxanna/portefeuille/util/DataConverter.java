@@ -47,7 +47,7 @@ public class DataConverter
 		}
 		else if ((currencyChar == '£') || (currencyChar=='L') || (currencyChar=='l'))
 		{
-			currency = ShareDB.Currency.LIVRE_STERLING;
+			currency = ShareDB.Currency.ENGLISH_POUND;
 		}
 		else
 		{
@@ -71,7 +71,7 @@ public class DataConverter
 		{
 			return "F";
 		}
-		else if (currency == ShareDB.Currency.LIVRE_STERLING)
+		else if (currency == ShareDB.Currency.ENGLISH_POUND)
 		{
 			return "£";
 		}

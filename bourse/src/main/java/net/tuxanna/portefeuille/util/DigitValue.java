@@ -68,11 +68,22 @@ public class DigitValue
 			return true;
 
 		DigitValue rhs = (DigitValue) obj;
-		return new EqualsBuilder().
-				// if deriving: appendSuper(super.equals(obj)).
-				append(isValid,rhs.isValid).
-				append(value,rhs.value).
-				isEquals();
+		if (isValid == rhs.isValid)
+		{
+			if (isValid)
+			{
+				final double TOLERANCE=0.0001;
+				if (Math.abs(value-rhs.value)<TOLERANCE)
+				{
+					return true;
+				}
+			}
+			else
+			{
+				return true; //value should ne be considered
+			}
+		}
+		return false;
 	}
 
 	public double getValue()

@@ -1,4 +1,4 @@
-name1	ticker1	12,50
-name2	ticker2	1,00
+1	name1	ticker1	12.50
+2	name2	ticker2	1.00
 
 generated 17-10-2016 at 10:00:00
