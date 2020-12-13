@@ -1450,9 +1450,19 @@ public class Database implements DatabaseI
 		
 		Quote quote=quoteDB.getQuotation();
 		UpdateSetMoreStep<Record> req=null;
+		
+		if (quote.getLastTradedPrice().isValid())
+		{
+			req = updateRequest.set(Quotes.QUOTES.LASTTRADEDPRICE, quote.getLastTradedPrice().getValue());
+		}
+		if (req == null)
+		{
+			logger.error("no update : last traded price missing");
+			return null;
+		}
 		if (quote.getChangeInPrice().isValid())
 		{
-			req = updateRequest.set(Quotes.QUOTES.CHANGEINPRICE, quote.getChangeInPrice().getValue());
+			updateRequest.set(Quotes.QUOTES.CHANGEINPRICE, quote.getChangeInPrice().getValue());
 		}
 		if (quote.getHigh52Week().isValid())
 		{
@@ -1470,10 +1480,7 @@ public class Database implements DatabaseI
 		{
 			updateRequest.set(Quotes.QUOTES.LOWPRICE, quote.getLowPrice().getValue());
 		}
-		if (quote.getLastTradedPrice().isValid())
-		{
-			updateRequest.set(Quotes.QUOTES.LASTTRADEDPRICE, quote.getLastTradedPrice().getValue());
-		}
+
 		if (quote.getMobileAverage200Days().isValid())
 		{
 			updateRequest.set(Quotes.QUOTES.MOBILEAVERAGE200DAYS, quote.getMobileAverage200Days().getValue());
@@ -1502,11 +1509,7 @@ public class Database implements DatabaseI
 		{
 			updateRequest.set(Quotes.QUOTES.VOLUME, quote.getVolume().getValue());
 		}
-		if (req == null)
-		{
-			logger.error("no update param found");
-			return null;
-		}
+
 		return req.where(Quotes.QUOTES.IDQUOTES.eq(quoteDB.getIdQuote()));
 		
 //	      .set(Quotes.QUOTES.HIGH52WEEK, 12.0)
