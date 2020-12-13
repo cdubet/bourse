@@ -6,8 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Types;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -15,7 +15,9 @@ import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
 import org.jooq.DSLContext;
+import org.jooq.InsertValuesStep7;
 import org.jooq.Record;
 import org.jooq.Record1;
 import org.jooq.Record2;
@@ -367,208 +369,48 @@ public class Database implements DatabaseI
 
 	}
 
-
-
+	
 	/* (non-Javadoc)
 	 * @see net.tuxanna.database.jooq.DatabaseI#storeQuotation(java.util.List)
 	 */
 	@Override
 	public boolean insertQuotation(List<QuoteDB> listQuote)
 	{
-		final String INSERT_QUOTE = "insert into QUOTES(idShare,dateQuote,lastTradedPrice,changeInPrice,openPrice,highPrice,lowPrice,volume,low52Week,high52Week,mobileAverage50Days,mobileAverage200Days,previousClose,peRatio,shortRatio) values (?,?,?,?,?,?,? ,? ,?,?,?,?,?,?,?)";
-		PreparedStatement insertStatement;
-		try
-		{
-			insertStatement = conn.prepareStatement(INSERT_QUOTE);
-		}
-		catch (SQLException e)
-		{
-			logger.error(e);
-			return false;
-		}
+		DSLContext create = DSL.using(conn, SQLDialect.HSQLDB);
+		InsertValuesStep7<Record, Integer, LocalDateTime, Double, Double, Double, Double, Double> request = create.insertInto(Quotes.QUOTES,
+				Quotes.QUOTES.IDSHARE,
+				Quotes.QUOTES.DATEQUOTE,
+				Quotes.QUOTES.LASTTRADEDPRICE,
+				Quotes.QUOTES.OPENPRICE,
+				Quotes.QUOTES.HIGHPRICE,
+				Quotes.QUOTES.LOWPRICE,
+				Quotes.QUOTES.VOLUME);
+
+		boolean isSomethingToDo=false;
 		for (QuoteDB quotation : listQuote)
 		{
 			if (quotation.hasRequiredDataForPersistance())
 			{
-				try
-				{
-					fillInsertStatementQuotation(insertStatement, quotation);
-					final int iUpdateCount = insertStatement.executeUpdate();
-					if (iUpdateCount !=1)
-					{
-						logger.error("failed to insert {} {}",iUpdateCount,quotation.toString());
-					}				
-				}
-				catch (SQLException e)
-				{
-					logger.error(e);
-					try
-					{
-						insertStatement.close();
-					}
-					catch (SQLException e1)
-					{
-						logger.error(e);
-					}
-					return false;
-				}
+				LocalDateTime dateToSave=quotation.getDate().toInstant()
+			      .atZone(ZoneId.systemDefault())
+			      .toLocalDateTime();
+							
+				request.values(quotation.getIdShare(),
+						dateToSave,
+						quotation.getQuotation().getLastTradedPrice().getValue(),
+						quotation.getQuotation().getOpenPrice().getValueOrNull(),
+						quotation.getQuotation().getHighPrice().getValueOrNull(),
+						quotation.getQuotation().getLowPrice().getValueOrNull(),
+						quotation.getQuotation().getVolume().getValueOrNull());
+				isSomethingToDo=true;
 			}
-			else
-			{
-				logger.error("invalid quotation {}",quotation.toString());
-			}
-
 		}
-		try
+		if (isSomethingToDo)
 		{
-			insertStatement.close();
+			int result = request.execute();
+			logger.debug("added {} returning ",listQuote.size(),result);
 		}
-		catch (SQLException e)
-		{
-			logger.error(e);
-			return false;
-		}
-		logger.traceExit("added ",listQuote.size());
 		return true;
-	}
-
-	private void fillInsertStatementQuotation(PreparedStatement insertStatement, QuoteDB quotation) throws SQLException
-	{
-		insertStatement.setInt(1, quotation.getIdShare());
-		insertStatement.setDate(2, new java.sql.Date(quotation.getDate().getTime()));
-		insertStatement.setDouble(3,quotation.getQuotation().getLastTradedPrice().getValue());
-		{	
-			DigitValue valToSave = quotation.getQuotation().getChangeInPrice();
-			if (valToSave.isValid())
-			{
-				insertStatement.setDouble(4,valToSave.getValue());
-			}
-			else
-			{
-				insertStatement.setNull(4,Types.DOUBLE);
-			}
-		}
-		{	
-			DigitValue valToSave = quotation.getQuotation().getOpenPrice();
-			if (valToSave.isValid())
-			{
-				insertStatement.setDouble(5,valToSave.getValue());
-			}
-			else
-			{
-				insertStatement.setNull(5,Types.DOUBLE);
-			}
-		}
-		{	
-			DigitValue valToSave = quotation.getQuotation().getHighPrice();
-			if (valToSave.isValid())
-			{
-				insertStatement.setDouble(6,valToSave.getValue());
-			}
-			else
-			{
-				insertStatement.setNull(6,Types.DOUBLE);
-			}
-		}
-		{	
-			DigitValue valToSave = quotation.getQuotation().getLowPrice();
-			if (valToSave.isValid())
-			{
-				insertStatement.setDouble(7,valToSave.getValue());
-			}
-			else
-			{
-				insertStatement.setNull(7,Types.DOUBLE);
-			}
-		}
-		{	
-			DigitValue valToSave = quotation.getQuotation().getVolume();
-			if (valToSave.isValid())
-			{
-				insertStatement.setDouble(8,valToSave.getValue());
-			}
-			else
-			{
-				insertStatement.setNull(8,Types.DOUBLE);
-			}
-		}
-		{	
-			DigitValue valToSave = quotation.getQuotation().getLow52Week();
-			if (valToSave.isValid())
-			{
-				insertStatement.setDouble(9,valToSave.getValue());
-			}
-			else
-			{
-				insertStatement.setNull(9,Types.DOUBLE);
-			}
-		}
-		{	
-			DigitValue valToSave = quotation.getQuotation().getHigh52Week();
-			if (valToSave.isValid())
-			{
-				insertStatement.setDouble(10,valToSave.getValue());
-			}
-			else
-			{
-				insertStatement.setNull(10,Types.DOUBLE);
-			}
-		}
-		{	
-			DigitValue valToSave = quotation.getQuotation().getMobileAverage50Days();
-			if (valToSave.isValid())
-			{
-				insertStatement.setDouble(11,valToSave.getValue());
-			}
-			else
-			{
-				insertStatement.setNull(11,Types.DOUBLE);
-			}
-		}
-		{	
-			DigitValue valToSave = quotation.getQuotation().getMobileAverage200Days();
-			if (valToSave.isValid())
-			{
-				insertStatement.setDouble(12,valToSave.getValue());
-			}
-			else
-			{
-				insertStatement.setNull(12,Types.DOUBLE);
-			}
-		}
-		{	
-			DigitValue valToSave = quotation.getQuotation().getPreviousClose();
-			if (valToSave.isValid())
-			{
-				insertStatement.setDouble(13,valToSave.getValue());
-			}
-			else
-			{
-				insertStatement.setNull(13,Types.DOUBLE);
-			}
-		}
-		{	
-			DigitValue valToSave = quotation.getQuotation().getPeRatio();
-			if (valToSave.isValid())
-			{
-				insertStatement.setDouble(14,valToSave.getValue());
-			}
-			else
-			{
-				insertStatement.setNull(14,Types.DOUBLE);
-			}
-		}
-		{	
-			DigitValue valToSave = quotation.getQuotation().getShortRatio();
-			if (valToSave.isValid())
-			{
-				insertStatement.setDouble(15,valToSave.getValue());
-			}
-			else
-			{
-				insertStatement.setNull(15,Types.DOUBLE);
-			}
-		}
 	}
 
 	/* (non-Javadoc)
@@ -1355,25 +1197,10 @@ public class Database implements DatabaseI
 	private void fillQuotationFromDatabase(Record shareRecord, QuoteDB quoteDb)
 	{
 		Quote quote=new Quote();
-		Double val = shareRecord.get(Quotes.QUOTES.CHANGEINPRICE);
-		if (val != null)
-		{
-			quote.setChangeInPrice(val);
-		}
-		val=shareRecord.get(Quotes.QUOTES.HIGH52WEEK);
-		if (val != null)
-		{
-			quote.setHigh52Week(val);
-		}
-		val=shareRecord.get(Quotes.QUOTES.HIGHPRICE);
+		Double val=shareRecord.get(Quotes.QUOTES.HIGHPRICE);
 		if (val != null)
 		{
 			quote.setHighPrice(val);
-		}
-		val=shareRecord.get(Quotes.QUOTES.LOW52WEEK);
-		if (val != null)
-		{
-			quote.setLow52Week(val);
 		}
 		val=shareRecord.get(Quotes.QUOTES.LOWPRICE);
 		if (val != null)
@@ -1386,36 +1213,11 @@ public class Database implements DatabaseI
 			quote.setLastTradedPrice(val);
 		}
 		
-		val=shareRecord.get(Quotes.QUOTES.MOBILEAVERAGE200DAYS);
-		if (val != null)
-		{
-			quote.setMobileAverage200Days(val);
-		}
-		val=shareRecord.get(Quotes.QUOTES.MOBILEAVERAGE50DAYS);
-		if (val != null)
-		{
-			quote.setMobileAverage50Days(val);
-		}
 		
 		val=shareRecord.get(Quotes.QUOTES.OPENPRICE);
 		if (val != null)
 		{
 			quote.setOpenPrice(val);
-		}
-		val=shareRecord.get(Quotes.QUOTES.PERATIO);
-		if (val != null)
-		{
-			quote.setPeRatio(val);
-		}
-		val=shareRecord.get(Quotes.QUOTES.PREVIOUSCLOSE);
-		if (val != null)
-		{
-			quote.setPreviousClose(val);
-		}
-		val=shareRecord.get(Quotes.QUOTES.SHORTRATIO);
-		if (val != null)
-		{
-			quote.setShortRatio(val);
 		}
 		val=shareRecord.get(Quotes.QUOTES.VOLUME);
 		if (val != null)
@@ -1460,50 +1262,18 @@ public class Database implements DatabaseI
 			logger.error("no update : last traded price missing");
 			return null;
 		}
-		if (quote.getChangeInPrice().isValid())
-		{
-			updateRequest.set(Quotes.QUOTES.CHANGEINPRICE, quote.getChangeInPrice().getValue());
-		}
-		if (quote.getHigh52Week().isValid())
-		{
-			updateRequest.set(Quotes.QUOTES.HIGH52WEEK, quote.getHigh52Week().getValue());
-		}
 		if (quote.getHighPrice().isValid())
 		{
 			updateRequest.set(Quotes.QUOTES.HIGHPRICE, quote.getHighPrice().getValue());
-		}
-		if (quote.getLow52Week().isValid())
-		{
-			updateRequest.set(Quotes.QUOTES.LOW52WEEK, quote.getLow52Week().getValue());
 		}
 		if (quote.getLowPrice().isValid())
 		{
 			updateRequest.set(Quotes.QUOTES.LOWPRICE, quote.getLowPrice().getValue());
 		}
 
-		if (quote.getMobileAverage200Days().isValid())
-		{
-			updateRequest.set(Quotes.QUOTES.MOBILEAVERAGE200DAYS, quote.getMobileAverage200Days().getValue());
-		}		
-		if (quote.getMobileAverage50Days().isValid())
-		{
-			updateRequest.set(Quotes.QUOTES.MOBILEAVERAGE50DAYS, quote.getMobileAverage50Days().getValue());
-		}		
 		if (quote.getOpenPrice().isValid())
 		{
 			updateRequest.set(Quotes.QUOTES.OPENPRICE, quote.getOpenPrice().getValue());
-		}
-		if (quote.getPeRatio().isValid())
-		{
-			updateRequest.set(Quotes.QUOTES.PERATIO, quote.getPeRatio().getValue());
-		}
-		if (quote.getPreviousClose().isValid())
-		{
-			updateRequest.set(Quotes.QUOTES.PREVIOUSCLOSE, quote.getPreviousClose().getValue());
-		}
-		if (quote.getShortRatio().isValid())
-		{
-			updateRequest.set(Quotes.QUOTES.SHORTRATIO, quote.getShortRatio().getValue());
 		}
 		if (quote.getVolume().isValid())
 		{
@@ -1512,10 +1282,6 @@ public class Database implements DatabaseI
 
 		return req.where(Quotes.QUOTES.IDQUOTES.eq(quoteDB.getIdQuote()));
 		
-//	      .set(Quotes.QUOTES.HIGH52WEEK, 12.0)
-	//      .set(AUTHOR.LAST_NAME, "Hesse")
-	  //    .where(Quotes.QUOTES.IDQUOTES.eq(3))
-	     // .execute();
 	}
 
 

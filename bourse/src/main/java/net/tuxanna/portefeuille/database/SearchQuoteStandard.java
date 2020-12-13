@@ -27,7 +27,7 @@ public class SearchQuoteStandard implements SearchQuoteI
 	public boolean buildPreparedStatement(Connection conn) 
 	{
 		boolean res=true;
-		final String SEARCH_QUOTE = "select dateQuote,lastTradedPrice,changeInPrice,openPrice,highPrice,lowPrice ,volume ,	low52Week,	high52Week ,mobileAverage50Days ,mobileAverage200Days,previousClose,peRatio, shortRatio,idQuotes from QUOTES where idShare= ? order by dateQuote";
+		final String SEARCH_QUOTE = "select dateQuote,lastTradedPrice,openPrice,highPrice,lowPrice ,volume ,idQuotes from QUOTES where idShare= ? order by dateQuote";
 		try
 		{
 			selectStatement = conn.prepareStatement(SEARCH_QUOTE);
@@ -69,13 +69,6 @@ public class SearchQuoteStandard implements SearchQuoteI
 			double lastTradedPrice=results.getDouble("lastTradedPrice");
 			quotation.setLastTradedPrice(lastTradedPrice);
 		}
-		{	
-			double changeInPrice=results.getDouble("changeInPrice");
-			if (!results.wasNull())
-			{
-				quotation.setChangeInPrice(changeInPrice);
-			}
-		}
 
 		{	
 			double openPrice=results.getDouble("openPrice");
@@ -104,56 +97,6 @@ public class SearchQuoteStandard implements SearchQuoteI
 			if (!results.wasNull())
 			{
 				quotation.setVolume(volume);
-			}
-		}
-		{
-			double low52Week=results.getDouble("low52Week");
-			if (!results.wasNull())
-			{
-				quotation.setLow52Week(low52Week);
-			}
-		}
-		{
-			double high52Week=results.getDouble("high52Week");
-			if (!results.wasNull())
-			{
-				quotation.setHigh52Week(high52Week);
-			}
-		}
-		
-		{
-			double mobileAverage50Days=results.getDouble("mobileAverage50Days");
-			if (!results.wasNull())
-			{
-				quotation.setMobileAverage50Days(mobileAverage50Days);
-			}
-		}
-		{
-			double mobileAverage200Days=results.getDouble("mobileAverage200Days");
-			if (!results.wasNull())
-			{
-				quotation.setMobileAverage200Days(mobileAverage200Days);
-			}
-		}
-		{
-			double previousClose=results.getDouble("previousClose");
-			if (!results.wasNull())
-			{
-				quotation.setPreviousClose(previousClose);
-			}
-		}
-		{
-			double peRatio=results.getDouble("peRatio");
-			if (!results.wasNull())
-			{
-				quotation.setPeRatio(peRatio);
-			}
-		}
-		{
-			double shortRatio=results.getDouble("shortRatio");
-			if (!results.wasNull())
-			{
-				quotation.setShortRatio(shortRatio);
 			}
 		}
 		

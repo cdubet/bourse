@@ -438,34 +438,34 @@ public class PortfolioManagement
 				if (quotation.isLastTradedPriceValid())
 				{
 					QuoteDB qDB=new QuoteDB(share.getId(),quotation);
-					if (!quotation.getMobileAverage50Days().isValid())
-					{
-						//compute it
-						MobileAverage average50=new MobileAverage(share, database, 50);
-						Double computedAverage50=average50.compute();
-						if (computedAverage50 == null)
-						{
-							logger.debug("no average 50 for [ {} ]",ticker.getSymbol());
-						}
-						else
-						{
-							quotation.setMobileAverage50Days(computedAverage50);
-						}
-					}
-					if (!quotation.getMobileAverage200Days().isValid())
-					{
-						//compute it
-						MobileAverage average200=new MobileAverage(share, database, 200);
-						Double computedAverage200=average200.compute();
-						if (computedAverage200 == null)
-						{
-							logger.debug("no average 200 for [ {} ]",ticker.getSymbol());
-						}
-						else
-						{
-							quotation.setMobileAverage200Days(computedAverage200);
-						}
-					}
+//					if (!quotation.getMobileAverage50Days().isValid())
+//					{
+//						//compute it
+//						MobileAverage average50=new MobileAverage(share, database, 50);
+//						Double computedAverage50=average50.compute();
+//						if (computedAverage50 == null)
+//						{
+//							logger.debug("no average 50 for [ {} ]",ticker.getSymbol());
+//						}
+//						else
+//						{
+//							quotation.setMobileAverage50Days(computedAverage50);
+//						}
+//					}
+//					if (!quotation.getMobileAverage200Days().isValid())
+//					{
+//						//compute it
+//						MobileAverage average200=new MobileAverage(share, database, 200);
+//						Double computedAverage200=average200.compute();
+//						if (computedAverage200 == null)
+//						{
+//							logger.debug("no average 200 for [ {} ]",ticker.getSymbol());
+//						}
+//						else
+//						{
+//							quotation.setMobileAverage200Days(computedAverage200);
+//						}
+//					}
 					listOfQuotationsDB.add(share,qDB);
 				}
 				else

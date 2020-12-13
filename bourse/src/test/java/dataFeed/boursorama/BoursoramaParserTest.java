@@ -33,7 +33,6 @@ public class BoursoramaParserTest
 		assertEquals(0.0, quote.getOpenPrice().getValue(),0.001);
 		assertEquals(0.0, quote.getHighPrice().getValue(),0.001);
 		assertEquals(192.660, quote.getLowPrice().getValue(),0.001);
-		assertEquals(194.580, quote.getPreviousClose().getValue(),0.001);
 		
 		//TODO check non filled values
 		
@@ -55,7 +54,7 @@ public class BoursoramaParserTest
 		assertEquals(0, quote.getOpenPrice().getValue(),0.001);
 		assertEquals(0, quote.getHighPrice().getValue(),0.001);
 		assertEquals(0, quote.getLowPrice().getValue(),0.001);
-		assertEquals(70.34, quote.getPreviousClose().getValue(),0.001);
+		
 		
 		//TODO check non filled values
 	}
@@ -76,7 +75,6 @@ public class BoursoramaParserTest
 		assertEquals(1539.74, quote.getOpenPrice().getValue(),0.001);
 		assertEquals(1549.02, quote.getHighPrice().getValue(),0.001);
 		assertEquals(1495.36, quote.getLowPrice().getValue(),0.001);
-		assertEquals(1544.92, quote.getPreviousClose().getValue(),0.001);
 		
 		//TODO check non filled values
 	}
@@ -92,7 +90,6 @@ public class BoursoramaParserTest
 		Quote quote=new Quote();
 		assertTrue(parser.parse(false /* sicav */,quote));
 		assertEquals(63.5900, quote.getLastTradedPrice().getValue(),0.001);
-		assertEquals(-0.19, quote.getChangeInPrice().getValue(),0.001);
 		
 		//TODO check non filled values
 	}
@@ -120,7 +117,6 @@ public class BoursoramaParserTest
 			assertTrue(quote.getOpenPrice().isValid());
 			assertTrue(quote.getHighPrice().isValid());
 			assertTrue(quote.getLowPrice().isValid());
-			assertTrue(quote.getPreviousClose().isValid());
 			
 			System.out.println(quote.toString());
 		}

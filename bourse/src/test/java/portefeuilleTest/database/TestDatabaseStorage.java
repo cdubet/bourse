@@ -82,8 +82,6 @@ public class TestDatabaseStorage
 	private static final double lastTradedPrice_3 = 40.03;
 	private static final double low52Week_3 = 40.04;
 	private static final double lowPrice_3 = 40.05;
-	private static final double mobileAverage200Days_3 = 40.06;
-	private static final double mobileAverage50Days_3 = 40.07;
 	private static final double openPrice_3 = 40.08;
 	private static final double peRatio_3 = 40.09;
 	private static final double previousClose_3 = 40.011;
@@ -244,78 +242,38 @@ public class TestDatabaseStorage
 		switch(dataSet%5)
 		{
 		case 0:
-			quote.setChangeInPrice(changeInPrice_0);
-			quote.setHigh52Week(high52Week_0);
 			quote.setHighPrice(highPrice_0);
 			quote.setLastTradedPrice(lastTradedPrice_0);
-			quote.setLow52Week(low52Week_0);
 			quote.setLowPrice(lowPrice_0);
-			quote.setMobileAverage200Days(mobileAverage200Days_0);
-			quote.setMobileAverage50Days(mobileAverage50Days_0);
 			quote.setOpenPrice(openPrice_0);
-			quote.setPeRatio(peRatio_0);
-			quote.setPreviousClose(previousClose_0);
-			quote.setShortRatio(shortRatio_0);
 			quote.setVolume(volume_0);
 			break;
 		case 1:
-			quote.setChangeInPrice(changeInPrice_1);
-			quote.setHigh52Week(high52Week_1);
 			quote.setHighPrice(highPrice_1);
 			quote.setLastTradedPrice(lastTradedPrice_1);
-			quote.setLow52Week(low52Week_1);
 			quote.setLowPrice(lowPrice_1);
-			quote.setMobileAverage200Days(mobileAverage200Days_1);
-			quote.setMobileAverage50Days(mobileAverage50Days_1);
 			quote.setOpenPrice(openPrice_1);
-			quote.setPeRatio(peRatio_1);
-			quote.setPreviousClose(previousClose_1);
-			quote.setShortRatio(shortRatio_1);
 			quote.setVolume(volume_1);
 			break;
 		case 2:
-			quote.setChangeInPrice(changeInPrice_2);
-			quote.setHigh52Week(high52Week_2);
 			quote.setHighPrice(highPrice_2);
 			quote.setLastTradedPrice(lastTradedPrice_2);
-			quote.setLow52Week(low52Week_2);
 			quote.setLowPrice(lowPrice_2);
-			quote.setMobileAverage200Days(mobileAverage200Days_2);
-			quote.setMobileAverage50Days(mobileAverage50Days_2);
 			quote.setOpenPrice(openPrice_2);
-			quote.setPeRatio(peRatio_2);
-			quote.setPreviousClose(previousClose_2);
-			quote.setShortRatio(shortRatio_2);
 			quote.setVolume(volume_2);
 			break;
 		case 3:
-			quote.setChangeInPrice(changeInPrice_3);
-			quote.setHigh52Week(high52Week_3);
 			quote.setHighPrice(highPrice_3);
 			quote.setLastTradedPrice(lastTradedPrice_3);
-			quote.setLow52Week(low52Week_3);
 			quote.setLowPrice(lowPrice_3);
-			quote.setMobileAverage200Days(mobileAverage200Days_3);
-			quote.setMobileAverage50Days(mobileAverage50Days_3);
 			quote.setOpenPrice(openPrice_3);
-			quote.setPeRatio(peRatio_3);
-			quote.setPreviousClose(previousClose_3);
-			quote.setShortRatio(shortRatio_3);
 			quote.setVolume(volume_3);
 			break;
 		case 4:
-			quote.setChangeInPrice(changeInPrice_4);
-			quote.setHigh52Week(high52Week_4);
 			quote.setHighPrice(highPrice_4);
 			quote.setLastTradedPrice(lastTradedPrice_4);
-			quote.setLow52Week(low52Week_4);
 			quote.setLowPrice(lowPrice_4);
-			quote.setMobileAverage200Days(mobileAverage200Days_4);
-			quote.setMobileAverage50Days(mobileAverage50Days_4);
 			quote.setOpenPrice(openPrice_4);
-			quote.setPeRatio(peRatio_4);
-			quote.setPreviousClose(previousClose_4);
-			quote.setShortRatio(shortRatio_4);
 			quote.setVolume(volume_4);
 			break;
 			
@@ -331,78 +289,29 @@ public class TestDatabaseStorage
 		switch((dataSet+2)%5)
 		{
 		case 0:
-			quote.setChangeInPrice(changeInPrice_0+100.0);
-			//quote.setHigh52Week(high52Week_0+100.0);
-			//quote.setHighPrice(highPrice_0+100.0);
 			quote.setLastTradedPrice(lastTradedPrice_0+100.0);
-			//quote.setLow52Week(low52Week_0+100.0);
 			quote.setLowPrice(lowPrice_0+100.0);
-			//quote.setMobileAverage200Days(mobileAverage200Days_0+100.0);
-			//quote.setMobileAverage50Days(mobileAverage50Days_0+100.0);
 			quote.setOpenPrice(openPrice_0+100.0);
-			//quote.setPeRatio(peRatio_0+100.0);
-			quote.setPreviousClose(previousClose_0+100.0);
-			//quote.setShortRatio(shortRatio_0+100.0);
 			quote.setVolume(volume_0+100.0);
 			break;
 		case 1:
-			//quote.setChangeInPrice(changeInPrice_1+100.0);
-			//quote.setHigh52Week(high52Week_1+100.0);
-			//quote.setHighPrice(highPrice_1+100.0);
 			quote.setLastTradedPrice(lastTradedPrice_1+100.0);
-			//quote.setLow52Week(low52Week_1+100.0);
-			//quote.setLowPrice(lowPrice_1+100.0);
-//			quote.setMobileAverage200Days(mobileAverage200Days_1+100.0);
-//			quote.setMobileAverage50Days(mobileAverage50Days_1+100.0);
-//			quote.setOpenPrice(openPrice_1+100.0);
-//			quote.setPeRatio(peRatio_1+100.0);
-			quote.setPreviousClose(previousClose_1+100.0);
-			//quote.setShortRatio(shortRatio_1+100.0);
-			//quote.setVolume(volume_1+100.0);
 			break;
 		case 2:
-			quote.setChangeInPrice(changeInPrice_2+100.0);
-//			quote.setHigh52Week(high52Week_2+100.0);
-//			quote.setHighPrice(highPrice_2+100.0);
 			quote.setLastTradedPrice(lastTradedPrice_2+100.0);
-//			quote.setLow52Week(low52Week_2+100.0);
-//			quote.setLowPrice(lowPrice_2+100.0);
-//			quote.setMobileAverage200Days(mobileAverage200Days_2+100.0);
-//			quote.setMobileAverage50Days(mobileAverage50Days_2+100.0);
-//			quote.setOpenPrice(openPrice_2+100.0);
-//			quote.setPeRatio(peRatio_2+100.0);
-//			quote.setPreviousClose(previousClose_2+100.0);
-//			quote.setShortRatio(shortRatio_2+100.0);
-//			quote.setVolume(volume_2+100.0);
 			break;
 		case 3:
-			quote.setChangeInPrice(changeInPrice_3+100.0);
-			quote.setHigh52Week(high52Week_3+100.0);
 			quote.setHighPrice(highPrice_3+100.0);
 			quote.setLastTradedPrice(lastTradedPrice_3+100.0);
-			quote.setLow52Week(low52Week_3+100.0);
 			quote.setLowPrice(lowPrice_3+100.0);
-//			quote.setMobileAverage200Days(mobileAverage200Days_3+100.0);
-//			quote.setMobileAverage50Days(mobileAverage50Days_3+100.0);
 			quote.setOpenPrice(openPrice_3+100.0);
-			quote.setPeRatio(peRatio_3+100.0);
-			quote.setPreviousClose(previousClose_3+100.0);
-			quote.setShortRatio(shortRatio_3+100.0);
 			quote.setVolume(volume_3+100.0);
 			break;
 		case 4:
-			quote.setChangeInPrice(changeInPrice_4+100.0);
-			quote.setHigh52Week(high52Week_4+100.0);
 			quote.setHighPrice(highPrice_4+100.0);
 			quote.setLastTradedPrice(lastTradedPrice_4+100.0);
-			quote.setLow52Week(low52Week_4+100.0);
-			quote.setLowPrice(lowPrice_4+100.0);
-			quote.setMobileAverage200Days(mobileAverage200Days_4+100.0);
-			quote.setMobileAverage50Days(mobileAverage50Days_4+100.0);
-			quote.setOpenPrice(openPrice_4+100.0);
-			quote.setPeRatio(peRatio_4+100.0);
-			quote.setPreviousClose(previousClose_4+100.0);
-			//quote.setShortRatio(shortRatio_4+100.0);
+			quote.setLowPrice(lowPrice_4+100.0);			
+			quote.setOpenPrice(openPrice_4+100.0);			
 			quote.setVolume(volume_4+100.0);
 			break;
 			

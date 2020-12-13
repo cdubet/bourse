@@ -51,7 +51,7 @@ public class SearchQuoteAtOneDay extends SearchQuoteStandard implements SearchQu
 			logger.debug("from "+strBefore+" to "+strAfter);
 		}
 
-		final String SEARCH_QUOTE = "select dateQuote,lastTradedPrice,changeInPrice,openPrice,highPrice,lowPrice ,volume ,	low52Week,	high52Week ,mobileAverage50Days ,mobileAverage200Days,previousClose,peRatio, shortRatio,idQuotes from QUOTES where idShare= ? and dateQuote >= ? and dateQuote <= ? order by dateQuote";
+		final String SEARCH_QUOTE = "select dateQuote,lastTradedPrice,openPrice,highPrice,lowPrice,volume,idQuotes from QUOTES where idShare= ? and dateQuote >= ? and dateQuote <= ? order by dateQuote";
 
 		boolean res=true;
 		try

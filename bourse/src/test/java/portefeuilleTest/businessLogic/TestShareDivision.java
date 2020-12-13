@@ -23,18 +23,12 @@ public class TestShareDivision
 	private static final String SHARE_TICKER="ticker does not matter";
 	private static final Currency CURRENCY=ShareDB.Currency.ENGLISH_POUND;
 	private static final double FAKE_QUOTATION_1=125.9;
-	private static final double FAKE_VARIATION_1=1.9;
-	private static final double FAKE_PE_1 = 17.4;
 	private static final double FAKE_VOLUME_1=10000;
 	
 	private static final double FAKE_QUOTATION_2=25.9;
-	private static final double FAKE_VARIATION_2=245.9;
-	private static final double FAKE_PE_2 = 210;
 	private static final double FAKE_VOLUME_2=27700;
 	
 	private static final double FAKE_QUOTATION_3=35.9;
-	private static final double FAKE_VARIATION_3=345.9;
-	private static final double FAKE_PE_3 = 30;
 	private static final double FAKE_VOLUME_3=37700;
 	
 	private static final double QTE_PORTFOLIO_1 = 500.;
@@ -47,19 +41,19 @@ public class TestShareDivision
 	private void fillFakeQuotationOriginal(List<QuoteDB> listQuoteOriginal)
 	{
 		{
-			Quote quotation1=buildFakeQuote(FAKE_QUOTATION_1,FAKE_VARIATION_1, FAKE_PE_1, FAKE_VOLUME_1);
+			Quote quotation1=buildFakeQuote(FAKE_QUOTATION_1, FAKE_VOLUME_1);
 			QuoteDB quote1=new QuoteDB(SHARE_ID,quotation1);
 			listQuoteOriginal.add(quote1);
 		}
 		{
 			Quote quotation2=buildFakeQuote(FAKE_QUOTATION_2
-					,FAKE_VARIATION_2, FAKE_PE_2, FAKE_VOLUME_2);
+					, FAKE_VOLUME_2);
 			QuoteDB quote2=new QuoteDB(SHARE_ID,quotation2);
 			listQuoteOriginal.add(quote2);
 		}
 		{
 			Quote quotation3=buildFakeQuote(FAKE_QUOTATION_3
-					,FAKE_VARIATION_3, FAKE_PE_3, FAKE_VOLUME_3);
+					, FAKE_VOLUME_3);
 			QuoteDB quote3=new QuoteDB(SHARE_ID,quotation3);
 			listQuoteOriginal.add(quote3);
 		}		
@@ -67,39 +61,33 @@ public class TestShareDivision
 	private void fillFakeQuotationExpected(List<QuoteDB> listQuoteExpected)
 	{
 		{
-			Quote quotation1=buildFakeQuote(FAKE_QUOTATION_1/DIVIDE_SHARE_RATIO,FAKE_VARIATION_1, FAKE_PE_1, FAKE_VOLUME_1*DIVIDE_SHARE_RATIO);
+			Quote quotation1=buildFakeQuote(FAKE_QUOTATION_1/DIVIDE_SHARE_RATIO,FAKE_VOLUME_1*DIVIDE_SHARE_RATIO);
 
 			QuoteDB quote1=new QuoteDB(SHARE_ID,quotation1);
 			listQuoteExpected.add(quote1);
 		}
 		{
 			Quote quotation2=buildFakeQuote(FAKE_QUOTATION_2/DIVIDE_SHARE_RATIO
-					,FAKE_VARIATION_2, FAKE_PE_2, FAKE_VOLUME_2*DIVIDE_SHARE_RATIO);
+					, FAKE_VOLUME_2*DIVIDE_SHARE_RATIO);
 			QuoteDB quote2=new QuoteDB(SHARE_ID,quotation2);
 			listQuoteExpected.add(quote2);
 		}
 		{
 			Quote quotation3=buildFakeQuote(FAKE_QUOTATION_3/DIVIDE_SHARE_RATIO
-					,FAKE_VARIATION_3, FAKE_PE_3, FAKE_VOLUME_3*DIVIDE_SHARE_RATIO);
+					, FAKE_VOLUME_3*DIVIDE_SHARE_RATIO);
 			QuoteDB quote3=new QuoteDB(SHARE_ID,quotation3);
 			listQuoteExpected.add(quote3);
 		}		
 	}
 	
-	private Quote buildFakeQuote(double fakeQuoteValue,double changeInPrice, double fakePE, double fakeVolume)
+	private Quote buildFakeQuote(double fakeQuoteValue,  double fakeVolume)
 	{
 		Quote newQuote=new Quote();
 		newQuote.setLastTradedPrice(fakeQuoteValue);
-		newQuote.setChangeInPrice(changeInPrice);
-		newQuote.setHigh52Week(fakeQuoteValue*2.0);
 		newQuote.setHighPrice(fakeQuoteValue*15.6);
-		newQuote.setLow52Week(fakeQuoteValue/2.0);
+
 		newQuote.setLowPrice(fakeQuoteValue*0.61);
-		newQuote.setMobileAverage200Days(fakeQuoteValue*2/3);
-		newQuote.setMobileAverage50Days(fakeQuoteValue*3/2);
 		newQuote.setOpenPrice(fakeQuoteValue*1.078);
-		newQuote.setPeRatio(fakePE);
-		newQuote.setPreviousClose(fakeQuoteValue*10.);
 		newQuote.setVolume(fakeVolume);
 		return newQuote;
 	}	

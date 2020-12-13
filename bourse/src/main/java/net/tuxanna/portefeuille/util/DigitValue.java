@@ -1,6 +1,5 @@
 package net.tuxanna.portefeuille.util;
 
-import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -99,6 +98,14 @@ public class DigitValue
 		return isValid;
 	}
 
+	public Double getValueOrNull()
+	{
+		if (isValid)
+		{
+			return value;
+		}
+		return null;
+	}
 	@Override
 	public String toString()
 	{

@@ -55,84 +55,72 @@ public class FakeQuotationProvider implements QuotationProviderI
 			{
 				q.setLastTradedPrice(1.05); //was 1.03 in DB
 				q.setOpenPrice(1.08);
-				q.setPreviousClose(1.03);
 				q.setVolume(1000);
 			}
 			else if (shareTicker.compareTo((new FakeShareTicker(idx++)).getSymbol())==0)
 			{
 				q.setLastTradedPrice(1.53); //was 2.03 in DB
 				q.setOpenPrice(2.00);
-				q.setPreviousClose(2.01);
 				q.setVolume(1000);
 			}
 			else if (shareTicker.compareTo((new FakeShareTicker(idx++)).getSymbol())==0)
 			{
 				q.setLastTradedPrice(3.9); //was 3.03 in DB
 				q.setOpenPrice(3.40);
-				q.setPreviousClose(3.51);
 				q.setVolume(1000);
 			}
 			else if (shareTicker.compareTo((new FakeShareTicker(idx++)).getSymbol())==0)
 			{
 				q.setLastTradedPrice(42.53); //was 40.03 in DB
 				q.setOpenPrice(41.00);
-				q.setPreviousClose(40.51);
 				q.setVolume(1000);
 			}
 			else if (shareTicker.compareTo((new FakeShareTicker(idx++)).getSymbol())==0)
 			{
 				q.setLastTradedPrice(20.93); //was 25.93 in DB
 				q.setOpenPrice(22.00);
-				q.setPreviousClose(24.51);
 				q.setVolume(1000);
 			}
 			else if (shareTicker.compareTo((new FakeShareTicker(idx++)).getSymbol())==0)
 			{
 				q.setLastTradedPrice(6.02); //was 5.903 in DB
 				q.setOpenPrice(6.00);
-				q.setPreviousClose(5.9031);
 				q.setVolume(1000);
 			}
 			else if (shareTicker.compareTo((new FakeShareTicker(idx++)).getSymbol())==0)
 			{
 				q.setLastTradedPrice(58.02); //was 60 in DB
 				q.setOpenPrice(60.00);
-				q.setPreviousClose(60.9031);
 				q.setVolume(1000);
 			}
 			else if (shareTicker.compareTo((new FakeShareTicker(idx++)).getSymbol())==0)
 			{
 				q.setLastTradedPrice(69.02); //was 5.903 in DB
 				q.setOpenPrice(69.900);
-				q.setPreviousClose(70.1);
 				q.setVolume(1000);
 			}
 			else if (shareTicker.compareTo((new FakeShareTicker(idx++)).getSymbol())==0)
 			{
 				q.setLastTradedPrice(75.02); //was 80.903 in DB
 				q.setOpenPrice(78.00);
-				q.setPreviousClose(80.903);
 				q.setVolume(1000);
 			}
 			else if (shareTicker.compareTo((new FakeShareTicker(idx++)).getSymbol())==0)
 			{
 				q.setLastTradedPrice(10.02); 
 				q.setOpenPrice(10.00);
-				q.setPreviousClose(9.9071);
 				q.setVolume(1000);
 			}
 			else if (shareTicker.compareTo((new FakeShareTicker(idx++)).getSymbol())==0)
 			{
 				q.setLastTradedPrice(16.2); //was 15.903 in DB
 				q.setOpenPrice(16.03);
-				q.setPreviousClose(15.903);
 				q.setVolume(1000);
 			}
 			else if (shareTicker.compareTo((new FakeShareTicker(idx++)).getSymbol())==0)
 			{
 				q.setLastTradedPrice(12.302); //was 11.903 in DB
 				q.setOpenPrice(12.00);
-				q.setPreviousClose(11.903);
 				q.setVolume(1000);
 			}
 			else

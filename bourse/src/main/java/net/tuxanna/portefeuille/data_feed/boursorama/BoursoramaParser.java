@@ -60,23 +60,6 @@ public class BoursoramaParser
 		return true;
 	}
 	
-	private boolean parsePreviousClose(Elements doc,Quote quote)
-	{
-		Elements previousCloseItem = doc.select("span[class=c-instrument c-instrument--previousclose]");
-		if (previousCloseItem==null)
-		{
-			logger.error("no previous close found for share");
-			return false;
-		}
-		if (previousCloseItem.isEmpty())
-		{
-			logger.error("empty previous close found for share");
-			return false;
-		}
-		
-		quote.setPreviousClose(stripNonDigits(previousCloseItem.text()));
-		return true;
-	}
 	private boolean parseHigh(Elements doc,Quote quote)
 	{
 		Elements highQuoteItem = doc.select("span[class=c-instrument c-instrument--high]");
@@ -165,11 +148,7 @@ public class BoursoramaParser
 			logger.error("problem reading opening\n"+doc.toString()+"\n");
 			return false;
 		}
-		if (!parsePreviousClose(headerItem,quote)) 
-		{
-			logger.error("problem reading prev close\n"+doc.toString()+"\n");
-			return false;
-		}
+
 		if (!parseHigh(headerItem,quote)) 
 		{
 			logger.error("problem reading high\n"+doc.toString()+"\n");
@@ -261,7 +240,6 @@ public class BoursoramaParser
 			logger.error("empty variation found for sicav\n"+doc.toString()+"\n");
 			return false;
 		}
-		quote.setChangeInPrice(stripNonDigits(variationItem.text()));
 		
 		return true;
 	}
