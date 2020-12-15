@@ -108,16 +108,14 @@
 		VOLUME="25.9013" />
 
 
-
-
-
-	<!-- executed order -->
+	<!-- executed order state="1"-->
 	<SELL IDSELL="1" IDSHARE="2" idAccount="0" qte="20.0"
 		unitPriceRequested="1.1" unitPriceSold="1.2" state="1"
 		dateExpiration="2016-10-17 09:41:42.0" />
 	<SELL IDSELL="2" IDSHARE="2" idAccount="1" qte="20.0"
 		unitPriceRequested="1.1" unitPriceSold="1.2" state="1"
 		dateExpiration="2016-10-17 09:41:42.0" />
+		
 	<!-- expired for the tests (done with date =15/10/2016) -->
 	<SELL IDSELL="3" IDSHARE="1" idAccount="1" qte="200.0"
 		unitPriceRequested="1.1" state="0"
