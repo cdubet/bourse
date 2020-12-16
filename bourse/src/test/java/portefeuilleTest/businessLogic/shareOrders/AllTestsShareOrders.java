@@ -1,12 +1,12 @@
-package portefeuilleTest.businessLogic.mobileAverage;
+package portefeuilleTest.businessLogic.shareOrders;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestMobileAverage.class })
-public class AllTests
+@SuiteClasses({ TestBuy.class, TestSell.class })
+public class AllTestsShareOrders
 {
 
 }

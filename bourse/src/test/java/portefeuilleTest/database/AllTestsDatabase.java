@@ -11,7 +11,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	TestCheckDatabase.class,
 	TestShareCases.class  })
 
-public class AllTests
+public class AllTestsDatabase
 {
 
 }

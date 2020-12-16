@@ -617,16 +617,16 @@ public class Database implements DatabaseI
 					fetch();
 			for (Record sellrecord : result)
 			{
-				SellDB buyDb=new SellDB();
-				buyDb.setIdSell(sellrecord.get(Sell.SELL.IDSELL));
-				buyDb.setIdShare(sellrecord.get(Sell.SELL.IDSHARE));
-				buyDb.setIdAccount(sellrecord.get(Sell.SELL.IDACCOUNT));
-				buyDb.setQte(sellrecord.get(Sell.SELL.QTE));
-				buyDb.setUnitPriceRequested(sellrecord.get(Sell.SELL.UNITPRICEREQUESTED));
+				SellDB sellDb=new SellDB();
+				sellDb.setIdSell(sellrecord.get(Sell.SELL.IDSELL));
+				sellDb.setIdShare(sellrecord.get(Sell.SELL.IDSHARE));
+				sellDb.setIdAccount(sellrecord.get(Sell.SELL.IDACCOUNT));
+				sellDb.setQte(sellrecord.get(Sell.SELL.QTE));
+				sellDb.setUnitPriceRequested(sellrecord.get(Sell.SELL.UNITPRICEREQUESTED));
 
-				buyDb.setShareName(sellrecord.get(Shares.SHARES.NAME));
+				sellDb.setShareName(sellrecord.get(Shares.SHARES.NAME));
 
-				listOrders.add(buyDb);
+				listOrders.add(sellDb);
 			}
 			return true;
 		}
@@ -809,7 +809,7 @@ public class Database implements DatabaseI
 
 		//take all the day as valid    	    
 		final int year=cal.get(Calendar.YEAR);
-		final int month=cal.get(Calendar.MONTH);
+		final int month=cal.get(Calendar.MONTH)+1; //calendar use 0..11 instead of 1..12
 		final int dayOfMonth=cal.get(Calendar.DAY_OF_MONTH);
 		final int hour=23;
 		final int minute=59; //midnight
@@ -1091,7 +1091,7 @@ public class Database implements DatabaseI
 			Record6<Integer, LocalDateTime, Double, Double, Double, Double> recordDate)
 	{
 		Double priceToCheck=recordDate.get(fieldToCheck );
-		if (checkVariationOutOfTolerance(priceToCheck,lastPrice,MAX_CHANGE_INTRADAY))
+		if (isVariationOutOfTolerance(priceToCheck,lastPrice,MAX_CHANGE_INTRADAY))
 		{
 			Integer Id=recordDate.get(Quotes.QUOTES.IDQUOTES);
 			listIdToBeChecked.add(Id);
@@ -1107,7 +1107,7 @@ public class Database implements DatabaseI
 		return lastPrice;
 	}
 
-	private boolean checkVariationOutOfTolerance(Double valueToCheck, 
+	private boolean isVariationOutOfTolerance(Double valueToCheck, 
 			Double referencedValue,
 			double maxAllowedChangeInPercent)
 	{
@@ -1122,7 +1122,7 @@ public class Database implements DatabaseI
 		// both have a value
 		final double percentVariation=Math.abs(100.*valueToCheck/referencedValue -100.);
 		final boolean isBelowAllowedChange= (percentVariation< maxAllowedChangeInPercent);
-		return isBelowAllowedChange;
+		return !isBelowAllowedChange;
 	}
 
 	@Override

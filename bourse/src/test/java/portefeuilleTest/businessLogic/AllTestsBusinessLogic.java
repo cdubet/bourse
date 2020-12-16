@@ -11,7 +11,7 @@ import org.junit.runners.Suite.SuiteClasses;
 				TestCsvExport.class,
 				TestQuoteVariation.class ,
 				TestShareDivision.class})
-public class AllTests
+public class AllTestsBusinessLogic
 {
 
 }

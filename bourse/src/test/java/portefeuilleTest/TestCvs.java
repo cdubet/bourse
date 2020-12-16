@@ -63,56 +63,56 @@ public class TestCvs
 
 	}
 
-	@Test
-	public void testGetCSVFromYahoo()
-	{
-		org.jooq.tools.csv.CSVReader csv=null;
-		try
-		{
-			URL url=new URL("http://download.finance.yahoo.com/d/quotes.csv?s=AIR.PA,IBM&f=l1c1ohgvjkm3m4prs7&e=.csv");
-			BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
-			csv = new org.jooq.tools.csv.CSVReader(br);
-			List<String[]> all = csv.readAll();
-
-//			String str;
-//			do
+//	@Test
+//	public void testGetCSVFromYahoo()
+//	{
+//		org.jooq.tools.csv.CSVReader csv=null;
+//		try
+//		{
+//			URL url=new URL("http://download.finance.yahoo.com/d/quotes.csv?s=AIR.PA,IBM&f=l1c1ohgvjkm3m4prs7&e=.csv");
+//			BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
+//			csv = new org.jooq.tools.csv.CSVReader(br);
+//			List<String[]> all = csv.readAll();
+//
+////			String str;
+////			do
+////			{
+////				 str=br.readLine();
+////			} while (str!=null);
+//			
+////			ReadableByteChannel rbc = Channels.newChannel(url.openStream());
+////			BufferedInputStream in=new BufferedInputStream(rbc.read(dst))
+////			FileOutputStream fos = new FileOutputStream("TEST_DATA/RESULT/information.txt");
+////			fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+////			fos.close();
+//			assertEquals(all.size(),2);
+//			assertEquals(all.get(0).length,13);
+//			assertEquals(all.get(1).length,13);
+//		}
+//		catch (MalformedURLException e)
+//		{
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		catch (IOException e)
+//		{
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		finally
+//		{
+//			if (csv != null)
 //			{
-//				 str=br.readLine();
-//			} while (str!=null);
-			
-//			ReadableByteChannel rbc = Channels.newChannel(url.openStream());
-//			BufferedInputStream in=new BufferedInputStream(rbc.read(dst))
-//			FileOutputStream fos = new FileOutputStream("TEST_DATA/RESULT/information.txt");
-//			fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-//			fos.close();
-			assertEquals(all.size(),2);
-			assertEquals(all.get(0).length,13);
-			assertEquals(all.get(1).length,13);
-		}
-		catch (MalformedURLException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		catch (IOException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		finally
-		{
-			if (csv != null)
-			{
-				try
-				{
-					csv.close();
-				}
-				catch (IOException e)
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}
-	}
+//				try
+//				{
+//					csv.close();
+//				}
+//				catch (IOException e)
+//				{
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//			}
+//		}
+//	}
 }
