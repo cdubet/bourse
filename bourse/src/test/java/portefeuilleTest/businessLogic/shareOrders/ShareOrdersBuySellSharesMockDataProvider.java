@@ -82,7 +82,7 @@ public class ShareOrdersBuySellSharesMockDataProvider extends ShareOrderMockData
 			{
 				Integer param = (Integer) ctx.bindings()[0];
 
-				return fillWithOneQuote(param);
+				return fillHighPriceWithOneQuote(param);
 			}
 			if (sql.contains("from \"public\".\"quotes\"")) 
 			{			

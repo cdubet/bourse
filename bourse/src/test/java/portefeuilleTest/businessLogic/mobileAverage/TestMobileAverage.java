@@ -288,6 +288,7 @@ public class TestMobileAverage
 			
 			final double expectedAverage=43.653;
 			assertEquals(expectedAverage, average,0.005);
+			testDb.shutdown();
 
 		}
 		catch (ClassNotFoundException e)

@@ -148,25 +148,25 @@ public class ShareOrderMockDataStorage
 		return false;
 	}
 
-	protected MockResult[] fillWithOneQuote(Integer Id)
+	protected MockResult[] fillHighPriceWithOneQuote(Integer Id)
 	{
 		DSLContext create = DSL.using( SQLDialect.HSQLDB);
 
-		Result<Record1<Double>> result = create.newResult(Quotes.QUOTES.LASTTRADEDPRICE);
-		Record1<Double> item1=create.newRecord(Quotes.QUOTES.LASTTRADEDPRICE);
+		Result<Record1<Double>> result = create.newResult(Quotes.QUOTES.HIGHPRICE);
+		Record1<Double> item1=create.newRecord(Quotes.QUOTES.HIGHPRICE);
 		switch (Id.intValue())
 		{
 		case ID_SHARE_1:
-			item1.setValue(Quotes.QUOTES.LASTTRADEDPRICE, CURRENT_VALUE_SHARE_1);
+			item1.setValue(Quotes.QUOTES.HIGHPRICE, CURRENT_VALUE_SHARE_1);
 			break;
 		case ID_SHARE_2:
-			item1.setValue(Quotes.QUOTES.LASTTRADEDPRICE, CURRENT_VALUE_SHARE_2);
+			item1.setValue(Quotes.QUOTES.HIGHPRICE, CURRENT_VALUE_SHARE_2);
 			break;
 		case ID_SHARE_3:
-			item1.setValue(Quotes.QUOTES.LASTTRADEDPRICE, CURRENT_VALUE_SHARE_3);
+			item1.setValue(Quotes.QUOTES.HIGHPRICE, CURRENT_VALUE_SHARE_3);
 			break;			
 		default:
-			item1.setValue(Quotes.QUOTES.LASTTRADEDPRICE, 0.0);
+			item1.setValue(Quotes.QUOTES.HIGHPRICE, 0.0);
 
 		}
 
