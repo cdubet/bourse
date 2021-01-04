@@ -967,7 +967,7 @@ public class Database implements DatabaseI
 
 		//take all the day as valid    	    
 		final int year=cal.get(Calendar.YEAR);
-		final int month=cal.get(Calendar.MONTH);
+		final int month=cal.get(Calendar.MONTH)+1;//january start with 0
 		final int dayOfMonth=cal.get(Calendar.DAY_OF_MONTH);
 		final int hour=23;
 		final int minute=59; //midnight
