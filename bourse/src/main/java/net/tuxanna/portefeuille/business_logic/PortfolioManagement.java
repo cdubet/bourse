@@ -438,6 +438,8 @@ public class PortfolioManagement
 				if (quotation.isLastTradedPriceValid())
 				{
 					QuoteDB qDB=new QuoteDB(share.getId(),quotation);
+					if (false)
+					{
 					if (!quotation.getMobileAverage50Days().isValid())
 					{
 						//compute it
@@ -466,6 +468,7 @@ public class PortfolioManagement
 							quotation.setMobileAverage200Days(computedAverage200);
 						}
 					}
+				}
 					listOfQuotationsDB.add(share,qDB);
 				}
 				else

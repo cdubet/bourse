@@ -11,7 +11,7 @@ import net.tuxanna.portefeuille.business_logic.eval.QuotationMapStorage;
 import net.tuxanna.portefeuille.business_logic.eval.ShareIdAndDate;
 import net.tuxanna.portefeuille.database.ShareDB;
 
-public class TestQutotationMapStorage
+public class TestQuotationMapStorage
 {
 	private static final int ID_SHARE_1 = 0;
 	private static final double NEW_PRICE_SHARE_1 = 28.;
