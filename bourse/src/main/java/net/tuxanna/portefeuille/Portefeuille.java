@@ -31,7 +31,7 @@ public class Portefeuille   implements Runnable  {
 	@Option(names={"-create"}, description="create database", required=false)  
 	private boolean createDB;  
 	  
-	@Option(names={"-h", "--help"}, description="Display help/usage.", help=true)  
+	@Option(names={"-h", "--help"}, usageHelp=true, description="Display help/usage.")  
 	private boolean help; 
 	   
 	@Option(names={"-evaluate"}, description="evaluation portefeuille")  
@@ -43,7 +43,7 @@ public class Portefeuille   implements Runnable  {
 	@Option(names={"-csv"}, description="export CSV des cours issus boursorama")  
     private File csvFiles=null;
 	
-	@Option(names={"-u","update_schema"}, description="update DB schema")  
+	@Option(names={"-u","--update_schema"}, description="update DB schema")  
     private boolean updateSchema;
 	
 	@Option(names={"-check"}, description="check database (detect strong variations)")  
@@ -77,6 +77,17 @@ public class Portefeuille   implements Runnable  {
 	
 	@Option(names = "--share", description="share name")
 	private String share;
+	
+	//TODO make version working
+//	class VersionedCommand {    // @Option(names = { "-V", "--version" }, versionHelp = true,
+//	//description = "print version information and exit")
+//	@Command(name = "version" , version = {
+//		    "Versioned Command 1.0",
+//		    "Picocli " + picocli.CommandLine.VERSION,
+//		    "JVM: ${java.version} (${java.vendor} ${java.vm.name} ${java.vm.version})",
+//		    "OS: ${os.name} ${os.version} ${os.arch}"})
+//	boolean versionRequested;}
+
 	
 	public static void main(String[] args) 
 	{
