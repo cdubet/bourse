@@ -50,8 +50,8 @@ public class BuyDB implements ShareOrderI
 	public BuyDB()
 	{
 		super();
-		this.qte = 0.;
-		this.unitPriceRequested = 0.;
+		qte = 0.;
+		unitPriceRequested = 0.;
 		state=STATE_ORDER.NO_LONGER_VALID;
 		
 		unitPriceBought=new DigitValue();
