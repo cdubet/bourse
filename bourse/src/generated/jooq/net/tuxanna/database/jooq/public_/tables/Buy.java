@@ -145,12 +145,21 @@ public class Buy extends TableImpl<Record> {
         return Arrays.<ForeignKey<Record, ?>>asList(Keys.SYS_FK_10156, Keys.SYS_FK_10157);
     }
 
+    private transient Shares _shares;
+    private transient Account _account;
+
     public Shares shares() {
-        return new Shares(this, Keys.SYS_FK_10156);
+        if (_shares == null)
+            _shares = new Shares(this, Keys.SYS_FK_10156);
+
+        return _shares;
     }
 
     public Account account() {
-        return new Account(this, Keys.SYS_FK_10157);
+        if (_account == null)
+            _account = new Account(this, Keys.SYS_FK_10157);
+
+        return _account;
     }
 
     @Override

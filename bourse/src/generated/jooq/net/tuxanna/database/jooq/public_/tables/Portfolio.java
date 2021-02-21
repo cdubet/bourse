@@ -134,12 +134,21 @@ public class Portfolio extends TableImpl<Record> {
         return Arrays.<ForeignKey<Record, ?>>asList(Keys.SYS_FK_10123, Keys.SYS_FK_10124);
     }
 
+    private transient Shares _shares;
+    private transient Account _account;
+
     public Shares shares() {
-        return new Shares(this, Keys.SYS_FK_10123);
+        if (_shares == null)
+            _shares = new Shares(this, Keys.SYS_FK_10123);
+
+        return _shares;
     }
 
     public Account account() {
-        return new Account(this, Keys.SYS_FK_10124);
+        if (_account == null)
+            _account = new Account(this, Keys.SYS_FK_10124);
+
+        return _account;
     }
 
     @Override

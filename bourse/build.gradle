@@ -58,13 +58,7 @@ dependencies {
 }
 
 jooq {
-  version = '3.14.4'  // the default (can be omitted)
-  edition = nu.studer.gradle.jooq.JooqEdition.OSS  // the default (can be omitted)
-}
-
-
-jooq {
-    version = '3.14.4'
+    version = '3.14.7'
     edition = nu.studer.gradle.jooq.JooqEdition.OSS
 
     configurations {
