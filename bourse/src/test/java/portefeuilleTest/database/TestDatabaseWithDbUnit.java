@@ -204,9 +204,8 @@ public class TestDatabaseWithDbUnit
 			// should be
 			// <QUOTES IDQUOTES="10" IDSHARE="1" DATEQUOTE="2016-10-15
 			// 11:41:42.0"
-			// LASTTRADEDPRICE="10.03" CHANGEINPRICE="1.05" OPENPRICE="1.08"
+			// LASTTRADEDPRICE="10.03" OPENPRICE="1.08"
 			// HIGHPRICE="1.02" LOWPRICE="1.05"
-			// PREVIOUSCLOSE="1.011" PERATIO="1.09" SHORTRATIO="1.012" />
 			assertEquals(50,quote.getIdQuote());
 			assertEquals(10.03, quote.getQuotation().getLastTradedPrice().getValue(), 0.0001 /* delta */);
 		}
@@ -525,10 +524,8 @@ public class TestDatabaseWithDbUnit
 
 		//expected 
 		//	<QUOTES IDQUOTES="33" IDSHARE="3" DATEQUOTE="2016-10-14 09:41:42.0"
-		//LASTTRADEDPRICE="560.0" CHANGEINPRICE="40.05" OPENPRICE="40.08"
-		//HIGHPRICE="40.02" LOWPRICE="40.05" VOLUME="40.013" LOW52WEEK="40.04"
-		//HIGH52WEEK="40.01" MOBILEAVERAGE50DAYS="40.07" MOBILEAVERAGE200DAYS="40.06"
-		//PREVIOUSCLOSE="40.011" PERATIO="40.09" SHORTRATIO="40.012" />
+		//LASTTRADEDPRICE="560.0" OPENPRICE="40.08"
+		//HIGHPRICE="40.02" LOWPRICE="40.05" VOLUME="40.013" 
 		assertEquals(14, cal.get(Calendar.DAY_OF_MONTH));
 		assertEquals(2016, cal.get(Calendar.YEAR));
 		assertEquals(9, cal.get(Calendar.MONTH)); //month starts at 0

@@ -30,7 +30,7 @@ public class MobileAverage
 
 	public Double compute()
 	{
-		//we cannot extract exactly the number because soome item will be discarded (quote on saturday-> no quotation -> do not add duplication)
+		//we cannot extract exactly the number because some item will be discarded (quote on saturday-> no quotation -> do not add duplication)
 		final int nbItemToExtractFromDb=(int) ((float)nbDay*1.2);
 		SearchLimitedNumberOfQuote search=new SearchLimitedNumberOfQuote(share, nbItemToExtractFromDb);
 		List<QuoteDB> listQuote=new ArrayList<QuoteDB>();
