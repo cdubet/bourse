@@ -917,7 +917,7 @@ public class Database implements DatabaseI
 			cal.setTime(limitDateForDeletion); // sets calendar time/date
 			//take all the day as valid    	    
 			final int year=cal.get(Calendar.YEAR);
-			final int month=cal.get(Calendar.MONTH);
+			final int month=cal.get(Calendar.MONTH)+1;//month from 0..11
 			final int dayOfMonth=cal.get(Calendar.DAY_OF_MONTH);
 			final int hour=cal.get(Calendar.HOUR);
 			final int minute=cal.get(Calendar.MINUTE);
