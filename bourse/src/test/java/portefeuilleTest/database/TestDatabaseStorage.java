@@ -34,72 +34,34 @@ public class TestDatabaseStorage
 	private static final String TICKER1 = "ticker1";
 	private static final String NAME1 = "name1";
 	
-	private static final double changeInPrice_0 = 1.05;
-	private static final double high52Week_0 = 1.01;
 	private static final double highPrice_0 = 1.02;
 	private static final double lastTradedPrice_0 = 1.03;
-	private static final double low52Week_0 = 1.04;
 	private static final double lowPrice_0 = 1.05;
-	private static final double mobileAverage200Days_0 = 1.06;
-	private static final double mobileAverage50Days_0 = 1.07;
 	private static final double openPrice_0 = 1.08;
-	private static final double peRatio_0 = 1.09;
-	private static final double previousClose_0 = 1.011;
-	private static final double shortRatio_0 = 1.012;
 	private static final double volume_0 = 1.013;
 	
-	private static final double changeInPrice_1 = 2.05;
-	private static final double high52Week_1 = 2.01;
 	private static final double highPrice_1 = 2.02;
 	private static final double lastTradedPrice_1 = 2.03;
-	private static final double low52Week_1 = 2.04;
 	private static final double lowPrice_1 = 2.05;
-	private static final double mobileAverage200Days_1 = 2.06;
-	private static final double mobileAverage50Days_1 = 2.07;
 	private static final double openPrice_1 = 2.08;
-	private static final double peRatio_1 = 2.09;
-	private static final double previousClose_1 = 2.011;
-	private static final double shortRatio_1 = 2.012;
 	private static final double volume_1 = 2.013;
 	
-	private static final double changeInPrice_2 = 3.05;
-	private static final double high52Week_2 = 3.01;
 	private static final double highPrice_2 = 3.02;
 	private static final double lastTradedPrice_2 = 3.03;
-	private static final double low52Week_2 = 3.04;
 	private static final double lowPrice_2 = 3.05;
-	private static final double mobileAverage200Days_2 = 3.06;
-	private static final double mobileAverage50Days_2 = 3.07;
 	private static final double openPrice_2 = 3.08;
-	private static final double peRatio_2 = 3.09;
-	private static final double previousClose_2 = 3.011;
-	private static final double shortRatio_2 = 3.012;
 	private static final double volume_2 = 3.013;
 	
-	private static final double changeInPrice_3 = 40.05;
-	private static final double high52Week_3 = 40.01;
 	private static final double highPrice_3 = 40.02;
 	private static final double lastTradedPrice_3 = 40.03;
-	private static final double low52Week_3 = 40.04;
 	private static final double lowPrice_3 = 40.05;
 	private static final double openPrice_3 = 40.08;
-	private static final double peRatio_3 = 40.09;
-	private static final double previousClose_3 = 40.011;
-	private static final double shortRatio_3 = 40.012;
 	private static final double volume_3 = 40.013;
 	
-	private static final double changeInPrice_4 = 25.905;
-	private static final double high52Week_4 = 25.901;
 	private static final double highPrice_4 = 25.902;
 	private static final double lastTradedPrice_4 = 25.903;
-	private static final double low52Week_4 = 25.904;
 	private static final double lowPrice_4 = 25.905;
-	private static final double mobileAverage200Days_4 = 25.906;
-	private static final double mobileAverage50Days_4 = 25.907;
 	private static final double openPrice_4 = 25.908;
-	private static final double peRatio_4 = 25.909;
-	private static final double previousClose_4 = 25.9011;
-	private static final double shortRatio_4 = 25.9012;
 	private static final double volume_4 = 25.9013;
 	
 	private RamDatabaseForTest testDb;
