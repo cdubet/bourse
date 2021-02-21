@@ -19,11 +19,11 @@ import portefeuilleTest.database.util.RamDatabaseForTestAtOneDay;
 public class TestMobileAverage
 {
 
-	final double PRICE_1=100.0;
-	final double PRICE_2=105.0;
-	final double PRICE_3=109.0;
-	final double PRICE_4=119.0;
-	final double PRICE_NOT_USED=1;
+	final private double PRICE_1=100.0;
+	final private double PRICE_2=105.0;
+	final private double PRICE_3=109.0;
+	final private double PRICE_4=119.0;
+	final private double PRICE_NOT_USED=1;
 
 	@Test
 	public void testCompute()
