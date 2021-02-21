@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ TestEvaluation.class, TestQutotationMapStorage.class })
+@SuiteClasses({ TestEvaluation.class, TestQuotationMapStorage.class })
 public class AllTests
 {
 
