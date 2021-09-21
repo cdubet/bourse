@@ -68,6 +68,11 @@ public class Quotes extends TableImpl<Record> {
     public final TableField<Record, Double> LASTTRADEDPRICE = createField(DSL.name("LASTTRADEDPRICE"), SQLDataType.DOUBLE.nullable(false), this, "");
 
     /**
+     * The column <code>PUBLIC.QUOTES.CHANGEINPRICE</code>.
+     */
+    public final TableField<Record, Double> CHANGEINPRICE = createField(DSL.name("CHANGEINPRICE"), SQLDataType.DOUBLE, this, "");
+
+    /**
      * The column <code>PUBLIC.QUOTES.OPENPRICE</code>.
      */
     public final TableField<Record, Double> OPENPRICE = createField(DSL.name("OPENPRICE"), SQLDataType.DOUBLE, this, "");
@@ -86,6 +91,41 @@ public class Quotes extends TableImpl<Record> {
      * The column <code>PUBLIC.QUOTES.VOLUME</code>.
      */
     public final TableField<Record, Double> VOLUME = createField(DSL.name("VOLUME"), SQLDataType.DOUBLE, this, "");
+
+    /**
+     * The column <code>PUBLIC.QUOTES.LOW52WEEK</code>.
+     */
+    public final TableField<Record, Double> LOW52WEEK = createField(DSL.name("LOW52WEEK"), SQLDataType.DOUBLE, this, "");
+
+    /**
+     * The column <code>PUBLIC.QUOTES.HIGH52WEEK</code>.
+     */
+    public final TableField<Record, Double> HIGH52WEEK = createField(DSL.name("HIGH52WEEK"), SQLDataType.DOUBLE, this, "");
+
+    /**
+     * The column <code>PUBLIC.QUOTES.MOBILEAVERAGE50DAYS</code>.
+     */
+    public final TableField<Record, Double> MOBILEAVERAGE50DAYS = createField(DSL.name("MOBILEAVERAGE50DAYS"), SQLDataType.DOUBLE, this, "");
+
+    /**
+     * The column <code>PUBLIC.QUOTES.MOBILEAVERAGE200DAYS</code>.
+     */
+    public final TableField<Record, Double> MOBILEAVERAGE200DAYS = createField(DSL.name("MOBILEAVERAGE200DAYS"), SQLDataType.DOUBLE, this, "");
+
+    /**
+     * The column <code>PUBLIC.QUOTES.PREVIOUSCLOSE</code>.
+     */
+    public final TableField<Record, Double> PREVIOUSCLOSE = createField(DSL.name("PREVIOUSCLOSE"), SQLDataType.DOUBLE, this, "");
+
+    /**
+     * The column <code>PUBLIC.QUOTES.PERATIO</code>.
+     */
+    public final TableField<Record, Double> PERATIO = createField(DSL.name("PERATIO"), SQLDataType.DOUBLE, this, "");
+
+    /**
+     * The column <code>PUBLIC.QUOTES.SHORTRATIO</code>.
+     */
+    public final TableField<Record, Double> SHORTRATIO = createField(DSL.name("SHORTRATIO"), SQLDataType.DOUBLE, this, "");
 
     private Quotes(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);
