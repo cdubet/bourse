@@ -9,26 +9,7 @@ public class DataConverter
 {
 
 	private static final Logger logger = LogManager.getLogger(DataConverter.class);
-	static public String  convertIsShareToString(boolean isShare)
-	{
-		if (isShare)
-		{
-			return "Y";
-		}
-		return "N";
-	}
-	
-	static public boolean convertIsShare(char isShareChar)
-	{
-		if ((isShareChar=='y') || (isShareChar=='Y'))
-		{
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
+
 	
 	static public ShareDB.Currency convertToCurrency(char currencyChar)
 	{

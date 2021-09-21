@@ -12,6 +12,7 @@ import org.junit.Test;
 import net.tuxanna.portefeuille.business_logic.PortfolioManagement;
 import net.tuxanna.portefeuille.business_logic.util.ShareToQuotations;
 import net.tuxanna.portefeuille.dataFeed.TickerI;
+import net.tuxanna.portefeuille.dataFeed.TickerI.TypeOfItem;
 import net.tuxanna.portefeuille.database.ShareDB;
 
 
@@ -51,7 +52,7 @@ public class TestPortfolioManagement
 			ShareDB share=new ShareDB(idx,name, 
 					ticker.getSymbol(),
 					ShareDB.Currency.DOLLAR_US,
-					ticker.isShare());
+					ticker.getTypeOfItem());
 			listShares.add(share);
 		}
 
@@ -60,7 +61,7 @@ public class TestPortfolioManagement
 			ShareDB share=new ShareDB(++idx,"unknown share", 
 				"no ticker existinng",
 				ShareDB.Currency.DOLLAR_US,
-				true);
+				TypeOfItem.SHARE);
 			listShares.add(share);
 		}
 		ShareToQuotations listOfQuotationsDB=new ShareToQuotations();

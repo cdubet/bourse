@@ -10,6 +10,7 @@ import org.jsoup.select.Elements;
 
 import net.tuxanna.portefeuille.Quote;
 import net.tuxanna.portefeuille.dataFeed.JsoupDocProvider;
+import net.tuxanna.portefeuille.dataFeed.TickerI.TypeOfItem;
 
 
 public class BoursoramaParser
@@ -171,7 +172,7 @@ public class BoursoramaParser
 		}
 		return true;
 	}
-	public boolean parse(boolean isShare, Quote quote)
+	public boolean parse(TypeOfItem typeOfItem, Quote quote)
 	{
 		if (docProvider==null)
 		{
@@ -181,12 +182,13 @@ public class BoursoramaParser
 		try
 		{
 			Document doc = docProvider.getDocument();
-			if (isShare)
+			if (typeOfItem==TypeOfItem.SHARE)
 			{
 				return parseShare(doc,quote);
 			}
 			else
 			{
+				//TODO check it is the same for tracker
 				return parseSicav(doc ,quote);
 			}
 

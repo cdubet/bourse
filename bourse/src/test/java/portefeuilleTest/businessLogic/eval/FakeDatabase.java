@@ -10,6 +10,7 @@ import net.tuxanna.portefeuille.business_logic.eval.EvaluationStorage;
 import net.tuxanna.portefeuille.business_logic.eval.QuotationMapStorage;
 import net.tuxanna.portefeuille.business_logic.eval.ShareIdAndDate;
 import net.tuxanna.portefeuille.business_logic.util.ShareNameStorage;
+import net.tuxanna.portefeuille.dataFeed.TickerI.TypeOfItem;
 import net.tuxanna.portefeuille.database.ConditionPortfolioI;
 import net.tuxanna.portefeuille.database.ConditionQuoteI;
 import net.tuxanna.portefeuille.database.DatabaseI;
@@ -148,7 +149,7 @@ public class FakeDatabase implements DatabaseI
 
 		//fill now map
 		{
-			ShareDB share=new ShareDB(ID_SHARE_1,SHARE_NAME_1,"sh1",ShareDB.Currency.EURO,true);
+			ShareDB share=new ShareDB(ID_SHARE_1,SHARE_NAME_1,"sh1",ShareDB.Currency.EURO,TypeOfItem.SHARE);
 			listShares.add(share);
 			{
 				ShareIdAndDate key1=new ShareIdAndDate(share,now);
@@ -158,7 +159,7 @@ public class FakeDatabase implements DatabaseI
 			mapToFill.add(key1,OLD_PRICE_SHARE_1);
 		}
 		{
-			ShareDB share=new ShareDB(ID_SHARE_2,SHARE_NAME_2,"sh2",ShareDB.Currency.EURO,true);
+			ShareDB share=new ShareDB(ID_SHARE_2,SHARE_NAME_2,"sh2",ShareDB.Currency.EURO,TypeOfItem.SHARE);
 			listShares.add(share);
 			{
 				ShareIdAndDate key1=new ShareIdAndDate(share,now);
@@ -168,7 +169,7 @@ public class FakeDatabase implements DatabaseI
 			mapToFill.add(key1,OLD_PRICE_SHARE_2);
 		}
 		{
-			ShareDB share=new ShareDB(ID_SHARE_3,SHARE_NAME_3,"sh3",ShareDB.Currency.EURO,true);
+			ShareDB share=new ShareDB(ID_SHARE_3,SHARE_NAME_3,"sh3",ShareDB.Currency.EURO,TypeOfItem.SHARE);
 			listShares.add(share);
 			{
 				ShareIdAndDate key1=new ShareIdAndDate(share,now);
@@ -178,7 +179,7 @@ public class FakeDatabase implements DatabaseI
 			mapToFill.add(key1,OLD_PRICE_SHARE_3);
 		}
 		{
-			ShareDB share=new ShareDB(ID_SHARE_4,SHARE_NAME_4,"sh4",ShareDB.Currency.EURO,true);
+			ShareDB share=new ShareDB(ID_SHARE_4,SHARE_NAME_4,"sh4",ShareDB.Currency.EURO,TypeOfItem.SHARE);
 			listShares.add(share);
 			{
 				ShareIdAndDate key1=new ShareIdAndDate(share,now);

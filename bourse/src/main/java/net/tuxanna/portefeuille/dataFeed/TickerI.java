@@ -1,8 +1,17 @@
 package net.tuxanna.portefeuille.dataFeed;
 
+
+
 public interface TickerI
 {
+	public enum TypeOfItem 
+	{
+	    SHARE,
+	    SICAV,
+	    TRACKER 
+	}
+	
 	String getSymbol();
-	boolean isShare() ; //true -> share, false -> sicav
+	TypeOfItem getTypeOfItem() ; //true -> share, false -> sicav
 	boolean isValid();
 }

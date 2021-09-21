@@ -21,6 +21,7 @@ import net.tuxanna.portefeuille.business_logic.eval.QuotationMapStorage;
 import net.tuxanna.portefeuille.business_logic.util.ShareNameStorage;
 import net.tuxanna.portefeuille.dataFeed.Ticker;
 import net.tuxanna.portefeuille.dataFeed.TickerI;
+import net.tuxanna.portefeuille.dataFeed.TickerI.TypeOfItem;
 import net.tuxanna.portefeuille.database.PortfolioDB;
 import net.tuxanna.portefeuille.database.ShareDB;
 import net.tuxanna.portefeuille.util.DigitValue;
@@ -243,8 +244,8 @@ public class TestEvaluation
 			for (ShareDB shareDb:listShares)
 			{
 				String tickerSymbol=shareDb.getTicker();
-				boolean isShare=shareDb.isShare();
-				Ticker ticker=new Ticker(tickerSymbol , isShare);
+				TypeOfItem typeShare=shareDb.getTypeOfItem();
+				Ticker ticker=new Ticker(tickerSymbol , typeShare);
 				listTicker.add(ticker);
 			}
 			 

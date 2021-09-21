@@ -23,9 +23,9 @@ public class FakeShareTicker implements TickerI
 	}
 
 	@Override
-	public boolean isShare()
+	public TypeOfItem getTypeOfItem()
 	{
-		return true;
+		return TypeOfItem.SHARE;
 	}
 	@Override
 	public String toString()

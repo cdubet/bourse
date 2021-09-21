@@ -1,8 +1,14 @@
 package net.tuxanna.portefeuille.database;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import net.tuxanna.portefeuille.dataFeed.TickerI.TypeOfItem;
 
 public class ShareDB
 {
+	private static final Logger logger = LogManager.getLogger(ShareDB.class);
+
 	public enum Currency
 	{
 	    DOLLAR_US, 
@@ -14,26 +20,60 @@ public class ShareDB
 	private String name;
 	private String ticker;
 	private Currency currency;
-	private boolean isShare;
+	private char shareType; //y = share, n sicav, t tracker
 	
 	private int id;
 		
-	public ShareDB(int id,String name, String ticker,Currency currency,boolean isShare)
+	private static  char  convertTypeShareToString(TypeOfItem typeOfItem)
+	{
+		switch (typeOfItem)
+		{
+		case SHARE:
+			return 'Y';
+		case SICAV:
+			return 'N';
+		case TRACKER:
+			return 'T';
+		default:
+			logger.error("unexpected value");
+			return '?';
+		}
+	}
+	
+	private static TypeOfItem convertShareStringToType(char isShareChar)
+	{
+		if ((isShareChar=='y') || (isShareChar=='Y'))
+		{
+			return TypeOfItem.SHARE;
+		}
+		if ((isShareChar=='t') || (isShareChar=='T'))
+		{
+			return TypeOfItem.TRACKER;
+		}
+		if ((isShareChar=='N') || (isShareChar=='n'))
+		{
+			return TypeOfItem.SICAV;
+		}
+		//TODO trace, should not happen
+		return TypeOfItem.SHARE;
+	}
+	
+	public ShareDB(int id,String name, String ticker,Currency currency,TypeOfItem typeOfItem)
 	{
 		super();
 		this.setName(name);
 		this.ticker = ticker;
 		this.id = id;
 		this.currency=currency;
-		this.isShare=isShare;
+		this.shareType=convertTypeShareToString(typeOfItem);
 	}
-	public ShareDB(String name, String ticker,Currency currency,boolean isShare)
+	public ShareDB(String name, String ticker,Currency currency,TypeOfItem typeOfItem)
 	{
 		super();
 		this.setName(name);
 		this.ticker = ticker;
 		this.currency=currency;
-		this.isShare=isShare;
+		this.shareType=convertTypeShareToString(typeOfItem);
 		id = Database.NON_ASSIGNED;
 	}
 	public ShareDB()
@@ -42,7 +82,7 @@ public class ShareDB
 		this.name="";
 		this.ticker = "";
 		this.currency=ShareDB.Currency.EURO;
-		this.isShare=true;
+		this.shareType='y';
 		id = Database.NON_ASSIGNED;
 	}
 	public String getName()
@@ -78,18 +118,23 @@ public class ShareDB
 		this.currency = currency;
 	}
   
-	public boolean isShare()
+	public TypeOfItem getTypeOfItem()
 	{
-		return isShare;
+		return convertShareStringToType(shareType);
 	}
-	public void setIsShare(boolean isShare)
+	public char getRawTypeOfItem()
 	{
-		this.isShare = isShare;
+		return shareType;
+	}
+	
+	public void setTypeOfItem(char val)
+	{
+		this.shareType = val;
 	}
 	@Override
 	public String toString()
 	{
-		return "ShareDB [name=" + name + ", ticker=" + ticker + ", currency=" + currency + ", isShare=" + isShare
+		return "ShareDB [name=" + name + ", ticker=" + ticker + ", currency=" + currency + ", type=" + shareType
 				+ ", id=" + id + "]";
 	}
 

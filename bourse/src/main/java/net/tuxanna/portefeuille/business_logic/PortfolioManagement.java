@@ -393,7 +393,7 @@ public class PortfolioManagement
 		ArrayList<TickerI> listTicker=new ArrayList<>(listShares.size());
 		for (ShareDB shareDB : listShares)
 		{
-			listTicker.add(new Ticker(shareDB.getTicker(),shareDB.isShare()) );
+			listTicker.add(new Ticker(shareDB.getTicker(),shareDB.getTypeOfItem()) );
 		}
 
 		quotationProvider.setListTickers(listTicker);
@@ -431,7 +431,7 @@ public class PortfolioManagement
 	{
 		for (ShareDB share : listShares)
 		{
-			TickerI ticker=new Ticker(share.getTicker(),share.isShare());
+			TickerI ticker=new Ticker(share.getTicker(),share.getTypeOfItem());
 			Quote quotation = quotationsForTicker.get(ticker);
 			if (quotation != null)
 			{
