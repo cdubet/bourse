@@ -11,7 +11,7 @@ plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
  
-    id 'nu.studer.jooq' version '5.1.0'
+    id 'nu.studer.jooq' version '7.1.1'
 
 }
 
@@ -35,7 +35,7 @@ dependencies {
 	implementation group: 'org.apache.logging.log4j', name: 'log4j-api',version: '2.6.2' //version: '2.13.3'
   	implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.6.2' //version: '2.13.3'
   
-	implementation group: 'org.hsqldb', name: 'hsqldb' ,version: '2.5.1'
+	implementation group: 'org.hsqldb', name: 'hsqldb' ,version: '2.7.0'
 	
 	
 	implementation group: 'com.googlecode.jatl', name: 'jatl', version: '0.2.3'    
@@ -54,11 +54,11 @@ dependencies {
     //TODO use https://github.com/ferigma/dbunit-gradle-plugin
     testImplementation 'org.dbunit:dbunit:2.7.0'
 
-    jooqGenerator 'org.hsqldb:hsqldb:2.5.1'
+    jooqGenerator 'org.hsqldb:hsqldb:2.7.0'
 }
 
 jooq {
-    version = '3.14.7'
+    version = '3.16.10'
     edition = nu.studer.gradle.jooq.JooqEdition.OSS
 
     configurations {
