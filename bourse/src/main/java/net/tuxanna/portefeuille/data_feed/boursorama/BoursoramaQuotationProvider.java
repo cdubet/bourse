@@ -56,7 +56,7 @@ public class BoursoramaQuotationProvider implements QuotationProviderI
 				.executor(executorService)
 				.version(HttpClient.Version.HTTP_2)
 				.followRedirects(HttpClient.Redirect.NORMAL)
-				.connectTimeout(Duration.ofSeconds(20))
+				.connectTimeout(Duration.ofSeconds(50))
 				.build();
 
 		List<CompletableFuture<TickerAndQuote>> result = listOfTickers.stream()
