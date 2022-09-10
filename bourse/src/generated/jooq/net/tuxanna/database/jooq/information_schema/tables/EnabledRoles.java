@@ -54,14 +54,16 @@ public class EnabledRoles extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ENABLED_ROLES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.ENABLED_ROLES</code> table
+     * reference
      */
     public EnabledRoles(String alias) {
         this(DSL.name(alias), ENABLED_ROLES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ENABLED_ROLES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.ENABLED_ROLES</code> table
+     * reference
      */
     public EnabledRoles(Name alias) {
         this(alias, ENABLED_ROLES);
@@ -80,7 +82,7 @@ public class EnabledRoles extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

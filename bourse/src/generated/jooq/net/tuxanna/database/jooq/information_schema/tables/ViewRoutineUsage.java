@@ -20,9 +20,9 @@ import org.jooq.impl.TableImpl;
 
 
 /**
- * one row for each SQL-invoked routine identified as the subject routine 
- * of either a &lt;routine invocation&gt;, a &lt;method reference&gt;, a &lt;method 
- * invocation&gt;, or a &lt;static method invocation&gt; contained in a &lt;view 
+ * one row for each SQL-invoked routine identified as the subject routine of
+ * either a &lt;routine invocation&gt;, a &lt;method reference&gt;, a &lt;method
+ * invocation&gt;, or a &lt;static method invocation&gt; contained in a &lt;view
  * definition&gt;
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
@@ -31,7 +31,8 @@ public class ViewRoutineUsage extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE</code>
      */
     public static final ViewRoutineUsage VIEW_ROUTINE_USAGE = new ViewRoutineUsage();
 
@@ -44,12 +45,14 @@ public class ViewRoutineUsage extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE.VIEW_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE.VIEW_CATALOG</code>.
      */
     public final TableField<Record, String> VIEW_CATALOG = createField(DSL.name("VIEW_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE.VIEW_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE.VIEW_SCHEMA</code>.
      */
     public final TableField<Record, String> VIEW_SCHEMA = createField(DSL.name("VIEW_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
@@ -59,17 +62,20 @@ public class ViewRoutineUsage extends TableImpl<Record> {
     public final TableField<Record, String> VIEW_NAME = createField(DSL.name("VIEW_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE.SPECIFIC_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE.SPECIFIC_CATALOG</code>.
      */
     public final TableField<Record, String> SPECIFIC_CATALOG = createField(DSL.name("SPECIFIC_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE.SPECIFIC_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE.SPECIFIC_SCHEMA</code>.
      */
     public final TableField<Record, String> SPECIFIC_SCHEMA = createField(DSL.name("SPECIFIC_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE.SPECIFIC_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE.SPECIFIC_NAME</code>.
      */
     public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), SQLDataType.VARCHAR(128), this, "");
 
@@ -82,21 +88,24 @@ public class ViewRoutineUsage extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE</code>
+     * table reference
      */
     public ViewRoutineUsage(String alias) {
         this(DSL.name(alias), VIEW_ROUTINE_USAGE);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE</code>
+     * table reference
      */
     public ViewRoutineUsage(Name alias) {
         this(alias, VIEW_ROUTINE_USAGE);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.VIEW_ROUTINE_USAGE</code> table
+     * reference
      */
     public ViewRoutineUsage() {
         this(DSL.name("VIEW_ROUTINE_USAGE"), null);
@@ -108,7 +117,7 @@ public class ViewRoutineUsage extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

@@ -28,7 +28,8 @@ public class SystemTablestats extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS</code>
      */
     public static final SystemTablestats SYSTEM_TABLESTATS = new SystemTablestats();
 
@@ -41,12 +42,14 @@ public class SystemTablestats extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS.TABLE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS.TABLE_CATALOG</code>.
      */
     public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS.TABLE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS.TABLE_SCHEMA</code>.
      */
     public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
@@ -76,7 +79,8 @@ public class SystemTablestats extends TableImpl<Record> {
     public final TableField<Record, Long> USED_SPACE = createField(DSL.name("USED_SPACE"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS.ALLOCATED_SPACE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS.ALLOCATED_SPACE</code>.
      */
     public final TableField<Record, Long> ALLOCATED_SPACE = createField(DSL.name("ALLOCATED_SPACE"), SQLDataType.BIGINT, this, "");
 
@@ -94,21 +98,24 @@ public class SystemTablestats extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS</code> table
+     * reference
      */
     public SystemTablestats(String alias) {
         this(DSL.name(alias), SYSTEM_TABLESTATS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS</code> table
+     * reference
      */
     public SystemTablestats(Name alias) {
         this(alias, SYSTEM_TABLESTATS);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_TABLESTATS</code> table
+     * reference
      */
     public SystemTablestats() {
         this(DSL.name("SYSTEM_TABLESTATS"), null);
@@ -120,7 +127,7 @@ public class SystemTablestats extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

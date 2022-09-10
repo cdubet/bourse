@@ -28,7 +28,8 @@ public class TableConstraints extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS</code>
      */
     public static final TableConstraints TABLE_CONSTRAINTS = new TableConstraints();
 
@@ -41,32 +42,38 @@ public class TableConstraints extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.CONSTRAINT_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.CONSTRAINT_CATALOG</code>.
      */
     public final TableField<Record, String> CONSTRAINT_CATALOG = createField(DSL.name("CONSTRAINT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.CONSTRAINT_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.CONSTRAINT_SCHEMA</code>.
      */
     public final TableField<Record, String> CONSTRAINT_SCHEMA = createField(DSL.name("CONSTRAINT_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.CONSTRAINT_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.CONSTRAINT_NAME</code>.
      */
     public final TableField<Record, String> CONSTRAINT_NAME = createField(DSL.name("CONSTRAINT_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.CONSTRAINT_TYPE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.CONSTRAINT_TYPE</code>.
      */
     public final TableField<Record, String> CONSTRAINT_TYPE = createField(DSL.name("CONSTRAINT_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.TABLE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.TABLE_CATALOG</code>.
      */
     public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.TABLE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.TABLE_SCHEMA</code>.
      */
     public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
@@ -76,12 +83,14 @@ public class TableConstraints extends TableImpl<Record> {
     public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.IS_DEFERRABLE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.IS_DEFERRABLE</code>.
      */
     public final TableField<Record, String> IS_DEFERRABLE = createField(DSL.name("IS_DEFERRABLE"), SQLDataType.VARCHAR(3), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.INITIALLY_DEFERRED</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS.INITIALLY_DEFERRED</code>.
      */
     public final TableField<Record, String> INITIALLY_DEFERRED = createField(DSL.name("INITIALLY_DEFERRED"), SQLDataType.VARCHAR(3), this, "");
 
@@ -94,21 +103,24 @@ public class TableConstraints extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS</code> table
+     * reference
      */
     public TableConstraints(String alias) {
         this(DSL.name(alias), TABLE_CONSTRAINTS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS</code> table
+     * reference
      */
     public TableConstraints(Name alias) {
         this(alias, TABLE_CONSTRAINTS);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.TABLE_CONSTRAINTS</code> table
+     * reference
      */
     public TableConstraints() {
         this(DSL.name("TABLE_CONSTRAINTS"), null);
@@ -120,7 +132,7 @@ public class TableConstraints extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

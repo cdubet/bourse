@@ -69,14 +69,16 @@ public class SqlSizing extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SQL_SIZING</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SQL_SIZING</code> table
+     * reference
      */
     public SqlSizing(String alias) {
         this(DSL.name(alias), SQL_SIZING);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SQL_SIZING</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SQL_SIZING</code> table
+     * reference
      */
     public SqlSizing(Name alias) {
         this(alias, SQL_SIZING);
@@ -95,7 +97,7 @@ public class SqlSizing extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

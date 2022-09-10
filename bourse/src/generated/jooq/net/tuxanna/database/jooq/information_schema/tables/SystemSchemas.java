@@ -41,17 +41,20 @@ public class SystemSchemas extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS.TABLE_SCHEM</code>. schema name
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS.TABLE_SCHEM</code>.
+     * schema name
      */
     public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "schema name");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS.TABLE_CATALOG</code>. catalog in which schema is defined
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS.TABLE_CATALOG</code>.
+     * catalog in which schema is defined
      */
     public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "catalog in which schema is defined");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS.IS_DEFAULT</code>. whether the described schema is the default schema
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS.IS_DEFAULT</code>.
+     * whether the described schema is the default schema
      */
     public final TableField<Record, Boolean> IS_DEFAULT = createField(DSL.name("IS_DEFAULT"), SQLDataType.BOOLEAN, this, "whether the described schema is the default schema");
 
@@ -64,14 +67,16 @@ public class SystemSchemas extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS</code> table
+     * reference
      */
     public SystemSchemas(String alias) {
         this(DSL.name(alias), SYSTEM_SCHEMAS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS</code> table
+     * reference
      */
     public SystemSchemas(Name alias) {
         this(alias, SYSTEM_SCHEMAS);
@@ -90,7 +95,7 @@ public class SystemSchemas extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

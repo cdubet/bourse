@@ -81,32 +81,38 @@ public class Parameters extends TableImpl<Record> {
     public final TableField<Record, String> PARAMETER_NAME = createField(DSL.name("PARAMETER_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.PARAMETERS.FROM_SQL_SPECIFIC_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.PARAMETERS.FROM_SQL_SPECIFIC_CATALOG</code>.
      */
     public final TableField<Record, String> FROM_SQL_SPECIFIC_CATALOG = createField(DSL.name("FROM_SQL_SPECIFIC_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.PARAMETERS.FROM_SQL_SPECIFIC_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.PARAMETERS.FROM_SQL_SPECIFIC_SCHEMA</code>.
      */
     public final TableField<Record, String> FROM_SQL_SPECIFIC_SCHEMA = createField(DSL.name("FROM_SQL_SPECIFIC_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.PARAMETERS.FROM_SQL_SPECIFIC_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.PARAMETERS.FROM_SQL_SPECIFIC_NAME</code>.
      */
     public final TableField<Record, String> FROM_SQL_SPECIFIC_NAME = createField(DSL.name("FROM_SQL_SPECIFIC_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.PARAMETERS.TO_SQL_SPECIFIC_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.PARAMETERS.TO_SQL_SPECIFIC_CATALOG</code>.
      */
     public final TableField<Record, String> TO_SQL_SPECIFIC_CATALOG = createField(DSL.name("TO_SQL_SPECIFIC_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.PARAMETERS.TO_SQL_SPECIFIC_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.PARAMETERS.TO_SQL_SPECIFIC_SCHEMA</code>.
      */
     public final TableField<Record, String> TO_SQL_SPECIFIC_SCHEMA = createField(DSL.name("TO_SQL_SPECIFIC_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.PARAMETERS.TO_SQL_SPECIFIC_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.PARAMETERS.TO_SQL_SPECIFIC_NAME</code>.
      */
     public final TableField<Record, String> TO_SQL_SPECIFIC_NAME = createField(DSL.name("TO_SQL_SPECIFIC_NAME"), SQLDataType.VARCHAR(128), this, "");
 
@@ -116,22 +122,26 @@ public class Parameters extends TableImpl<Record> {
     public final TableField<Record, String> DATA_TYPE = createField(DSL.name("DATA_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.PARAMETERS.CHARACTER_MAXIMUM_LENGTH</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.PARAMETERS.CHARACTER_MAXIMUM_LENGTH</code>.
      */
     public final TableField<Record, Long> CHARACTER_MAXIMUM_LENGTH = createField(DSL.name("CHARACTER_MAXIMUM_LENGTH"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.PARAMETERS.CHARACTER_OCTET_LENGTH</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.PARAMETERS.CHARACTER_OCTET_LENGTH</code>.
      */
     public final TableField<Record, Long> CHARACTER_OCTET_LENGTH = createField(DSL.name("CHARACTER_OCTET_LENGTH"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.PARAMETERS.CHARACTER_SET_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.PARAMETERS.CHARACTER_SET_CATALOG</code>.
      */
     public final TableField<Record, String> CHARACTER_SET_CATALOG = createField(DSL.name("CHARACTER_SET_CATALOG"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.PARAMETERS.CHARACTER_SET_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.PARAMETERS.CHARACTER_SET_SCHEMA</code>.
      */
     public final TableField<Record, String> CHARACTER_SET_SCHEMA = createField(DSL.name("CHARACTER_SET_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
@@ -161,7 +171,8 @@ public class Parameters extends TableImpl<Record> {
     public final TableField<Record, Long> NUMERIC_PRECISION = createField(DSL.name("NUMERIC_PRECISION"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.PARAMETERS.NUMERIC_PRECISION_RADIX</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.PARAMETERS.NUMERIC_PRECISION_RADIX</code>.
      */
     public final TableField<Record, Long> NUMERIC_PRECISION_RADIX = createField(DSL.name("NUMERIC_PRECISION_RADIX"), SQLDataType.BIGINT, this, "");
 
@@ -216,7 +227,8 @@ public class Parameters extends TableImpl<Record> {
     public final TableField<Record, String> SCOPE_NAME = createField(DSL.name("SCOPE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.PARAMETERS.MAXIMUM_CARDINALITY</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.PARAMETERS.MAXIMUM_CARDINALITY</code>.
      */
     public final TableField<Record, Long> MAXIMUM_CARDINALITY = createField(DSL.name("MAXIMUM_CARDINALITY"), SQLDataType.BIGINT, this, "");
 
@@ -231,12 +243,14 @@ public class Parameters extends TableImpl<Record> {
     public final TableField<Record, String> DECLARED_DATA_TYPE = createField(DSL.name("DECLARED_DATA_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.PARAMETERS.DECLARED_NUMERIC_PRECISION</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.PARAMETERS.DECLARED_NUMERIC_PRECISION</code>.
      */
     public final TableField<Record, Long> DECLARED_NUMERIC_PRECISION = createField(DSL.name("DECLARED_NUMERIC_PRECISION"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.PARAMETERS.DECLARED_NUMERIC_SCALE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.PARAMETERS.DECLARED_NUMERIC_SCALE</code>.
      */
     public final TableField<Record, Long> DECLARED_NUMERIC_SCALE = createField(DSL.name("DECLARED_NUMERIC_SCALE"), SQLDataType.BIGINT, this, "");
 
@@ -249,14 +263,16 @@ public class Parameters extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.PARAMETERS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.PARAMETERS</code> table
+     * reference
      */
     public Parameters(String alias) {
         this(DSL.name(alias), PARAMETERS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.PARAMETERS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.PARAMETERS</code> table
+     * reference
      */
     public Parameters(Name alias) {
         this(alias, PARAMETERS);
@@ -275,7 +291,7 @@ public class Parameters extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

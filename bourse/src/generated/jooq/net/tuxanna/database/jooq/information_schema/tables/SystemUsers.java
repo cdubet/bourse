@@ -41,27 +41,32 @@ public class SystemUsers extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_USERS.USER_NAME</code>. user name
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_USERS.USER_NAME</code>. user
+     * name
      */
     public final TableField<Record, String> USER_NAME = createField(DSL.name("USER_NAME"), SQLDataType.VARCHAR(128), this, "user name");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_USERS.ADMIN</code>. has the administrative privilege?
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_USERS.ADMIN</code>. has the
+     * administrative privilege?
      */
     public final TableField<Record, Boolean> ADMIN = createField(DSL.name("ADMIN"), SQLDataType.BOOLEAN, this, "has the administrative privilege?");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_USERS.INITIAL_SCHEMA</code>. initial schema for user
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_USERS.INITIAL_SCHEMA</code>.
+     * initial schema for user
      */
     public final TableField<Record, String> INITIAL_SCHEMA = createField(DSL.name("INITIAL_SCHEMA"), SQLDataType.VARCHAR(128), this, "initial schema for user");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_USERS.AUTHENTICATION</code>. method of identification for the user
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_USERS.AUTHENTICATION</code>.
+     * method of identification for the user
      */
     public final TableField<Record, String> AUTHENTICATION = createField(DSL.name("AUTHENTICATION"), SQLDataType.VARCHAR(128), this, "method of identification for the user");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_USERS.PASSWORD_DIGEST</code>. password digest
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_USERS.PASSWORD_DIGEST</code>.
+     * password digest
      */
     public final TableField<Record, String> PASSWORD_DIGEST = createField(DSL.name("PASSWORD_DIGEST"), SQLDataType.VARCHAR(128), this, "password digest");
 
@@ -74,14 +79,16 @@ public class SystemUsers extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_USERS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_USERS</code> table
+     * reference
      */
     public SystemUsers(String alias) {
         this(DSL.name(alias), SYSTEM_USERS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_USERS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_USERS</code> table
+     * reference
      */
     public SystemUsers(Name alias) {
         this(alias, SYSTEM_USERS);
@@ -100,7 +107,7 @@ public class SystemUsers extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

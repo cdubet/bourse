@@ -20,7 +20,7 @@ import org.jooq.impl.TableImpl;
 
 
 /**
- * a description of how the accessible tables defined within this database 
+ * a description of how the accessible tables defined within this database
  * import visible columns to enforce referential integrity
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
@@ -29,7 +29,8 @@ public class SystemCrossreference extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE</code>
      */
     public static final SystemCrossreference SYSTEM_CROSSREFERENCE = new SystemCrossreference();
 
@@ -42,72 +43,102 @@ public class SystemCrossreference extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.PKTABLE_CAT</code>. the catalog in which the referenced table is defined
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.PKTABLE_CAT</code>. the
+     * catalog in which the referenced table is defined
      */
     public final TableField<Record, String> PKTABLE_CAT = createField(DSL.name("PKTABLE_CAT"), SQLDataType.VARCHAR(128), this, "the catalog in which the referenced table is defined");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.PKTABLE_SCHEM</code>. the schema in which the referenced table is defined
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.PKTABLE_SCHEM</code>. the
+     * schema in which the referenced table is defined
      */
     public final TableField<Record, String> PKTABLE_SCHEM = createField(DSL.name("PKTABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "the schema in which the referenced table is defined");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.PKTABLE_NAME</code>. simple name of the referenced table
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.PKTABLE_NAME</code>.
+     * simple name of the referenced table
      */
     public final TableField<Record, String> PKTABLE_NAME = createField(DSL.name("PKTABLE_NAME"), SQLDataType.VARCHAR(128), this, "simple name of the referenced table");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.PKCOLUMN_NAME</code>. simple name of the referenced column
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.PKCOLUMN_NAME</code>.
+     * simple name of the referenced column
      */
     public final TableField<Record, String> PKCOLUMN_NAME = createField(DSL.name("PKCOLUMN_NAME"), SQLDataType.VARCHAR(128), this, "simple name of the referenced column");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.FKTABLE_CAT</code>. the catalog in which the referencing table is defined
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.FKTABLE_CAT</code>. the
+     * catalog in which the referencing table is defined
      */
     public final TableField<Record, String> FKTABLE_CAT = createField(DSL.name("FKTABLE_CAT"), SQLDataType.VARCHAR(128), this, "the catalog in which the referencing table is defined");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.FKTABLE_SCHEM</code>. the schema in which the referencing table is defined
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.FKTABLE_SCHEM</code>. the
+     * schema in which the referencing table is defined
      */
     public final TableField<Record, String> FKTABLE_SCHEM = createField(DSL.name("FKTABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "the schema in which the referencing table is defined");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.FKTABLE_NAME</code>. the simple name of the referencing table
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.FKTABLE_NAME</code>. the
+     * simple name of the referencing table
      */
     public final TableField<Record, String> FKTABLE_NAME = createField(DSL.name("FKTABLE_NAME"), SQLDataType.VARCHAR(128), this, "the simple name of the referencing table");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.FKCOLUMN_NAME</code>. the simple name of the referencing column
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.FKCOLUMN_NAME</code>. the
+     * simple name of the referencing column
      */
     public final TableField<Record, String> FKCOLUMN_NAME = createField(DSL.name("FKCOLUMN_NAME"), SQLDataType.VARCHAR(128), this, "the simple name of the referencing column");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.KEY_SEQ</code>. sequence number within foreign key definition
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.KEY_SEQ</code>.
+     * sequence number within foreign key definition
      */
     public final TableField<Record, Short> KEY_SEQ = createField(DSL.name("KEY_SEQ"), SQLDataType.SMALLINT, this, "sequence number within foreign key definition");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.UPDATE_RULE</code>. how does an update of referenced row columns affect referencing rows?: e.g. { Cascade | Set Null | Set Default | Restrict (No Action) }
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.UPDATE_RULE</code>. how
+     * does an update of referenced row columns affect referencing rows?: e.g. {
+     * Cascade | Set Null | Set Default | Restrict (No Action) }
      */
     public final TableField<Record, Short> UPDATE_RULE = createField(DSL.name("UPDATE_RULE"), SQLDataType.SMALLINT, this, "how does an update of referenced row columns affect referencing rows?: e.g. { Cascade | Set Null | Set Default | Restrict (No Action) }");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.DELETE_RULE</code>. how does deletion of a referenced row affect referencing rows?: e.g. { Cascade | Set Null | Set Default | Restrict (No Action) }
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.DELETE_RULE</code>. how
+     * does deletion of a referenced row affect referencing rows?: e.g. {
+     * Cascade | Set Null | Set Default | Restrict (No Action) }
      */
     public final TableField<Record, Short> DELETE_RULE = createField(DSL.name("DELETE_RULE"), SQLDataType.SMALLINT, this, "how does deletion of a referenced row affect referencing rows?: e.g. { Cascade | Set Null | Set Default | Restrict (No Action) }");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.FK_NAME</code>. the name of the foreign key
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.FK_NAME</code>.
+     * the name of the foreign key
      */
     public final TableField<Record, String> FK_NAME = createField(DSL.name("FK_NAME"), SQLDataType.VARCHAR(128), this, "the name of the foreign key");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.PK_NAME</code>. the name of the referenced column set (usually the name of a primary key constraint, but may be a unique constraint or even the name of a non-unique index previous to 1.7.0)
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.PK_NAME</code>.
+     * the name of the referenced column set (usually the name of a primary key
+     * constraint, but may be a unique constraint or even the name of a
+     * non-unique index previous to 1.7.0)
      */
     public final TableField<Record, String> PK_NAME = createField(DSL.name("PK_NAME"), SQLDataType.VARCHAR(128), this, "the name of the referenced column set (usually the name of a primary key constraint, but may be a unique constraint or even the name of a non-unique index previous to 1.7.0)");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.DEFERRABILITY</code>. foreign key constraints deferred until commit?: e.g. { initially deferred | initially immediate | not deferrable }
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.DEFERRABILITY</code>.
+     * foreign key constraints deferred until commit?: e.g. { initially deferred
+     * | initially immediate | not deferrable }
      */
     public final TableField<Record, Short> DEFERRABILITY = createField(DSL.name("DEFERRABILITY"), SQLDataType.SMALLINT, this, "foreign key constraints deferred until commit?: e.g. { initially deferred | initially immediate | not deferrable }");
 
@@ -120,21 +151,24 @@ public class SystemCrossreference extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE</code>
+     * table reference
      */
     public SystemCrossreference(String alias) {
         this(DSL.name(alias), SYSTEM_CROSSREFERENCE);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE</code>
+     * table reference
      */
     public SystemCrossreference(Name alias) {
         this(alias, SYSTEM_CROSSREFERENCE);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE</code> table
+     * reference
      */
     public SystemCrossreference() {
         this(DSL.name("SYSTEM_CROSSREFERENCE"), null);
@@ -146,7 +180,7 @@ public class SystemCrossreference extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

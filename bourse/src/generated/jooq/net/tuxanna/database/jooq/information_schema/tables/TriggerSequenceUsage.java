@@ -28,7 +28,8 @@ public class TriggerSequenceUsage extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE</code>
      */
     public static final TriggerSequenceUsage TRIGGER_SEQUENCE_USAGE = new TriggerSequenceUsage();
 
@@ -41,32 +42,38 @@ public class TriggerSequenceUsage extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.TRIGGER_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.TRIGGER_CATALOG</code>.
      */
     public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.TRIGGER_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.TRIGGER_SCHEMA</code>.
      */
     public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.TRIGGER_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.TRIGGER_NAME</code>.
      */
     public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.SEQUENCE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.SEQUENCE_CATALOG</code>.
      */
     public final TableField<Record, String> SEQUENCE_CATALOG = createField(DSL.name("SEQUENCE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.SEQUENCE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.SEQUENCE_SCHEMA</code>.
      */
     public final TableField<Record, String> SEQUENCE_SCHEMA = createField(DSL.name("SEQUENCE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.SEQUENCE_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE.SEQUENCE_NAME</code>.
      */
     public final TableField<Record, String> SEQUENCE_NAME = createField(DSL.name("SEQUENCE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
@@ -79,21 +86,24 @@ public class TriggerSequenceUsage extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE</code>
+     * table reference
      */
     public TriggerSequenceUsage(String alias) {
         this(DSL.name(alias), TRIGGER_SEQUENCE_USAGE);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE</code>
+     * table reference
      */
     public TriggerSequenceUsage(Name alias) {
         this(alias, TRIGGER_SEQUENCE_USAGE);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.TRIGGER_SEQUENCE_USAGE</code> table
+     * reference
      */
     public TriggerSequenceUsage() {
         this(DSL.name("TRIGGER_SEQUENCE_USAGE"), null);
@@ -105,7 +115,7 @@ public class TriggerSequenceUsage extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

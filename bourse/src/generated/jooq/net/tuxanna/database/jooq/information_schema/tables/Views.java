@@ -86,7 +86,8 @@ public class Views extends TableImpl<Record> {
     public final TableField<Record, String> IS_TRIGGER_DELETABLE = createField(DSL.name("IS_TRIGGER_DELETABLE"), SQLDataType.VARCHAR(3), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.VIEWS.IS_TRIGGER_INSERTABLE_INTO</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.VIEWS.IS_TRIGGER_INSERTABLE_INTO</code>.
      */
     public final TableField<Record, String> IS_TRIGGER_INSERTABLE_INTO = createField(DSL.name("IS_TRIGGER_INSERTABLE_INTO"), SQLDataType.VARCHAR(3), this, "");
 
@@ -125,7 +126,7 @@ public class Views extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

@@ -81,12 +81,14 @@ public class Columns extends TableImpl<Record> {
     public final TableField<Record, String> DATA_TYPE = createField(DSL.name("DATA_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMNS.CHARACTER_MAXIMUM_LENGTH</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMNS.CHARACTER_MAXIMUM_LENGTH</code>.
      */
     public final TableField<Record, Long> CHARACTER_MAXIMUM_LENGTH = createField(DSL.name("CHARACTER_MAXIMUM_LENGTH"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMNS.CHARACTER_OCTET_LENGTH</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMNS.CHARACTER_OCTET_LENGTH</code>.
      */
     public final TableField<Record, Long> CHARACTER_OCTET_LENGTH = createField(DSL.name("CHARACTER_OCTET_LENGTH"), SQLDataType.BIGINT, this, "");
 
@@ -96,7 +98,8 @@ public class Columns extends TableImpl<Record> {
     public final TableField<Record, Long> NUMERIC_PRECISION = createField(DSL.name("NUMERIC_PRECISION"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMNS.NUMERIC_PRECISION_RADIX</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMNS.NUMERIC_PRECISION_RADIX</code>.
      */
     public final TableField<Record, Long> NUMERIC_PRECISION_RADIX = createField(DSL.name("NUMERIC_PRECISION_RADIX"), SQLDataType.BIGINT, this, "");
 
@@ -256,17 +259,20 @@ public class Columns extends TableImpl<Record> {
     public final TableField<Record, String> GENERATION_EXPRESSION = createField(DSL.name("GENERATION_EXPRESSION"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMNS.IS_SYSTEM_TIME_PERIOD_START</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMNS.IS_SYSTEM_TIME_PERIOD_START</code>.
      */
     public final TableField<Record, String> IS_SYSTEM_TIME_PERIOD_START = createField(DSL.name("IS_SYSTEM_TIME_PERIOD_START"), SQLDataType.VARCHAR(3), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMNS.IS_SYSTEM_TIME_PERIOD_END</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMNS.IS_SYSTEM_TIME_PERIOD_END</code>.
      */
     public final TableField<Record, String> IS_SYSTEM_TIME_PERIOD_END = createField(DSL.name("IS_SYSTEM_TIME_PERIOD_END"), SQLDataType.VARCHAR(3), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMNS.SYSTEM_TIME_PERIOD_TIMESTAMP_GENERATION</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMNS.SYSTEM_TIME_PERIOD_TIMESTAMP_GENERATION</code>.
      */
     public final TableField<Record, String> SYSTEM_TIME_PERIOD_TIMESTAMP_GENERATION = createField(DSL.name("SYSTEM_TIME_PERIOD_TIMESTAMP_GENERATION"), SQLDataType.VARCHAR(65536), this, "");
 
@@ -281,12 +287,14 @@ public class Columns extends TableImpl<Record> {
     public final TableField<Record, String> DECLARED_DATA_TYPE = createField(DSL.name("DECLARED_DATA_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMNS.DECLARED_NUMERIC_PRECISION</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMNS.DECLARED_NUMERIC_PRECISION</code>.
      */
     public final TableField<Record, Long> DECLARED_NUMERIC_PRECISION = createField(DSL.name("DECLARED_NUMERIC_PRECISION"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMNS.DECLARED_NUMERIC_SCALE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMNS.DECLARED_NUMERIC_SCALE</code>.
      */
     public final TableField<Record, Long> DECLARED_NUMERIC_SCALE = createField(DSL.name("DECLARED_NUMERIC_SCALE"), SQLDataType.BIGINT, this, "");
 
@@ -325,7 +333,7 @@ public class Columns extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

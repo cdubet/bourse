@@ -41,12 +41,14 @@ public class Authorizations extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.AUTHORIZATIONS.AUTHORIZATION_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.AUTHORIZATIONS.AUTHORIZATION_NAME</code>.
      */
     public final TableField<Record, String> AUTHORIZATION_NAME = createField(DSL.name("AUTHORIZATION_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.AUTHORIZATIONS.AUTHORIZATION_TYPE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.AUTHORIZATIONS.AUTHORIZATION_TYPE</code>.
      */
     public final TableField<Record, String> AUTHORIZATION_TYPE = createField(DSL.name("AUTHORIZATION_TYPE"), SQLDataType.VARCHAR(128), this, "");
 
@@ -59,14 +61,16 @@ public class Authorizations extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.AUTHORIZATIONS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.AUTHORIZATIONS</code> table
+     * reference
      */
     public Authorizations(String alias) {
         this(DSL.name(alias), AUTHORIZATIONS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.AUTHORIZATIONS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.AUTHORIZATIONS</code> table
+     * reference
      */
     public Authorizations(Name alias) {
         this(alias, AUTHORIZATIONS);
@@ -85,7 +89,7 @@ public class Authorizations extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

@@ -4,9 +4,6 @@
 package net.tuxanna.database.jooq.public_.tables;
 
 
-import java.util.Arrays;
-import java.util.List;
-
 import net.tuxanna.database.jooq.public_.Keys;
 import net.tuxanna.database.jooq.public_.Public;
 
@@ -91,7 +88,7 @@ public class Account extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return Public.PUBLIC;
+        return aliased() ? null : Public.PUBLIC;
     }
 
     @Override
@@ -101,12 +98,7 @@ public class Account extends TableImpl<Record> {
 
     @Override
     public UniqueKey<Record> getPrimaryKey() {
-        return Keys.SYS_PK_10115;
-    }
-
-    @Override
-    public List<UniqueKey<Record>> getKeys() {
-        return Arrays.<UniqueKey<Record>>asList(Keys.SYS_PK_10115);
+        return Keys.SYS_PK_10116;
     }
 
     @Override

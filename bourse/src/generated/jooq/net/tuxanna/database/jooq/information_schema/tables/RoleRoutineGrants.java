@@ -28,7 +28,8 @@ public class RoleRoutineGrants extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS</code>
      */
     public static final RoleRoutineGrants ROLE_ROUTINE_GRANTS = new RoleRoutineGrants();
 
@@ -51,42 +52,50 @@ public class RoleRoutineGrants extends TableImpl<Record> {
     public final TableField<Record, String> GRANTEE = createField(DSL.name("GRANTEE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.SPECIFIC_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.SPECIFIC_CATALOG</code>.
      */
     public final TableField<Record, String> SPECIFIC_CATALOG = createField(DSL.name("SPECIFIC_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.SPECIFIC_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.SPECIFIC_SCHEMA</code>.
      */
     public final TableField<Record, String> SPECIFIC_SCHEMA = createField(DSL.name("SPECIFIC_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.SPECIFIC_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.SPECIFIC_NAME</code>.
      */
     public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.ROUTINE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.ROUTINE_CATALOG</code>.
      */
     public final TableField<Record, String> ROUTINE_CATALOG = createField(DSL.name("ROUTINE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.ROUTINE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.ROUTINE_SCHEMA</code>.
      */
     public final TableField<Record, String> ROUTINE_SCHEMA = createField(DSL.name("ROUTINE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.ROUTINE_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.ROUTINE_NAME</code>.
      */
     public final TableField<Record, String> ROUTINE_NAME = createField(DSL.name("ROUTINE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.PRIVILEGE_TYPE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.PRIVILEGE_TYPE</code>.
      */
     public final TableField<Record, String> PRIVILEGE_TYPE = createField(DSL.name("PRIVILEGE_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.IS_GRANTABLE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS.IS_GRANTABLE</code>.
      */
     public final TableField<Record, String> IS_GRANTABLE = createField(DSL.name("IS_GRANTABLE"), SQLDataType.VARCHAR(3), this, "");
 
@@ -99,21 +108,24 @@ public class RoleRoutineGrants extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS</code>
+     * table reference
      */
     public RoleRoutineGrants(String alias) {
         this(DSL.name(alias), ROLE_ROUTINE_GRANTS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS</code>
+     * table reference
      */
     public RoleRoutineGrants(Name alias) {
         this(alias, ROLE_ROUTINE_GRANTS);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.ROLE_ROUTINE_GRANTS</code> table
+     * reference
      */
     public RoleRoutineGrants() {
         this(DSL.name("ROLE_ROUTINE_GRANTS"), null);
@@ -125,7 +137,7 @@ public class RoleRoutineGrants extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

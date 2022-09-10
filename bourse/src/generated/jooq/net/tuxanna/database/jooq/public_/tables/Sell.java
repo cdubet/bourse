@@ -122,7 +122,7 @@ public class Sell extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return Public.PUBLIC;
+        return aliased() ? null : Public.PUBLIC;
     }
 
     @Override
@@ -132,32 +132,33 @@ public class Sell extends TableImpl<Record> {
 
     @Override
     public UniqueKey<Record> getPrimaryKey() {
-        return Keys.SYS_PK_10133;
-    }
-
-    @Override
-    public List<UniqueKey<Record>> getKeys() {
-        return Arrays.<UniqueKey<Record>>asList(Keys.SYS_PK_10133);
+        return Keys.SYS_PK_10134;
     }
 
     @Override
     public List<ForeignKey<Record, ?>> getReferences() {
-        return Arrays.<ForeignKey<Record, ?>>asList(Keys.SYS_FK_10138, Keys.SYS_FK_10139);
+        return Arrays.asList(Keys.SYS_FK_10139, Keys.SYS_FK_10140);
     }
 
     private transient Shares _shares;
     private transient Account _account;
 
+    /**
+     * Get the implicit join path to the <code>PUBLIC.SHARES</code> table.
+     */
     public Shares shares() {
         if (_shares == null)
-            _shares = new Shares(this, Keys.SYS_FK_10138);
+            _shares = new Shares(this, Keys.SYS_FK_10139);
 
         return _shares;
     }
 
+    /**
+     * Get the implicit join path to the <code>PUBLIC.ACCOUNT</code> table.
+     */
     public Account account() {
         if (_account == null)
-            _account = new Account(this, Keys.SYS_FK_10139);
+            _account = new Account(this, Keys.SYS_FK_10140);
 
         return _account;
     }

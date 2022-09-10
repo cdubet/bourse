@@ -28,7 +28,8 @@ public class SystemConnectionProperties extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES</code>
      */
     public static final SystemConnectionProperties SYSTEM_CONNECTION_PROPERTIES = new SystemConnectionProperties();
 
@@ -41,22 +42,26 @@ public class SystemConnectionProperties extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES.NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES.NAME</code>.
      */
     public final TableField<Record, String> NAME = createField(DSL.name("NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES.MAX_LEN</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES.MAX_LEN</code>.
      */
     public final TableField<Record, Integer> MAX_LEN = createField(DSL.name("MAX_LEN"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES.DEFAULT_VALUE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES.DEFAULT_VALUE</code>.
      */
     public final TableField<Record, String> DEFAULT_VALUE = createField(DSL.name("DEFAULT_VALUE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES.DESCRIPTION</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES.DESCRIPTION</code>.
      */
     public final TableField<Record, String> DESCRIPTION = createField(DSL.name("DESCRIPTION"), SQLDataType.VARCHAR(128), this, "");
 
@@ -69,21 +74,26 @@ public class SystemConnectionProperties extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES</code> table reference
+     * Create an aliased
+     * <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES</code> table
+     * reference
      */
     public SystemConnectionProperties(String alias) {
         this(DSL.name(alias), SYSTEM_CONNECTION_PROPERTIES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES</code> table reference
+     * Create an aliased
+     * <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES</code> table
+     * reference
      */
     public SystemConnectionProperties(Name alias) {
         this(alias, SYSTEM_CONNECTION_PROPERTIES);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES</code>
+     * table reference
      */
     public SystemConnectionProperties() {
         this(DSL.name("SYSTEM_CONNECTION_PROPERTIES"), null);
@@ -95,7 +105,7 @@ public class SystemConnectionProperties extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

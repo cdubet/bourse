@@ -28,7 +28,8 @@ public class RoleTableGrants extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS</code>
      */
     public static final RoleTableGrants ROLE_TABLE_GRANTS = new RoleTableGrants();
 
@@ -51,12 +52,14 @@ public class RoleTableGrants extends TableImpl<Record> {
     public final TableField<Record, String> GRANTEE = createField(DSL.name("GRANTEE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.TABLE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.TABLE_CATALOG</code>.
      */
     public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.TABLE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.TABLE_SCHEMA</code>.
      */
     public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
@@ -66,17 +69,20 @@ public class RoleTableGrants extends TableImpl<Record> {
     public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.PRIVILEGE_TYPE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.PRIVILEGE_TYPE</code>.
      */
     public final TableField<Record, String> PRIVILEGE_TYPE = createField(DSL.name("PRIVILEGE_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.IS_GRANTABLE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.IS_GRANTABLE</code>.
      */
     public final TableField<Record, String> IS_GRANTABLE = createField(DSL.name("IS_GRANTABLE"), SQLDataType.VARCHAR(3), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.WITH_HIERARCHY</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.WITH_HIERARCHY</code>.
      */
     public final TableField<Record, String> WITH_HIERARCHY = createField(DSL.name("WITH_HIERARCHY"), SQLDataType.VARCHAR(3), this, "");
 
@@ -89,21 +95,24 @@ public class RoleTableGrants extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS</code> table
+     * reference
      */
     public RoleTableGrants(String alias) {
         this(DSL.name(alias), ROLE_TABLE_GRANTS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS</code> table
+     * reference
      */
     public RoleTableGrants(Name alias) {
         this(alias, ROLE_TABLE_GRANTS);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS</code> table
+     * reference
      */
     public RoleTableGrants() {
         this(DSL.name("ROLE_TABLE_GRANTS"), null);
@@ -115,7 +124,7 @@ public class RoleTableGrants extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

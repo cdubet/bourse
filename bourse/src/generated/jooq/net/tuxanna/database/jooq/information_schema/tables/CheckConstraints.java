@@ -28,7 +28,8 @@ public class CheckConstraints extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.CHECK_CONSTRAINTS</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.CHECK_CONSTRAINTS</code>
      */
     public static final CheckConstraints CHECK_CONSTRAINTS = new CheckConstraints();
 
@@ -41,22 +42,26 @@ public class CheckConstraints extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.CHECK_CONSTRAINTS.CONSTRAINT_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.CHECK_CONSTRAINTS.CONSTRAINT_CATALOG</code>.
      */
     public final TableField<Record, String> CONSTRAINT_CATALOG = createField(DSL.name("CONSTRAINT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.CHECK_CONSTRAINTS.CONSTRAINT_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.CHECK_CONSTRAINTS.CONSTRAINT_SCHEMA</code>.
      */
     public final TableField<Record, String> CONSTRAINT_SCHEMA = createField(DSL.name("CONSTRAINT_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.CHECK_CONSTRAINTS.CONSTRAINT_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.CHECK_CONSTRAINTS.CONSTRAINT_NAME</code>.
      */
     public final TableField<Record, String> CONSTRAINT_NAME = createField(DSL.name("CONSTRAINT_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.CHECK_CONSTRAINTS.CHECK_CLAUSE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.CHECK_CONSTRAINTS.CHECK_CLAUSE</code>.
      */
     public final TableField<Record, String> CHECK_CLAUSE = createField(DSL.name("CHECK_CLAUSE"), SQLDataType.VARCHAR(65536), this, "");
 
@@ -69,21 +74,24 @@ public class CheckConstraints extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.CHECK_CONSTRAINTS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.CHECK_CONSTRAINTS</code> table
+     * reference
      */
     public CheckConstraints(String alias) {
         this(DSL.name(alias), CHECK_CONSTRAINTS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.CHECK_CONSTRAINTS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.CHECK_CONSTRAINTS</code> table
+     * reference
      */
     public CheckConstraints(Name alias) {
         this(alias, CHECK_CONSTRAINTS);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.CHECK_CONSTRAINTS</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.CHECK_CONSTRAINTS</code> table
+     * reference
      */
     public CheckConstraints() {
         this(DSL.name("CHECK_CONSTRAINTS"), null);
@@ -95,7 +103,7 @@ public class CheckConstraints extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

@@ -28,7 +28,8 @@ public class RoleAuthorizationDescriptors extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.ROLE_AUTHORIZATION_DESCRIPTORS</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.ROLE_AUTHORIZATION_DESCRIPTORS</code>
      */
     public static final RoleAuthorizationDescriptors ROLE_AUTHORIZATION_DESCRIPTORS = new RoleAuthorizationDescriptors();
 
@@ -41,22 +42,26 @@ public class RoleAuthorizationDescriptors extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_AUTHORIZATION_DESCRIPTORS.ROLE_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_AUTHORIZATION_DESCRIPTORS.ROLE_NAME</code>.
      */
     public final TableField<Record, String> ROLE_NAME = createField(DSL.name("ROLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_AUTHORIZATION_DESCRIPTORS.GRANTEE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_AUTHORIZATION_DESCRIPTORS.GRANTEE</code>.
      */
     public final TableField<Record, String> GRANTEE = createField(DSL.name("GRANTEE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_AUTHORIZATION_DESCRIPTORS.GRANTOR</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_AUTHORIZATION_DESCRIPTORS.GRANTOR</code>.
      */
     public final TableField<Record, String> GRANTOR = createField(DSL.name("GRANTOR"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_AUTHORIZATION_DESCRIPTORS.IS_GRANTABLE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_AUTHORIZATION_DESCRIPTORS.IS_GRANTABLE</code>.
      */
     public final TableField<Record, String> IS_GRANTABLE = createField(DSL.name("IS_GRANTABLE"), SQLDataType.VARCHAR(3), this, "");
 
@@ -69,21 +74,26 @@ public class RoleAuthorizationDescriptors extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ROLE_AUTHORIZATION_DESCRIPTORS</code> table reference
+     * Create an aliased
+     * <code>INFORMATION_SCHEMA.ROLE_AUTHORIZATION_DESCRIPTORS</code> table
+     * reference
      */
     public RoleAuthorizationDescriptors(String alias) {
         this(DSL.name(alias), ROLE_AUTHORIZATION_DESCRIPTORS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ROLE_AUTHORIZATION_DESCRIPTORS</code> table reference
+     * Create an aliased
+     * <code>INFORMATION_SCHEMA.ROLE_AUTHORIZATION_DESCRIPTORS</code> table
+     * reference
      */
     public RoleAuthorizationDescriptors(Name alias) {
         this(alias, ROLE_AUTHORIZATION_DESCRIPTORS);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.ROLE_AUTHORIZATION_DESCRIPTORS</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.ROLE_AUTHORIZATION_DESCRIPTORS</code>
+     * table reference
      */
     public RoleAuthorizationDescriptors() {
         this(DSL.name("ROLE_AUTHORIZATION_DESCRIPTORS"), null);
@@ -95,7 +105,7 @@ public class RoleAuthorizationDescriptors extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

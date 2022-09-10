@@ -20,7 +20,7 @@ import org.jooq.impl.TableImpl;
 
 
 /**
- * storage space used by the indices of each accessible table defined within 
+ * storage space used by the indices of each accessible table defined within
  * this database
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
@@ -29,7 +29,8 @@ public class SystemIndexstats extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS</code>
      */
     public static final SystemIndexstats SYSTEM_INDEXSTATS = new SystemIndexstats();
 
@@ -42,12 +43,14 @@ public class SystemIndexstats extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.TABLE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.TABLE_CATALOG</code>.
      */
     public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.TABLE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.TABLE_SCHEMA</code>.
      */
     public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
@@ -67,7 +70,8 @@ public class SystemIndexstats extends TableImpl<Record> {
     public final TableField<Record, String> INDEX_NAME = createField(DSL.name("INDEX_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.ORDINAL_POSITION</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.ORDINAL_POSITION</code>.
      */
     public final TableField<Record, Long> ORDINAL_POSITION = createField(DSL.name("ORDINAL_POSITION"), SQLDataType.BIGINT, this, "");
 
@@ -77,17 +81,14 @@ public class SystemIndexstats extends TableImpl<Record> {
     public final TableField<Record, Long> CARDINALITY = createField(DSL.name("CARDINALITY"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.ALLOCATED_ROWS</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.ALLOCATED_ROWS</code>.
      */
     public final TableField<Record, Long> ALLOCATED_ROWS = createField(DSL.name("ALLOCATED_ROWS"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.USED_SPACE</code>.
-     */
-    public final TableField<Record, Long> USED_SPACE = createField(DSL.name("USED_SPACE"), SQLDataType.BIGINT, this, "");
-
-    /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.ALLOCATED_SPACE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS.ALLOCATED_SPACE</code>.
      */
     public final TableField<Record, Long> ALLOCATED_SPACE = createField(DSL.name("ALLOCATED_SPACE"), SQLDataType.BIGINT, this, "");
 
@@ -110,21 +111,24 @@ public class SystemIndexstats extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS</code> table
+     * reference
      */
     public SystemIndexstats(String alias) {
         this(DSL.name(alias), SYSTEM_INDEXSTATS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS</code> table
+     * reference
      */
     public SystemIndexstats(Name alias) {
         this(alias, SYSTEM_INDEXSTATS);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_INDEXSTATS</code> table
+     * reference
      */
     public SystemIndexstats() {
         this(DSL.name("SYSTEM_INDEXSTATS"), null);
@@ -136,7 +140,7 @@ public class SystemIndexstats extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

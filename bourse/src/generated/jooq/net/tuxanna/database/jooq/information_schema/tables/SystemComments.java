@@ -20,7 +20,7 @@ import org.jooq.impl.TableImpl;
 
 
 /**
- * comments on tables, views, columns, sequences, triggers and routines defined 
+ * comments on tables, views, columns, sequences, triggers and routines defined
  * by users or system
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
@@ -42,7 +42,8 @@ public class SystemComments extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_COMMENTS.OBJECT_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_COMMENTS.OBJECT_CATALOG</code>.
      */
     public final TableField<Record, String> OBJECT_CATALOG = createField(DSL.name("OBJECT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
@@ -80,14 +81,16 @@ public class SystemComments extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_COMMENTS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_COMMENTS</code> table
+     * reference
      */
     public SystemComments(String alias) {
         this(DSL.name(alias), SYSTEM_COMMENTS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_COMMENTS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_COMMENTS</code> table
+     * reference
      */
     public SystemComments(Name alias) {
         this(alias, SYSTEM_COMMENTS);
@@ -106,7 +109,7 @@ public class SystemComments extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

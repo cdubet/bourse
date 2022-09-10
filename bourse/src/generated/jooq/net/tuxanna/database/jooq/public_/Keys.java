@@ -20,7 +20,7 @@ import org.jooq.impl.Internal;
 
 
 /**
- * A class modelling foreign key relationships and constraints of tables in 
+ * A class modelling foreign key relationships and constraints of tables in
  * PUBLIC.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
@@ -30,22 +30,22 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final UniqueKey<Record> SYS_PK_10115 = Internal.createUniqueKey(Account.ACCOUNT, DSL.name("SYS_PK_10115"), new TableField[] { Account.ACCOUNT.IDACCOUNT }, true);
-    public static final UniqueKey<Record> SYS_PK_10151 = Internal.createUniqueKey(Buy.BUY, DSL.name("SYS_PK_10151"), new TableField[] { Buy.BUY.IDBUY }, true);
-    public static final UniqueKey<Record> SYS_PK_10121 = Internal.createUniqueKey(Portfolio.PORTFOLIO, DSL.name("SYS_PK_10121"), new TableField[] { Portfolio.PORTFOLIO.IDPORTFOLIO }, true);
-    public static final UniqueKey<Record> SYS_PK_10104 = Internal.createUniqueKey(Quotes.QUOTES, DSL.name("SYS_PK_10104"), new TableField[] { Quotes.QUOTES.IDQUOTES }, true);
-    public static final UniqueKey<Record> SYS_PK_10133 = Internal.createUniqueKey(Sell.SELL, DSL.name("SYS_PK_10133"), new TableField[] { Sell.SELL.IDSELL }, true);
-    public static final UniqueKey<Record> SYS_PK_10092 = Internal.createUniqueKey(Shares.SHARES, DSL.name("SYS_PK_10092"), new TableField[] { Shares.SHARES.IDSHARE }, true);
+    public static final UniqueKey<Record> SYS_PK_10116 = Internal.createUniqueKey(Account.ACCOUNT, DSL.name("SYS_PK_10116"), new TableField[] { Account.ACCOUNT.IDACCOUNT }, true);
+    public static final UniqueKey<Record> SYS_PK_10152 = Internal.createUniqueKey(Buy.BUY, DSL.name("SYS_PK_10152"), new TableField[] { Buy.BUY.IDBUY }, true);
+    public static final UniqueKey<Record> SYS_PK_10122 = Internal.createUniqueKey(Portfolio.PORTFOLIO, DSL.name("SYS_PK_10122"), new TableField[] { Portfolio.PORTFOLIO.IDPORTFOLIO }, true);
+    public static final UniqueKey<Record> SYS_PK_10105 = Internal.createUniqueKey(Quotes.QUOTES, DSL.name("SYS_PK_10105"), new TableField[] { Quotes.QUOTES.IDQUOTES }, true);
+    public static final UniqueKey<Record> SYS_PK_10134 = Internal.createUniqueKey(Sell.SELL, DSL.name("SYS_PK_10134"), new TableField[] { Sell.SELL.IDSELL }, true);
+    public static final UniqueKey<Record> SYS_PK_10093 = Internal.createUniqueKey(Shares.SHARES, DSL.name("SYS_PK_10093"), new TableField[] { Shares.SHARES.IDSHARE }, true);
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final ForeignKey<Record, Record> SYS_FK_10156 = Internal.createForeignKey(Buy.BUY, DSL.name("SYS_FK_10156"), new TableField[] { Buy.BUY.IDSHARE }, Keys.SYS_PK_10092, new TableField[] { Shares.SHARES.IDSHARE }, true);
-    public static final ForeignKey<Record, Record> SYS_FK_10157 = Internal.createForeignKey(Buy.BUY, DSL.name("SYS_FK_10157"), new TableField[] { Buy.BUY.IDACCOUNT }, Keys.SYS_PK_10115, new TableField[] { Account.ACCOUNT.IDACCOUNT }, true);
-    public static final ForeignKey<Record, Record> SYS_FK_10123 = Internal.createForeignKey(Portfolio.PORTFOLIO, DSL.name("SYS_FK_10123"), new TableField[] { Portfolio.PORTFOLIO.IDSHARE }, Keys.SYS_PK_10092, new TableField[] { Shares.SHARES.IDSHARE }, true);
-    public static final ForeignKey<Record, Record> SYS_FK_10124 = Internal.createForeignKey(Portfolio.PORTFOLIO, DSL.name("SYS_FK_10124"), new TableField[] { Portfolio.PORTFOLIO.IDACCOUNT }, Keys.SYS_PK_10115, new TableField[] { Account.ACCOUNT.IDACCOUNT }, true);
-    public static final ForeignKey<Record, Record> SYS_FK_10107 = Internal.createForeignKey(Quotes.QUOTES, DSL.name("SYS_FK_10107"), new TableField[] { Quotes.QUOTES.IDSHARE }, Keys.SYS_PK_10092, new TableField[] { Shares.SHARES.IDSHARE }, true);
-    public static final ForeignKey<Record, Record> SYS_FK_10138 = Internal.createForeignKey(Sell.SELL, DSL.name("SYS_FK_10138"), new TableField[] { Sell.SELL.IDSHARE }, Keys.SYS_PK_10092, new TableField[] { Shares.SHARES.IDSHARE }, true);
-    public static final ForeignKey<Record, Record> SYS_FK_10139 = Internal.createForeignKey(Sell.SELL, DSL.name("SYS_FK_10139"), new TableField[] { Sell.SELL.IDACCOUNT }, Keys.SYS_PK_10115, new TableField[] { Account.ACCOUNT.IDACCOUNT }, true);
+    public static final ForeignKey<Record, Record> SYS_FK_10157 = Internal.createForeignKey(Buy.BUY, DSL.name("SYS_FK_10157"), new TableField[] { Buy.BUY.IDSHARE }, Keys.SYS_PK_10093, new TableField[] { Shares.SHARES.IDSHARE }, true);
+    public static final ForeignKey<Record, Record> SYS_FK_10158 = Internal.createForeignKey(Buy.BUY, DSL.name("SYS_FK_10158"), new TableField[] { Buy.BUY.IDACCOUNT }, Keys.SYS_PK_10116, new TableField[] { Account.ACCOUNT.IDACCOUNT }, true);
+    public static final ForeignKey<Record, Record> SYS_FK_10124 = Internal.createForeignKey(Portfolio.PORTFOLIO, DSL.name("SYS_FK_10124"), new TableField[] { Portfolio.PORTFOLIO.IDSHARE }, Keys.SYS_PK_10093, new TableField[] { Shares.SHARES.IDSHARE }, true);
+    public static final ForeignKey<Record, Record> SYS_FK_10125 = Internal.createForeignKey(Portfolio.PORTFOLIO, DSL.name("SYS_FK_10125"), new TableField[] { Portfolio.PORTFOLIO.IDACCOUNT }, Keys.SYS_PK_10116, new TableField[] { Account.ACCOUNT.IDACCOUNT }, true);
+    public static final ForeignKey<Record, Record> SYS_FK_10108 = Internal.createForeignKey(Quotes.QUOTES, DSL.name("SYS_FK_10108"), new TableField[] { Quotes.QUOTES.IDSHARE }, Keys.SYS_PK_10093, new TableField[] { Shares.SHARES.IDSHARE }, true);
+    public static final ForeignKey<Record, Record> SYS_FK_10139 = Internal.createForeignKey(Sell.SELL, DSL.name("SYS_FK_10139"), new TableField[] { Sell.SELL.IDSHARE }, Keys.SYS_PK_10093, new TableField[] { Shares.SHARES.IDSHARE }, true);
+    public static final ForeignKey<Record, Record> SYS_FK_10140 = Internal.createForeignKey(Sell.SELL, DSL.name("SYS_FK_10140"), new TableField[] { Sell.SELL.IDACCOUNT }, Keys.SYS_PK_10116, new TableField[] { Account.ACCOUNT.IDACCOUNT }, true);
 }

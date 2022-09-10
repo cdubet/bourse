@@ -28,7 +28,8 @@ public class ReferentialConstraints extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS</code>
      */
     public static final ReferentialConstraints REFERENTIAL_CONSTRAINTS = new ReferentialConstraints();
 
@@ -41,47 +42,56 @@ public class ReferentialConstraints extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.CONSTRAINT_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.CONSTRAINT_CATALOG</code>.
      */
     public final TableField<Record, String> CONSTRAINT_CATALOG = createField(DSL.name("CONSTRAINT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.CONSTRAINT_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.CONSTRAINT_SCHEMA</code>.
      */
     public final TableField<Record, String> CONSTRAINT_SCHEMA = createField(DSL.name("CONSTRAINT_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.CONSTRAINT_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.CONSTRAINT_NAME</code>.
      */
     public final TableField<Record, String> CONSTRAINT_NAME = createField(DSL.name("CONSTRAINT_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.UNIQUE_CONSTRAINT_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.UNIQUE_CONSTRAINT_CATALOG</code>.
      */
     public final TableField<Record, String> UNIQUE_CONSTRAINT_CATALOG = createField(DSL.name("UNIQUE_CONSTRAINT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.UNIQUE_CONSTRAINT_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.UNIQUE_CONSTRAINT_SCHEMA</code>.
      */
     public final TableField<Record, String> UNIQUE_CONSTRAINT_SCHEMA = createField(DSL.name("UNIQUE_CONSTRAINT_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.UNIQUE_CONSTRAINT_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.UNIQUE_CONSTRAINT_NAME</code>.
      */
     public final TableField<Record, String> UNIQUE_CONSTRAINT_NAME = createField(DSL.name("UNIQUE_CONSTRAINT_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.MATCH_OPTION</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.MATCH_OPTION</code>.
      */
     public final TableField<Record, String> MATCH_OPTION = createField(DSL.name("MATCH_OPTION"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.UPDATE_RULE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.UPDATE_RULE</code>.
      */
     public final TableField<Record, String> UPDATE_RULE = createField(DSL.name("UPDATE_RULE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.DELETE_RULE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS.DELETE_RULE</code>.
      */
     public final TableField<Record, String> DELETE_RULE = createField(DSL.name("DELETE_RULE"), SQLDataType.VARCHAR(65536), this, "");
 
@@ -94,21 +104,24 @@ public class ReferentialConstraints extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS</code>
+     * table reference
      */
     public ReferentialConstraints(String alias) {
         this(DSL.name(alias), REFERENTIAL_CONSTRAINTS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS</code>
+     * table reference
      */
     public ReferentialConstraints(Name alias) {
         this(alias, REFERENTIAL_CONSTRAINTS);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS</code> table
+     * reference
      */
     public ReferentialConstraints() {
         this(DSL.name("REFERENTIAL_CONSTRAINTS"), null);
@@ -120,7 +133,7 @@ public class ReferentialConstraints extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

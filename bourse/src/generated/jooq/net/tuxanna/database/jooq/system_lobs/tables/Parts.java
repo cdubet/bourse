@@ -4,9 +4,6 @@
 package net.tuxanna.database.jooq.system_lobs.tables;
 
 
-import java.util.Arrays;
-import java.util.List;
-
 import net.tuxanna.database.jooq.system_lobs.Keys;
 import net.tuxanna.database.jooq.system_lobs.SystemLobs;
 
@@ -110,17 +107,12 @@ public class Parts extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return SystemLobs.SYSTEM_LOBS;
+        return aliased() ? null : SystemLobs.SYSTEM_LOBS;
     }
 
     @Override
     public UniqueKey<Record> getPrimaryKey() {
         return Keys.PARTS_PK;
-    }
-
-    @Override
-    public List<UniqueKey<Record>> getKeys() {
-        return Arrays.<UniqueKey<Record>>asList(Keys.PARTS_PK);
     }
 
     @Override
