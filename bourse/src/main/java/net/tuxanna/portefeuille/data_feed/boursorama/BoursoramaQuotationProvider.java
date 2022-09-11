@@ -15,6 +15,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 
+import org.apache.commons.lang3.concurrent.ConcurrentException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -37,57 +38,80 @@ public class BoursoramaQuotationProvider implements QuotationProviderI
 	
 	private List<TickerI> listOfTickers;
 	private int nbThreadsForWebDownload;
+	private Duration timeOutHttp;
 	
-	public BoursoramaQuotationProvider(int nbThreads)
+	public BoursoramaQuotationProvider(int nbThreads,Duration timeOutHttpRequest)
 	{
 		nbThreadsForWebDownload=nbThreads;
+		timeOutHttp=timeOutHttpRequest;
 	}
-
+	
 	@Override
 	public void setListTickers(List<TickerI> list)
 	{
 		listOfTickers=list;
 		logger.entry(list.size());
 	}
+	
 	private void downloadWebPages( Map<TickerI,Quote> quoteForTicker) throws InterruptedException, ExecutionException
 	{
-		ExecutorService executorService = Executors.newFixedThreadPool(nbThreadsForWebDownload);
-		HttpClient httpClient = HttpClient.newBuilder()
-				.executor(executorService)
-				.version(HttpClient.Version.HTTP_2)
-				.followRedirects(HttpClient.Redirect.NORMAL)
-				.connectTimeout(Duration.ofSeconds(50))
-				.build();
-
-		List<CompletableFuture<TickerAndQuote>> result = listOfTickers.stream()
-				.map(url -> {
-					return httpClient.sendAsync(
-							HttpRequest.newBuilder(buildUriFromTickers(url))
-							.GET()
-							//.setHeader("User-Agent", "Java 11 HttpClient Bot")
-							.build(),
-							HttpResponse.BodyHandlers.ofString())
-							.thenApply(response -> parse(url,response.body()));
-				})
-				.collect(Collectors.toList());
+		logger.debug("downloadWebPages using {} threads timeOut={}",nbThreadsForWebDownload,timeOutHttp);
 		
-		for (CompletableFuture<TickerAndQuote> future : result) 
+		ExecutorService executorService = Executors.newFixedThreadPool(nbThreadsForWebDownload);
+		try
 		{
-			TickerAndQuote quoteForOneTicker = future.get();
-			if (quoteForOneTicker.isValid())
+
+			HttpClient httpClient = HttpClient.newBuilder()
+					.executor(executorService)
+					.version(HttpClient.Version.HTTP_2)
+					.followRedirects(HttpClient.Redirect.NORMAL)
+					.connectTimeout(timeOutHttp)
+					.build();
+	
+			List<CompletableFuture<TickerAndQuote>> result = listOfTickers.stream()
+					.map(url -> {
+						return httpClient.sendAsync(
+								HttpRequest.newBuilder(buildUriFromTickers(url))
+								.GET()
+								//.setHeader("User-Agent", "Java 11 HttpClient Bot")
+								.build(),
+								HttpResponse.BodyHandlers.ofString())
+								.thenApply(response -> parse(url,response.body()));
+					})
+					.collect(Collectors.toList());
+	
+			for (CompletableFuture<TickerAndQuote> future : result) 
 			{
-				quoteForTicker.put(quoteForOneTicker.getTicker(), quoteForOneTicker.getQuote());
-			}
-			else
-			{
-				logger.debug("invalid quote skipped ticker={}",quoteForOneTicker.getTicker());
+				TickerAndQuote quoteForOneTicker = future.get();
+				if (quoteForOneTicker.isValid())
+				{
+					logger.debug("ticker={}",quoteForOneTicker.getTicker().getSymbol());
+					quoteForTicker.put(quoteForOneTicker.getTicker(), quoteForOneTicker.getQuote());
+				}
+				else
+				{
+					logger.debug("invalid quote skipped ticker={}",quoteForOneTicker.getTicker());
+				}
 			}
 		}
+		catch (Exception e) 
+		{
+			logger.error("exception quote skipped ticker={}",e.getMessage());
+			logger.error("exception stack={}",e.getStackTrace().toString());
+			if (e.getCause() != null)
+			{
+				logger.error("exception source={}",e.getCause().getStackTrace().toString());
+			}
+		}
+
+	
 		executorService.shutdown();
 	}
 	
 	private TickerAndQuote parse(TickerI ticker,String htmlBody)
 	{
+		logger.debug("parse symbol {}",ticker);
+		
 		BoursoramaParser parser=new BoursoramaParser();
 		parser.setDocProvider(new JsoupDocumentProviderFromString(htmlBody));
 		Quote quote=new Quote();
@@ -145,11 +169,18 @@ public class BoursoramaQuotationProvider implements QuotationProviderI
 		{
 			downloadWebPages( quoteForTicker);
 		}
-		catch (InterruptedException | ExecutionException e)
+		catch (InterruptedException e)
 		{
 			logger.error("getQuotes exception received {}",e.toString());
 			return false;
 		}
+		catch (java.util.concurrent.ExecutionException e )
+		{
+			logger.debug("quote skipped ticker={}",e.getMessage());
+			return false;
+		}	
+
+
 		logger.debug("got {} quotations for {} tickers",quoteForTicker.size(),listOfTickers.size());
 		return true;
 	

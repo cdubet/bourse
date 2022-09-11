@@ -4,6 +4,7 @@ import java.io.File;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 
 import org.apache.logging.log4j.LogManager;
@@ -25,7 +26,7 @@ import picocli.CommandLine.ParameterException;
 
 public class Portefeuille   implements Runnable  {
 
-	private static final String VERSION="2.00.1";
+	private static final String VERSION="2.00.2";
 	private static final Logger logger = LogManager.getLogger(Portefeuille.class);
 
 	@Option(names={"-create"}, description="create database", required=false)  
@@ -77,6 +78,9 @@ public class Portefeuille   implements Runnable  {
 	
 	@Option(names = "--share", description="share name")
 	private String share;
+	
+	@Option(names = "--timeout", description="timeout http request in second")
+	private Integer timeOutHttpRequestInSecond;
 	
 	//TODO make version working
 //	class VersionedCommand {    // @Option(names = { "-V", "--version" }, versionHelp = true,
@@ -142,13 +146,13 @@ public class Portefeuille   implements Runnable  {
 		
 	}
 
-	private void generateCSV(File csvFileName,int nbThreadsForDownloading)
+	private void generateCSV(File csvFileName,int nbThreadsForDownloading,Duration timeoutHttpRequest)
 	{
 		Database db;
 		try
 		{
 			db = new Database();
-			PortfolioManagement portfolio = setupPortfolio(db,nbThreadsForDownloading);
+			PortfolioManagement portfolio = setupPortfolio(db,nbThreadsForDownloading,timeoutHttpRequest);
 
 			//do the job
 			portfolio.exportQuoteCsv(csvFileName);
@@ -166,7 +170,7 @@ public class Portefeuille   implements Runnable  {
 		try
 		{
 			Database db = new Database();
-			PortfolioManagement portfolio = setupPortfolio(db,1 /*does not matter here*/);
+			PortfolioManagement portfolio = setupPortfolio(db,1 /*does not matter here*/,Duration.ofSeconds(60) /*does not matter here*/);
 
 			//do the job
 			portfolio.deleteOutdatedQuotes();
@@ -177,15 +181,14 @@ public class Portefeuille   implements Runnable  {
 			logger.error("exception received",e);
 			e.printStackTrace();
 		}
-
-		
 	}
+	
 	private static void checkDatabase()
 	{
 		try
 		{
 			Database db = new Database();
-			PortfolioManagement portfolio = setupPortfolio(db,1 /*does not matter here*/);
+			PortfolioManagement portfolio = setupPortfolio(db,1 /*does not matter here*/,Duration.ofSeconds(60)/*does not matter here */);
 
 			//do the job
 			portfolio.checkQuotes();
@@ -197,7 +200,8 @@ public class Portefeuille   implements Runnable  {
 			e.printStackTrace();
 		}	
 	}
-	private static void updatePortfolio(boolean isEvaluateRequired, MailParameters mailParam, Integer nbThreadsForDownloadingQuotes)
+	
+	private static void updatePortfolio(boolean isEvaluateRequired, MailParameters mailParam, Integer nbThreadsForDownloadingQuotes,Duration timeoutHttpRequest)
 	{
 		//update
 		try
@@ -205,7 +209,7 @@ public class Portefeuille   implements Runnable  {
 			Database db = new Database();
 			//
 			// config
-			PortfolioManagement portfolio = setupPortfolio(db,nbThreadsForDownloadingQuotes);
+			PortfolioManagement portfolio = setupPortfolio(db,nbThreadsForDownloadingQuotes,timeoutHttpRequest);
 
 			//do the job
 			if (portfolio.update() && isEvaluateRequired)
@@ -229,11 +233,11 @@ public class Portefeuille   implements Runnable  {
 
 	}
 
-	private static PortfolioManagement setupPortfolio(Database db,int nbThreadsForDownloading)
+	private static PortfolioManagement setupPortfolio(Database db,int nbThreadsForDownloading,Duration timeOutHttp)
 	{
 		PortfolioManagement portfolio=new PortfolioManagement();
 		portfolio.setDatabase(db);
-		portfolio.setQuotationProvider(new BoursoramaQuotationProvider(nbThreadsForDownloading));
+		portfolio.setQuotationProvider(new BoursoramaQuotationProvider(nbThreadsForDownloading,timeOutHttp));
 		return portfolio;
 	}
 
@@ -253,7 +257,12 @@ public class Portefeuille   implements Runnable  {
 				//use default
 				nbThreads=3;
 			}
-			updatePortfolio(true /* eval*/,mailParam,nbThreads);
+			Duration timeOutHttpRequest=Duration.ofSeconds(60);
+			if (timeOutHttpRequestInSecond!=null)
+			{
+				timeOutHttpRequest=Duration.ofSeconds(timeOutHttpRequestInSecond);
+			}
+			updatePortfolio(true /* eval*/,mailParam,nbThreads,timeOutHttpRequest);
 		}
 		else if (stripQuotes)
 		{
@@ -266,7 +275,12 @@ public class Portefeuille   implements Runnable  {
 				//use default
 				nbThreads=3;
 			}
-			generateCSV(csvFiles,nbThreads);
+			Duration timeOutHttpRequest=Duration.ofSeconds(60);
+			if (timeOutHttpRequestInSecond!=null)
+			{
+				timeOutHttpRequest=Duration.ofSeconds(timeOutHttpRequestInSecond);
+			}
+			generateCSV(csvFiles,nbThreads,timeOutHttpRequest);
 		}
 		else if (updateSchema)
 		{
@@ -290,7 +304,12 @@ public class Portefeuille   implements Runnable  {
 				//use default
 				nbThreads=3;
 			}
-			updatePortfolio(false /* no eval*/,mailParam,nbThreads);
+			Duration timeOutHttpRequest=Duration.ofSeconds(60);
+			if (timeOutHttpRequestInSecond!=null)
+			{
+				timeOutHttpRequest=Duration.ofSeconds(timeOutHttpRequestInSecond);
+			}
+			updatePortfolio(false /* no eval*/,mailParam,nbThreads,timeOutHttpRequest);
 		}
 	}
 
@@ -333,7 +352,7 @@ public class Portefeuille   implements Runnable  {
 		try
 		{
 			Database db = new Database();
-			PortfolioManagement portfolio = setupPortfolio(db,1 /*does not matter here*/);
+			PortfolioManagement portfolio = setupPortfolio(db,1 /*does not matter here*/,Duration.ofSeconds(60) /* does not matter here*/);
 
 			//do the job
 			portfolio.divideShare( share,  dateSplit,  divideShareRatio);
