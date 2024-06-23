@@ -4,7 +4,7 @@
 package net.tuxanna.database.jooq.information_schema.tables;
 
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import net.tuxanna.database.jooq.information_schema.InformationSchema;
 
@@ -103,29 +103,33 @@ public class Triggers extends TableImpl<Record> {
     public final TableField<Record, String> ACTION_TIMING = createField(DSL.name("ACTION_TIMING"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_REFERENCE_OLD_TABLE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_REFERENCE_OLD_TABLE</code>.
      */
     public final TableField<Record, String> ACTION_REFERENCE_OLD_TABLE = createField(DSL.name("ACTION_REFERENCE_OLD_TABLE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_REFERENCE_NEW_TABLE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_REFERENCE_NEW_TABLE</code>.
      */
     public final TableField<Record, String> ACTION_REFERENCE_NEW_TABLE = createField(DSL.name("ACTION_REFERENCE_NEW_TABLE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_REFERENCE_OLD_ROW</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_REFERENCE_OLD_ROW</code>.
      */
     public final TableField<Record, String> ACTION_REFERENCE_OLD_ROW = createField(DSL.name("ACTION_REFERENCE_OLD_ROW"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_REFERENCE_NEW_ROW</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_REFERENCE_NEW_ROW</code>.
      */
     public final TableField<Record, String> ACTION_REFERENCE_NEW_ROW = createField(DSL.name("ACTION_REFERENCE_NEW_ROW"), SQLDataType.VARCHAR(128), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.CREATED</code>.
      */
-    public final TableField<Record, LocalDateTime> CREATED = createField(DSL.name("CREATED"), SQLDataType.LOCALDATETIME(6), this, "");
+    public final TableField<Record, OffsetDateTime> CREATED = createField(DSL.name("CREATED"), SQLDataType.TIMESTAMPWITHTIMEZONE(6), this, "");
 
     private Triggers(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);
@@ -136,14 +140,16 @@ public class Triggers extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TRIGGERS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TRIGGERS</code> table
+     * reference
      */
     public Triggers(String alias) {
         this(DSL.name(alias), TRIGGERS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TRIGGERS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TRIGGERS</code> table
+     * reference
      */
     public Triggers(Name alias) {
         this(alias, TRIGGERS);
@@ -162,7 +168,7 @@ public class Triggers extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

@@ -69,14 +69,16 @@ public class Collations extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.COLLATIONS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.COLLATIONS</code> table
+     * reference
      */
     public Collations(String alias) {
         this(DSL.name(alias), COLLATIONS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.COLLATIONS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.COLLATIONS</code> table
+     * reference
      */
     public Collations(Name alias) {
         this(alias, COLLATIONS);
@@ -95,7 +97,7 @@ public class Collations extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

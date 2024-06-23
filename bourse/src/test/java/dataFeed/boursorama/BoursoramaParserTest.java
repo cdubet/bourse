@@ -2,6 +2,7 @@ package dataFeed.boursorama;
 
 import static org.junit.Assert.*;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -120,7 +121,8 @@ public class BoursoramaParserTest
 	@Test
 	public void testWithRealBoursoramaDataFeed_ShareCase()
 	{
-		BoursoramaQuotationProvider provider=new BoursoramaQuotationProvider(3 /*3 threads*/);
+		Duration timeOutHttpRequest=Duration.ofSeconds(60);
+		BoursoramaQuotationProvider provider=new BoursoramaQuotationProvider(3 /*3 threads*/, timeOutHttpRequest);
 		ArrayList<TickerI> listTickers=new ArrayList<TickerI> ();
 		listTickers.add(new Ticker("1rPAIR",true)); //airbus
 		listTickers.add(new Ticker("AMZN",true)); //amazon
@@ -148,7 +150,8 @@ public class BoursoramaParserTest
 	@Test
 	public void testWithRealBoursoramaDataFeed_SicavCase()
 	{
-		BoursoramaQuotationProvider provider=new BoursoramaQuotationProvider(2 /*threads*/);
+		Duration timeOutHttpRequest=Duration.ofSeconds(60);
+		BoursoramaQuotationProvider provider=new BoursoramaQuotationProvider(2 /*threads*/,timeOutHttpRequest);
 		ArrayList<TickerI> listTickers=new ArrayList<TickerI> ();
 		listTickers.add(new Ticker("MP-806536",false)); //sicav Prévoir Perspectives C - FR0007071931
 		provider.setListTickers(listTickers);

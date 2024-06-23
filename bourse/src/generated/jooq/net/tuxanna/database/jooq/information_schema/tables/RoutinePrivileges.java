@@ -28,7 +28,8 @@ public class RoutinePrivileges extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES</code>
      */
     public static final RoutinePrivileges ROUTINE_PRIVILEGES = new RoutinePrivileges();
 
@@ -51,42 +52,50 @@ public class RoutinePrivileges extends TableImpl<Record> {
     public final TableField<Record, String> GRANTEE = createField(DSL.name("GRANTEE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES.SPECIFIC_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES.SPECIFIC_CATALOG</code>.
      */
     public final TableField<Record, String> SPECIFIC_CATALOG = createField(DSL.name("SPECIFIC_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES.SPECIFIC_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES.SPECIFIC_SCHEMA</code>.
      */
     public final TableField<Record, String> SPECIFIC_SCHEMA = createField(DSL.name("SPECIFIC_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES.SPECIFIC_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES.SPECIFIC_NAME</code>.
      */
     public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES.ROUTINE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES.ROUTINE_CATALOG</code>.
      */
     public final TableField<Record, String> ROUTINE_CATALOG = createField(DSL.name("ROUTINE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES.ROUTINE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES.ROUTINE_SCHEMA</code>.
      */
     public final TableField<Record, String> ROUTINE_SCHEMA = createField(DSL.name("ROUTINE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES.ROUTINE_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES.ROUTINE_NAME</code>.
      */
     public final TableField<Record, String> ROUTINE_NAME = createField(DSL.name("ROUTINE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES.PRIVILEGE_TYPE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES.PRIVILEGE_TYPE</code>.
      */
     public final TableField<Record, String> PRIVILEGE_TYPE = createField(DSL.name("PRIVILEGE_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES.IS_GRANTABLE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES.IS_GRANTABLE</code>.
      */
     public final TableField<Record, String> IS_GRANTABLE = createField(DSL.name("IS_GRANTABLE"), SQLDataType.VARCHAR(3), this, "");
 
@@ -99,21 +108,24 @@ public class RoutinePrivileges extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES</code>
+     * table reference
      */
     public RoutinePrivileges(String alias) {
         this(DSL.name(alias), ROUTINE_PRIVILEGES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES</code>
+     * table reference
      */
     public RoutinePrivileges(Name alias) {
         this(alias, ROUTINE_PRIVILEGES);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.ROUTINE_PRIVILEGES</code> table
+     * reference
      */
     public RoutinePrivileges() {
         this(DSL.name("ROUTINE_PRIVILEGES"), null);
@@ -125,7 +137,7 @@ public class RoutinePrivileges extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

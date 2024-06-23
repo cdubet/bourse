@@ -20,7 +20,7 @@ import org.jooq.impl.TableImpl;
 
 
 /**
- * the visible columns of the primary key of each accessible table defined 
+ * the visible columns of the primary key of each accessible table defined
  * within this database
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
@@ -29,7 +29,8 @@ public class SystemPrimarykeys extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS</code>
      */
     public static final SystemPrimarykeys SYSTEM_PRIMARYKEYS = new SystemPrimarykeys();
 
@@ -42,32 +43,40 @@ public class SystemPrimarykeys extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.TABLE_CAT</code>. catalog in which table containing primary key is defined
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.TABLE_CAT</code>.
+     * catalog in which table containing primary key is defined
      */
     public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), SQLDataType.VARCHAR(128), this, "catalog in which table containing primary key is defined");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.TABLE_SCHEM</code>. schema in which table containing primary key is defined
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.TABLE_SCHEM</code>. schema in
+     * which table containing primary key is defined
      */
     public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "schema in which table containing primary key is defined");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.TABLE_NAME</code>. simple name of table containing primary key
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.TABLE_NAME</code>.
+     * simple name of table containing primary key
      */
     public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "simple name of table containing primary key");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.COLUMN_NAME</code>. simple name of column participating in primary key
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.COLUMN_NAME</code>. simple
+     * name of column participating in primary key
      */
     public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "simple name of column participating in primary key");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.KEY_SEQ</code>. sequence number of column within primary key
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.KEY_SEQ</code>.
+     * sequence number of column within primary key
      */
     public final TableField<Record, Short> KEY_SEQ = createField(DSL.name("KEY_SEQ"), SQLDataType.SMALLINT, this, "sequence number of column within primary key");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.PK_NAME</code>. primary key name
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.PK_NAME</code>.
+     * primary key name
      */
     public final TableField<Record, String> PK_NAME = createField(DSL.name("PK_NAME"), SQLDataType.VARCHAR(128), this, "primary key name");
 
@@ -80,21 +89,24 @@ public class SystemPrimarykeys extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS</code>
+     * table reference
      */
     public SystemPrimarykeys(String alias) {
         this(DSL.name(alias), SYSTEM_PRIMARYKEYS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS</code>
+     * table reference
      */
     public SystemPrimarykeys(Name alias) {
         this(alias, SYSTEM_PRIMARYKEYS);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS</code> table
+     * reference
      */
     public SystemPrimarykeys() {
         this(DSL.name("SYSTEM_PRIMARYKEYS"), null);
@@ -106,7 +118,7 @@ public class SystemPrimarykeys extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

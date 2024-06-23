@@ -83,6 +83,7 @@ import net.tuxanna.database.jooq.information_schema.tables.SystemTablestats;
 import net.tuxanna.database.jooq.information_schema.tables.SystemTabletypes;
 import net.tuxanna.database.jooq.information_schema.tables.SystemTexttables;
 import net.tuxanna.database.jooq.information_schema.tables.SystemTypeinfo;
+import net.tuxanna.database.jooq.information_schema.tables.SystemUdtattributes;
 import net.tuxanna.database.jooq.information_schema.tables.SystemUdts;
 import net.tuxanna.database.jooq.information_schema.tables.SystemUsers;
 import net.tuxanna.database.jooq.information_schema.tables.SystemVersioncolumns;
@@ -150,12 +151,17 @@ public class InformationSchema extends SchemaImpl {
     public final CharacterSets CHARACTER_SETS = CharacterSets.CHARACTER_SETS;
 
     /**
-     * one row for each SQL-invoked routine identified as the subject routine of either a &lt;routine invocation&gt;, a &lt;method reference&gt;, a  &lt;method invocation&gt;, or a &lt;static method invocation&gt;  contained in an &lt;assertion definition&gt;, a &lt;domain constraint&gt;, or a &lt;table constraint definition&gt;.
+     * one row for each SQL-invoked routine identified as the subject routine of
+     * either a &lt;routine invocation&gt;, a &lt;method reference&gt;, a 
+     * &lt;method invocation&gt;, or a &lt;static method invocation&gt; 
+     * contained in an &lt;assertion definition&gt;, a &lt;domain
+     * constraint&gt;, or a &lt;table constraint definition&gt;.
      */
     public final CheckConstraintRoutineUsage CHECK_CONSTRAINT_ROUTINE_USAGE = CheckConstraintRoutineUsage.CHECK_CONSTRAINT_ROUTINE_USAGE;
 
     /**
-     * one row for each domain constraint, table check constraint, and assertion.
+     * one row for each domain constraint, table check constraint, and
+     * assertion.
      */
     public final CheckConstraints CHECK_CONSTRAINTS = CheckConstraints.CHECK_CONSTRAINTS;
 
@@ -175,7 +181,8 @@ public class InformationSchema extends SchemaImpl {
     public final ColumnDomainUsage COLUMN_DOMAIN_USAGE = ColumnDomainUsage.COLUMN_DOMAIN_USAGE;
 
     /**
-     * the visible user level access permissions of each visible column of each accessible table defined within this database
+     * the visible user level access permissions of each visible column of each
+     * accessible table defined within this database
      */
     public final ColumnPrivileges COLUMN_PRIVILEGES = ColumnPrivileges.COLUMN_PRIVILEGES;
 
@@ -190,7 +197,9 @@ public class InformationSchema extends SchemaImpl {
     public final Columns COLUMNS = Columns.COLUMNS;
 
     /**
-     * one row for each column identified by a &lt;column reference&gt; contained in the &lt;search condition&gt; of a check constraint, domain constraint, or assertion.
+     * one row for each column identified by a &lt;column reference&gt;
+     * contained in the &lt;search condition&gt; of a check constraint, domain
+     * constraint, or assertion.
      */
     public final ConstraintColumnUsage CONSTRAINT_COLUMN_USAGE = ConstraintColumnUsage.CONSTRAINT_COLUMN_USAGE;
 
@@ -200,7 +209,9 @@ public class InformationSchema extends SchemaImpl {
     public final ConstraintPeriodUsage CONSTRAINT_PERIOD_USAGE = ConstraintPeriodUsage.CONSTRAINT_PERIOD_USAGE;
 
     /**
-     * one row for each table identified by a &lt;table name&gt; simply contained in a &lt;table reference&gt; contained in the &lt;search condition&gt; of a check constraint, domain constraint, or assertion.
+     * one row for each table identified by a &lt;table name&gt; simply
+     * contained in a &lt;table reference&gt; contained in the &lt;search
+     * condition&gt; of a check constraint, domain constraint, or assertion.
      */
     public final ConstraintTableUsage CONSTRAINT_TABLE_USAGE = ConstraintTableUsage.CONSTRAINT_TABLE_USAGE;
 
@@ -380,8 +391,9 @@ public class InformationSchema extends SchemaImpl {
     public final SqlSizingProfiles SQL_SIZING_PROFILES = SqlSizingProfiles.SQL_SIZING_PROFILES;
 
     /**
-     * for each accessible table defined within this database, the optimal set of visible columns that uniquely identifies a row
-     */
+     * for each accessible table defined within this database, the optimal set
+     * of visible columns that uniquely identifies a row
+         */
     public final SystemBestrowidentifier SYSTEM_BESTROWIDENTIFIER = SystemBestrowidentifier.SYSTEM_BESTROWIDENTIFIER;
 
     /**
@@ -400,7 +412,8 @@ public class InformationSchema extends SchemaImpl {
     public final SystemColumns SYSTEM_COLUMNS = SystemColumns.SYSTEM_COLUMNS;
 
     /**
-     * comments on tables, views, columns, sequences, triggers and routines defined by users or system
+     * comments on tables, views, columns, sequences, triggers and routines
+     * defined by users or system
      */
     public final SystemComments SYSTEM_COMMENTS = SystemComments.SYSTEM_COMMENTS;
 
@@ -410,17 +423,20 @@ public class InformationSchema extends SchemaImpl {
     public final SystemConnectionProperties SYSTEM_CONNECTION_PROPERTIES = SystemConnectionProperties.SYSTEM_CONNECTION_PROPERTIES;
 
     /**
-     * a description of how the accessible tables defined within this database import visible columns to enforce referential integrity
+     * a description of how the accessible tables defined within this database
+     * import visible columns to enforce referential integrity
      */
     public final SystemCrossreference SYSTEM_CROSSREFERENCE = SystemCrossreference.SYSTEM_CROSSREFERENCE;
 
     /**
-     * information about the indices of each accessible table defined within this database
+     * information about the indices of each accessible table defined within
+     * this database
      */
     public final SystemIndexinfo SYSTEM_INDEXINFO = SystemIndexinfo.SYSTEM_INDEXINFO;
 
     /**
-     * storage space used by the indices of each accessible table defined within this database
+     * storage space used by the indices of each accessible table defined within
+     * this database
      */
     public final SystemIndexstats SYSTEM_INDEXSTATS = SystemIndexstats.SYSTEM_INDEXSTATS;
 
@@ -430,22 +446,26 @@ public class InformationSchema extends SchemaImpl {
     public final SystemKeyIndexUsage SYSTEM_KEY_INDEX_USAGE = SystemKeyIndexUsage.SYSTEM_KEY_INDEX_USAGE;
 
     /**
-     * the visible columns of the primary key of each accessible table defined within this database
+     * the visible columns of the primary key of each accessible table defined
+     * within this database
      */
     public final SystemPrimarykeys SYSTEM_PRIMARYKEYS = SystemPrimarykeys.SYSTEM_PRIMARYKEYS;
 
     /**
-     * a description of the return type, parameters and result columns of each accessible callable procedure, SQL function, trigger body and UDT method defined within this database
+     * a description of the return type, parameters and result columns of each
+     * accessible callable procedure, SQL function, trigger body and UDT method
+     * defined within this database
      */
     public final SystemProcedurecolumns SYSTEM_PROCEDURECOLUMNS = SystemProcedurecolumns.SYSTEM_PROCEDURECOLUMNS;
 
     /**
-     * the procedures, SQL functions, trigger body routines and UDT methods defined within the database
+     * the procedures, SQL functions, trigger body routines and UDT methods
+     * defined within the database
      */
     public final SystemProcedures SYSTEM_PROCEDURES = SystemProcedures.SYSTEM_PROCEDURES;
 
     /**
-     * the static and dynamic system properties and operating parameters of this database
+     * the system properties and operating parameters of this database
      */
     public final SystemProperties SYSTEM_PROPERTIES = SystemProperties.SYSTEM_PROPERTIES;
 
@@ -490,14 +510,21 @@ public class InformationSchema extends SchemaImpl {
     public final SystemTabletypes SYSTEM_TABLETYPES = SystemTabletypes.SYSTEM_TABLETYPES;
 
     /**
-     * the data source descriptors of the accessible TEXT TABLE objects defined within this database
+     * the data source descriptors of the accessible TEXT TABLE objects defined
+     * within this database
      */
     public final SystemTexttables SYSTEM_TEXTTABLES = SystemTexttables.SYSTEM_TEXTTABLES;
 
     /**
-     * a description of predefined table column data types known to this database
+     * a description of predefined table column data types known to this
+     * database
      */
     public final SystemTypeinfo SYSTEM_TYPEINFO = SystemTypeinfo.SYSTEM_TYPEINFO;
+
+    /**
+     * The table <code>INFORMATION_SCHEMA.SYSTEM_UDTATTRIBUTES</code>.
+     */
+    public final SystemUdtattributes SYSTEM_UDTATTRIBUTES = SystemUdtattributes.SYSTEM_UDTATTRIBUTES;
 
     /**
      * the user-defined types that are available within this database
@@ -510,7 +537,8 @@ public class InformationSchema extends SchemaImpl {
     public final SystemUsers SYSTEM_USERS = SystemUsers.SYSTEM_USERS;
 
     /**
-     * the visible columns of the accessible tables that are automatically updated when any value in a row is updated
+     * the visible columns of the accessible tables that are automatically
+     * updated when any value in a row is updated
      */
     public final SystemVersioncolumns SYSTEM_VERSIONCOLUMNS = SystemVersioncolumns.SYSTEM_VERSIONCOLUMNS;
 
@@ -520,7 +548,8 @@ public class InformationSchema extends SchemaImpl {
     public final TableConstraints TABLE_CONSTRAINTS = TableConstraints.TABLE_CONSTRAINTS;
 
     /**
-     * the visible user level access permissions for each accessible table defined within this database
+     * the visible user level access permissions for each accessible table
+     * defined within this database
      */
     public final TablePrivileges TABLE_PRIVILEGES = TablePrivileges.TABLE_PRIVILEGES;
 
@@ -585,7 +614,8 @@ public class InformationSchema extends SchemaImpl {
     public final UserDefinedTypes USER_DEFINED_TYPES = UserDefinedTypes.USER_DEFINED_TYPES;
 
     /**
-     * one row for each column of a table that is explicitly or implicitly referenced in the &lt;query expression&gt; of the view being described
+     * one row for each column of a table that is explicitly or implicitly
+     * referenced in the &lt;query expression&gt; of the view being described
      */
     public final ViewColumnUsage VIEW_COLUMN_USAGE = ViewColumnUsage.VIEW_COLUMN_USAGE;
 
@@ -595,12 +625,17 @@ public class InformationSchema extends SchemaImpl {
     public final ViewPeriodUsage VIEW_PERIOD_USAGE = ViewPeriodUsage.VIEW_PERIOD_USAGE;
 
     /**
-     * one row for each SQL-invoked routine identified as the subject routine of either a &lt;routine invocation&gt;, a &lt;method reference&gt;, a &lt;method invocation&gt;, or a &lt;static method invocation&gt; contained in a &lt;view definition&gt;
+     * one row for each SQL-invoked routine identified as the subject routine of
+     * either a &lt;routine invocation&gt;, a &lt;method reference&gt;, a
+     * &lt;method invocation&gt;, or a &lt;static method invocation&gt;
+     * contained in a &lt;view definition&gt;
      */
     public final ViewRoutineUsage VIEW_ROUTINE_USAGE = ViewRoutineUsage.VIEW_ROUTINE_USAGE;
 
     /**
-     * one row for each table identified by a &lt;table name&gt; simply contained in a &lt;table reference&gt; that is contained in the &lt;query expression&gt; of a view
+     * one row for each table identified by a &lt;table name&gt; simply
+     * contained in a &lt;table reference&gt; that is contained in the &lt;query
+     * expression&gt; of a view
      */
     public final ViewTableUsage VIEW_TABLE_USAGE = ViewTableUsage.VIEW_TABLE_USAGE;
 
@@ -624,7 +659,7 @@ public class InformationSchema extends SchemaImpl {
 
     @Override
     public final List<Table<?>> getTables() {
-        return Arrays.<Table<?>>asList(
+        return Arrays.asList(
             AdministrableRoleAuthorizations.ADMINISTRABLE_ROLE_AUTHORIZATIONS,
             ApplicableRoles.APPLICABLE_ROLES,
             Assertions.ASSERTIONS,
@@ -700,6 +735,7 @@ public class InformationSchema extends SchemaImpl {
             SystemTabletypes.SYSTEM_TABLETYPES,
             SystemTexttables.SYSTEM_TEXTTABLES,
             SystemTypeinfo.SYSTEM_TYPEINFO,
+            SystemUdtattributes.SYSTEM_UDTATTRIBUTES,
             SystemUdts.SYSTEM_UDTS,
             SystemUsers.SYSTEM_USERS,
             SystemVersioncolumns.SYSTEM_VERSIONCOLUMNS,
@@ -721,6 +757,7 @@ public class InformationSchema extends SchemaImpl {
             ViewPeriodUsage.VIEW_PERIOD_USAGE,
             ViewRoutineUsage.VIEW_ROUTINE_USAGE,
             ViewTableUsage.VIEW_TABLE_USAGE,
-            Views.VIEWS);
+            Views.VIEWS
+        );
     }
 }

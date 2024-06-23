@@ -28,7 +28,8 @@ public class AdministrableRoleAuthorizations extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.ADMINISTRABLE_ROLE_AUTHORIZATIONS</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.ADMINISTRABLE_ROLE_AUTHORIZATIONS</code>
      */
     public static final AdministrableRoleAuthorizations ADMINISTRABLE_ROLE_AUTHORIZATIONS = new AdministrableRoleAuthorizations();
 
@@ -41,17 +42,20 @@ public class AdministrableRoleAuthorizations extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ADMINISTRABLE_ROLE_AUTHORIZATIONS.GRANTEE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ADMINISTRABLE_ROLE_AUTHORIZATIONS.GRANTEE</code>.
      */
     public final TableField<Record, String> GRANTEE = createField(DSL.name("GRANTEE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ADMINISTRABLE_ROLE_AUTHORIZATIONS.ROLE_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ADMINISTRABLE_ROLE_AUTHORIZATIONS.ROLE_NAME</code>.
      */
     public final TableField<Record, String> ROLE_NAME = createField(DSL.name("ROLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ADMINISTRABLE_ROLE_AUTHORIZATIONS.IS_GRANTABLE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ADMINISTRABLE_ROLE_AUTHORIZATIONS.IS_GRANTABLE</code>.
      */
     public final TableField<Record, String> IS_GRANTABLE = createField(DSL.name("IS_GRANTABLE"), SQLDataType.VARCHAR(128), this, "");
 
@@ -64,21 +68,27 @@ public class AdministrableRoleAuthorizations extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ADMINISTRABLE_ROLE_AUTHORIZATIONS</code> table reference
+     * Create an aliased
+     * <code>INFORMATION_SCHEMA.ADMINISTRABLE_ROLE_AUTHORIZATIONS</code> table
+     * reference
      */
     public AdministrableRoleAuthorizations(String alias) {
         this(DSL.name(alias), ADMINISTRABLE_ROLE_AUTHORIZATIONS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ADMINISTRABLE_ROLE_AUTHORIZATIONS</code> table reference
+     * Create an aliased
+     * <code>INFORMATION_SCHEMA.ADMINISTRABLE_ROLE_AUTHORIZATIONS</code> table
+     * reference
      */
     public AdministrableRoleAuthorizations(Name alias) {
         this(alias, ADMINISTRABLE_ROLE_AUTHORIZATIONS);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.ADMINISTRABLE_ROLE_AUTHORIZATIONS</code> table reference
+     * Create a
+     * <code>INFORMATION_SCHEMA.ADMINISTRABLE_ROLE_AUTHORIZATIONS</code> table
+     * reference
      */
     public AdministrableRoleAuthorizations() {
         this(DSL.name("ADMINISTRABLE_ROLE_AUTHORIZATIONS"), null);
@@ -90,7 +100,7 @@ public class AdministrableRoleAuthorizations extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

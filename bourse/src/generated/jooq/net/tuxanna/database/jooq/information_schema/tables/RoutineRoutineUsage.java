@@ -28,7 +28,8 @@ public class RoutineRoutineUsage extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE</code>
      */
     public static final RoutineRoutineUsage ROUTINE_ROUTINE_USAGE = new RoutineRoutineUsage();
 
@@ -41,32 +42,38 @@ public class RoutineRoutineUsage extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.SPECIFIC_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.SPECIFIC_CATALOG</code>.
      */
     public final TableField<Record, String> SPECIFIC_CATALOG = createField(DSL.name("SPECIFIC_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.SPECIFIC_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.SPECIFIC_SCHEMA</code>.
      */
     public final TableField<Record, String> SPECIFIC_SCHEMA = createField(DSL.name("SPECIFIC_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.SPECIFIC_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.SPECIFIC_NAME</code>.
      */
     public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.ROUTINE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.ROUTINE_CATALOG</code>.
      */
     public final TableField<Record, String> ROUTINE_CATALOG = createField(DSL.name("ROUTINE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.ROUTINE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.ROUTINE_SCHEMA</code>.
      */
     public final TableField<Record, String> ROUTINE_SCHEMA = createField(DSL.name("ROUTINE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.ROUTINE_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.ROUTINE_NAME</code>.
      */
     public final TableField<Record, String> ROUTINE_NAME = createField(DSL.name("ROUTINE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
@@ -79,21 +86,24 @@ public class RoutineRoutineUsage extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE</code>
+     * table reference
      */
     public RoutineRoutineUsage(String alias) {
         this(DSL.name(alias), ROUTINE_ROUTINE_USAGE);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE</code>
+     * table reference
      */
     public RoutineRoutineUsage(Name alias) {
         this(alias, ROUTINE_ROUTINE_USAGE);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE</code> table
+     * reference
      */
     public RoutineRoutineUsage() {
         this(DSL.name("ROUTINE_ROUTINE_USAGE"), null);
@@ -105,7 +115,7 @@ public class RoutineRoutineUsage extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

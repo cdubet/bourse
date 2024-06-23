@@ -28,7 +28,8 @@ public class ColumnColumnUsage extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE</code>
      */
     public static final ColumnColumnUsage COLUMN_COLUMN_USAGE = new ColumnColumnUsage();
 
@@ -41,27 +42,32 @@ public class ColumnColumnUsage extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE.TABLE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE.TABLE_CATALOG</code>.
      */
     public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE.TABLE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE.TABLE_SCHEMA</code>.
      */
     public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE.TABLE_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE.TABLE_NAME</code>.
      */
     public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE.COLUMN_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE.COLUMN_NAME</code>.
      */
     public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE.DEPENDENT_COLUMN</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE.DEPENDENT_COLUMN</code>.
      */
     public final TableField<Record, String> DEPENDENT_COLUMN = createField(DSL.name("DEPENDENT_COLUMN"), SQLDataType.VARCHAR(128), this, "");
 
@@ -74,21 +80,24 @@ public class ColumnColumnUsage extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE</code>
+     * table reference
      */
     public ColumnColumnUsage(String alias) {
         this(DSL.name(alias), COLUMN_COLUMN_USAGE);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE</code>
+     * table reference
      */
     public ColumnColumnUsage(Name alias) {
         this(alias, COLUMN_COLUMN_USAGE);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.COLUMN_COLUMN_USAGE</code> table
+     * reference
      */
     public ColumnColumnUsage() {
         this(DSL.name("COLUMN_COLUMN_USAGE"), null);
@@ -100,7 +109,7 @@ public class ColumnColumnUsage extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

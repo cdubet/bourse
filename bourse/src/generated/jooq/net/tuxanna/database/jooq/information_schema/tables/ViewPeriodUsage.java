@@ -28,7 +28,8 @@ public class ViewPeriodUsage extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.VIEW_PERIOD_USAGE</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.VIEW_PERIOD_USAGE</code>
      */
     public static final ViewPeriodUsage VIEW_PERIOD_USAGE = new ViewPeriodUsage();
 
@@ -41,7 +42,8 @@ public class ViewPeriodUsage extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.VIEW_PERIOD_USAGE.VIEW_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.VIEW_PERIOD_USAGE.VIEW_CATALOG</code>.
      */
     public final TableField<Record, String> VIEW_CATALOG = createField(DSL.name("VIEW_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
@@ -56,12 +58,14 @@ public class ViewPeriodUsage extends TableImpl<Record> {
     public final TableField<Record, String> VIEW_NAME = createField(DSL.name("VIEW_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.VIEW_PERIOD_USAGE.TABLE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.VIEW_PERIOD_USAGE.TABLE_CATALOG</code>.
      */
     public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.VIEW_PERIOD_USAGE.TABLE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.VIEW_PERIOD_USAGE.TABLE_SCHEMA</code>.
      */
     public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
@@ -84,21 +88,24 @@ public class ViewPeriodUsage extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.VIEW_PERIOD_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.VIEW_PERIOD_USAGE</code> table
+     * reference
      */
     public ViewPeriodUsage(String alias) {
         this(DSL.name(alias), VIEW_PERIOD_USAGE);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.VIEW_PERIOD_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.VIEW_PERIOD_USAGE</code> table
+     * reference
      */
     public ViewPeriodUsage(Name alias) {
         this(alias, VIEW_PERIOD_USAGE);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.VIEW_PERIOD_USAGE</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.VIEW_PERIOD_USAGE</code> table
+     * reference
      */
     public ViewPeriodUsage() {
         this(DSL.name("VIEW_PERIOD_USAGE"), null);
@@ -110,7 +117,7 @@ public class ViewPeriodUsage extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

@@ -162,7 +162,7 @@ public class Quotes extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return Public.PUBLIC;
+        return aliased() ? null : Public.PUBLIC;
     }
 
     @Override
@@ -172,21 +172,24 @@ public class Quotes extends TableImpl<Record> {
 
     @Override
     public UniqueKey<Record> getPrimaryKey() {
-        return Keys.SYS_PK_10104;
-    }
-
-    @Override
-    public List<UniqueKey<Record>> getKeys() {
-        return Arrays.<UniqueKey<Record>>asList(Keys.SYS_PK_10104);
+        return Keys.SYS_PK_10105;
     }
 
     @Override
     public List<ForeignKey<Record, ?>> getReferences() {
-        return Arrays.<ForeignKey<Record, ?>>asList(Keys.SYS_FK_10107);
+        return Arrays.asList(Keys.SYS_FK_10108);
     }
 
+    private transient Shares _shares;
+
+    /**
+     * Get the implicit join path to the <code>PUBLIC.SHARES</code> table.
+     */
     public Shares shares() {
-        return new Shares(this, Keys.SYS_FK_10107);
+        if (_shares == null)
+            _shares = new Shares(this, Keys.SYS_FK_10108);
+
+        return _shares;
     }
 
     @Override

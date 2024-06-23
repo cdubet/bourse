@@ -74,14 +74,16 @@ public class SqlPackages extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SQL_PACKAGES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SQL_PACKAGES</code> table
+     * reference
      */
     public SqlPackages(String alias) {
         this(DSL.name(alias), SQL_PACKAGES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SQL_PACKAGES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SQL_PACKAGES</code> table
+     * reference
      */
     public SqlPackages(Name alias) {
         this(alias, SQL_PACKAGES);
@@ -100,7 +102,7 @@ public class SqlPackages extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

@@ -20,8 +20,7 @@ import org.jooq.impl.TableImpl;
 
 
 /**
- * the static and dynamic system properties and operating parameters of this 
- * database
+ * the system properties and operating parameters of this database
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SystemProperties extends TableImpl<Record> {
@@ -29,7 +28,8 @@ public class SystemProperties extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES</code>
      */
     public static final SystemProperties SYSTEM_PROPERTIES = new SystemProperties();
 
@@ -42,27 +42,38 @@ public class SystemProperties extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_SCOPE</code>. the scope of the property, e.g. ( TEMPORARY | TRANSACTION | SESSION | ...}
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_SCOPE</code>. the
+     * scope of the property, e.g. ( TEMPORARY | TRANSACTION | SESSION | ...}
      */
     public final TableField<Record, String> PROPERTY_SCOPE = createField(DSL.name("PROPERTY_SCOPE"), SQLDataType.VARCHAR(65536), this, "the scope of the property, e.g. ( TEMPORARY | TRANSACTION | SESSION | ...}");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_NAMESPACE</code>. the namespace in which the property is applicable, e.g. ( database.properties | org.hsqldb.Database | java.sql.DatabaseMetaData | ...)
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_NAMESPACE</code>. the
+     * namespace in which the property is applicable, e.g. ( database.properties
+     * | org.hsqldb.Database | java.sql.DatabaseMetaData | ...)
      */
     public final TableField<Record, String> PROPERTY_NAMESPACE = createField(DSL.name("PROPERTY_NAMESPACE"), SQLDataType.VARCHAR(65536), this, "the namespace in which the property is applicable, e.g. ( database.properties | org.hsqldb.Database | java.sql.DatabaseMetaData | ...)");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_NAME</code>. the name of the property
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_NAME</code>. the name
+     * of the property
      */
     public final TableField<Record, String> PROPERTY_NAME = createField(DSL.name("PROPERTY_NAME"), SQLDataType.VARCHAR(65536), this, "the name of the property");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_VALUE</code>. the current value of the property
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_VALUE</code>. the
+     * current value of the property
      */
     public final TableField<Record, String> PROPERTY_VALUE = createField(DSL.name("PROPERTY_VALUE"), SQLDataType.VARCHAR(65536), this, "the current value of the property");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_CLASS</code>. the type of the value, e.g. ( int | boolean | java.lang.String | ...)
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_CLASS</code>. the
+     * type of the value, e.g. ( int | boolean | java.lang.String | ...)
      */
     public final TableField<Record, String> PROPERTY_CLASS = createField(DSL.name("PROPERTY_CLASS"), SQLDataType.VARCHAR(65536), this, "the type of the value, e.g. ( int | boolean | java.lang.String | ...)");
 
@@ -71,25 +82,28 @@ public class SystemProperties extends TableImpl<Record> {
     }
 
     private SystemProperties(Name alias, Table<Record> aliased, Field<?>[] parameters) {
-        super(alias, null, aliased, parameters, DSL.comment("the static and dynamic system properties and operating parameters of this database"), TableOptions.table());
+        super(alias, null, aliased, parameters, DSL.comment("the system properties and operating parameters of this database"), TableOptions.table());
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES</code> table
+     * reference
      */
     public SystemProperties(String alias) {
         this(DSL.name(alias), SYSTEM_PROPERTIES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES</code> table
+     * reference
      */
     public SystemProperties(Name alias) {
         this(alias, SYSTEM_PROPERTIES);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES</code> table
+     * reference
      */
     public SystemProperties() {
         this(DSL.name("SYSTEM_PROPERTIES"), null);
@@ -101,7 +115,7 @@ public class SystemProperties extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

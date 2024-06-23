@@ -41,12 +41,14 @@ public class Translations extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRANSLATIONS.TRANSLATION_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRANSLATIONS.TRANSLATION_CATALOG</code>.
      */
     public final TableField<Record, String> TRANSLATION_CATALOG = createField(DSL.name("TRANSLATION_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRANSLATIONS.TRANSLATION_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRANSLATIONS.TRANSLATION_SCHEMA</code>.
      */
     public final TableField<Record, String> TRANSLATION_SCHEMA = createField(DSL.name("TRANSLATION_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
@@ -56,47 +58,56 @@ public class Translations extends TableImpl<Record> {
     public final TableField<Record, String> TRANSLATION_NAME = createField(DSL.name("TRANSLATION_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRANSLATIONS.SOURCE_CHARACTER_SET_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRANSLATIONS.SOURCE_CHARACTER_SET_CATALOG</code>.
      */
     public final TableField<Record, String> SOURCE_CHARACTER_SET_CATALOG = createField(DSL.name("SOURCE_CHARACTER_SET_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRANSLATIONS.SOURCE_CHARACTER_SET_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRANSLATIONS.SOURCE_CHARACTER_SET_SCHEMA</code>.
      */
     public final TableField<Record, String> SOURCE_CHARACTER_SET_SCHEMA = createField(DSL.name("SOURCE_CHARACTER_SET_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRANSLATIONS.SOURCE_CHARACTER_SET_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRANSLATIONS.SOURCE_CHARACTER_SET_NAME</code>.
      */
     public final TableField<Record, String> SOURCE_CHARACTER_SET_NAME = createField(DSL.name("SOURCE_CHARACTER_SET_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRANSLATIONS.TARGET_CHARACTER_SET_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRANSLATIONS.TARGET_CHARACTER_SET_CATALOG</code>.
      */
     public final TableField<Record, String> TARGET_CHARACTER_SET_CATALOG = createField(DSL.name("TARGET_CHARACTER_SET_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRANSLATIONS.TARGET_CHARACTER_SET_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRANSLATIONS.TARGET_CHARACTER_SET_SCHEMA</code>.
      */
     public final TableField<Record, String> TARGET_CHARACTER_SET_SCHEMA = createField(DSL.name("TARGET_CHARACTER_SET_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRANSLATIONS.TARGET_CHARACTER_SET_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRANSLATIONS.TARGET_CHARACTER_SET_NAME</code>.
      */
     public final TableField<Record, String> TARGET_CHARACTER_SET_NAME = createField(DSL.name("TARGET_CHARACTER_SET_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRANSLATIONS.TRANSLATION_SOURCE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRANSLATIONS.TRANSLATION_SOURCE_CATALOG</code>.
      */
     public final TableField<Record, String> TRANSLATION_SOURCE_CATALOG = createField(DSL.name("TRANSLATION_SOURCE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRANSLATIONS.TRANSLATION_SOURCE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRANSLATIONS.TRANSLATION_SOURCE_SCHEMA</code>.
      */
     public final TableField<Record, String> TRANSLATION_SOURCE_SCHEMA = createField(DSL.name("TRANSLATION_SOURCE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRANSLATIONS.TRANSLATION_SOURCE_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRANSLATIONS.TRANSLATION_SOURCE_NAME</code>.
      */
     public final TableField<Record, String> TRANSLATION_SOURCE_NAME = createField(DSL.name("TRANSLATION_SOURCE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
@@ -109,14 +120,16 @@ public class Translations extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TRANSLATIONS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TRANSLATIONS</code> table
+     * reference
      */
     public Translations(String alias) {
         this(DSL.name(alias), TRANSLATIONS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TRANSLATIONS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TRANSLATIONS</code> table
+     * reference
      */
     public Translations(Name alias) {
         this(alias, TRANSLATIONS);
@@ -135,7 +148,7 @@ public class Translations extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

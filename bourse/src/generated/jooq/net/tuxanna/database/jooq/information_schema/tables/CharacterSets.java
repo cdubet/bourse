@@ -41,22 +41,26 @@ public class CharacterSets extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.CHARACTER_SETS.CHARACTER_SET_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.CHARACTER_SETS.CHARACTER_SET_CATALOG</code>.
      */
     public final TableField<Record, String> CHARACTER_SET_CATALOG = createField(DSL.name("CHARACTER_SET_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.CHARACTER_SETS.CHARACTER_SET_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.CHARACTER_SETS.CHARACTER_SET_SCHEMA</code>.
      */
     public final TableField<Record, String> CHARACTER_SET_SCHEMA = createField(DSL.name("CHARACTER_SET_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.CHARACTER_SETS.CHARACTER_SET_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.CHARACTER_SETS.CHARACTER_SET_NAME</code>.
      */
     public final TableField<Record, String> CHARACTER_SET_NAME = createField(DSL.name("CHARACTER_SET_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.CHARACTER_SETS.CHARACTER_REPERTOIRE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.CHARACTER_SETS.CHARACTER_REPERTOIRE</code>.
      */
     public final TableField<Record, String> CHARACTER_REPERTOIRE = createField(DSL.name("CHARACTER_REPERTOIRE"), SQLDataType.VARCHAR(128), this, "");
 
@@ -66,17 +70,20 @@ public class CharacterSets extends TableImpl<Record> {
     public final TableField<Record, String> FORM_OF_USE = createField(DSL.name("FORM_OF_USE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.CHARACTER_SETS.DEFAULT_COLLATE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.CHARACTER_SETS.DEFAULT_COLLATE_CATALOG</code>.
      */
     public final TableField<Record, String> DEFAULT_COLLATE_CATALOG = createField(DSL.name("DEFAULT_COLLATE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.CHARACTER_SETS.DEFAULT_COLLATE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.CHARACTER_SETS.DEFAULT_COLLATE_SCHEMA</code>.
      */
     public final TableField<Record, String> DEFAULT_COLLATE_SCHEMA = createField(DSL.name("DEFAULT_COLLATE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.CHARACTER_SETS.DEFAULT_COLLATE_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.CHARACTER_SETS.DEFAULT_COLLATE_NAME</code>.
      */
     public final TableField<Record, String> DEFAULT_COLLATE_NAME = createField(DSL.name("DEFAULT_COLLATE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
@@ -89,14 +96,16 @@ public class CharacterSets extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.CHARACTER_SETS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.CHARACTER_SETS</code> table
+     * reference
      */
     public CharacterSets(String alias) {
         this(DSL.name(alias), CHARACTER_SETS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.CHARACTER_SETS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.CHARACTER_SETS</code> table
+     * reference
      */
     public CharacterSets(Name alias) {
         this(alias, CHARACTER_SETS);
@@ -115,7 +124,7 @@ public class CharacterSets extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

@@ -28,7 +28,8 @@ public class ColumnUdtUsage extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.COLUMN_UDT_USAGE</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.COLUMN_UDT_USAGE</code>
      */
     public static final ColumnUdtUsage COLUMN_UDT_USAGE = new ColumnUdtUsage();
 
@@ -56,7 +57,8 @@ public class ColumnUdtUsage extends TableImpl<Record> {
     public final TableField<Record, String> UDT_NAME = createField(DSL.name("UDT_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_UDT_USAGE.TABLE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_UDT_USAGE.TABLE_CATALOG</code>.
      */
     public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
@@ -84,14 +86,16 @@ public class ColumnUdtUsage extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.COLUMN_UDT_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.COLUMN_UDT_USAGE</code> table
+     * reference
      */
     public ColumnUdtUsage(String alias) {
         this(DSL.name(alias), COLUMN_UDT_USAGE);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.COLUMN_UDT_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.COLUMN_UDT_USAGE</code> table
+     * reference
      */
     public ColumnUdtUsage(Name alias) {
         this(alias, COLUMN_UDT_USAGE);
@@ -110,7 +114,7 @@ public class ColumnUdtUsage extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

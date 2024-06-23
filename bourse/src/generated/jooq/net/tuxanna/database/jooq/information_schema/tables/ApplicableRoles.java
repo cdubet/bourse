@@ -28,7 +28,8 @@ public class ApplicableRoles extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.APPLICABLE_ROLES</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.APPLICABLE_ROLES</code>
      */
     public static final ApplicableRoles APPLICABLE_ROLES = new ApplicableRoles();
 
@@ -64,14 +65,16 @@ public class ApplicableRoles extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.APPLICABLE_ROLES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.APPLICABLE_ROLES</code> table
+     * reference
      */
     public ApplicableRoles(String alias) {
         this(DSL.name(alias), APPLICABLE_ROLES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.APPLICABLE_ROLES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.APPLICABLE_ROLES</code> table
+     * reference
      */
     public ApplicableRoles(Name alias) {
         this(alias, APPLICABLE_ROLES);
@@ -90,7 +93,7 @@ public class ApplicableRoles extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

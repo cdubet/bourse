@@ -28,7 +28,8 @@ public class SystemSessioninfo extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO</code>
      */
     public static final SystemSessioninfo SYSTEM_SESSIONINFO = new SystemSessioninfo();
 
@@ -41,12 +42,15 @@ public class SystemSessioninfo extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO.KEY</code>. KEY: { SESSION_ID | AUTOCOMMIT | USER | CONNECTION_READONLY | DATABASE_READONLY | MAXROWS | DATABASE | IDENTITY ... }
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO.KEY</code>. KEY: {
+     * SESSION_ID | AUTOCOMMIT | USER | CONNECTION_READONLY | DATABASE_READONLY
+     * | MAXROWS | DATABASE | IDENTITY ... }
      */
     public final TableField<Record, String> KEY = createField(DSL.name("KEY"), SQLDataType.VARCHAR(65536), this, "KEY: { SESSION_ID | AUTOCOMMIT | USER | CONNECTION_READONLY | DATABASE_READONLY | MAXROWS | DATABASE | IDENTITY ... }");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO.VALUE</code>. VALUE: the value corresponding to the indicated key (see JavaDocs)
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO.VALUE</code>.
+     * VALUE: the value corresponding to the indicated key (see JavaDocs)
      */
     public final TableField<Record, String> VALUE = createField(DSL.name("VALUE"), SQLDataType.VARCHAR(65536), this, "VALUE: the value corresponding to the indicated key (see JavaDocs)");
 
@@ -59,21 +63,24 @@ public class SystemSessioninfo extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO</code>
+     * table reference
      */
     public SystemSessioninfo(String alias) {
         this(DSL.name(alias), SYSTEM_SESSIONINFO);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO</code>
+     * table reference
      */
     public SystemSessioninfo(Name alias) {
         this(alias, SYSTEM_SESSIONINFO);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO</code> table
+     * reference
      */
     public SystemSessioninfo() {
         this(DSL.name("SYSTEM_SESSIONINFO"), null);
@@ -85,7 +92,7 @@ public class SystemSessioninfo extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

@@ -28,7 +28,8 @@ public class SystemColumnSequenceUsage extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE</code>
      */
     public static final SystemColumnSequenceUsage SYSTEM_COLUMN_SEQUENCE_USAGE = new SystemColumnSequenceUsage();
 
@@ -41,37 +42,44 @@ public class SystemColumnSequenceUsage extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE.TABLE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE.TABLE_CATALOG</code>.
      */
     public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE.TABLE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE.TABLE_SCHEMA</code>.
      */
     public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE.TABLE_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE.TABLE_NAME</code>.
      */
     public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE.COLUMN_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE.COLUMN_NAME</code>.
      */
     public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE.SEQUENCE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE.SEQUENCE_CATALOG</code>.
      */
     public final TableField<Record, String> SEQUENCE_CATALOG = createField(DSL.name("SEQUENCE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE.SEQUENCE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE.SEQUENCE_SCHEMA</code>.
      */
     public final TableField<Record, String> SEQUENCE_SCHEMA = createField(DSL.name("SEQUENCE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE.SEQUENCE_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE.SEQUENCE_NAME</code>.
      */
     public final TableField<Record, String> SEQUENCE_NAME = createField(DSL.name("SEQUENCE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
@@ -84,21 +92,26 @@ public class SystemColumnSequenceUsage extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE</code> table reference
+     * Create an aliased
+     * <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE</code> table
+     * reference
      */
     public SystemColumnSequenceUsage(String alias) {
         this(DSL.name(alias), SYSTEM_COLUMN_SEQUENCE_USAGE);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE</code> table reference
+     * Create an aliased
+     * <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE</code> table
+     * reference
      */
     public SystemColumnSequenceUsage(Name alias) {
         this(alias, SYSTEM_COLUMN_SEQUENCE_USAGE);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_COLUMN_SEQUENCE_USAGE</code>
+     * table reference
      */
     public SystemColumnSequenceUsage() {
         this(DSL.name("SYSTEM_COLUMN_SEQUENCE_USAGE"), null);
@@ -110,7 +123,7 @@ public class SystemColumnSequenceUsage extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

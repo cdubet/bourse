@@ -67,16 +67,18 @@ public class SystemLobs extends SchemaImpl {
 
     @Override
     public final List<Sequence<?>> getSequences() {
-        return Arrays.<Sequence<?>>asList(
-            Sequences.LOB_ID);
+        return Arrays.asList(
+            Sequences.LOB_ID
+        );
     }
 
     @Override
     public final List<Table<?>> getTables() {
-        return Arrays.<Table<?>>asList(
+        return Arrays.asList(
             Blocks.BLOCKS,
             LobIds.LOB_IDS,
             Lobs.LOBS,
-            Parts.PARTS);
+            Parts.PARTS
+        );
     }
 }

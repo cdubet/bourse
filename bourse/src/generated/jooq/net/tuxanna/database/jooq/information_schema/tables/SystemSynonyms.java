@@ -41,12 +41,14 @@ public class SystemSynonyms extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_SYNONYMS.SYNONYM_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_SYNONYMS.SYNONYM_CATALOG</code>.
      */
     public final TableField<Record, String> SYNONYM_CATALOG = createField(DSL.name("SYNONYM_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_SYNONYMS.SYNONYM_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_SYNONYMS.SYNONYM_SCHEMA</code>.
      */
     public final TableField<Record, String> SYNONYM_SCHEMA = createField(DSL.name("SYNONYM_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
@@ -56,7 +58,8 @@ public class SystemSynonyms extends TableImpl<Record> {
     public final TableField<Record, String> SYNONYM_NAME = createField(DSL.name("SYNONYM_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_SYNONYMS.OBJECT_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_SYNONYMS.OBJECT_CATALOG</code>.
      */
     public final TableField<Record, String> OBJECT_CATALOG = createField(DSL.name("OBJECT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
@@ -84,14 +87,16 @@ public class SystemSynonyms extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_SYNONYMS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_SYNONYMS</code> table
+     * reference
      */
     public SystemSynonyms(String alias) {
         this(DSL.name(alias), SYSTEM_SYNONYMS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_SYNONYMS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_SYNONYMS</code> table
+     * reference
      */
     public SystemSynonyms(Name alias) {
         this(alias, SYSTEM_SYNONYMS);
@@ -110,7 +115,7 @@ public class SystemSynonyms extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

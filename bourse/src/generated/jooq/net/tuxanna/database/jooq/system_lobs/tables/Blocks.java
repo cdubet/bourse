@@ -97,22 +97,17 @@ public class Blocks extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return SystemLobs.SYSTEM_LOBS;
+        return aliased() ? null : SystemLobs.SYSTEM_LOBS;
     }
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.BLOCKS_IDX1);
+        return Arrays.asList(Indexes.BLOCKS_IDX1);
     }
 
     @Override
     public UniqueKey<Record> getPrimaryKey() {
         return Keys.BLOCKS_PK;
-    }
-
-    @Override
-    public List<UniqueKey<Record>> getKeys() {
-        return Arrays.<UniqueKey<Record>>asList(Keys.BLOCKS_PK);
     }
 
     @Override

@@ -20,7 +20,7 @@ import org.jooq.impl.TableImpl;
 
 
 /**
- * the procedures, SQL functions, trigger body routines and UDT methods defined 
+ * the procedures, SQL functions, trigger body routines and UDT methods defined
  * within the database
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
@@ -29,7 +29,8 @@ public class SystemProcedures extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES</code>
      */
     public static final SystemProcedures SYSTEM_PROCEDURES = new SystemProcedures();
 
@@ -42,17 +43,23 @@ public class SystemProcedures extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.PROCEDURE_CAT</code>. catalog in which procedure is defined
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.PROCEDURE_CAT</code>. catalog
+     * in which procedure is defined
      */
     public final TableField<Record, String> PROCEDURE_CAT = createField(DSL.name("PROCEDURE_CAT"), SQLDataType.VARCHAR(128), this, "catalog in which procedure is defined");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.PROCEDURE_SCHEM</code>. schema in which procedure is defined
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.PROCEDURE_SCHEM</code>. schema
+     * in which procedure is defined
      */
     public final TableField<Record, String> PROCEDURE_SCHEM = createField(DSL.name("PROCEDURE_SCHEM"), SQLDataType.VARCHAR(128), this, "schema in which procedure is defined");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.PROCEDURE_NAME</code>. procedure identifier
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.PROCEDURE_NAME</code>.
+     * procedure identifier
      */
     public final TableField<Record, String> PROCEDURE_NAME = createField(DSL.name("PROCEDURE_NAME"), SQLDataType.VARCHAR(128), this, "procedure identifier");
 
@@ -72,19 +79,31 @@ public class SystemProcedures extends TableImpl<Record> {
     public final TableField<Record, Integer> COL_6 = createField(DSL.name("COL_6"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.REMARKS</code>. explanatory comment on the procedure
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.REMARKS</code>.
+     * explanatory comment on the procedure
      */
     public final TableField<Record, String> REMARKS = createField(DSL.name("REMARKS"), SQLDataType.VARCHAR(65536), this, "explanatory comment on the procedure");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.PROCEDURE_TYPE</code>. kind of procedure: { Unknown | No Result | Returns Result }
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.PROCEDURE_TYPE</code>. kind of
+     * procedure: { Unknown | No Result | Returns Result }
      */
     public final TableField<Record, Short> PROCEDURE_TYPE = createField(DSL.name("PROCEDURE_TYPE"), SQLDataType.SMALLINT, this, "kind of procedure: { Unknown | No Result | Returns Result }");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.SPECIFIC_NAME</code>. typically, (but not limited to) the fully qualified name and signature of the Java method providing the SQL-invoked routine's entry point
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.SPECIFIC_NAME</code>.
+     * typically, (but not limited to) the fully qualified name and signature of
+     * the Java method providing the SQL-invoked routine's entry point
      */
     public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), SQLDataType.VARCHAR(128), this, "typically, (but not limited to) the fully qualified name and signature of the Java method providing the SQL-invoked routine's entry point");
+
+    /**
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES.FUNCTION_TYPE</code>.
+     */
+    public final TableField<Record, Integer> FUNCTION_TYPE = createField(DSL.name("FUNCTION_TYPE"), SQLDataType.INTEGER, this, "");
 
     private SystemProcedures(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);
@@ -95,21 +114,24 @@ public class SystemProcedures extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES</code> table
+     * reference
      */
     public SystemProcedures(String alias) {
         this(DSL.name(alias), SYSTEM_PROCEDURES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES</code> table
+     * reference
      */
     public SystemProcedures(Name alias) {
         this(alias, SYSTEM_PROCEDURES);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURES</code> table
+     * reference
      */
     public SystemProcedures() {
         this(DSL.name("SYSTEM_PROCEDURES"), null);
@@ -121,7 +143,7 @@ public class SystemProcedures extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

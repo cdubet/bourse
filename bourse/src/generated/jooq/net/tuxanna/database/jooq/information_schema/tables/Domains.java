@@ -61,12 +61,14 @@ public class Domains extends TableImpl<Record> {
     public final TableField<Record, String> DATA_TYPE = createField(DSL.name("DATA_TYPE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.DOMAINS.CHARACTER_MAXIMUM_LENGTH</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.DOMAINS.CHARACTER_MAXIMUM_LENGTH</code>.
      */
     public final TableField<Record, Long> CHARACTER_MAXIMUM_LENGTH = createField(DSL.name("CHARACTER_MAXIMUM_LENGTH"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.DOMAINS.CHARACTER_OCTET_LENGTH</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.DOMAINS.CHARACTER_OCTET_LENGTH</code>.
      */
     public final TableField<Record, Long> CHARACTER_OCTET_LENGTH = createField(DSL.name("CHARACTER_OCTET_LENGTH"), SQLDataType.BIGINT, this, "");
 
@@ -106,7 +108,8 @@ public class Domains extends TableImpl<Record> {
     public final TableField<Record, Long> NUMERIC_PRECISION = createField(DSL.name("NUMERIC_PRECISION"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.DOMAINS.NUMERIC_PRECISION_RADIX</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.DOMAINS.NUMERIC_PRECISION_RADIX</code>.
      */
     public final TableField<Record, Long> NUMERIC_PRECISION_RADIX = createField(DSL.name("NUMERIC_PRECISION_RADIX"), SQLDataType.BIGINT, this, "");
 
@@ -151,12 +154,14 @@ public class Domains extends TableImpl<Record> {
     public final TableField<Record, String> DECLARED_DATA_TYPE = createField(DSL.name("DECLARED_DATA_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.DOMAINS.DECLARED_NUMERIC_PRECISION</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.DOMAINS.DECLARED_NUMERIC_PRECISION</code>.
      */
     public final TableField<Record, Long> DECLARED_NUMERIC_PRECISION = createField(DSL.name("DECLARED_NUMERIC_PRECISION"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.DOMAINS.DECLARED_NUMERIC_SCALE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.DOMAINS.DECLARED_NUMERIC_SCALE</code>.
      */
     public final TableField<Record, Long> DECLARED_NUMERIC_SCALE = createField(DSL.name("DECLARED_NUMERIC_SCALE"), SQLDataType.BIGINT, this, "");
 
@@ -195,7 +200,7 @@ public class Domains extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

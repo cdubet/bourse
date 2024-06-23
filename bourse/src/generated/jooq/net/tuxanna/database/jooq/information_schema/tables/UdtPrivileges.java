@@ -84,14 +84,16 @@ public class UdtPrivileges extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.UDT_PRIVILEGES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.UDT_PRIVILEGES</code> table
+     * reference
      */
     public UdtPrivileges(String alias) {
         this(DSL.name(alias), UDT_PRIVILEGES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.UDT_PRIVILEGES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.UDT_PRIVILEGES</code> table
+     * reference
      */
     public UdtPrivileges(Name alias) {
         this(alias, UDT_PRIVILEGES);
@@ -110,7 +112,7 @@ public class UdtPrivileges extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

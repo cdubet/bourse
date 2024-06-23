@@ -71,13 +71,13 @@ public class SellManagement implements ShareOrderManagementI
 						}
 						else
 						{
-							logger.error("unexpected qte="+shareInPortfolio.getQte().getValue()+" for id="+shareId);
+							logger.error("unexpected qte {} for id= {}",shareInPortfolio.getQte().getValue(),shareId);
 							result=false;
 						}
 					}
 					else
 					{
-						logger.error("empty qte or price for id="+shareId);
+						logger.error("empty qte or price for id={}",shareId);
 						result=false;
 					}
 				}

@@ -100,7 +100,7 @@ public class Lobs extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return SystemLobs.SYSTEM_LOBS;
+        return aliased() ? null : SystemLobs.SYSTEM_LOBS;
     }
 
     @Override
@@ -109,8 +109,8 @@ public class Lobs extends TableImpl<Record> {
     }
 
     @Override
-    public List<UniqueKey<Record>> getKeys() {
-        return Arrays.<UniqueKey<Record>>asList(Keys.LOBS_UQ1, Keys.LOBS_PK);
+    public List<UniqueKey<Record>> getUniqueKeys() {
+        return Arrays.asList(Keys.LOBS_UQ1);
     }
 
     @Override
