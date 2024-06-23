@@ -26,15 +26,28 @@ public class BoursoramaParser
 	public static String stripNonDigits(String input)
 	{
 		final StringBuilder sb = new StringBuilder(input.length());
+		int decimalSeparator=0;
 		for (int i = 0; i < input.length(); i++)
 		{
 			final char c = input.charAt(i);
 			if ((c >= '0' && c <= '9') ||
-					(c == '.') ||
+					(c == '.') || 
 					((c == '-') && (i==0))) //start with minus
 			{
 				sb.append(c);
 			}
+			else if (c == ',')
+			{
+				decimalSeparator++;
+				if (decimalSeparator>1)
+				{
+					logger.error("more than one , in string found"+input);
+				}
+				else
+				{
+					sb.append('.'); //decimal separator is . for java
+				}
+			}			
 		}
 		return sb.toString();
 	}

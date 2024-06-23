@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="bourse/src/generated/jooq"/>
+	<classpathentry kind="src" path="bourse/src/main/java"/>
+	<classpathentry excluding="portefeuilleTest/businessLogic/shareOrders/" kind="src" path="bourse/src/test/java"/>
+	<classpathentry kind="src" path="bourse/src/test/java/portefeuilleTest/businessLogic/shareOrders"/>
+	<classpathentry kind="src" path="test/src/generated/jooq"/>
+	<classpathentry kind="src" path="test/src/main/java"/>
+	<classpathentry kind="src" path="test/src/test/java"/>
+	<classpathentry kind="lib" path="bourse/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="test/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="output" path="bourse/bin/main"/>
+</classpath>
