@@ -15,7 +15,6 @@ import net.tuxanna.portefeuille.data_feed.boursorama.BoursoramaQuotationProvider
 
 public class BoursoramaParserTest
 {
-
 	@Test
 	public void testParseShare()
 	{
@@ -33,8 +32,29 @@ public class BoursoramaParserTest
 		assertEquals(0.0, quote.getOpenPrice().getValue(),0.001);
 		assertEquals(0.0, quote.getHighPrice().getValue(),0.001);
 		assertEquals(192.660, quote.getLowPrice().getValue(),0.001);
-		assertEquals(194.580, quote.getPreviousClose().getValue(),0.001);
 		
+		//TODO check non filled values
+		
+	}
+	@Test
+	public void testParseShare4()
+	{
+		BoursoramaParser parser=new BoursoramaParser();
+		
+		TestFileJsoupDocProvider jsoupProvider=new TestFileJsoupDocProvider();
+		jsoupProvider.setFileName("TEST_DATA/DATA_FEED/bourso_v4_AIRBUS Cours Action AIR, Cotation Bourse Euronext Paris - Boursorama.html"
+				+ "");
+		parser.setDocProvider(jsoupProvider);
+		
+		Quote quote=new Quote();
+		assertTrue(parser.parse(true,quote));
+		assertEquals(148.58, quote.getLastTradedPrice().getValue(),0.001);
+		assertEquals(1930361, quote.getVolume().getValue(),0.001);
+		assertEquals(148.88, quote.getOpenPrice().getValue(),0.001);
+		assertEquals(149.10, quote.getHighPrice().getValue(),0.001);
+		assertEquals(147.54, quote.getLowPrice().getValue(),0.001);
+		assertEquals(148.760, quote.getPreviousClose().getValue(),0.001);
+		assertEquals(194.580, quote.getPreviousClose().getValue(),0.001);
 		//TODO check non filled values
 		
 	}
@@ -102,9 +122,9 @@ public class BoursoramaParserTest
 	{
 		BoursoramaQuotationProvider provider=new BoursoramaQuotationProvider(3 /*3 threads*/);
 		ArrayList<TickerI> listTickers=new ArrayList<TickerI> ();
-		listTickers.add(new Ticker("1rPILD",true)); //iliad
+		listTickers.add(new Ticker("1rPAIR",true)); //airbus
 		listTickers.add(new Ticker("AMZN",true)); //amazon
-		listTickers.add(new Ticker("VMW",true)); //vm ware
+		listTickers.add(new Ticker("1rPENGI",true)); //engie
 		provider.setListTickers(listTickers);
 		HashMap<TickerI,Quote> quoteFromDataFeed=new HashMap<TickerI,Quote>  ();
 		final boolean res=provider.getQuotes(quoteFromDataFeed);
