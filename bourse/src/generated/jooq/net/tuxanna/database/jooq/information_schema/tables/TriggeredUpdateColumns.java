@@ -28,7 +28,8 @@ public class TriggeredUpdateColumns extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS</code>
      */
     public static final TriggeredUpdateColumns TRIGGERED_UPDATE_COLUMNS = new TriggeredUpdateColumns();
 
@@ -41,37 +42,44 @@ public class TriggeredUpdateColumns extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.TRIGGER_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.TRIGGER_CATALOG</code>.
      */
     public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.TRIGGER_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.TRIGGER_SCHEMA</code>.
      */
     public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.TRIGGER_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.TRIGGER_NAME</code>.
      */
     public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.EVENT_OBJECT_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.EVENT_OBJECT_CATALOG</code>.
      */
     public final TableField<Record, String> EVENT_OBJECT_CATALOG = createField(DSL.name("EVENT_OBJECT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.EVENT_OBJECT_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.EVENT_OBJECT_SCHEMA</code>.
      */
     public final TableField<Record, String> EVENT_OBJECT_SCHEMA = createField(DSL.name("EVENT_OBJECT_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.EVENT_OBJECT_TABLE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.EVENT_OBJECT_TABLE</code>.
      */
     public final TableField<Record, String> EVENT_OBJECT_TABLE = createField(DSL.name("EVENT_OBJECT_TABLE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.EVENT_OBJECT_COLUMN</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.EVENT_OBJECT_COLUMN</code>.
      */
     public final TableField<Record, String> EVENT_OBJECT_COLUMN = createField(DSL.name("EVENT_OBJECT_COLUMN"), SQLDataType.VARCHAR(128), this, "");
 
@@ -84,21 +92,24 @@ public class TriggeredUpdateColumns extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS</code> table reference
+     * Create an aliased
+     * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS</code> table reference
      */
     public TriggeredUpdateColumns(String alias) {
         this(DSL.name(alias), TRIGGERED_UPDATE_COLUMNS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS</code> table reference
+     * Create an aliased
+     * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS</code> table reference
      */
     public TriggeredUpdateColumns(Name alias) {
         this(alias, TRIGGERED_UPDATE_COLUMNS);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS</code> table
+     * reference
      */
     public TriggeredUpdateColumns() {
         this(DSL.name("TRIGGERED_UPDATE_COLUMNS"), null);
@@ -110,7 +121,7 @@ public class TriggeredUpdateColumns extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

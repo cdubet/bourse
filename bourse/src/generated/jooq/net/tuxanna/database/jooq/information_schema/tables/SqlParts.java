@@ -74,14 +74,16 @@ public class SqlParts extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SQL_PARTS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SQL_PARTS</code> table
+     * reference
      */
     public SqlParts(String alias) {
         this(DSL.name(alias), SQL_PARTS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SQL_PARTS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SQL_PARTS</code> table
+     * reference
      */
     public SqlParts(Name alias) {
         this(alias, SQL_PARTS);
@@ -100,7 +102,7 @@ public class SqlParts extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

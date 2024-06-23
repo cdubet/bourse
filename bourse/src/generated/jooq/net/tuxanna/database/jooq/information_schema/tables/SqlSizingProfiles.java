@@ -28,7 +28,8 @@ public class SqlSizingProfiles extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES</code>
      */
     public static final SqlSizingProfiles SQL_SIZING_PROFILES = new SqlSizingProfiles();
 
@@ -46,22 +47,26 @@ public class SqlSizingProfiles extends TableImpl<Record> {
     public final TableField<Record, Long> SIZING_ID = createField(DSL.name("SIZING_ID"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.SIZING_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.SIZING_NAME</code>.
      */
     public final TableField<Record, String> SIZING_NAME = createField(DSL.name("SIZING_NAME"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.PROFILE_ID</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.PROFILE_ID</code>.
      */
     public final TableField<Record, Long> PROFILE_ID = createField(DSL.name("PROFILE_ID"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.PROFILE_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.PROFILE_NAME</code>.
      */
     public final TableField<Record, String> PROFILE_NAME = createField(DSL.name("PROFILE_NAME"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.REQUIRED_VALUE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.REQUIRED_VALUE</code>.
      */
     public final TableField<Record, Long> REQUIRED_VALUE = createField(DSL.name("REQUIRED_VALUE"), SQLDataType.BIGINT, this, "");
 
@@ -79,21 +84,24 @@ public class SqlSizingProfiles extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES</code>
+     * table reference
      */
     public SqlSizingProfiles(String alias) {
         this(DSL.name(alias), SQL_SIZING_PROFILES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES</code>
+     * table reference
      */
     public SqlSizingProfiles(Name alias) {
         this(alias, SQL_SIZING_PROFILES);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES</code> table
+     * reference
      */
     public SqlSizingProfiles() {
         this(DSL.name("SQL_SIZING_PROFILES"), null);
@@ -105,7 +113,7 @@ public class SqlSizingProfiles extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

@@ -20,7 +20,7 @@ import org.jooq.impl.TableImpl;
 
 
 /**
- * the data source descriptors of the accessible TEXT TABLE objects defined 
+ * the data source descriptors of the accessible TEXT TABLE objects defined
  * within this database
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
@@ -29,7 +29,8 @@ public class SystemTexttables extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES</code>
      */
     public static final SystemTexttables SYSTEM_TEXTTABLES = new SystemTexttables();
 
@@ -42,67 +43,87 @@ public class SystemTexttables extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.TABLE_CAT</code>. table catalog
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.TABLE_CAT</code>.
+     * table catalog
      */
     public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), SQLDataType.VARCHAR(128), this, "table catalog");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.TABLE_SCHEM</code>. table schema
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.TABLE_SCHEM</code>.
+     * table schema
      */
     public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "table schema");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.TABLE_NAME</code>. table name
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.TABLE_NAME</code>.
+     * table name
      */
     public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "table name");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.DATA_SOURCE_DEFINTION</code>. the "spec" proption of the table's SET TABLE ... SOURCE DDL declaration
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.DATA_SOURCE_DEFINTION</code>.
+     * the "spec" proption of the table's SET TABLE ... SOURCE DDL declaration
      */
     public final TableField<Record, String> DATA_SOURCE_DEFINTION = createField(DSL.name("DATA_SOURCE_DEFINTION"), SQLDataType.VARCHAR(65536), this, "the \"spec\" proption of the table's SET TABLE ... SOURCE DDL declaration");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.FILE_PATH</code>. path to table's text file data source
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.FILE_PATH</code>.
+     * path to table's text file data source
      */
     public final TableField<Record, String> FILE_PATH = createField(DSL.name("FILE_PATH"), SQLDataType.VARCHAR(65536), this, "path to table's text file data source");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.FILE_ENCODING</code>. encoding of table's text file data source
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.FILE_ENCODING</code>. encoding
+     * of table's text file data source
      */
     public final TableField<Record, String> FILE_ENCODING = createField(DSL.name("FILE_ENCODING"), SQLDataType.VARCHAR(65536), this, "encoding of table's text file data source");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.FIELD_SEPARATOR</code>. the default field separator
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.FIELD_SEPARATOR</code>. the
+     * default field separator
      */
     public final TableField<Record, String> FIELD_SEPARATOR = createField(DSL.name("FIELD_SEPARATOR"), SQLDataType.VARCHAR(65536), this, "the default field separator");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.VARCHAR_SEPARATOR</code>. varchar field separator
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.VARCHAR_SEPARATOR</code>.
+     * varchar field separator
      */
     public final TableField<Record, String> VARCHAR_SEPARATOR = createField(DSL.name("VARCHAR_SEPARATOR"), SQLDataType.VARCHAR(65536), this, "varchar field separator");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.LONGVARCHAR_SEPARATOR</code>. longvarchar field separator
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.LONGVARCHAR_SEPARATOR</code>.
+     * longvarchar field separator
      */
     public final TableField<Record, String> LONGVARCHAR_SEPARATOR = createField(DSL.name("LONGVARCHAR_SEPARATOR"), SQLDataType.VARCHAR(65536), this, "longvarchar field separator");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.IS_IGNORE_FIRST</code>. ignores first line of file?
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.IS_IGNORE_FIRST</code>.
+     * ignores first line of file?
      */
     public final TableField<Record, Boolean> IS_IGNORE_FIRST = createField(DSL.name("IS_IGNORE_FIRST"), SQLDataType.BOOLEAN, this, "ignores first line of file?");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.IS_QUOTED</code>. fields are quoted if necessary?
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.IS_QUOTED</code>.
+     * fields are quoted if necessary?
      */
     public final TableField<Record, Boolean> IS_QUOTED = createField(DSL.name("IS_QUOTED"), SQLDataType.BOOLEAN, this, "fields are quoted if necessary?");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.IS_ALL_QUOTED</code>. every field is quoted?
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.IS_ALL_QUOTED</code>. every
+     * field is quoted?
      */
     public final TableField<Record, Boolean> IS_ALL_QUOTED = createField(DSL.name("IS_ALL_QUOTED"), SQLDataType.BOOLEAN, this, "every field is quoted?");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.IS_DESC</code>. read rows starting at end of file?
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.IS_DESC</code>.
+     * read rows starting at end of file?
      */
     public final TableField<Record, Boolean> IS_DESC = createField(DSL.name("IS_DESC"), SQLDataType.BOOLEAN, this, "read rows starting at end of file?");
 
@@ -115,21 +136,24 @@ public class SystemTexttables extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES</code> table
+     * reference
      */
     public SystemTexttables(String alias) {
         this(DSL.name(alias), SYSTEM_TEXTTABLES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES</code> table
+     * reference
      */
     public SystemTexttables(Name alias) {
         this(alias, SYSTEM_TEXTTABLES);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES</code> table
+     * reference
      */
     public SystemTexttables() {
         this(DSL.name("SYSTEM_TEXTTABLES"), null);
@@ -141,7 +165,7 @@ public class SystemTexttables extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

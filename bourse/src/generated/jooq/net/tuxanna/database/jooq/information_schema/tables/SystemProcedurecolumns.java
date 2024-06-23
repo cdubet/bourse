@@ -20,8 +20,8 @@ import org.jooq.impl.TableImpl;
 
 
 /**
- * a description of the return type, parameters and result columns of each 
- * accessible callable procedure, SQL function, trigger body and UDT method 
+ * a description of the return type, parameters and result columns of each
+ * accessible callable procedure, SQL function, trigger body and UDT method
  * defined within this database
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
@@ -30,7 +30,8 @@ public class SystemProcedurecolumns extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS</code>
      */
     public static final SystemProcedurecolumns SYSTEM_PROCEDURECOLUMNS = new SystemProcedurecolumns();
 
@@ -43,102 +44,147 @@ public class SystemProcedurecolumns extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.PROCEDURE_CAT</code>. catalog in which procedure is defined
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.PROCEDURE_CAT</code>.
+     * catalog in which procedure is defined
      */
     public final TableField<Record, String> PROCEDURE_CAT = createField(DSL.name("PROCEDURE_CAT"), SQLDataType.VARCHAR(128), this, "catalog in which procedure is defined");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.PROCEDURE_SCHEM</code>. schema in which procedure is defined
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.PROCEDURE_SCHEM</code>.
+     * schema in which procedure is defined
      */
     public final TableField<Record, String> PROCEDURE_SCHEM = createField(DSL.name("PROCEDURE_SCHEM"), SQLDataType.VARCHAR(128), this, "schema in which procedure is defined");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.PROCEDURE_NAME</code>. procedure identifier
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.PROCEDURE_NAME</code>.
+     * procedure identifier
      */
     public final TableField<Record, String> PROCEDURE_NAME = createField(DSL.name("PROCEDURE_NAME"), SQLDataType.VARCHAR(128), this, "procedure identifier");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.COLUMN_NAME</code>. ( result column | call parameter | return value ) name
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.COLUMN_NAME</code>. (
+     * result column | call parameter | return value ) name
      */
     public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "( result column | call parameter | return value ) name");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.COLUMN_TYPE</code>. kind of column/parameter: { Unknown | IN | INOUT | OUT | RETURN | RESULT }
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.COLUMN_TYPE</code>. kind
+     * of column/parameter: { Unknown | IN | INOUT | OUT | RETURN | RESULT }
      */
     public final TableField<Record, Short> COLUMN_TYPE = createField(DSL.name("COLUMN_TYPE"), SQLDataType.SMALLINT, this, "kind of column/parameter: { Unknown | IN | INOUT | OUT | RETURN | RESULT }");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.DATA_TYPE</code>. SQL data type.  This may be a java.sql.Types data type, a SQL 200n data type or an HSQLDB-specific data type.  For datetime or interval data types, this column returns the concise data type (such as SQL_­TYPE_­TIME or SQL_­INTERVAL_­YEAR_­TO_­MONTH).
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.DATA_TYPE</code>. SQL
+     * data type.  This may be a java.sql.Types data type, a SQL 200n data type
+     * or an HSQLDB-specific data type.  For datetime or interval data types,
+     * this column returns the concise data type (such as SQL_­TYPE_­TIME or
+     * SQL_­INTERVAL_­YEAR_­TO_­MONTH).
      */
     public final TableField<Record, Short> DATA_TYPE = createField(DSL.name("DATA_TYPE"), SQLDataType.SMALLINT, this, "SQL data type.  This may be a java.sql.Types data type, a SQL 200n data type or an HSQLDB-specific data type.  For datetime or interval data types, this column returns the concise data type (such as SQL_­TYPE_­TIME or SQL_­INTERVAL_­YEAR_­TO_­MONTH).");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.TYPE_NAME</code>. the HSQLDB-specific data type name; for data types supported as table column types, this is the canonical name used in CREATE TABLE and ALTER TABLE statements.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.TYPE_NAME</code>. the
+     * HSQLDB-specific data type name; for data types supported as table column
+     * types, this is the canonical name used in CREATE TABLE and ALTER TABLE
+     * statements.
      */
     public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), SQLDataType.VARCHAR(128), this, "the HSQLDB-specific data type name; for data types supported as table column types, this is the canonical name used in CREATE TABLE and ALTER TABLE statements.");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.PRECISION</code>. precision for number types; max length for sized types; fixed or max length for others if known, or NULL if not applicable
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.PRECISION</code>.
+     * precision for number types; max length for sized types; fixed or max
+     * length for others if known, or NULL if not applicable
      */
     public final TableField<Record, Integer> PRECISION = createField(DSL.name("PRECISION"), SQLDataType.INTEGER, this, "precision for number types; max length for sized types; fixed or max length for others if known, or NULL if not applicable");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.LENGTH</code>. The maximum length in bytes of data, if definitely known, that would be transferred to a buffer on a fetch operation.  For numeric data, this size may be different than the size of the data stored on the data source.  This value is the same as the COLUMN_SIZE column for binary data. This value is the twice the COLUMN_SIZE column for character data.  If the actual value is unknown or is larger than can be represented in an INTEGER column value, this is NULL.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.LENGTH</code>. The
+     * maximum length in bytes of data, if definitely known, that would be
+     * transferred to a buffer on a fetch operation.  For numeric data, this
+     * size may be different than the size of the data stored on the data
+     * source.  This value is the same as the COLUMN_SIZE column for binary
+     * data. This value is the twice the COLUMN_SIZE column for character data. 
+     * If the actual value is unknown or is larger than can be represented in an
+     * INTEGER column value, this is NULL.
      */
     public final TableField<Record, Integer> LENGTH = createField(DSL.name("LENGTH"), SQLDataType.INTEGER, this, "The maximum length in bytes of data, if definitely known, that would be transferred to a buffer on a fetch operation.  For numeric data, this size may be different than the size of the data stored on the data source.  This value is the same as the COLUMN_SIZE column for binary data. This value is the twice the COLUMN_SIZE column for character data.  If the actual value is unknown or is larger than can be represented in an INTEGER column value, this is NULL.");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.SCALE</code>. scale (# of fractional digits) for number types
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.SCALE</code>.
+     * scale (# of fractional digits) for number types
      */
     public final TableField<Record, Short> SCALE = createField(DSL.name("SCALE"), SQLDataType.SMALLINT, this, "scale (# of fractional digits) for number types");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.RADIX</code>. Radix of reported numeric precision (i.e. base of number types)
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.RADIX</code>.
+     * Radix of reported numeric precision (i.e. base of number types)
      */
     public final TableField<Record, Short> RADIX = createField(DSL.name("RADIX"), SQLDataType.SMALLINT, this, "Radix of reported numeric precision (i.e. base of number types)");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.NULLABLE</code>. can column contain NULL: { No Nulls | Nullable | Unknown }?
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.NULLABLE</code>. can
+     * column contain NULL: { No Nulls | Nullable | Unknown }?
      */
     public final TableField<Record, Short> NULLABLE = createField(DSL.name("NULLABLE"), SQLDataType.SMALLINT, this, "can column contain NULL: { No Nulls | Nullable | Unknown }?");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.REMARKS</code>. comment describing parameter or result column
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.REMARKS</code>. comment
+     * describing parameter or result column
      */
     public final TableField<Record, String> REMARKS = createField(DSL.name("REMARKS"), SQLDataType.VARCHAR(65536), this, "comment describing parameter or result column");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.COLUMN_DEF</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.COLUMN_DEF</code>.
      */
     public final TableField<Record, String> COLUMN_DEF = createField(DSL.name("COLUMN_DEF"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.SQL_DATA_TYPE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.SQL_DATA_TYPE</code>.
      */
     public final TableField<Record, Integer> SQL_DATA_TYPE = createField(DSL.name("SQL_DATA_TYPE"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.SQL_DATETIME_SUB</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.SQL_DATETIME_SUB</code>.
      */
     public final TableField<Record, Integer> SQL_DATETIME_SUB = createField(DSL.name("SQL_DATETIME_SUB"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.CHAR_OCTET_LENGTH</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.CHAR_OCTET_LENGTH</code>.
      */
     public final TableField<Record, Integer> CHAR_OCTET_LENGTH = createField(DSL.name("CHAR_OCTET_LENGTH"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.ORDINAL_POSITION</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.ORDINAL_POSITION</code>.
      */
     public final TableField<Record, Integer> ORDINAL_POSITION = createField(DSL.name("ORDINAL_POSITION"), SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.IS_NULLABLE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.IS_NULLABLE</code>.
      */
     public final TableField<Record, String> IS_NULLABLE = createField(DSL.name("IS_NULLABLE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.SPECIFIC_NAME</code>. typically, (but not limited to) the fully qualified name and signature of the Java method providing the SQL-invoked routine's entry point
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.SPECIFIC_NAME</code>.
+     * typically, (but not limited to) the fully qualified name and signature of
+     * the Java method providing the SQL-invoked routine's entry point
      */
     public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), SQLDataType.VARCHAR(128), this, "typically, (but not limited to) the fully qualified name and signature of the Java method providing the SQL-invoked routine's entry point");
 
@@ -151,21 +197,24 @@ public class SystemProcedurecolumns extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS</code>
+     * table reference
      */
     public SystemProcedurecolumns(String alias) {
         this(DSL.name(alias), SYSTEM_PROCEDURECOLUMNS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS</code>
+     * table reference
      */
     public SystemProcedurecolumns(Name alias) {
         this(alias, SYSTEM_PROCEDURECOLUMNS);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS</code> table
+     * reference
      */
     public SystemProcedurecolumns() {
         this(DSL.name("SYSTEM_PROCEDURECOLUMNS"), null);
@@ -177,7 +226,7 @@ public class SystemProcedurecolumns extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

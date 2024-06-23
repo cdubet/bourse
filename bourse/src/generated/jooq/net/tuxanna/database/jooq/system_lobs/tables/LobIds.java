@@ -102,22 +102,17 @@ public class LobIds extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return SystemLobs.SYSTEM_LOBS;
+        return aliased() ? null : SystemLobs.SYSTEM_LOBS;
     }
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.LOBS_IDX2);
+        return Arrays.asList(Indexes.LOBS_IDX2);
     }
 
     @Override
     public UniqueKey<Record> getPrimaryKey() {
         return Keys.LOB_IDS_PK;
-    }
-
-    @Override
-    public List<UniqueKey<Record>> getKeys() {
-        return Arrays.<UniqueKey<Record>>asList(Keys.LOB_IDS_PK);
     }
 
     @Override

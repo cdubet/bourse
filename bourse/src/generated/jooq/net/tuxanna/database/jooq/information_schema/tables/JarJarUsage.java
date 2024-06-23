@@ -41,7 +41,8 @@ public class JarJarUsage extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.JAR_JAR_USAGE.PATH_JAR_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.JAR_JAR_USAGE.PATH_JAR_CATALOG</code>.
      */
     public final TableField<Record, String> PATH_JAR_CATALOG = createField(DSL.name("PATH_JAR_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
@@ -79,14 +80,16 @@ public class JarJarUsage extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.JAR_JAR_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.JAR_JAR_USAGE</code> table
+     * reference
      */
     public JarJarUsage(String alias) {
         this(DSL.name(alias), JAR_JAR_USAGE);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.JAR_JAR_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.JAR_JAR_USAGE</code> table
+     * reference
      */
     public JarJarUsage(Name alias) {
         this(alias, JAR_JAR_USAGE);
@@ -105,7 +108,7 @@ public class JarJarUsage extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

@@ -28,7 +28,8 @@ public class ColumnDomainUsage extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE</code>
      */
     public static final ColumnDomainUsage COLUMN_DOMAIN_USAGE = new ColumnDomainUsage();
 
@@ -41,37 +42,44 @@ public class ColumnDomainUsage extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE.DOMAIN_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE.DOMAIN_CATALOG</code>.
      */
     public final TableField<Record, String> DOMAIN_CATALOG = createField(DSL.name("DOMAIN_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE.DOMAIN_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE.DOMAIN_SCHEMA</code>.
      */
     public final TableField<Record, String> DOMAIN_SCHEMA = createField(DSL.name("DOMAIN_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE.DOMAIN_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE.DOMAIN_NAME</code>.
      */
     public final TableField<Record, String> DOMAIN_NAME = createField(DSL.name("DOMAIN_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE.TABLE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE.TABLE_CATALOG</code>.
      */
     public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE.TABLE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE.TABLE_SCHEMA</code>.
      */
     public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE.TABLE_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE.TABLE_NAME</code>.
      */
     public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE.COLUMN_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE.COLUMN_NAME</code>.
      */
     public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "");
 
@@ -84,21 +92,24 @@ public class ColumnDomainUsage extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE</code>
+     * table reference
      */
     public ColumnDomainUsage(String alias) {
         this(DSL.name(alias), COLUMN_DOMAIN_USAGE);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE</code>
+     * table reference
      */
     public ColumnDomainUsage(Name alias) {
         this(alias, COLUMN_DOMAIN_USAGE);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.COLUMN_DOMAIN_USAGE</code> table
+     * reference
      */
     public ColumnDomainUsage() {
         this(DSL.name("COLUMN_DOMAIN_USAGE"), null);
@@ -110,7 +121,7 @@ public class ColumnDomainUsage extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

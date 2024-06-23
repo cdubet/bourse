@@ -28,7 +28,8 @@ public class SystemTabletypes extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_TABLETYPES</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.SYSTEM_TABLETYPES</code>
      */
     public static final SystemTabletypes SYSTEM_TABLETYPES = new SystemTabletypes();
 
@@ -41,7 +42,8 @@ public class SystemTabletypes extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLETYPES.TABLE_TYPE</code>. table type name
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLETYPES.TABLE_TYPE</code>.
+     * table type name
      */
     public final TableField<Record, String> TABLE_TYPE = createField(DSL.name("TABLE_TYPE"), SQLDataType.VARCHAR(128), this, "table type name");
 
@@ -54,21 +56,24 @@ public class SystemTabletypes extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_TABLETYPES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_TABLETYPES</code> table
+     * reference
      */
     public SystemTabletypes(String alias) {
         this(DSL.name(alias), SYSTEM_TABLETYPES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_TABLETYPES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_TABLETYPES</code> table
+     * reference
      */
     public SystemTabletypes(Name alias) {
         this(alias, SYSTEM_TABLETYPES);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_TABLETYPES</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_TABLETYPES</code> table
+     * reference
      */
     public SystemTabletypes() {
         this(DSL.name("SYSTEM_TABLETYPES"), null);
@@ -80,7 +85,7 @@ public class SystemTabletypes extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

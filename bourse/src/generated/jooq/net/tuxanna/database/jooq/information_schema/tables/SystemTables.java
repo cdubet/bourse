@@ -41,62 +41,78 @@ public class SystemTables extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.TABLE_CAT</code>. table catalog
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.TABLE_CAT</code>. table
+     * catalog
      */
     public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), SQLDataType.VARCHAR(128), this, "table catalog");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.TABLE_SCHEM</code>. table schema
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.TABLE_SCHEM</code>.
+     * table schema
      */
     public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "table schema");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.TABLE_NAME</code>. table name
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.TABLE_NAME</code>.
+     * table name
      */
     public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "table name");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.TABLE_TYPE</code>. table type: e.g. one of { TABLE | VIEW | SYSTEM TABLE | GLOBAL TEMPORARY ... }
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.TABLE_TYPE</code>.
+     * table type: e.g. one of { TABLE | VIEW | SYSTEM TABLE | GLOBAL TEMPORARY
+     * ... }
      */
     public final TableField<Record, String> TABLE_TYPE = createField(DSL.name("TABLE_TYPE"), SQLDataType.VARCHAR(65536), this, "table type: e.g. one of { TABLE | VIEW | SYSTEM TABLE | GLOBAL TEMPORARY ... }");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.REMARKS</code>. explanatory comment on the table
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.REMARKS</code>.
+     * explanatory comment on the table
      */
     public final TableField<Record, String> REMARKS = createField(DSL.name("REMARKS"), SQLDataType.VARCHAR(65536), this, "explanatory comment on the table");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.TYPE_CAT</code>. table type catalog
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.TYPE_CAT</code>. table
+     * type catalog
      */
     public final TableField<Record, String> TYPE_CAT = createField(DSL.name("TYPE_CAT"), SQLDataType.VARCHAR(128), this, "table type catalog");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.TYPE_SCHEM</code>. table type schema
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.TYPE_SCHEM</code>.
+     * table type schema
      */
     public final TableField<Record, String> TYPE_SCHEM = createField(DSL.name("TYPE_SCHEM"), SQLDataType.VARCHAR(128), this, "table type schema");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.TYPE_NAME</code>. table type name
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.TYPE_NAME</code>. table
+     * type name
      */
     public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), SQLDataType.VARCHAR(128), this, "table type name");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.SELF_REFERENCING_COL_NAME</code>. name of the designated "identifier" column of typed table (null if not typed)
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_TABLES.SELF_REFERENCING_COL_NAME</code>.
+     * name of the designated "identifier" column of typed table (null if not
+     * typed)
      */
     public final TableField<Record, String> SELF_REFERENCING_COL_NAME = createField(DSL.name("SELF_REFERENCING_COL_NAME"), SQLDataType.VARCHAR(128), this, "name of the designated \"identifier\" column of typed table (null if not typed)");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.REF_GENERATION</code>. how are values in SELF_REFERENCING_COL_NAME created?: e.g. one of { "SYSTEM" | "USER" | "DERIVED" | NULL }
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.REF_GENERATION</code>.
+     * how are values in SELF_REFERENCING_COL_NAME created?: e.g. one of {
+     * "SYSTEM" | "USER" | "DERIVED" | NULL }
      */
     public final TableField<Record, String> REF_GENERATION = createField(DSL.name("REF_GENERATION"), SQLDataType.VARCHAR(65536), this, "how are values in SELF_REFERENCING_COL_NAME created?: e.g. one of { \"SYSTEM\" | \"USER\" | \"DERIVED\" | NULL }");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.HSQLDB_TYPE</code>. the HSQLDB-specific type of the table, e.g. ( MEMORY | CACHED | TEXT | ...)
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.HSQLDB_TYPE</code>. the
+     * HSQLDB-specific type of the table, e.g. ( MEMORY | CACHED | TEXT | ...)
      */
     public final TableField<Record, String> HSQLDB_TYPE = createField(DSL.name("HSQLDB_TYPE"), SQLDataType.VARCHAR(128), this, "the HSQLDB-specific type of the table, e.g. ( MEMORY | CACHED | TEXT | ...)");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.READ_ONLY</code>. TRUE if the table is read-only, else FALSE
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLES.READ_ONLY</code>. TRUE
+     * if the table is read-only, else FALSE
      */
     public final TableField<Record, Boolean> READ_ONLY = createField(DSL.name("READ_ONLY"), SQLDataType.BOOLEAN, this, "TRUE if the table is read-only, else FALSE");
 
@@ -114,14 +130,16 @@ public class SystemTables extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_TABLES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_TABLES</code> table
+     * reference
      */
     public SystemTables(String alias) {
         this(DSL.name(alias), SYSTEM_TABLES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_TABLES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_TABLES</code> table
+     * reference
      */
     public SystemTables(Name alias) {
         this(alias, SYSTEM_TABLES);
@@ -140,7 +158,7 @@ public class SystemTables extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

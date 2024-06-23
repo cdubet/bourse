@@ -20,7 +20,7 @@ import org.jooq.impl.TableImpl;
 
 
 /**
- * the visible user level access permissions for each accessible table defined 
+ * the visible user level access permissions for each accessible table defined
  * within this database
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
@@ -29,7 +29,8 @@ public class TablePrivileges extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES</code>
      */
     public static final TablePrivileges TABLE_PRIVILEGES = new TablePrivileges();
 
@@ -52,7 +53,8 @@ public class TablePrivileges extends TableImpl<Record> {
     public final TableField<Record, String> GRANTEE = createField(DSL.name("GRANTEE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES.TABLE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES.TABLE_CATALOG</code>.
      */
     public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
@@ -67,7 +69,8 @@ public class TablePrivileges extends TableImpl<Record> {
     public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES.PRIVILEGE_TYPE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES.PRIVILEGE_TYPE</code>.
      */
     public final TableField<Record, String> PRIVILEGE_TYPE = createField(DSL.name("PRIVILEGE_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
@@ -77,7 +80,8 @@ public class TablePrivileges extends TableImpl<Record> {
     public final TableField<Record, String> IS_GRANTABLE = createField(DSL.name("IS_GRANTABLE"), SQLDataType.VARCHAR(3), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES.WITH_HIERARCHY</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES.WITH_HIERARCHY</code>.
      */
     public final TableField<Record, String> WITH_HIERARCHY = createField(DSL.name("WITH_HIERARCHY"), SQLDataType.VARCHAR(3), this, "");
 
@@ -90,14 +94,16 @@ public class TablePrivileges extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES</code> table
+     * reference
      */
     public TablePrivileges(String alias) {
         this(DSL.name(alias), TABLE_PRIVILEGES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TABLE_PRIVILEGES</code> table
+     * reference
      */
     public TablePrivileges(Name alias) {
         this(alias, TABLE_PRIVILEGES);
@@ -116,7 +122,7 @@ public class TablePrivileges extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

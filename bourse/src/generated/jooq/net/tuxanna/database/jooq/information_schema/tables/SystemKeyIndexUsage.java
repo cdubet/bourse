@@ -28,7 +28,8 @@ public class SystemKeyIndexUsage extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE</code>
      */
     public static final SystemKeyIndexUsage SYSTEM_KEY_INDEX_USAGE = new SystemKeyIndexUsage();
 
@@ -41,32 +42,38 @@ public class SystemKeyIndexUsage extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE.CONSTRAINT_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE.CONSTRAINT_CATALOG</code>.
      */
     public final TableField<Record, String> CONSTRAINT_CATALOG = createField(DSL.name("CONSTRAINT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE.CONSTRAINT_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE.CONSTRAINT_SCHEMA</code>.
      */
     public final TableField<Record, String> CONSTRAINT_SCHEMA = createField(DSL.name("CONSTRAINT_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE.CONSTRAINT_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE.CONSTRAINT_NAME</code>.
      */
     public final TableField<Record, String> CONSTRAINT_NAME = createField(DSL.name("CONSTRAINT_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE.INDEX_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE.INDEX_CATALOG</code>.
      */
     public final TableField<Record, String> INDEX_CATALOG = createField(DSL.name("INDEX_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE.INDEX_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE.INDEX_SCHEMA</code>.
      */
     public final TableField<Record, String> INDEX_SCHEMA = createField(DSL.name("INDEX_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE.INDEX_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE.INDEX_NAME</code>.
      */
     public final TableField<Record, String> INDEX_NAME = createField(DSL.name("INDEX_NAME"), SQLDataType.VARCHAR(128), this, "");
 
@@ -79,21 +86,24 @@ public class SystemKeyIndexUsage extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE</code>
+     * table reference
      */
     public SystemKeyIndexUsage(String alias) {
         this(DSL.name(alias), SYSTEM_KEY_INDEX_USAGE);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE</code>
+     * table reference
      */
     public SystemKeyIndexUsage(Name alias) {
         this(alias, SYSTEM_KEY_INDEX_USAGE);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_KEY_INDEX_USAGE</code> table
+     * reference
      */
     public SystemKeyIndexUsage() {
         this(DSL.name("SYSTEM_KEY_INDEX_USAGE"), null);
@@ -105,7 +115,7 @@ public class SystemKeyIndexUsage extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

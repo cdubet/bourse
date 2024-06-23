@@ -17,7 +17,7 @@ import org.jooq.impl.Internal;
 
 
 /**
- * A class modelling foreign key relationships and constraints of tables in 
+ * A class modelling foreign key relationships and constraints of tables in
  * SYSTEM_LOBS.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })

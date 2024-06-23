@@ -20,8 +20,8 @@ import org.jooq.impl.TableImpl;
 
 
 /**
- * one row for each table identified by a &lt;table name&gt; simply contained 
- * in a &lt;table reference&gt; that is contained in the &lt;query expression&gt; 
+ * one row for each table identified by a &lt;table name&gt; simply contained in
+ * a &lt;table reference&gt; that is contained in the &lt;query expression&gt;
  * of a view
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
@@ -30,7 +30,8 @@ public class ViewTableUsage extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE</code>
      */
     public static final ViewTableUsage VIEW_TABLE_USAGE = new ViewTableUsage();
 
@@ -58,7 +59,8 @@ public class ViewTableUsage extends TableImpl<Record> {
     public final TableField<Record, String> VIEW_NAME = createField(DSL.name("VIEW_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE.TABLE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE.TABLE_CATALOG</code>.
      */
     public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
@@ -81,14 +83,16 @@ public class ViewTableUsage extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE</code> table
+     * reference
      */
     public ViewTableUsage(String alias) {
         this(DSL.name(alias), VIEW_TABLE_USAGE);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.VIEW_TABLE_USAGE</code> table
+     * reference
      */
     public ViewTableUsage(Name alias) {
         this(alias, VIEW_TABLE_USAGE);
@@ -107,7 +111,7 @@ public class ViewTableUsage extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

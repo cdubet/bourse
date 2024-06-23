@@ -4,7 +4,7 @@
 package net.tuxanna.database.jooq.information_schema.tables;
 
 
-import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 import net.tuxanna.database.jooq.information_schema.InformationSchema;
 
@@ -113,17 +113,20 @@ public class Routines extends TableImpl<Record> {
     public final TableField<Record, String> DATA_TYPE = createField(DSL.name("DATA_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.CHARACTER_MAXIMUM_LENGTH</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.CHARACTER_MAXIMUM_LENGTH</code>.
      */
     public final TableField<Record, Long> CHARACTER_MAXIMUM_LENGTH = createField(DSL.name("CHARACTER_MAXIMUM_LENGTH"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.CHARACTER_OCTET_LENGTH</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.CHARACTER_OCTET_LENGTH</code>.
      */
     public final TableField<Record, Long> CHARACTER_OCTET_LENGTH = createField(DSL.name("CHARACTER_OCTET_LENGTH"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.CHARACTER_SET_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.CHARACTER_SET_CATALOG</code>.
      */
     public final TableField<Record, String> CHARACTER_SET_CATALOG = createField(DSL.name("CHARACTER_SET_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
@@ -158,7 +161,8 @@ public class Routines extends TableImpl<Record> {
     public final TableField<Record, Long> NUMERIC_PRECISION = createField(DSL.name("NUMERIC_PRECISION"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.NUMERIC_PRECISION_RADIX</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.NUMERIC_PRECISION_RADIX</code>.
      */
     public final TableField<Record, Long> NUMERIC_PRECISION_RADIX = createField(DSL.name("NUMERIC_PRECISION_RADIX"), SQLDataType.BIGINT, this, "");
 
@@ -273,7 +277,8 @@ public class Routines extends TableImpl<Record> {
     public final TableField<Record, String> SCHEMA_LEVEL_ROUTINE = createField(DSL.name("SCHEMA_LEVEL_ROUTINE"), SQLDataType.VARCHAR(3), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.MAX_DYNAMIC_RESULT_SETS</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.MAX_DYNAMIC_RESULT_SETS</code>.
      */
     public final TableField<Record, Long> MAX_DYNAMIC_RESULT_SETS = createField(DSL.name("MAX_DYNAMIC_RESULT_SETS"), SQLDataType.BIGINT, this, "");
 
@@ -283,7 +288,8 @@ public class Routines extends TableImpl<Record> {
     public final TableField<Record, String> IS_USER_DEFINED_CAST = createField(DSL.name("IS_USER_DEFINED_CAST"), SQLDataType.VARCHAR(3), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.IS_IMPLICITLY_INVOCABLE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.IS_IMPLICITLY_INVOCABLE</code>.
      */
     public final TableField<Record, String> IS_IMPLICITLY_INVOCABLE = createField(DSL.name("IS_IMPLICITLY_INVOCABLE"), SQLDataType.VARCHAR(3), this, "");
 
@@ -293,12 +299,14 @@ public class Routines extends TableImpl<Record> {
     public final TableField<Record, String> SECURITY_TYPE = createField(DSL.name("SECURITY_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.TO_SQL_SPECIFIC_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.TO_SQL_SPECIFIC_CATALOG</code>.
      */
     public final TableField<Record, String> TO_SQL_SPECIFIC_CATALOG = createField(DSL.name("TO_SQL_SPECIFIC_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.TO_SQL_SPECIFIC_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.TO_SQL_SPECIFIC_SCHEMA</code>.
      */
     public final TableField<Record, String> TO_SQL_SPECIFIC_SCHEMA = createField(DSL.name("TO_SQL_SPECIFIC_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
@@ -315,12 +323,12 @@ public class Routines extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.ROUTINES.CREATED</code>.
      */
-    public final TableField<Record, LocalDateTime> CREATED = createField(DSL.name("CREATED"), SQLDataType.LOCALDATETIME(6), this, "");
+    public final TableField<Record, OffsetDateTime> CREATED = createField(DSL.name("CREATED"), SQLDataType.TIMESTAMPWITHTIMEZONE(6), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROUTINES.LAST_ALTERED</code>.
      */
-    public final TableField<Record, LocalDateTime> LAST_ALTERED = createField(DSL.name("LAST_ALTERED"), SQLDataType.LOCALDATETIME(6), this, "");
+    public final TableField<Record, OffsetDateTime> LAST_ALTERED = createField(DSL.name("LAST_ALTERED"), SQLDataType.TIMESTAMPWITHTIMEZONE(6), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROUTINES.NEW_SAVEPOINT_LEVEL</code>.
@@ -333,122 +341,146 @@ public class Routines extends TableImpl<Record> {
     public final TableField<Record, String> IS_UDT_DEPENDENT = createField(DSL.name("IS_UDT_DEPENDENT"), SQLDataType.VARCHAR(3), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_FROM_DATA_TYPE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_FROM_DATA_TYPE</code>.
      */
     public final TableField<Record, String> RESULT_CAST_FROM_DATA_TYPE = createField(DSL.name("RESULT_CAST_FROM_DATA_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_AS_LOCATOR</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_AS_LOCATOR</code>.
      */
     public final TableField<Record, String> RESULT_CAST_AS_LOCATOR = createField(DSL.name("RESULT_CAST_AS_LOCATOR"), SQLDataType.VARCHAR(3), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_CHAR_MAX_LENGTH</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_CHAR_MAX_LENGTH</code>.
      */
     public final TableField<Record, Long> RESULT_CAST_CHAR_MAX_LENGTH = createField(DSL.name("RESULT_CAST_CHAR_MAX_LENGTH"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_CHAR_OCTET_LENGTH</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_CHAR_OCTET_LENGTH</code>.
      */
     public final TableField<Record, Long> RESULT_CAST_CHAR_OCTET_LENGTH = createField(DSL.name("RESULT_CAST_CHAR_OCTET_LENGTH"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_CHAR_SET_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_CHAR_SET_CATALOG</code>.
      */
     public final TableField<Record, String> RESULT_CAST_CHAR_SET_CATALOG = createField(DSL.name("RESULT_CAST_CHAR_SET_CATALOG"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_CHAR_SET_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_CHAR_SET_SCHEMA</code>.
      */
     public final TableField<Record, String> RESULT_CAST_CHAR_SET_SCHEMA = createField(DSL.name("RESULT_CAST_CHAR_SET_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_CHARACTER_SET_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_CHARACTER_SET_NAME</code>.
      */
     public final TableField<Record, String> RESULT_CAST_CHARACTER_SET_NAME = createField(DSL.name("RESULT_CAST_CHARACTER_SET_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_COLLATION_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_COLLATION_CATALOG</code>.
      */
     public final TableField<Record, String> RESULT_CAST_COLLATION_CATALOG = createField(DSL.name("RESULT_CAST_COLLATION_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_COLLATION_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_COLLATION_SCHEMA</code>.
      */
     public final TableField<Record, String> RESULT_CAST_COLLATION_SCHEMA = createField(DSL.name("RESULT_CAST_COLLATION_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_COLLATION_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_COLLATION_NAME</code>.
      */
     public final TableField<Record, String> RESULT_CAST_COLLATION_NAME = createField(DSL.name("RESULT_CAST_COLLATION_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_NUMERIC_PRECISION</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_NUMERIC_PRECISION</code>.
      */
     public final TableField<Record, Long> RESULT_CAST_NUMERIC_PRECISION = createField(DSL.name("RESULT_CAST_NUMERIC_PRECISION"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_NUMERIC_RADIX</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_NUMERIC_RADIX</code>.
      */
     public final TableField<Record, Long> RESULT_CAST_NUMERIC_RADIX = createField(DSL.name("RESULT_CAST_NUMERIC_RADIX"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_NUMERIC_SCALE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_NUMERIC_SCALE</code>.
      */
     public final TableField<Record, Long> RESULT_CAST_NUMERIC_SCALE = createField(DSL.name("RESULT_CAST_NUMERIC_SCALE"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_DATETIME_PRECISION</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_DATETIME_PRECISION</code>.
      */
     public final TableField<Record, Long> RESULT_CAST_DATETIME_PRECISION = createField(DSL.name("RESULT_CAST_DATETIME_PRECISION"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_INTERVAL_TYPE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_INTERVAL_TYPE</code>.
      */
     public final TableField<Record, String> RESULT_CAST_INTERVAL_TYPE = createField(DSL.name("RESULT_CAST_INTERVAL_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_INTERVAL_PRECISION</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_INTERVAL_PRECISION</code>.
      */
     public final TableField<Record, Long> RESULT_CAST_INTERVAL_PRECISION = createField(DSL.name("RESULT_CAST_INTERVAL_PRECISION"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_TYPE_UDT_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_TYPE_UDT_CATALOG</code>.
      */
     public final TableField<Record, String> RESULT_CAST_TYPE_UDT_CATALOG = createField(DSL.name("RESULT_CAST_TYPE_UDT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_TYPE_UDT_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_TYPE_UDT_SCHEMA</code>.
      */
     public final TableField<Record, String> RESULT_CAST_TYPE_UDT_SCHEMA = createField(DSL.name("RESULT_CAST_TYPE_UDT_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_TYPE_UDT_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_TYPE_UDT_NAME</code>.
      */
     public final TableField<Record, String> RESULT_CAST_TYPE_UDT_NAME = createField(DSL.name("RESULT_CAST_TYPE_UDT_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_SCOPE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_SCOPE_CATALOG</code>.
      */
     public final TableField<Record, String> RESULT_CAST_SCOPE_CATALOG = createField(DSL.name("RESULT_CAST_SCOPE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_SCOPE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_SCOPE_SCHEMA</code>.
      */
     public final TableField<Record, String> RESULT_CAST_SCOPE_SCHEMA = createField(DSL.name("RESULT_CAST_SCOPE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_SCOPE_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_SCOPE_NAME</code>.
      */
     public final TableField<Record, String> RESULT_CAST_SCOPE_NAME = createField(DSL.name("RESULT_CAST_SCOPE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_MAX_CARDINALITY</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_MAX_CARDINALITY</code>.
      */
     public final TableField<Record, Long> RESULT_CAST_MAX_CARDINALITY = createField(DSL.name("RESULT_CAST_MAX_CARDINALITY"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_DTD_IDENTIFIER</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_DTD_IDENTIFIER</code>.
      */
     public final TableField<Record, String> RESULT_CAST_DTD_IDENTIFIER = createField(DSL.name("RESULT_CAST_DTD_IDENTIFIER"), SQLDataType.VARCHAR(65536), this, "");
 
@@ -458,27 +490,32 @@ public class Routines extends TableImpl<Record> {
     public final TableField<Record, String> DECLARED_DATA_TYPE = createField(DSL.name("DECLARED_DATA_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.DECLARED_NUMERIC_PRECISION</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.DECLARED_NUMERIC_PRECISION</code>.
      */
     public final TableField<Record, Long> DECLARED_NUMERIC_PRECISION = createField(DSL.name("DECLARED_NUMERIC_PRECISION"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.DECLARED_NUMERIC_SCALE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.DECLARED_NUMERIC_SCALE</code>.
      */
     public final TableField<Record, Long> DECLARED_NUMERIC_SCALE = createField(DSL.name("DECLARED_NUMERIC_SCALE"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_FROM_DECLARED_DATA_TYPE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_FROM_DECLARED_DATA_TYPE</code>.
      */
     public final TableField<Record, String> RESULT_CAST_FROM_DECLARED_DATA_TYPE = createField(DSL.name("RESULT_CAST_FROM_DECLARED_DATA_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_DECLARED_NUMERIC_PRECISION</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_DECLARED_NUMERIC_PRECISION</code>.
      */
     public final TableField<Record, Long> RESULT_CAST_DECLARED_NUMERIC_PRECISION = createField(DSL.name("RESULT_CAST_DECLARED_NUMERIC_PRECISION"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_DECLARED_NUMERIC_SCALE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROUTINES.RESULT_CAST_DECLARED_NUMERIC_SCALE</code>.
      */
     public final TableField<Record, Long> RESULT_CAST_DECLARED_NUMERIC_SCALE = createField(DSL.name("RESULT_CAST_DECLARED_NUMERIC_SCALE"), SQLDataType.BIGINT, this, "");
 
@@ -491,14 +528,16 @@ public class Routines extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ROUTINES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.ROUTINES</code> table
+     * reference
      */
     public Routines(String alias) {
         this(DSL.name(alias), ROUTINES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ROUTINES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.ROUTINES</code> table
+     * reference
      */
     public Routines(Name alias) {
         this(alias, ROUTINES);
@@ -517,7 +556,7 @@ public class Routines extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

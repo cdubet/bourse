@@ -20,7 +20,7 @@ import org.jooq.impl.TableImpl;
 
 
 /**
- * the visible user level access permissions of each visible column of each 
+ * the visible user level access permissions of each visible column of each
  * accessible table defined within this database
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
@@ -29,7 +29,8 @@ public class ColumnPrivileges extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES</code>
      */
     public static final ColumnPrivileges COLUMN_PRIVILEGES = new ColumnPrivileges();
 
@@ -52,12 +53,14 @@ public class ColumnPrivileges extends TableImpl<Record> {
     public final TableField<Record, String> GRANTEE = createField(DSL.name("GRANTEE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.TABLE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.TABLE_CATALOG</code>.
      */
     public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.TABLE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.TABLE_SCHEMA</code>.
      */
     public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
@@ -72,12 +75,14 @@ public class ColumnPrivileges extends TableImpl<Record> {
     public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.PRIVILEGE_TYPE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.PRIVILEGE_TYPE</code>.
      */
     public final TableField<Record, String> PRIVILEGE_TYPE = createField(DSL.name("PRIVILEGE_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.IS_GRANTABLE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES.IS_GRANTABLE</code>.
      */
     public final TableField<Record, String> IS_GRANTABLE = createField(DSL.name("IS_GRANTABLE"), SQLDataType.VARCHAR(3), this, "");
 
@@ -90,21 +95,24 @@ public class ColumnPrivileges extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES</code> table
+     * reference
      */
     public ColumnPrivileges(String alias) {
         this(DSL.name(alias), COLUMN_PRIVILEGES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES</code> table
+     * reference
      */
     public ColumnPrivileges(Name alias) {
         this(alias, COLUMN_PRIVILEGES);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.COLUMN_PRIVILEGES</code> table
+     * reference
      */
     public ColumnPrivileges() {
         this(DSL.name("COLUMN_PRIVILEGES"), null);
@@ -116,7 +124,7 @@ public class ColumnPrivileges extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

@@ -20,8 +20,8 @@ import org.jooq.impl.TableImpl;
 
 
 /**
- * one row for each column of a table that is explicitly or implicitly referenced 
- * in the &lt;query expression&gt; of the view being described
+ * one row for each column of a table that is explicitly or implicitly
+ * referenced in the &lt;query expression&gt; of the view being described
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class ViewColumnUsage extends TableImpl<Record> {
@@ -29,7 +29,8 @@ public class ViewColumnUsage extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE</code>
      */
     public static final ViewColumnUsage VIEW_COLUMN_USAGE = new ViewColumnUsage();
 
@@ -42,7 +43,8 @@ public class ViewColumnUsage extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.VIEW_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.VIEW_CATALOG</code>.
      */
     public final TableField<Record, String> VIEW_CATALOG = createField(DSL.name("VIEW_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
@@ -57,12 +59,14 @@ public class ViewColumnUsage extends TableImpl<Record> {
     public final TableField<Record, String> VIEW_NAME = createField(DSL.name("VIEW_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.TABLE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.TABLE_CATALOG</code>.
      */
     public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.TABLE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.TABLE_SCHEMA</code>.
      */
     public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
@@ -85,21 +89,24 @@ public class ViewColumnUsage extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE</code> table
+     * reference
      */
     public ViewColumnUsage(String alias) {
         this(DSL.name(alias), VIEW_COLUMN_USAGE);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE</code> table
+     * reference
      */
     public ViewColumnUsage(Name alias) {
         this(alias, VIEW_COLUMN_USAGE);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE</code> table
+     * reference
      */
     public ViewColumnUsage() {
         this(DSL.name("VIEW_COLUMN_USAGE"), null);
@@ -111,7 +118,7 @@ public class ViewColumnUsage extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

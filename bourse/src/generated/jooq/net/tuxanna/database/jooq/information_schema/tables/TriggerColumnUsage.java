@@ -28,7 +28,8 @@ public class TriggerColumnUsage extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE</code>
      */
     public static final TriggerColumnUsage TRIGGER_COLUMN_USAGE = new TriggerColumnUsage();
 
@@ -41,37 +42,44 @@ public class TriggerColumnUsage extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE.TRIGGER_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE.TRIGGER_CATALOG</code>.
      */
     public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE.TRIGGER_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE.TRIGGER_SCHEMA</code>.
      */
     public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE.TRIGGER_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE.TRIGGER_NAME</code>.
      */
     public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE.TABLE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE.TABLE_CATALOG</code>.
      */
     public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE.TABLE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE.TABLE_SCHEMA</code>.
      */
     public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE.TABLE_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE.TABLE_NAME</code>.
      */
     public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE.COLUMN_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE.COLUMN_NAME</code>.
      */
     public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "");
 
@@ -84,21 +92,24 @@ public class TriggerColumnUsage extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE</code>
+     * table reference
      */
     public TriggerColumnUsage(String alias) {
         this(DSL.name(alias), TRIGGER_COLUMN_USAGE);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE</code>
+     * table reference
      */
     public TriggerColumnUsage(Name alias) {
         this(alias, TRIGGER_COLUMN_USAGE);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.TRIGGER_COLUMN_USAGE</code> table
+     * reference
      */
     public TriggerColumnUsage() {
         this(DSL.name("TRIGGER_COLUMN_USAGE"), null);
@@ -110,7 +121,7 @@ public class TriggerColumnUsage extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

@@ -11,7 +11,7 @@ plugins {
     // Apply the java-library plugin to add support for Java Library
     id 'java-library'
  
-    id 'nu.studer.jooq' version '5.1.0'
+    id 'nu.studer.jooq' version '7.1.1'
 
 }
 
@@ -29,20 +29,20 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     //implementation 'com.google.guava:guava:28.2-jre'
 
-	implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
-	implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+	implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.0'
+	implementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.0'
 	
-	implementation group: 'org.apache.logging.log4j', name: 'log4j-api',version: '2.6.2' //version: '2.13.3'
-  	implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.6.2' //version: '2.13.3'
+	implementation group: 'org.apache.logging.log4j', name: 'log4j-api',version: '2.17.1' 
+  	implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.1'
   
-	implementation group: 'org.hsqldb', name: 'hsqldb' ,version: '2.5.1'
+	implementation group: 'org.hsqldb', name: 'hsqldb' ,version: '2.7.0'
 	
 	
 	implementation group: 'com.googlecode.jatl', name: 'jatl', version: '0.2.3'    
-    implementation group: 'org.apache.commons',name:'commons-lang3',version:'3.4' //'3.11'
+    implementation group: 'org.apache.commons',name:'commons-lang3',version:'3.12.0' 
     implementation group: 'org.apache.commons' , name:'commons-email', version:'1.5'
 
-    implementation group: 'org.jsoup',name:'jsoup',version:'1.13.1'
+    implementation group: 'org.jsoup',name:'jsoup',version:'1.15.3'
 
 
 
@@ -54,17 +54,11 @@ dependencies {
     //TODO use https://github.com/ferigma/dbunit-gradle-plugin
     testImplementation 'org.dbunit:dbunit:2.7.0'
 
-    jooqGenerator 'org.hsqldb:hsqldb:2.5.1'
+    jooqGenerator 'org.hsqldb:hsqldb:2.7.0'
 }
 
 jooq {
-  version = '3.14.4'  // the default (can be omitted)
-  edition = nu.studer.gradle.jooq.JooqEdition.OSS  // the default (can be omitted)
-}
-
-
-jooq {
-    version = '3.14.4'
+    version = '3.16.10'
     edition = nu.studer.gradle.jooq.JooqEdition.OSS
 
     configurations {

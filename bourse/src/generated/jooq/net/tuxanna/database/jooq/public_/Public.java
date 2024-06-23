@@ -78,12 +78,13 @@ public class Public extends SchemaImpl {
 
     @Override
     public final List<Table<?>> getTables() {
-        return Arrays.<Table<?>>asList(
+        return Arrays.asList(
             Account.ACCOUNT,
             Buy.BUY,
             Portfolio.PORTFOLIO,
             Quotes.QUOTES,
             Sell.SELL,
-            Shares.SHARES);
+            Shares.SHARES
+        );
     }
 }

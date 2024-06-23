@@ -28,7 +28,8 @@ public class SqlImplementationInfo extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO</code>
      */
     public static final SqlImplementationInfo SQL_IMPLEMENTATION_INFO = new SqlImplementationInfo();
 
@@ -41,27 +42,32 @@ public class SqlImplementationInfo extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.IMPLEMENTATION_INFO_ID</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.IMPLEMENTATION_INFO_ID</code>.
      */
     public final TableField<Record, Long> IMPLEMENTATION_INFO_ID = createField(DSL.name("IMPLEMENTATION_INFO_ID"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.IMPLEMENTATION_INFO_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.IMPLEMENTATION_INFO_NAME</code>.
      */
     public final TableField<Record, String> IMPLEMENTATION_INFO_NAME = createField(DSL.name("IMPLEMENTATION_INFO_NAME"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.INTEGER_VALUE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.INTEGER_VALUE</code>.
      */
     public final TableField<Record, Long> INTEGER_VALUE = createField(DSL.name("INTEGER_VALUE"), SQLDataType.BIGINT, this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.CHARACTER_VALUE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.CHARACTER_VALUE</code>.
      */
     public final TableField<Record, String> CHARACTER_VALUE = createField(DSL.name("CHARACTER_VALUE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.COMMENTS</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.COMMENTS</code>.
      */
     public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), SQLDataType.VARCHAR(65536), this, "");
 
@@ -74,21 +80,24 @@ public class SqlImplementationInfo extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO</code>
+     * table reference
      */
     public SqlImplementationInfo(String alias) {
         this(DSL.name(alias), SQL_IMPLEMENTATION_INFO);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO</code>
+     * table reference
      */
     public SqlImplementationInfo(Name alias) {
         this(alias, SQL_IMPLEMENTATION_INFO);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO</code> table
+     * reference
      */
     public SqlImplementationInfo() {
         this(DSL.name("SQL_IMPLEMENTATION_INFO"), null);
@@ -100,7 +109,7 @@ public class SqlImplementationInfo extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

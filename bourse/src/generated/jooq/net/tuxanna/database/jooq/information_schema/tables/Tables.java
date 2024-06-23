@@ -61,7 +61,8 @@ public class Tables extends TableImpl<Record> {
     public final TableField<Record, String> TABLE_TYPE = createField(DSL.name("TABLE_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLES.SELF_REFERENCING_COLUMN_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TABLES.SELF_REFERENCING_COLUMN_NAME</code>.
      */
     public final TableField<Record, String> SELF_REFERENCING_COLUMN_NAME = createField(DSL.name("SELF_REFERENCING_COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "");
 
@@ -71,12 +72,14 @@ public class Tables extends TableImpl<Record> {
     public final TableField<Record, String> REFERENCE_GENERATION = createField(DSL.name("REFERENCE_GENERATION"), SQLDataType.VARCHAR(65536), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLES.USER_DEFINED_TYPE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TABLES.USER_DEFINED_TYPE_CATALOG</code>.
      */
     public final TableField<Record, String> USER_DEFINED_TYPE_CATALOG = createField(DSL.name("USER_DEFINED_TYPE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.TABLES.USER_DEFINED_TYPE_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.TABLES.USER_DEFINED_TYPE_SCHEMA</code>.
      */
     public final TableField<Record, String> USER_DEFINED_TYPE_SCHEMA = createField(DSL.name("USER_DEFINED_TYPE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
@@ -135,7 +138,7 @@ public class Tables extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

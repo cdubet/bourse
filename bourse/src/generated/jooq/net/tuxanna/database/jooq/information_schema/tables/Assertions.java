@@ -74,14 +74,16 @@ public class Assertions extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ASSERTIONS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.ASSERTIONS</code> table
+     * reference
      */
     public Assertions(String alias) {
         this(DSL.name(alias), ASSERTIONS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ASSERTIONS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.ASSERTIONS</code> table
+     * reference
      */
     public Assertions(Name alias) {
         this(alias, ASSERTIONS);
@@ -100,7 +102,7 @@ public class Assertions extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

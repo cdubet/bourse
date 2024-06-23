@@ -20,7 +20,7 @@ import org.jooq.impl.TableImpl;
 
 
 /**
- * the visible columns of the accessible tables that are automatically updated 
+ * the visible columns of the accessible tables that are automatically updated
  * when any value in a row is updated
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
@@ -29,7 +29,8 @@ public class SystemVersioncolumns extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS</code>
      */
     public static final SystemVersioncolumns SYSTEM_VERSIONCOLUMNS = new SystemVersioncolumns();
 
@@ -42,57 +43,79 @@ public class SystemVersioncolumns extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.SCOPE</code>. not used
+     * The column <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.SCOPE</code>.
+     * not used
      */
     public final TableField<Record, Integer> SCOPE = createField(DSL.name("SCOPE"), SQLDataType.INTEGER, this, "not used");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.COLUMN_NAME</code>. column name
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.COLUMN_NAME</code>. column
+     * name
      */
     public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "column name");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.DATA_TYPE</code>. SQL data type from DITypes
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.DATA_TYPE</code>. SQL data
+     * type from DITypes
      */
     public final TableField<Record, Short> DATA_TYPE = createField(DSL.name("DATA_TYPE"), SQLDataType.SMALLINT, this, "SQL data type from DITypes");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.TYPE_NAME</code>. Data source dependent type name
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.TYPE_NAME</code>. Data
+     * source dependent type name
      */
     public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), SQLDataType.VARCHAR(128), this, "Data source dependent type name");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.COLUMN_SIZE</code>. precision
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.COLUMN_SIZE</code>.
+     * precision
      */
     public final TableField<Record, Short> COLUMN_SIZE = createField(DSL.name("COLUMN_SIZE"), SQLDataType.SMALLINT, this, "precision");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.BUFFER_LENGTH</code>. length of column value in bytes
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.BUFFER_LENGTH</code>.
+     * length of column value in bytes
      */
     public final TableField<Record, Integer> BUFFER_LENGTH = createField(DSL.name("BUFFER_LENGTH"), SQLDataType.INTEGER, this, "length of column value in bytes");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.DECIMAL_DIGITS</code>. scale
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.DECIMAL_DIGITS</code>.
+     * scale
      */
     public final TableField<Record, Short> DECIMAL_DIGITS = createField(DSL.name("DECIMAL_DIGITS"), SQLDataType.SMALLINT, this, "scale");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.PSEUDO_COLUMN</code>. is this a pseudo column like an Oracle ROWID: { Unknown | Not Pseudo | Pseudo }?
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.PSEUDO_COLUMN</code>. is
+     * this a pseudo column like an Oracle ROWID: { Unknown | Not Pseudo |
+     * Pseudo }?
      */
     public final TableField<Record, Short> PSEUDO_COLUMN = createField(DSL.name("PSEUDO_COLUMN"), SQLDataType.SMALLINT, this, "is this a pseudo column like an Oracle ROWID: { Unknown | Not Pseudo | Pseudo }?");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.TABLE_CAT</code>. table catalog
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.TABLE_CAT</code>. table
+     * catalog
      */
     public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), SQLDataType.VARCHAR(128), this, "table catalog");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.TABLE_SCHEM</code>. table schema
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.TABLE_SCHEM</code>. table
+     * schema
      */
     public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "table schema");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.TABLE_NAME</code>. simple table name
+     * The column
+     * <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.TABLE_NAME</code>. simple
+     * table name
      */
     public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "simple table name");
 
@@ -105,21 +128,24 @@ public class SystemVersioncolumns extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS</code>
+     * table reference
      */
     public SystemVersioncolumns(String alias) {
         this(DSL.name(alias), SYSTEM_VERSIONCOLUMNS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS</code>
+     * table reference
      */
     public SystemVersioncolumns(Name alias) {
         this(alias, SYSTEM_VERSIONCOLUMNS);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS</code> table
+     * reference
      */
     public SystemVersioncolumns() {
         this(DSL.name("SYSTEM_VERSIONCOLUMNS"), null);
@@ -131,7 +157,7 @@ public class SystemVersioncolumns extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

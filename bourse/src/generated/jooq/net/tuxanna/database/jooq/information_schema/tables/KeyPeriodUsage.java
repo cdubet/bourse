@@ -28,7 +28,8 @@ public class KeyPeriodUsage extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.KEY_PERIOD_USAGE</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.KEY_PERIOD_USAGE</code>
      */
     public static final KeyPeriodUsage KEY_PERIOD_USAGE = new KeyPeriodUsage();
 
@@ -41,22 +42,26 @@ public class KeyPeriodUsage extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.KEY_PERIOD_USAGE.CONSTRAINT_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.KEY_PERIOD_USAGE.CONSTRAINT_CATALOG</code>.
      */
     public final TableField<Record, String> CONSTRAINT_CATALOG = createField(DSL.name("CONSTRAINT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.KEY_PERIOD_USAGE.CONSTRAINT_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.KEY_PERIOD_USAGE.CONSTRAINT_SCHEMA</code>.
      */
     public final TableField<Record, String> CONSTRAINT_SCHEMA = createField(DSL.name("CONSTRAINT_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.KEY_PERIOD_USAGE.CONSTRAINT_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.KEY_PERIOD_USAGE.CONSTRAINT_NAME</code>.
      */
     public final TableField<Record, String> CONSTRAINT_NAME = createField(DSL.name("CONSTRAINT_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.KEY_PERIOD_USAGE.TABLE_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.KEY_PERIOD_USAGE.TABLE_CATALOG</code>.
      */
     public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
@@ -84,14 +89,16 @@ public class KeyPeriodUsage extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.KEY_PERIOD_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.KEY_PERIOD_USAGE</code> table
+     * reference
      */
     public KeyPeriodUsage(String alias) {
         this(DSL.name(alias), KEY_PERIOD_USAGE);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.KEY_PERIOD_USAGE</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.KEY_PERIOD_USAGE</code> table
+     * reference
      */
     public KeyPeriodUsage(Name alias) {
         this(alias, KEY_PERIOD_USAGE);
@@ -110,7 +117,7 @@ public class KeyPeriodUsage extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

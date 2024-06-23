@@ -28,7 +28,8 @@ public class DataTypePrivileges extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES</code>
      */
     public static final DataTypePrivileges DATA_TYPE_PRIVILEGES = new DataTypePrivileges();
 
@@ -41,27 +42,32 @@ public class DataTypePrivileges extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES.OBJECT_CATALOG</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES.OBJECT_CATALOG</code>.
      */
     public final TableField<Record, String> OBJECT_CATALOG = createField(DSL.name("OBJECT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES.OBJECT_SCHEMA</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES.OBJECT_SCHEMA</code>.
      */
     public final TableField<Record, String> OBJECT_SCHEMA = createField(DSL.name("OBJECT_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES.OBJECT_NAME</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES.OBJECT_NAME</code>.
      */
     public final TableField<Record, String> OBJECT_NAME = createField(DSL.name("OBJECT_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES.OBJECT_TYPE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES.OBJECT_TYPE</code>.
      */
     public final TableField<Record, String> OBJECT_TYPE = createField(DSL.name("OBJECT_TYPE"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES.DTD_IDENTIFIER</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES.DTD_IDENTIFIER</code>.
      */
     public final TableField<Record, String> DTD_IDENTIFIER = createField(DSL.name("DTD_IDENTIFIER"), SQLDataType.VARCHAR(128), this, "");
 
@@ -74,21 +80,24 @@ public class DataTypePrivileges extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES</code>
+     * table reference
      */
     public DataTypePrivileges(String alias) {
         this(DSL.name(alias), DATA_TYPE_PRIVILEGES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES</code>
+     * table reference
      */
     public DataTypePrivileges(Name alias) {
         this(alias, DATA_TYPE_PRIVILEGES);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.DATA_TYPE_PRIVILEGES</code> table
+     * reference
      */
     public DataTypePrivileges() {
         this(DSL.name("DATA_TYPE_PRIVILEGES"), null);
@@ -100,7 +109,7 @@ public class DataTypePrivileges extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

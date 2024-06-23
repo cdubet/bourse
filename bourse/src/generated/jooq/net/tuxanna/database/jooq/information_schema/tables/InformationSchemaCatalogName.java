@@ -28,7 +28,8 @@ public class InformationSchemaCatalogName extends TableImpl<Record> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>INFORMATION_SCHEMA.INFORMATION_SCHEMA_CATALOG_NAME</code>
+     * The reference instance of
+     * <code>INFORMATION_SCHEMA.INFORMATION_SCHEMA_CATALOG_NAME</code>
      */
     public static final InformationSchemaCatalogName INFORMATION_SCHEMA_CATALOG_NAME = new InformationSchemaCatalogName();
 
@@ -41,7 +42,9 @@ public class InformationSchemaCatalogName extends TableImpl<Record> {
     }
 
     /**
-     * The column <code>INFORMATION_SCHEMA.INFORMATION_SCHEMA_CATALOG_NAME.CATALOG_NAME</code>. catalog name
+     * The column
+     * <code>INFORMATION_SCHEMA.INFORMATION_SCHEMA_CATALOG_NAME.CATALOG_NAME</code>.
+     * catalog name
      */
     public final TableField<Record, String> CATALOG_NAME = createField(DSL.name("CATALOG_NAME"), SQLDataType.VARCHAR(128), this, "catalog name");
 
@@ -54,21 +57,26 @@ public class InformationSchemaCatalogName extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.INFORMATION_SCHEMA_CATALOG_NAME</code> table reference
+     * Create an aliased
+     * <code>INFORMATION_SCHEMA.INFORMATION_SCHEMA_CATALOG_NAME</code> table
+     * reference
      */
     public InformationSchemaCatalogName(String alias) {
         this(DSL.name(alias), INFORMATION_SCHEMA_CATALOG_NAME);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.INFORMATION_SCHEMA_CATALOG_NAME</code> table reference
+     * Create an aliased
+     * <code>INFORMATION_SCHEMA.INFORMATION_SCHEMA_CATALOG_NAME</code> table
+     * reference
      */
     public InformationSchemaCatalogName(Name alias) {
         this(alias, INFORMATION_SCHEMA_CATALOG_NAME);
     }
 
     /**
-     * Create a <code>INFORMATION_SCHEMA.INFORMATION_SCHEMA_CATALOG_NAME</code> table reference
+     * Create a <code>INFORMATION_SCHEMA.INFORMATION_SCHEMA_CATALOG_NAME</code>
+     * table reference
      */
     public InformationSchemaCatalogName() {
         this(DSL.name("INFORMATION_SCHEMA_CATALOG_NAME"), null);
@@ -80,7 +88,7 @@ public class InformationSchemaCatalogName extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

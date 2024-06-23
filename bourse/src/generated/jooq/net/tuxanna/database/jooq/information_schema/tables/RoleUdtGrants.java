@@ -66,7 +66,8 @@ public class RoleUdtGrants extends TableImpl<Record> {
     public final TableField<Record, String> UDT_NAME = createField(DSL.name("UDT_NAME"), SQLDataType.VARCHAR(128), this, "");
 
     /**
-     * The column <code>INFORMATION_SCHEMA.ROLE_UDT_GRANTS.PRIVILEGE_TYPE</code>.
+     * The column
+     * <code>INFORMATION_SCHEMA.ROLE_UDT_GRANTS.PRIVILEGE_TYPE</code>.
      */
     public final TableField<Record, String> PRIVILEGE_TYPE = createField(DSL.name("PRIVILEGE_TYPE"), SQLDataType.VARCHAR(65536), this, "");
 
@@ -84,14 +85,16 @@ public class RoleUdtGrants extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ROLE_UDT_GRANTS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.ROLE_UDT_GRANTS</code> table
+     * reference
      */
     public RoleUdtGrants(String alias) {
         this(DSL.name(alias), ROLE_UDT_GRANTS);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.ROLE_UDT_GRANTS</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.ROLE_UDT_GRANTS</code> table
+     * reference
      */
     public RoleUdtGrants(Name alias) {
         this(alias, ROLE_UDT_GRANTS);
@@ -110,7 +113,7 @@ public class RoleUdtGrants extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override

@@ -84,14 +84,16 @@ public class SqlFeatures extends TableImpl<Record> {
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SQL_FEATURES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SQL_FEATURES</code> table
+     * reference
      */
     public SqlFeatures(String alias) {
         this(DSL.name(alias), SQL_FEATURES);
     }
 
     /**
-     * Create an aliased <code>INFORMATION_SCHEMA.SQL_FEATURES</code> table reference
+     * Create an aliased <code>INFORMATION_SCHEMA.SQL_FEATURES</code> table
+     * reference
      */
     public SqlFeatures(Name alias) {
         this(alias, SQL_FEATURES);
@@ -110,7 +112,7 @@ public class SqlFeatures extends TableImpl<Record> {
 
     @Override
     public Schema getSchema() {
-        return InformationSchema.INFORMATION_SCHEMA;
+        return aliased() ? null : InformationSchema.INFORMATION_SCHEMA;
     }
 
     @Override
