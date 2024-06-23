@@ -55,7 +55,6 @@ public class BoursoramaParserTest
 		assertEquals(149.10, quote.getHighPrice().getValue(),0.001);
 		assertEquals(147.54, quote.getLowPrice().getValue(),0.001);
 		assertEquals(148.760, quote.getPreviousClose().getValue(),0.001);
-		assertEquals(194.580, quote.getPreviousClose().getValue(),0.001);
 		//TODO check non filled values
 		
 	}
