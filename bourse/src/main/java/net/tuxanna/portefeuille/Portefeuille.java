@@ -25,7 +25,7 @@ import picocli.CommandLine.ParameterException;
 
 public class Portefeuille   implements Runnable  {
 
-	private static final String VERSION="1.09.2";
+	private static final String VERSION="1.09.3";
 	private static final Logger logger = LogManager.getLogger(Portefeuille.class);
 
 	@Option(names={"-create"}, description="create database", required=false)  
@@ -77,6 +77,9 @@ public class Portefeuille   implements Runnable  {
 	
 	@Option(names = "--share", description="share name")
 	private String share;
+
+	@Option(names = "-version", description="print version")
+	private boolean printVersion;
 	
 	//TODO make version working
 //	class VersionedCommand {    // @Option(names = { "-V", "--version" }, versionHelp = true,
@@ -240,7 +243,11 @@ public class Portefeuille   implements Runnable  {
 	@Override
 	public void run()
 	{
-		if (createDB)
+		if (printVersion)
+		{
+			System.out.println(VERSION);
+		}
+		else if (createDB)
 		{
 			createDatabase();
 		}
