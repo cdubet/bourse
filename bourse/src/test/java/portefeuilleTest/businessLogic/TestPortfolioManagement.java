@@ -51,7 +51,7 @@ public class TestPortfolioManagement
 			ShareDB share=new ShareDB(idx,name, 
 					ticker.getSymbol(),
 					ShareDB.Currency.DOLLAR_US,
-					ticker.isShare());
+					ticker.getTypeOfItem());
 			listShares.add(share);
 		}
 
@@ -60,7 +60,7 @@ public class TestPortfolioManagement
 			ShareDB share=new ShareDB(++idx,"unknown share", 
 				"no ticker existinng",
 				ShareDB.Currency.DOLLAR_US,
-				true);
+				TickerI.TypeOfItem.TYPE_SHARE);
 			listShares.add(share);
 		}
 		ShareToQuotations listOfQuotationsDB=new ShareToQuotations();

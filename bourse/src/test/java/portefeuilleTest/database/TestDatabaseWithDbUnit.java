@@ -28,6 +28,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import net.tuxanna.portefeuille.dataFeed.TickerI;
 import net.tuxanna.portefeuille.database.ConditionPortfolioI;
 import net.tuxanna.portefeuille.database.ConditionPortfolioSharesMatchShareId;
 import net.tuxanna.portefeuille.database.ConditionQuoteDateBefore;
@@ -195,7 +196,7 @@ public class TestDatabaseWithDbUnit
 					"not matter", 
 					"not matter",
 					ShareDB.Currency.EURO, //does not matter
-					true //does not matter
+					TickerI.TypeOfItem.TYPE_SHARE //does not matter
 					);
 			SearchQuoteAtOneDay search=new SearchQuoteAtOneDay(share, newDateToSearch);
 			QuoteDB quote = testDb.readQuotationAtOneDay(search);
@@ -217,7 +218,7 @@ public class TestDatabaseWithDbUnit
 					"not matter",
 					"not matter",
 					ShareDB.Currency.EURO, //does not matter
-					true //does not matter
+					TickerI.TypeOfItem.TYPE_SHARE //does not matter
 					);
 
 			SearchQuoteAtOneDay search=new SearchQuoteAtOneDay(share, newDateToSearch);
@@ -235,7 +236,7 @@ public class TestDatabaseWithDbUnit
 					"not matter", 
 					"not matter",
 					ShareDB.Currency.EURO, //does not matter
-					true //does not matter
+					TickerI.TypeOfItem.TYPE_SHARE //does not matter
 					);
 
 			SearchQuoteAtOneDay search=new SearchQuoteAtOneDay(share, newDateToSearch);

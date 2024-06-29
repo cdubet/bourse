@@ -14,6 +14,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import net.tuxanna.portefeuille.Quote;
+import net.tuxanna.portefeuille.dataFeed.TickerI;
 import net.tuxanna.portefeuille.database.QuoteDB;
 import net.tuxanna.portefeuille.database.SearchQuoteI;
 import net.tuxanna.portefeuille.database.SearchQuoteStandard;
@@ -415,11 +416,11 @@ public class TestDatabaseStorage
 	private ArrayList<ShareDB> fillWithTestShares()
 	{
 		ArrayList<ShareDB> listSharesToWrite=new ArrayList<>();
-		listSharesToWrite.add(new ShareDB(NAME1,TICKER1,ShareDB.Currency.EURO,true));
-		listSharesToWrite.add(new ShareDB(NAME2,TICKER2,ShareDB.Currency.EURO,true));
-		listSharesToWrite.add(new ShareDB(NAME3,TICKER3,ShareDB.Currency.EURO,true));
-		listSharesToWrite.add(new ShareDB(NAME4,TICKER4,ShareDB.Currency.EURO,true));
-		listSharesToWrite.add(new ShareDB(NAME5,TICKER5,ShareDB.Currency.EURO,true));
+		listSharesToWrite.add(new ShareDB(NAME1,TICKER1,ShareDB.Currency.EURO,TickerI.TypeOfItem.TYPE_SHARE));
+		listSharesToWrite.add(new ShareDB(NAME2,TICKER2,ShareDB.Currency.EURO,TickerI.TypeOfItem.TYPE_SHARE));
+		listSharesToWrite.add(new ShareDB(NAME3,TICKER3,ShareDB.Currency.EURO,TickerI.TypeOfItem.TYPE_SHARE));
+		listSharesToWrite.add(new ShareDB(NAME4,TICKER4,ShareDB.Currency.EURO,TickerI.TypeOfItem.TYPE_SHARE));
+		listSharesToWrite.add(new ShareDB(NAME5,TICKER5,ShareDB.Currency.EURO,TickerI.TypeOfItem.TYPE_SHARE));
 		return listSharesToWrite;
 	}
 	

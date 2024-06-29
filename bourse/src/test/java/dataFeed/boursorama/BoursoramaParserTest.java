@@ -11,6 +11,7 @@ import org.junit.Test;
 import net.tuxanna.portefeuille.Quote;
 import net.tuxanna.portefeuille.dataFeed.Ticker;
 import net.tuxanna.portefeuille.dataFeed.TickerI;
+import net.tuxanna.portefeuille.dataFeed.TickerI.TypeOfItem;
 import net.tuxanna.portefeuille.data_feed.boursorama.BoursoramaParser;
 import net.tuxanna.portefeuille.data_feed.boursorama.BoursoramaQuotationProvider;
 
@@ -27,7 +28,7 @@ public class BoursoramaParserTest
 		parser.setDocProvider(jsoupProvider);
 		
 		Quote quote=new Quote();
-		assertTrue(parser.parse(true,quote));
+		assertTrue(parser.parse(TickerI.TypeOfItem.TYPE_SHARE,quote));
 		assertEquals(193.04, quote.getLastTradedPrice().getValue(),0.001);
 		assertEquals(1326239, quote.getVolume().getValue(),0.001);
 		assertEquals(0.0, quote.getOpenPrice().getValue(),0.001);
@@ -48,7 +49,7 @@ public class BoursoramaParserTest
 		parser.setDocProvider(jsoupProvider);
 		
 		Quote quote=new Quote();
-		assertTrue(parser.parse(true,quote));
+		assertTrue(parser.parse(TickerI.TypeOfItem.TYPE_SHARE,quote));
 		assertEquals(148.58, quote.getLastTradedPrice().getValue(),0.001);
 		assertEquals(1930361, quote.getVolume().getValue(),0.001);
 		assertEquals(148.88, quote.getOpenPrice().getValue(),0.001);
@@ -69,7 +70,7 @@ public class BoursoramaParserTest
 		parser.setDocProvider(jsoupProvider);
 		
 		Quote quote=new Quote();
-		assertTrue(parser.parse(true,quote));
+		assertTrue(parser.parse(TickerI.TypeOfItem.TYPE_SHARE,quote));
 		assertEquals(71.34, quote.getLastTradedPrice().getValue(),0.001);
 		assertEquals(0, quote.getVolume().getValue(),0.001);
 		assertEquals(0, quote.getOpenPrice().getValue(),0.001);
@@ -90,7 +91,7 @@ public class BoursoramaParserTest
 		parser.setDocProvider(jsoupProvider);
 		
 		Quote quote=new Quote();
-		assertTrue(parser.parse(true,quote));
+		assertTrue(parser.parse(TickerI.TypeOfItem.TYPE_SHARE,quote));
 		assertEquals(1495.560, quote.getLastTradedPrice().getValue(),0.001);
 		assertEquals(7925357, quote.getVolume().getValue(),0.001);
 		assertEquals(1539.74, quote.getOpenPrice().getValue(),0.001);
@@ -110,22 +111,38 @@ public class BoursoramaParserTest
 		parser.setDocProvider(jsoupProvider);
 		
 		Quote quote=new Quote();
-		assertTrue(parser.parse(false /* sicav */,quote));
+		assertTrue(parser.parse(TickerI.TypeOfItem.TYPE_SICAV,quote));
 		assertEquals(63.5900, quote.getLastTradedPrice().getValue(),0.001);
 		assertEquals(-0.19, quote.getChangeInPrice().getValue(),0.001);
 		
 		//TODO check non filled values
 	}
-	
+	@Test
+	public void testParseTracker()
+	{
+		BoursoramaParser parser=new BoursoramaParser();
+		
+		TestFileJsoupDocProvider jsoupProvider=new TestFileJsoupDocProvider();
+		jsoupProvider.setFileName("TEST_DATA/DATA_FEED/AMUNDI ETF EM AS U - USD, Cours Tracker AASU, Cotation Bourse Euronext Paris - Boursorama.html");
+		parser.setDocProvider(jsoupProvider);
+		
+		Quote quote=new Quote();
+		assertTrue(parser.parse(TickerI.TypeOfItem.TYPE_TRACKER,quote));
+		assertEquals(39.744, quote.getLastTradedPrice().getValue(),0.001);
+		assertEquals(0.66, quote.getChangeInPrice().getValue(),0.001);
+		
+		//TODO check non filled values
+	}
 	@Test
 	public void testWithRealBoursoramaDataFeed_ShareCase()
 	{
 		Duration timeOutHttpRequest=Duration.ofSeconds(60);
 		BoursoramaQuotationProvider provider=new BoursoramaQuotationProvider(3 /*3 threads*/, timeOutHttpRequest);
 		ArrayList<TickerI> listTickers=new ArrayList<TickerI> ();
-		listTickers.add(new Ticker("1rPAIR",true)); //airbus
-		listTickers.add(new Ticker("AMZN",true)); //amazon
-		listTickers.add(new Ticker("1rPENGI",true)); //engie
+
+		listTickers.add(new Ticker("1rPAIR",TickerI.TypeOfItem.TYPE_SHARE)); //airbus
+		listTickers.add(new Ticker("AMZN",TickerI.TypeOfItem.TYPE_SHARE)); //amazon
+		listTickers.add(new Ticker("1rPENGI",TickerI.TypeOfItem.TYPE_SHARE)); //engie
 		provider.setListTickers(listTickers);
 		HashMap<TickerI,Quote> quoteFromDataFeed=new HashMap<TickerI,Quote>  ();
 		final boolean res=provider.getQuotes(quoteFromDataFeed);
@@ -152,7 +169,7 @@ public class BoursoramaParserTest
 		Duration timeOutHttpRequest=Duration.ofSeconds(60);
 		BoursoramaQuotationProvider provider=new BoursoramaQuotationProvider(2 /*threads*/,timeOutHttpRequest);
 		ArrayList<TickerI> listTickers=new ArrayList<TickerI> ();
-		listTickers.add(new Ticker("MP-806536",false)); //sicav Prévoir Perspectives C - FR0007071931
+		listTickers.add(new Ticker("MP-806536",TickerI.TypeOfItem.TYPE_SICAV)); //sicav Prévoir Perspectives C - FR0007071931
 		provider.setListTickers(listTickers);
 		HashMap<TickerI,Quote> quoteFromDataFeed=new HashMap<TickerI,Quote>  ();
 		final boolean res=provider.getQuotes(quoteFromDataFeed);

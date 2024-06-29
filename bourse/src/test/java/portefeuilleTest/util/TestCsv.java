@@ -14,6 +14,7 @@ import org.junit.Test;
 import org.junit.Assert;
 import net.tuxanna.portefeuille.Quote;
 import net.tuxanna.portefeuille.business_logic.util.ShareToQuotations;
+import net.tuxanna.portefeuille.dataFeed.TickerI;
 import net.tuxanna.portefeuille.database.QuoteDB;
 import net.tuxanna.portefeuille.database.ShareDB;
 import net.tuxanna.portefeuille.database.ShareDB.Currency;
@@ -32,14 +33,13 @@ public class TestCsv
 	
 	List<ShareDB> buildListOf2Share(int id_share1,int id_share2)
 	{
-		final boolean isShare=true;//does not matter here
 		final Currency currency=Currency.EURO;
 
 		List<ShareDB> listShares=new ArrayList<>();
-		ShareDB share1=new ShareDB(id_share1,name1,ticker1,currency,isShare);
+		ShareDB share1=new ShareDB(id_share1,name1,ticker1,currency,TickerI.TypeOfItem.TYPE_SHARE /*does not matter here*/);
 		listShares.add(share1);
 
-		ShareDB share2=new ShareDB(id_share2,name2,ticker2,currency,isShare);
+		ShareDB share2=new ShareDB(id_share2,name2,ticker2,currency,TickerI.TypeOfItem.TYPE_SHARE/*does not matter here*/);
 		listShares.add(share2);
 
 		return listShares;

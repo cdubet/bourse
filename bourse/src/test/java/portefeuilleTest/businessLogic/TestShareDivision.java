@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import net.tuxanna.portefeuille.Quote;
 import net.tuxanna.portefeuille.business_logic.PortfolioManagement;
+import net.tuxanna.portefeuille.dataFeed.TickerI;
 import net.tuxanna.portefeuille.database.PortfolioDB;
 import net.tuxanna.portefeuille.database.QuoteDB;
 import net.tuxanna.portefeuille.database.ShareDB;
@@ -145,7 +146,7 @@ public class TestShareDivision
 		//test set up
 		PortfolioManagement portfolio=new PortfolioManagement();
 		
-		ShareDB share=new ShareDB(SHARE_ID,SHARE_NAME , SHARE_TICKER ,CURRENCY ,true);
+		ShareDB share=new ShareDB(SHARE_ID,SHARE_NAME , SHARE_TICKER ,CURRENCY ,TickerI.TypeOfItem.TYPE_SHARE);
 		List<PortfolioDB> listPorfolioOriginal=new ArrayList<>();
 		List<QuoteDB> listQuoteOriginal=new ArrayList<>();
 		fillFakeQuotationOriginal(listQuoteOriginal);
@@ -201,7 +202,7 @@ public class TestShareDivision
 		//test set up
 		PortfolioManagement portfolio=new PortfolioManagement();
 		
-		ShareDB share=new ShareDB(SHARE_ID,SHARE_NAME , SHARE_TICKER ,CURRENCY ,true);
+		ShareDB share=new ShareDB(SHARE_ID,SHARE_NAME , SHARE_TICKER ,CURRENCY ,TickerI.TypeOfItem.TYPE_SHARE);
 		List<PortfolioDB> listPorfolioOriginal=new ArrayList<>();
 		List<QuoteDB> listQuoteOriginal=new ArrayList<>();
 		fillFakeQuotationOriginal(listQuoteOriginal);
@@ -233,7 +234,7 @@ public class TestShareDivision
 		//test set up
 		PortfolioManagement portfolio=new PortfolioManagement();
 		
-		ShareDB share=new ShareDB(SHARE_ID,SHARE_NAME , SHARE_TICKER ,CURRENCY ,true);
+		ShareDB share=new ShareDB(SHARE_ID,SHARE_NAME , SHARE_TICKER ,CURRENCY ,TickerI.TypeOfItem.TYPE_SHARE);
 		List<PortfolioDB> listPorfolioOriginal=new ArrayList<>();
 		List<QuoteDB> listQuoteOriginal=new ArrayList<>();	
 		

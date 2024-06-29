@@ -99,6 +99,14 @@ public class DigitValue
 		return isValid;
 	}
 
+	public Double getValueOrNull()
+	{
+		if (isValid)
+		{
+			return value;
+		}
+		return null;
+	}
 	@Override
 	public String toString()
 	{
