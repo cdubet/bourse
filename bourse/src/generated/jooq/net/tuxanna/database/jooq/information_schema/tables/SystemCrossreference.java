@@ -47,56 +47,56 @@ public class SystemCrossreference extends TableImpl<Record> {
      * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.PKTABLE_CAT</code>. the
      * catalog in which the referenced table is defined
      */
-    public final TableField<Record, String> PKTABLE_CAT = createField(DSL.name("PKTABLE_CAT"), SQLDataType.VARCHAR(128), this, "the catalog in which the referenced table is defined");
+    public final TableField<Record, String> PKTABLE_CAT = createField(DSL.name("PKTABLE_CAT"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "the catalog in which the referenced table is defined");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.PKTABLE_SCHEM</code>. the
      * schema in which the referenced table is defined
      */
-    public final TableField<Record, String> PKTABLE_SCHEM = createField(DSL.name("PKTABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "the schema in which the referenced table is defined");
+    public final TableField<Record, String> PKTABLE_SCHEM = createField(DSL.name("PKTABLE_SCHEM"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "the schema in which the referenced table is defined");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.PKTABLE_NAME</code>.
      * simple name of the referenced table
      */
-    public final TableField<Record, String> PKTABLE_NAME = createField(DSL.name("PKTABLE_NAME"), SQLDataType.VARCHAR(128), this, "simple name of the referenced table");
+    public final TableField<Record, String> PKTABLE_NAME = createField(DSL.name("PKTABLE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "simple name of the referenced table");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.PKCOLUMN_NAME</code>.
      * simple name of the referenced column
      */
-    public final TableField<Record, String> PKCOLUMN_NAME = createField(DSL.name("PKCOLUMN_NAME"), SQLDataType.VARCHAR(128), this, "simple name of the referenced column");
+    public final TableField<Record, String> PKCOLUMN_NAME = createField(DSL.name("PKCOLUMN_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "simple name of the referenced column");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.FKTABLE_CAT</code>. the
      * catalog in which the referencing table is defined
      */
-    public final TableField<Record, String> FKTABLE_CAT = createField(DSL.name("FKTABLE_CAT"), SQLDataType.VARCHAR(128), this, "the catalog in which the referencing table is defined");
+    public final TableField<Record, String> FKTABLE_CAT = createField(DSL.name("FKTABLE_CAT"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "the catalog in which the referencing table is defined");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.FKTABLE_SCHEM</code>. the
      * schema in which the referencing table is defined
      */
-    public final TableField<Record, String> FKTABLE_SCHEM = createField(DSL.name("FKTABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "the schema in which the referencing table is defined");
+    public final TableField<Record, String> FKTABLE_SCHEM = createField(DSL.name("FKTABLE_SCHEM"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "the schema in which the referencing table is defined");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.FKTABLE_NAME</code>. the
      * simple name of the referencing table
      */
-    public final TableField<Record, String> FKTABLE_NAME = createField(DSL.name("FKTABLE_NAME"), SQLDataType.VARCHAR(128), this, "the simple name of the referencing table");
+    public final TableField<Record, String> FKTABLE_NAME = createField(DSL.name("FKTABLE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "the simple name of the referencing table");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.FKCOLUMN_NAME</code>. the
      * simple name of the referencing column
      */
-    public final TableField<Record, String> FKCOLUMN_NAME = createField(DSL.name("FKCOLUMN_NAME"), SQLDataType.VARCHAR(128), this, "the simple name of the referencing column");
+    public final TableField<Record, String> FKCOLUMN_NAME = createField(DSL.name("FKCOLUMN_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "the simple name of the referencing column");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.KEY_SEQ</code>.
@@ -124,7 +124,7 @@ public class SystemCrossreference extends TableImpl<Record> {
      * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.FK_NAME</code>.
      * the name of the foreign key
      */
-    public final TableField<Record, String> FK_NAME = createField(DSL.name("FK_NAME"), SQLDataType.VARCHAR(128), this, "the name of the foreign key");
+    public final TableField<Record, String> FK_NAME = createField(DSL.name("FK_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "the name of the foreign key");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_CROSSREFERENCE.PK_NAME</code>.
@@ -132,7 +132,7 @@ public class SystemCrossreference extends TableImpl<Record> {
      * constraint, but may be a unique constraint or even the name of a
      * non-unique index previous to 1.7.0)
      */
-    public final TableField<Record, String> PK_NAME = createField(DSL.name("PK_NAME"), SQLDataType.VARCHAR(128), this, "the name of the referenced column set (usually the name of a primary key constraint, but may be a unique constraint or even the name of a non-unique index previous to 1.7.0)");
+    public final TableField<Record, String> PK_NAME = createField(DSL.name("PK_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "the name of the referenced column set (usually the name of a primary key constraint, but may be a unique constraint or even the name of a non-unique index previous to 1.7.0)");
 
     /**
      * The column

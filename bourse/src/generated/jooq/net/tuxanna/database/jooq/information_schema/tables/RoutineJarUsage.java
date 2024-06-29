@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -45,34 +44,34 @@ public class RoutineJarUsage extends TableImpl<Record> {
      * The column
      * <code>INFORMATION_SCHEMA.ROUTINE_JAR_USAGE.SPECIFIC_CATALOG</code>.
      */
-    public final TableField<Record, String> SPECIFIC_CATALOG = createField(DSL.name("SPECIFIC_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_CATALOG = createField(DSL.name("SPECIFIC_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.ROUTINE_JAR_USAGE.SPECIFIC_SCHEMA</code>.
      */
-    public final TableField<Record, String> SPECIFIC_SCHEMA = createField(DSL.name("SPECIFIC_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_SCHEMA = createField(DSL.name("SPECIFIC_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.ROUTINE_JAR_USAGE.SPECIFIC_NAME</code>.
      */
-    public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROUTINE_JAR_USAGE.JAR_CATALOG</code>.
      */
-    public final TableField<Record, String> JAR_CATALOG = createField(DSL.name("JAR_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> JAR_CATALOG = createField(DSL.name("JAR_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROUTINE_JAR_USAGE.JAR_SCHEMA</code>.
      */
-    public final TableField<Record, String> JAR_SCHEMA = createField(DSL.name("JAR_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> JAR_SCHEMA = createField(DSL.name("JAR_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROUTINE_JAR_USAGE.JAR_NAME</code>.
      */
-    public final TableField<Record, String> JAR_NAME = createField(DSL.name("JAR_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> JAR_NAME = createField(DSL.name("JAR_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     private RoutineJarUsage(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

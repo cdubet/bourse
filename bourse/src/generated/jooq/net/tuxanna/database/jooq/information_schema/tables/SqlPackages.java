@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -43,27 +42,27 @@ public class SqlPackages extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_PACKAGES.ID</code>.
      */
-    public final TableField<Record, String> ID = createField(DSL.name("ID"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> ID = createField(DSL.name("ID"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_PACKAGES.NAME</code>.
      */
-    public final TableField<Record, String> NAME = createField(DSL.name("NAME"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> NAME = createField(DSL.name("NAME"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_PACKAGES.IS_SUPPORTED</code>.
      */
-    public final TableField<Record, String> IS_SUPPORTED = createField(DSL.name("IS_SUPPORTED"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_SUPPORTED = createField(DSL.name("IS_SUPPORTED"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_PACKAGES.IS_VERIFIED_BY</code>.
      */
-    public final TableField<Record, String> IS_VERIFIED_BY = createField(DSL.name("IS_VERIFIED_BY"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> IS_VERIFIED_BY = createField(DSL.name("IS_VERIFIED_BY"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_PACKAGES.COMMENTS</code>.
      */
-    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     private SqlPackages(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

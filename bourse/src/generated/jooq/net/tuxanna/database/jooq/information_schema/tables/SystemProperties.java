@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -46,7 +45,7 @@ public class SystemProperties extends TableImpl<Record> {
      * <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_SCOPE</code>. the
      * scope of the property, e.g. ( TEMPORARY | TRANSACTION | SESSION | ...}
      */
-    public final TableField<Record, String> PROPERTY_SCOPE = createField(DSL.name("PROPERTY_SCOPE"), SQLDataType.VARCHAR(65536), this, "the scope of the property, e.g. ( TEMPORARY | TRANSACTION | SESSION | ...}");
+    public final TableField<Record, String> PROPERTY_SCOPE = createField(DSL.name("PROPERTY_SCOPE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "the scope of the property, e.g. ( TEMPORARY | TRANSACTION | SESSION | ...}");
 
     /**
      * The column
@@ -54,28 +53,28 @@ public class SystemProperties extends TableImpl<Record> {
      * namespace in which the property is applicable, e.g. ( database.properties
      * | org.hsqldb.Database | java.sql.DatabaseMetaData | ...)
      */
-    public final TableField<Record, String> PROPERTY_NAMESPACE = createField(DSL.name("PROPERTY_NAMESPACE"), SQLDataType.VARCHAR(65536), this, "the namespace in which the property is applicable, e.g. ( database.properties | org.hsqldb.Database | java.sql.DatabaseMetaData | ...)");
+    public final TableField<Record, String> PROPERTY_NAMESPACE = createField(DSL.name("PROPERTY_NAMESPACE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "the namespace in which the property is applicable, e.g. ( database.properties | org.hsqldb.Database | java.sql.DatabaseMetaData | ...)");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_NAME</code>. the name
      * of the property
      */
-    public final TableField<Record, String> PROPERTY_NAME = createField(DSL.name("PROPERTY_NAME"), SQLDataType.VARCHAR(65536), this, "the name of the property");
+    public final TableField<Record, String> PROPERTY_NAME = createField(DSL.name("PROPERTY_NAME"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "the name of the property");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_VALUE</code>. the
      * current value of the property
      */
-    public final TableField<Record, String> PROPERTY_VALUE = createField(DSL.name("PROPERTY_VALUE"), SQLDataType.VARCHAR(65536), this, "the current value of the property");
+    public final TableField<Record, String> PROPERTY_VALUE = createField(DSL.name("PROPERTY_VALUE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "the current value of the property");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_PROPERTIES.PROPERTY_CLASS</code>. the
      * type of the value, e.g. ( int | boolean | java.lang.String | ...)
      */
-    public final TableField<Record, String> PROPERTY_CLASS = createField(DSL.name("PROPERTY_CLASS"), SQLDataType.VARCHAR(65536), this, "the type of the value, e.g. ( int | boolean | java.lang.String | ...)");
+    public final TableField<Record, String> PROPERTY_CLASS = createField(DSL.name("PROPERTY_CLASS"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "the type of the value, e.g. ( int | boolean | java.lang.String | ...)");
 
     private SystemProperties(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

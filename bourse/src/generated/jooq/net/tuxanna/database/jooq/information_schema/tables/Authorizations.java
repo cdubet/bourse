@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -44,13 +43,13 @@ public class Authorizations extends TableImpl<Record> {
      * The column
      * <code>INFORMATION_SCHEMA.AUTHORIZATIONS.AUTHORIZATION_NAME</code>.
      */
-    public final TableField<Record, String> AUTHORIZATION_NAME = createField(DSL.name("AUTHORIZATION_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> AUTHORIZATION_NAME = createField(DSL.name("AUTHORIZATION_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.AUTHORIZATIONS.AUTHORIZATION_TYPE</code>.
      */
-    public final TableField<Record, String> AUTHORIZATION_TYPE = createField(DSL.name("AUTHORIZATION_TYPE"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> AUTHORIZATION_TYPE = createField(DSL.name("AUTHORIZATION_TYPE"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     private Authorizations(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

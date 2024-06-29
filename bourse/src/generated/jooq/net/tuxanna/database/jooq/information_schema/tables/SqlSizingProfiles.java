@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -44,36 +43,36 @@ public class SqlSizingProfiles extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.SIZING_ID</code>.
      */
-    public final TableField<Record, Long> SIZING_ID = createField(DSL.name("SIZING_ID"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> SIZING_ID = createField(DSL.name("SIZING_ID"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.SIZING_NAME</code>.
      */
-    public final TableField<Record, String> SIZING_NAME = createField(DSL.name("SIZING_NAME"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> SIZING_NAME = createField(DSL.name("SIZING_NAME"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.PROFILE_ID</code>.
      */
-    public final TableField<Record, Long> PROFILE_ID = createField(DSL.name("PROFILE_ID"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> PROFILE_ID = createField(DSL.name("PROFILE_ID"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.PROFILE_NAME</code>.
      */
-    public final TableField<Record, String> PROFILE_NAME = createField(DSL.name("PROFILE_NAME"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> PROFILE_NAME = createField(DSL.name("PROFILE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.REQUIRED_VALUE</code>.
      */
-    public final TableField<Record, Long> REQUIRED_VALUE = createField(DSL.name("REQUIRED_VALUE"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> REQUIRED_VALUE = createField(DSL.name("REQUIRED_VALUE"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_SIZING_PROFILES.COMMENTS</code>.
      */
-    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     private SqlSizingProfiles(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

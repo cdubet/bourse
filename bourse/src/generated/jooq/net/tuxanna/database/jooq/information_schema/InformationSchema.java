@@ -108,6 +108,7 @@ import net.tuxanna.database.jooq.information_schema.tables.ViewTableUsage;
 import net.tuxanna.database.jooq.information_schema.tables.Views;
 
 import org.jooq.Catalog;
+import org.jooq.Domain;
 import org.jooq.Table;
 import org.jooq.impl.SchemaImpl;
 
@@ -655,6 +656,19 @@ public class InformationSchema extends SchemaImpl {
     @Override
     public Catalog getCatalog() {
         return DefaultCatalog.DEFAULT_CATALOG;
+    }
+
+    @Override
+    public final List<Domain<?>> getDomains() {
+        return Arrays.asList(
+            net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER,
+            net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA,
+            net.tuxanna.database.jooq.information_schema.Domains.NCNAME,
+            net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER,
+            net.tuxanna.database.jooq.information_schema.Domains.TIME_STAMP,
+            net.tuxanna.database.jooq.information_schema.Domains.URI,
+            net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO
+        );
     }
 
     @Override

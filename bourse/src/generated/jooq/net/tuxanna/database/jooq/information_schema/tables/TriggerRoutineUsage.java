@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -45,37 +44,37 @@ public class TriggerRoutineUsage extends TableImpl<Record> {
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGER_ROUTINE_USAGE.TRIGGER_CATALOG</code>.
      */
-    public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGER_ROUTINE_USAGE.TRIGGER_SCHEMA</code>.
      */
-    public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGER_ROUTINE_USAGE.TRIGGER_NAME</code>.
      */
-    public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGER_ROUTINE_USAGE.SPECIFIC_CATALOG</code>.
      */
-    public final TableField<Record, String> SPECIFIC_CATALOG = createField(DSL.name("SPECIFIC_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_CATALOG = createField(DSL.name("SPECIFIC_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGER_ROUTINE_USAGE.SPECIFIC_SCHEMA</code>.
      */
-    public final TableField<Record, String> SPECIFIC_SCHEMA = createField(DSL.name("SPECIFIC_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_SCHEMA = createField(DSL.name("SPECIFIC_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGER_ROUTINE_USAGE.SPECIFIC_NAME</code>.
      */
-    public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     private TriggerRoutineUsage(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

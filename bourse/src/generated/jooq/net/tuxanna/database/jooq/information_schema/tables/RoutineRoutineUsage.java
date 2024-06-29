@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -45,37 +44,37 @@ public class RoutineRoutineUsage extends TableImpl<Record> {
      * The column
      * <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.SPECIFIC_CATALOG</code>.
      */
-    public final TableField<Record, String> SPECIFIC_CATALOG = createField(DSL.name("SPECIFIC_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_CATALOG = createField(DSL.name("SPECIFIC_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.SPECIFIC_SCHEMA</code>.
      */
-    public final TableField<Record, String> SPECIFIC_SCHEMA = createField(DSL.name("SPECIFIC_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_SCHEMA = createField(DSL.name("SPECIFIC_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.SPECIFIC_NAME</code>.
      */
-    public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.ROUTINE_CATALOG</code>.
      */
-    public final TableField<Record, String> ROUTINE_CATALOG = createField(DSL.name("ROUTINE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ROUTINE_CATALOG = createField(DSL.name("ROUTINE_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.ROUTINE_SCHEMA</code>.
      */
-    public final TableField<Record, String> ROUTINE_SCHEMA = createField(DSL.name("ROUTINE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ROUTINE_SCHEMA = createField(DSL.name("ROUTINE_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.ROUTINE_ROUTINE_USAGE.ROUTINE_NAME</code>.
      */
-    public final TableField<Record, String> ROUTINE_NAME = createField(DSL.name("ROUTINE_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ROUTINE_NAME = createField(DSL.name("ROUTINE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     private RoutineRoutineUsage(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

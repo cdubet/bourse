@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -48,14 +47,14 @@ public class ConstraintTableUsage extends TableImpl<Record> {
      * <code>INFORMATION_SCHEMA.CONSTRAINT_TABLE_USAGE.TABLE_CATALOG</code>.
      * table catalog name
      */
-    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "table catalog name");
+    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "table catalog name");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.CONSTRAINT_TABLE_USAGE.TABLE_SCHEMA</code>.
      * table schema name
      */
-    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "table schema name");
+    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "table schema name");
 
     /**
      * The column
@@ -64,28 +63,28 @@ public class ConstraintTableUsage extends TableImpl<Record> {
      * &lt;table reference&gt; contained in the lt;search condition&gt; of the
      * constraint being described.
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "name of a table identified by a <table name> simply contained in a <table reference> contained in the lt;search condition> of the constraint being described.");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "name of a table identified by a <table name> simply contained in a <table reference> contained in the lt;search condition> of the constraint being described.");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.CONSTRAINT_TABLE_USAGE.CONSTRAINT_CATALOG</code>.
      * constraint catalog name
      */
-    public final TableField<Record, String> CONSTRAINT_CATALOG = createField(DSL.name("CONSTRAINT_CATALOG"), SQLDataType.VARCHAR(128), this, "constraint catalog name");
+    public final TableField<Record, String> CONSTRAINT_CATALOG = createField(DSL.name("CONSTRAINT_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "constraint catalog name");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.CONSTRAINT_TABLE_USAGE.CONSTRAINT_SCHEMA</code>.
      * constraint schema name
      */
-    public final TableField<Record, String> CONSTRAINT_SCHEMA = createField(DSL.name("CONSTRAINT_SCHEMA"), SQLDataType.VARCHAR(128), this, "constraint schema name");
+    public final TableField<Record, String> CONSTRAINT_SCHEMA = createField(DSL.name("CONSTRAINT_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "constraint schema name");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.CONSTRAINT_TABLE_USAGE.CONSTRAINT_NAME</code>.
      * constraint identifier
      */
-    public final TableField<Record, String> CONSTRAINT_NAME = createField(DSL.name("CONSTRAINT_NAME"), SQLDataType.VARCHAR(128), this, "constraint identifier");
+    public final TableField<Record, String> CONSTRAINT_NAME = createField(DSL.name("CONSTRAINT_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "constraint identifier");
 
     private ConstraintTableUsage(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

@@ -44,25 +44,25 @@ public class SystemUdtattributes extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_UDTATTRIBUTES.TYPE_CAT</code>.
      */
-    public final TableField<Record, String> TYPE_CAT = createField(DSL.name("TYPE_CAT"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TYPE_CAT = createField(DSL.name("TYPE_CAT"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_UDTATTRIBUTES.TYPE_SCHEM</code>.
      */
-    public final TableField<Record, String> TYPE_SCHEM = createField(DSL.name("TYPE_SCHEM"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TYPE_SCHEM = createField(DSL.name("TYPE_SCHEM"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_UDTATTRIBUTES.TYPE_NAME</code>.
      */
-    public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_UDTATTRIBUTES.ATTR_NAME</code>.
      */
-    public final TableField<Record, String> ATTR_NAME = createField(DSL.name("ATTR_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ATTR_NAME = createField(DSL.name("ATTR_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
@@ -74,7 +74,7 @@ public class SystemUdtattributes extends TableImpl<Record> {
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_UDTATTRIBUTES.ATTR_TYPE_NAME</code>.
      */
-    public final TableField<Record, String> ATTR_TYPE_NAME = createField(DSL.name("ATTR_TYPE_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ATTR_TYPE_NAME = createField(DSL.name("ATTR_TYPE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
@@ -102,12 +102,12 @@ public class SystemUdtattributes extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_UDTATTRIBUTES.REMARKS</code>.
      */
-    public final TableField<Record, String> REMARKS = createField(DSL.name("REMARKS"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> REMARKS = createField(DSL.name("REMARKS"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_UDTATTRIBUTES.ATTR_DEF</code>.
      */
-    public final TableField<Record, String> ATTR_DEF = createField(DSL.name("ATTR_DEF"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> ATTR_DEF = createField(DSL.name("ATTR_DEF"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
@@ -137,25 +137,25 @@ public class SystemUdtattributes extends TableImpl<Record> {
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_UDTATTRIBUTES.IS_NULLABLE</code>.
      */
-    public final TableField<Record, String> IS_NULLABLE = createField(DSL.name("IS_NULLABLE"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_NULLABLE = createField(DSL.name("IS_NULLABLE"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_UDTATTRIBUTES.SCOPE_CATALOG</code>.
      */
-    public final TableField<Record, String> SCOPE_CATALOG = createField(DSL.name("SCOPE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SCOPE_CATALOG = createField(DSL.name("SCOPE_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_UDTATTRIBUTES.SCOPE_SCHEMA</code>.
      */
-    public final TableField<Record, String> SCOPE_SCHEMA = createField(DSL.name("SCOPE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SCOPE_SCHEMA = createField(DSL.name("SCOPE_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_UDTATTRIBUTES.SCOPE_TABLE</code>.
      */
-    public final TableField<Record, String> SCOPE_TABLE = createField(DSL.name("SCOPE_TABLE"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SCOPE_TABLE = createField(DSL.name("SCOPE_TABLE"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column

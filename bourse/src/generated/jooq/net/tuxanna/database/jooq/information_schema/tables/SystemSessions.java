@@ -46,19 +46,19 @@ public class SystemSessions extends TableImpl<Record> {
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SESSIONS.SESSION_ID</code>.
      * session identifier
      */
-    public final TableField<Record, Long> SESSION_ID = createField(DSL.name("SESSION_ID"), SQLDataType.BIGINT, this, "session identifier");
+    public final TableField<Record, Long> SESSION_ID = createField(DSL.name("SESSION_ID"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "session identifier");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SESSIONS.CONNECTED</code>.
      * time at which session connected to database
      */
-    public final TableField<Record, OffsetDateTime> CONNECTED = createField(DSL.name("CONNECTED"), SQLDataType.TIMESTAMPWITHTIMEZONE(6), this, "time at which session connected to database");
+    public final TableField<Record, OffsetDateTime> CONNECTED = createField(DSL.name("CONNECTED"), net.tuxanna.database.jooq.information_schema.Domains.TIME_STAMP.getDataType(), this, "time at which session connected to database");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SESSIONS.USER_NAME</code>.
      * name of session user, as known to the database
      */
-    public final TableField<Record, String> USER_NAME = createField(DSL.name("USER_NAME"), SQLDataType.VARCHAR(128), this, "name of session user, as known to the database");
+    public final TableField<Record, String> USER_NAME = createField(DSL.name("USER_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "name of session user, as known to the database");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SESSIONS.IS_ADMIN</code>. is
@@ -82,13 +82,13 @@ public class SystemSessions extends TableImpl<Record> {
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SESSIONS.LAST_IDENTITY</code>.
      * what is the last identity value used by this session?
      */
-    public final TableField<Record, Long> LAST_IDENTITY = createField(DSL.name("LAST_IDENTITY"), SQLDataType.BIGINT, this, "what is the last identity value used by this session?");
+    public final TableField<Record, Long> LAST_IDENTITY = createField(DSL.name("LAST_IDENTITY"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "what is the last identity value used by this session?");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SESSIONS.SCHEMA</code>. this
      * session's current default schema
      */
-    public final TableField<Record, String> SCHEMA = createField(DSL.name("SCHEMA"), SQLDataType.VARCHAR(128), this, "this session's current default schema");
+    public final TableField<Record, String> SCHEMA = createField(DSL.name("SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "this session's current default schema");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SESSIONS.TRANSACTION</code>.
@@ -100,30 +100,30 @@ public class SystemSessions extends TableImpl<Record> {
      * <code>INFORMATION_SCHEMA.SYSTEM_SESSIONS.TRANSACTION_SIZE</code>. how
      * many undo items are there in this session's transaction buffer?
      */
-    public final TableField<Record, Long> TRANSACTION_SIZE = createField(DSL.name("TRANSACTION_SIZE"), SQLDataType.BIGINT, this, "how many undo items are there in this session's transaction buffer?");
+    public final TableField<Record, Long> TRANSACTION_SIZE = createField(DSL.name("TRANSACTION_SIZE"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "how many undo items are there in this session's transaction buffer?");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_SESSIONS.WAITING_FOR_THIS</code>.
      */
-    public final TableField<Record, String> WAITING_FOR_THIS = createField(DSL.name("WAITING_FOR_THIS"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> WAITING_FOR_THIS = createField(DSL.name("WAITING_FOR_THIS"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_SESSIONS.THIS_WAITING_FOR</code>.
      */
-    public final TableField<Record, String> THIS_WAITING_FOR = createField(DSL.name("THIS_WAITING_FOR"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> THIS_WAITING_FOR = createField(DSL.name("THIS_WAITING_FOR"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_SESSIONS.CURRENT_STATEMENT</code>.
      */
-    public final TableField<Record, String> CURRENT_STATEMENT = createField(DSL.name("CURRENT_STATEMENT"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> CURRENT_STATEMENT = createField(DSL.name("CURRENT_STATEMENT"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SESSIONS.LATCH_COUNT</code>.
      */
-    public final TableField<Record, Long> LATCH_COUNT = createField(DSL.name("LATCH_COUNT"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> LATCH_COUNT = createField(DSL.name("LATCH_COUNT"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     private SystemSessions(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

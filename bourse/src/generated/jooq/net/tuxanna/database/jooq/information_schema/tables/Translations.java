@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -44,72 +43,72 @@ public class Translations extends TableImpl<Record> {
      * The column
      * <code>INFORMATION_SCHEMA.TRANSLATIONS.TRANSLATION_CATALOG</code>.
      */
-    public final TableField<Record, String> TRANSLATION_CATALOG = createField(DSL.name("TRANSLATION_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRANSLATION_CATALOG = createField(DSL.name("TRANSLATION_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRANSLATIONS.TRANSLATION_SCHEMA</code>.
      */
-    public final TableField<Record, String> TRANSLATION_SCHEMA = createField(DSL.name("TRANSLATION_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRANSLATION_SCHEMA = createField(DSL.name("TRANSLATION_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRANSLATIONS.TRANSLATION_NAME</code>.
      */
-    public final TableField<Record, String> TRANSLATION_NAME = createField(DSL.name("TRANSLATION_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRANSLATION_NAME = createField(DSL.name("TRANSLATION_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRANSLATIONS.SOURCE_CHARACTER_SET_CATALOG</code>.
      */
-    public final TableField<Record, String> SOURCE_CHARACTER_SET_CATALOG = createField(DSL.name("SOURCE_CHARACTER_SET_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SOURCE_CHARACTER_SET_CATALOG = createField(DSL.name("SOURCE_CHARACTER_SET_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRANSLATIONS.SOURCE_CHARACTER_SET_SCHEMA</code>.
      */
-    public final TableField<Record, String> SOURCE_CHARACTER_SET_SCHEMA = createField(DSL.name("SOURCE_CHARACTER_SET_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SOURCE_CHARACTER_SET_SCHEMA = createField(DSL.name("SOURCE_CHARACTER_SET_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRANSLATIONS.SOURCE_CHARACTER_SET_NAME</code>.
      */
-    public final TableField<Record, String> SOURCE_CHARACTER_SET_NAME = createField(DSL.name("SOURCE_CHARACTER_SET_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SOURCE_CHARACTER_SET_NAME = createField(DSL.name("SOURCE_CHARACTER_SET_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRANSLATIONS.TARGET_CHARACTER_SET_CATALOG</code>.
      */
-    public final TableField<Record, String> TARGET_CHARACTER_SET_CATALOG = createField(DSL.name("TARGET_CHARACTER_SET_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TARGET_CHARACTER_SET_CATALOG = createField(DSL.name("TARGET_CHARACTER_SET_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRANSLATIONS.TARGET_CHARACTER_SET_SCHEMA</code>.
      */
-    public final TableField<Record, String> TARGET_CHARACTER_SET_SCHEMA = createField(DSL.name("TARGET_CHARACTER_SET_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TARGET_CHARACTER_SET_SCHEMA = createField(DSL.name("TARGET_CHARACTER_SET_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRANSLATIONS.TARGET_CHARACTER_SET_NAME</code>.
      */
-    public final TableField<Record, String> TARGET_CHARACTER_SET_NAME = createField(DSL.name("TARGET_CHARACTER_SET_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TARGET_CHARACTER_SET_NAME = createField(DSL.name("TARGET_CHARACTER_SET_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRANSLATIONS.TRANSLATION_SOURCE_CATALOG</code>.
      */
-    public final TableField<Record, String> TRANSLATION_SOURCE_CATALOG = createField(DSL.name("TRANSLATION_SOURCE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRANSLATION_SOURCE_CATALOG = createField(DSL.name("TRANSLATION_SOURCE_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRANSLATIONS.TRANSLATION_SOURCE_SCHEMA</code>.
      */
-    public final TableField<Record, String> TRANSLATION_SOURCE_SCHEMA = createField(DSL.name("TRANSLATION_SOURCE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRANSLATION_SOURCE_SCHEMA = createField(DSL.name("TRANSLATION_SOURCE_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRANSLATIONS.TRANSLATION_SOURCE_NAME</code>.
      */
-    public final TableField<Record, String> TRANSLATION_SOURCE_NAME = createField(DSL.name("TRANSLATION_SOURCE_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRANSLATION_SOURCE_NAME = createField(DSL.name("TRANSLATION_SOURCE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     private Translations(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

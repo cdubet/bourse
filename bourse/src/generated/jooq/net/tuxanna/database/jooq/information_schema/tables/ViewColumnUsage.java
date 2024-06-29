@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -46,39 +45,39 @@ public class ViewColumnUsage extends TableImpl<Record> {
      * The column
      * <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.VIEW_CATALOG</code>.
      */
-    public final TableField<Record, String> VIEW_CATALOG = createField(DSL.name("VIEW_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> VIEW_CATALOG = createField(DSL.name("VIEW_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.VIEW_SCHEMA</code>.
      */
-    public final TableField<Record, String> VIEW_SCHEMA = createField(DSL.name("VIEW_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> VIEW_SCHEMA = createField(DSL.name("VIEW_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.VIEW_NAME</code>.
      */
-    public final TableField<Record, String> VIEW_NAME = createField(DSL.name("VIEW_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> VIEW_NAME = createField(DSL.name("VIEW_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.TABLE_CATALOG</code>.
      */
-    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.TABLE_SCHEMA</code>.
      */
-    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.TABLE_NAME</code>.
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEW_COLUMN_USAGE.COLUMN_NAME</code>.
      */
-    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     private ViewColumnUsage(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

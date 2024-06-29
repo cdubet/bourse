@@ -54,7 +54,7 @@ public class SystemBestrowidentifier extends TableImpl<Record> {
      * <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.COLUMN_NAME</code>.
      * simple column name
      */
-    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "simple column name");
+    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "simple column name");
 
     /**
      * The column
@@ -72,7 +72,7 @@ public class SystemBestrowidentifier extends TableImpl<Record> {
      * HSQLDB-specific data type name; this is the canonical name used in CREATE
      * TABLE and ALTER TABLE statements.
      */
-    public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), SQLDataType.VARCHAR(128), this, "the HSQLDB-specific data type name; this is the canonical name used in CREATE TABLE and ALTER TABLE statements.");
+    public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "the HSQLDB-specific data type name; this is the canonical name used in CREATE TABLE and ALTER TABLE statements.");
 
     /**
      * The column
@@ -114,21 +114,21 @@ public class SystemBestrowidentifier extends TableImpl<Record> {
      * <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.TABLE_CAT</code>.
      * catalog in which the table containing the column is defined
      */
-    public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), SQLDataType.VARCHAR(128), this, "catalog in which the table containing the column is defined");
+    public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "catalog in which the table containing the column is defined");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.TABLE_SCHEM</code>.
      * schema in which the table containing the column is defined
      */
-    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "schema in which the table containing the column is defined");
+    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "schema in which the table containing the column is defined");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_BESTROWIDENTIFIER.TABLE_NAME</code>.
      * simple name of the table containing the column
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "simple name of the table containing the column");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "simple name of the table containing the column");
 
     /**
      * The column

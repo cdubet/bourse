@@ -46,19 +46,19 @@ public class SystemIndexinfo extends TableImpl<Record> {
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXINFO.TABLE_CAT</code>.
      * catalog in which the table using the index is defined
      */
-    public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), SQLDataType.VARCHAR(128), this, "catalog in which the table using the index is defined");
+    public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "catalog in which the table using the index is defined");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXINFO.TABLE_SCHEM</code>.
      * schema in which the table using the index is defined
      */
-    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "schema in which the table using the index is defined");
+    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "schema in which the table using the index is defined");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXINFO.TABLE_NAME</code>.
      * simple name of the table using the index
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "simple name of the table using the index");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "simple name of the table using the index");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXINFO.NON_UNIQUE</code>.
@@ -71,13 +71,13 @@ public class SystemIndexinfo extends TableImpl<Record> {
      * <code>INFORMATION_SCHEMA.SYSTEM_INDEXINFO.INDEX_QUALIFIER</code>. catalog
      * in which the index is defined
      */
-    public final TableField<Record, String> INDEX_QUALIFIER = createField(DSL.name("INDEX_QUALIFIER"), SQLDataType.VARCHAR(128), this, "catalog in which the index is defined");
+    public final TableField<Record, String> INDEX_QUALIFIER = createField(DSL.name("INDEX_QUALIFIER"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "catalog in which the index is defined");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXINFO.INDEX_NAME</code>.
      * simple name of the index
      */
-    public final TableField<Record, String> INDEX_NAME = createField(DSL.name("INDEX_NAME"), SQLDataType.VARCHAR(128), this, "simple name of the index");
+    public final TableField<Record, String> INDEX_NAME = createField(DSL.name("INDEX_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "simple name of the index");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXINFO.TYPE</code>. index
@@ -96,32 +96,32 @@ public class SystemIndexinfo extends TableImpl<Record> {
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXINFO.COLUMN_NAME</code>.
      * simple column name
      */
-    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "simple column name");
+    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "simple column name");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXINFO.ASC_OR_DESC</code>.
      * column sort sequence: e.g. { "A" (Ascending) | "D" (Descending) }
      */
-    public final TableField<Record, String> ASC_OR_DESC = createField(DSL.name("ASC_OR_DESC"), SQLDataType.VARCHAR(65536), this, "column sort sequence: e.g. { \"A\" (Ascending) | \"D\" (Descending) }");
+    public final TableField<Record, String> ASC_OR_DESC = createField(DSL.name("ASC_OR_DESC"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "column sort sequence: e.g. { \"A\" (Ascending) | \"D\" (Descending) }");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXINFO.CARDINALITY</code>.
      * index cardinality: # of unique values in the index (currently unused)
      */
-    public final TableField<Record, Long> CARDINALITY = createField(DSL.name("CARDINALITY"), SQLDataType.BIGINT, this, "index cardinality: # of unique values in the index (currently unused)");
+    public final TableField<Record, Long> CARDINALITY = createField(DSL.name("CARDINALITY"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "index cardinality: # of unique values in the index (currently unused)");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_INDEXINFO.PAGES</code>. index
      * page use (currently unused)
      */
-    public final TableField<Record, Long> PAGES = createField(DSL.name("PAGES"), SQLDataType.BIGINT, this, "index page use (currently unused)");
+    public final TableField<Record, Long> PAGES = createField(DSL.name("PAGES"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "index page use (currently unused)");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_INDEXINFO.FILTER_CONDITION</code>. filter
      * condition, if any (currently unused)
      */
-    public final TableField<Record, String> FILTER_CONDITION = createField(DSL.name("FILTER_CONDITION"), SQLDataType.VARCHAR(65536), this, "filter condition, if any (currently unused)");
+    public final TableField<Record, String> FILTER_CONDITION = createField(DSL.name("FILTER_CONDITION"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "filter condition, if any (currently unused)");
 
     /**
      * The column

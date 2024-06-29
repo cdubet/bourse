@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -44,47 +43,47 @@ public class RoleTableGrants extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.GRANTOR</code>.
      */
-    public final TableField<Record, String> GRANTOR = createField(DSL.name("GRANTOR"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> GRANTOR = createField(DSL.name("GRANTOR"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.GRANTEE</code>.
      */
-    public final TableField<Record, String> GRANTEE = createField(DSL.name("GRANTEE"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> GRANTEE = createField(DSL.name("GRANTEE"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.TABLE_CATALOG</code>.
      */
-    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.TABLE_SCHEMA</code>.
      */
-    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.TABLE_NAME</code>.
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.PRIVILEGE_TYPE</code>.
      */
-    public final TableField<Record, String> PRIVILEGE_TYPE = createField(DSL.name("PRIVILEGE_TYPE"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> PRIVILEGE_TYPE = createField(DSL.name("PRIVILEGE_TYPE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.IS_GRANTABLE</code>.
      */
-    public final TableField<Record, String> IS_GRANTABLE = createField(DSL.name("IS_GRANTABLE"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_GRANTABLE = createField(DSL.name("IS_GRANTABLE"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.ROLE_TABLE_GRANTS.WITH_HIERARCHY</code>.
      */
-    public final TableField<Record, String> WITH_HIERARCHY = createField(DSL.name("WITH_HIERARCHY"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> WITH_HIERARCHY = createField(DSL.name("WITH_HIERARCHY"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     private RoleTableGrants(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

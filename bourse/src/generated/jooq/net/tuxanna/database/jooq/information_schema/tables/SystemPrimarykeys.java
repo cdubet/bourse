@@ -46,27 +46,27 @@ public class SystemPrimarykeys extends TableImpl<Record> {
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.TABLE_CAT</code>.
      * catalog in which table containing primary key is defined
      */
-    public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), SQLDataType.VARCHAR(128), this, "catalog in which table containing primary key is defined");
+    public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "catalog in which table containing primary key is defined");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.TABLE_SCHEM</code>. schema in
      * which table containing primary key is defined
      */
-    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "schema in which table containing primary key is defined");
+    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "schema in which table containing primary key is defined");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.TABLE_NAME</code>.
      * simple name of table containing primary key
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "simple name of table containing primary key");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "simple name of table containing primary key");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.COLUMN_NAME</code>. simple
      * name of column participating in primary key
      */
-    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "simple name of column participating in primary key");
+    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "simple name of column participating in primary key");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.KEY_SEQ</code>.
@@ -78,7 +78,7 @@ public class SystemPrimarykeys extends TableImpl<Record> {
      * The column <code>INFORMATION_SCHEMA.SYSTEM_PRIMARYKEYS.PK_NAME</code>.
      * primary key name
      */
-    public final TableField<Record, String> PK_NAME = createField(DSL.name("PK_NAME"), SQLDataType.VARCHAR(128), this, "primary key name");
+    public final TableField<Record, String> PK_NAME = createField(DSL.name("PK_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "primary key name");
 
     private SystemPrimarykeys(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -43,90 +42,90 @@ public class Sequences extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SEQUENCES.SEQUENCE_CATALOG</code>.
      */
-    public final TableField<Record, String> SEQUENCE_CATALOG = createField(DSL.name("SEQUENCE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SEQUENCE_CATALOG = createField(DSL.name("SEQUENCE_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SEQUENCES.SEQUENCE_SCHEMA</code>.
      */
-    public final TableField<Record, String> SEQUENCE_SCHEMA = createField(DSL.name("SEQUENCE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SEQUENCE_SCHEMA = createField(DSL.name("SEQUENCE_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SEQUENCES.SEQUENCE_NAME</code>.
      */
-    public final TableField<Record, String> SEQUENCE_NAME = createField(DSL.name("SEQUENCE_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SEQUENCE_NAME = createField(DSL.name("SEQUENCE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SEQUENCES.DATA_TYPE</code>.
      */
-    public final TableField<Record, String> DATA_TYPE = createField(DSL.name("DATA_TYPE"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> DATA_TYPE = createField(DSL.name("DATA_TYPE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SEQUENCES.NUMERIC_PRECISION</code>.
      */
-    public final TableField<Record, Long> NUMERIC_PRECISION = createField(DSL.name("NUMERIC_PRECISION"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> NUMERIC_PRECISION = createField(DSL.name("NUMERIC_PRECISION"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SEQUENCES.NUMERIC_PRECISION_RADIX</code>.
      */
-    public final TableField<Record, Long> NUMERIC_PRECISION_RADIX = createField(DSL.name("NUMERIC_PRECISION_RADIX"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> NUMERIC_PRECISION_RADIX = createField(DSL.name("NUMERIC_PRECISION_RADIX"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SEQUENCES.NUMERIC_SCALE</code>.
      */
-    public final TableField<Record, Long> NUMERIC_SCALE = createField(DSL.name("NUMERIC_SCALE"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> NUMERIC_SCALE = createField(DSL.name("NUMERIC_SCALE"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SEQUENCES.START_VALUE</code>.
      */
-    public final TableField<Record, String> START_VALUE = createField(DSL.name("START_VALUE"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> START_VALUE = createField(DSL.name("START_VALUE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SEQUENCES.MINIMUM_VALUE</code>.
      */
-    public final TableField<Record, String> MINIMUM_VALUE = createField(DSL.name("MINIMUM_VALUE"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> MINIMUM_VALUE = createField(DSL.name("MINIMUM_VALUE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SEQUENCES.MAXIMUM_VALUE</code>.
      */
-    public final TableField<Record, String> MAXIMUM_VALUE = createField(DSL.name("MAXIMUM_VALUE"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> MAXIMUM_VALUE = createField(DSL.name("MAXIMUM_VALUE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SEQUENCES.INCREMENT</code>.
      */
-    public final TableField<Record, String> INCREMENT = createField(DSL.name("INCREMENT"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> INCREMENT = createField(DSL.name("INCREMENT"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SEQUENCES.CYCLE_OPTION</code>.
      */
-    public final TableField<Record, String> CYCLE_OPTION = createField(DSL.name("CYCLE_OPTION"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> CYCLE_OPTION = createField(DSL.name("CYCLE_OPTION"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SEQUENCES.DECLARED_DATA_TYPE</code>.
      */
-    public final TableField<Record, String> DECLARED_DATA_TYPE = createField(DSL.name("DECLARED_DATA_TYPE"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> DECLARED_DATA_TYPE = createField(DSL.name("DECLARED_DATA_TYPE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SEQUENCES.DECLARED_NUMERIC_PRECISION</code>.
      */
-    public final TableField<Record, Long> DECLARED_NUMERIC_PRECISION = createField(DSL.name("DECLARED_NUMERIC_PRECISION"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> DECLARED_NUMERIC_PRECISION = createField(DSL.name("DECLARED_NUMERIC_PRECISION"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SEQUENCES.DECLARED_NUMERIC_SCALE</code>.
      */
-    public final TableField<Record, Long> DECLARED_NUMERIC_SCALE = createField(DSL.name("DECLARED_NUMERIC_SCALE"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> DECLARED_NUMERIC_SCALE = createField(DSL.name("DECLARED_NUMERIC_SCALE"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SEQUENCES.START_WITH</code>.
      */
-    public final TableField<Record, String> START_WITH = createField(DSL.name("START_WITH"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> START_WITH = createField(DSL.name("START_WITH"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SEQUENCES.NEXT_VALUE</code>.
      */
-    public final TableField<Record, String> NEXT_VALUE = createField(DSL.name("NEXT_VALUE"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> NEXT_VALUE = createField(DSL.name("NEXT_VALUE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     private Sequences(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

@@ -48,28 +48,28 @@ public class SystemProcedurecolumns extends TableImpl<Record> {
      * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.PROCEDURE_CAT</code>.
      * catalog in which procedure is defined
      */
-    public final TableField<Record, String> PROCEDURE_CAT = createField(DSL.name("PROCEDURE_CAT"), SQLDataType.VARCHAR(128), this, "catalog in which procedure is defined");
+    public final TableField<Record, String> PROCEDURE_CAT = createField(DSL.name("PROCEDURE_CAT"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "catalog in which procedure is defined");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.PROCEDURE_SCHEM</code>.
      * schema in which procedure is defined
      */
-    public final TableField<Record, String> PROCEDURE_SCHEM = createField(DSL.name("PROCEDURE_SCHEM"), SQLDataType.VARCHAR(128), this, "schema in which procedure is defined");
+    public final TableField<Record, String> PROCEDURE_SCHEM = createField(DSL.name("PROCEDURE_SCHEM"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "schema in which procedure is defined");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.PROCEDURE_NAME</code>.
      * procedure identifier
      */
-    public final TableField<Record, String> PROCEDURE_NAME = createField(DSL.name("PROCEDURE_NAME"), SQLDataType.VARCHAR(128), this, "procedure identifier");
+    public final TableField<Record, String> PROCEDURE_NAME = createField(DSL.name("PROCEDURE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "procedure identifier");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.COLUMN_NAME</code>. (
      * result column | call parameter | return value ) name
      */
-    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "( result column | call parameter | return value ) name");
+    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "( result column | call parameter | return value ) name");
 
     /**
      * The column
@@ -95,7 +95,7 @@ public class SystemProcedurecolumns extends TableImpl<Record> {
      * types, this is the canonical name used in CREATE TABLE and ALTER TABLE
      * statements.
      */
-    public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), SQLDataType.VARCHAR(128), this, "the HSQLDB-specific data type name; for data types supported as table column types, this is the canonical name used in CREATE TABLE and ALTER TABLE statements.");
+    public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "the HSQLDB-specific data type name; for data types supported as table column types, this is the canonical name used in CREATE TABLE and ALTER TABLE statements.");
 
     /**
      * The column
@@ -142,13 +142,13 @@ public class SystemProcedurecolumns extends TableImpl<Record> {
      * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.REMARKS</code>. comment
      * describing parameter or result column
      */
-    public final TableField<Record, String> REMARKS = createField(DSL.name("REMARKS"), SQLDataType.VARCHAR(65536), this, "comment describing parameter or result column");
+    public final TableField<Record, String> REMARKS = createField(DSL.name("REMARKS"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "comment describing parameter or result column");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.COLUMN_DEF</code>.
      */
-    public final TableField<Record, String> COLUMN_DEF = createField(DSL.name("COLUMN_DEF"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> COLUMN_DEF = createField(DSL.name("COLUMN_DEF"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
@@ -178,7 +178,7 @@ public class SystemProcedurecolumns extends TableImpl<Record> {
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_PROCEDURECOLUMNS.IS_NULLABLE</code>.
      */
-    public final TableField<Record, String> IS_NULLABLE = createField(DSL.name("IS_NULLABLE"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> IS_NULLABLE = createField(DSL.name("IS_NULLABLE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
@@ -186,7 +186,7 @@ public class SystemProcedurecolumns extends TableImpl<Record> {
      * typically, (but not limited to) the fully qualified name and signature of
      * the Java method providing the SQL-invoked routine's entry point
      */
-    public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), SQLDataType.VARCHAR(128), this, "typically, (but not limited to) the fully qualified name and signature of the Java method providing the SQL-invoked routine's entry point");
+    public final TableField<Record, String> SPECIFIC_NAME = createField(DSL.name("SPECIFIC_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "typically, (but not limited to) the fully qualified name and signature of the Java method providing the SQL-invoked routine's entry point");
 
     private SystemProcedurecolumns(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

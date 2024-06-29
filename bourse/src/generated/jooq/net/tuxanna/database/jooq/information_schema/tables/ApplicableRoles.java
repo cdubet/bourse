@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -44,17 +43,17 @@ public class ApplicableRoles extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.APPLICABLE_ROLES.GRANTEE</code>.
      */
-    public final TableField<Record, String> GRANTEE = createField(DSL.name("GRANTEE"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> GRANTEE = createField(DSL.name("GRANTEE"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.APPLICABLE_ROLES.ROLE_NAME</code>.
      */
-    public final TableField<Record, String> ROLE_NAME = createField(DSL.name("ROLE_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ROLE_NAME = createField(DSL.name("ROLE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.APPLICABLE_ROLES.IS_GRANTABLE</code>.
      */
-    public final TableField<Record, String> IS_GRANTABLE = createField(DSL.name("IS_GRANTABLE"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> IS_GRANTABLE = createField(DSL.name("IS_GRANTABLE"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     private ApplicableRoles(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

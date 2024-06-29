@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -44,48 +43,48 @@ public class CharacterSets extends TableImpl<Record> {
      * The column
      * <code>INFORMATION_SCHEMA.CHARACTER_SETS.CHARACTER_SET_CATALOG</code>.
      */
-    public final TableField<Record, String> CHARACTER_SET_CATALOG = createField(DSL.name("CHARACTER_SET_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> CHARACTER_SET_CATALOG = createField(DSL.name("CHARACTER_SET_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.CHARACTER_SETS.CHARACTER_SET_SCHEMA</code>.
      */
-    public final TableField<Record, String> CHARACTER_SET_SCHEMA = createField(DSL.name("CHARACTER_SET_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> CHARACTER_SET_SCHEMA = createField(DSL.name("CHARACTER_SET_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.CHARACTER_SETS.CHARACTER_SET_NAME</code>.
      */
-    public final TableField<Record, String> CHARACTER_SET_NAME = createField(DSL.name("CHARACTER_SET_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> CHARACTER_SET_NAME = createField(DSL.name("CHARACTER_SET_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.CHARACTER_SETS.CHARACTER_REPERTOIRE</code>.
      */
-    public final TableField<Record, String> CHARACTER_REPERTOIRE = createField(DSL.name("CHARACTER_REPERTOIRE"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> CHARACTER_REPERTOIRE = createField(DSL.name("CHARACTER_REPERTOIRE"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.CHARACTER_SETS.FORM_OF_USE</code>.
      */
-    public final TableField<Record, String> FORM_OF_USE = createField(DSL.name("FORM_OF_USE"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> FORM_OF_USE = createField(DSL.name("FORM_OF_USE"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.CHARACTER_SETS.DEFAULT_COLLATE_CATALOG</code>.
      */
-    public final TableField<Record, String> DEFAULT_COLLATE_CATALOG = createField(DSL.name("DEFAULT_COLLATE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> DEFAULT_COLLATE_CATALOG = createField(DSL.name("DEFAULT_COLLATE_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.CHARACTER_SETS.DEFAULT_COLLATE_SCHEMA</code>.
      */
-    public final TableField<Record, String> DEFAULT_COLLATE_SCHEMA = createField(DSL.name("DEFAULT_COLLATE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> DEFAULT_COLLATE_SCHEMA = createField(DSL.name("DEFAULT_COLLATE_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.CHARACTER_SETS.DEFAULT_COLLATE_NAME</code>.
      */
-    public final TableField<Record, String> DEFAULT_COLLATE_NAME = createField(DSL.name("DEFAULT_COLLATE_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> DEFAULT_COLLATE_NAME = createField(DSL.name("DEFAULT_COLLATE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     private CharacterSets(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -45,7 +44,7 @@ public class SystemTabletypes extends TableImpl<Record> {
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TABLETYPES.TABLE_TYPE</code>.
      * table type name
      */
-    public final TableField<Record, String> TABLE_TYPE = createField(DSL.name("TABLE_TYPE"), SQLDataType.VARCHAR(128), this, "table type name");
+    public final TableField<Record, String> TABLE_TYPE = createField(DSL.name("TABLE_TYPE"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "table type name");
 
     private SystemTabletypes(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

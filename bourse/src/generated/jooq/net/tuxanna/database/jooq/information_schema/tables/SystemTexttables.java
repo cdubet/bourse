@@ -46,60 +46,60 @@ public class SystemTexttables extends TableImpl<Record> {
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.TABLE_CAT</code>.
      * table catalog
      */
-    public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), SQLDataType.VARCHAR(128), this, "table catalog");
+    public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "table catalog");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.TABLE_SCHEM</code>.
      * table schema
      */
-    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "table schema");
+    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "table schema");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.TABLE_NAME</code>.
      * table name
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "table name");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "table name");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.DATA_SOURCE_DEFINTION</code>.
      * the "spec" proption of the table's SET TABLE ... SOURCE DDL declaration
      */
-    public final TableField<Record, String> DATA_SOURCE_DEFINTION = createField(DSL.name("DATA_SOURCE_DEFINTION"), SQLDataType.VARCHAR(65536), this, "the \"spec\" proption of the table's SET TABLE ... SOURCE DDL declaration");
+    public final TableField<Record, String> DATA_SOURCE_DEFINTION = createField(DSL.name("DATA_SOURCE_DEFINTION"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "the \"spec\" proption of the table's SET TABLE ... SOURCE DDL declaration");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.FILE_PATH</code>.
      * path to table's text file data source
      */
-    public final TableField<Record, String> FILE_PATH = createField(DSL.name("FILE_PATH"), SQLDataType.VARCHAR(65536), this, "path to table's text file data source");
+    public final TableField<Record, String> FILE_PATH = createField(DSL.name("FILE_PATH"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "path to table's text file data source");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.FILE_ENCODING</code>. encoding
      * of table's text file data source
      */
-    public final TableField<Record, String> FILE_ENCODING = createField(DSL.name("FILE_ENCODING"), SQLDataType.VARCHAR(65536), this, "encoding of table's text file data source");
+    public final TableField<Record, String> FILE_ENCODING = createField(DSL.name("FILE_ENCODING"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "encoding of table's text file data source");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.FIELD_SEPARATOR</code>. the
      * default field separator
      */
-    public final TableField<Record, String> FIELD_SEPARATOR = createField(DSL.name("FIELD_SEPARATOR"), SQLDataType.VARCHAR(65536), this, "the default field separator");
+    public final TableField<Record, String> FIELD_SEPARATOR = createField(DSL.name("FIELD_SEPARATOR"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "the default field separator");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.VARCHAR_SEPARATOR</code>.
      * varchar field separator
      */
-    public final TableField<Record, String> VARCHAR_SEPARATOR = createField(DSL.name("VARCHAR_SEPARATOR"), SQLDataType.VARCHAR(65536), this, "varchar field separator");
+    public final TableField<Record, String> VARCHAR_SEPARATOR = createField(DSL.name("VARCHAR_SEPARATOR"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "varchar field separator");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_TEXTTABLES.LONGVARCHAR_SEPARATOR</code>.
      * longvarchar field separator
      */
-    public final TableField<Record, String> LONGVARCHAR_SEPARATOR = createField(DSL.name("LONGVARCHAR_SEPARATOR"), SQLDataType.VARCHAR(65536), this, "longvarchar field separator");
+    public final TableField<Record, String> LONGVARCHAR_SEPARATOR = createField(DSL.name("LONGVARCHAR_SEPARATOR"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "longvarchar field separator");
 
     /**
      * The column

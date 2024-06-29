@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -46,13 +45,13 @@ public class SystemSessioninfo extends TableImpl<Record> {
      * SESSION_ID | AUTOCOMMIT | USER | CONNECTION_READONLY | DATABASE_READONLY
      * | MAXROWS | DATABASE | IDENTITY ... }
      */
-    public final TableField<Record, String> KEY = createField(DSL.name("KEY"), SQLDataType.VARCHAR(65536), this, "KEY: { SESSION_ID | AUTOCOMMIT | USER | CONNECTION_READONLY | DATABASE_READONLY | MAXROWS | DATABASE | IDENTITY ... }");
+    public final TableField<Record, String> KEY = createField(DSL.name("KEY"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "KEY: { SESSION_ID | AUTOCOMMIT | USER | CONNECTION_READONLY | DATABASE_READONLY | MAXROWS | DATABASE | IDENTITY ... }");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SESSIONINFO.VALUE</code>.
      * VALUE: the value corresponding to the indicated key (see JavaDocs)
      */
-    public final TableField<Record, String> VALUE = createField(DSL.name("VALUE"), SQLDataType.VARCHAR(65536), this, "VALUE: the value corresponding to the indicated key (see JavaDocs)");
+    public final TableField<Record, String> VALUE = createField(DSL.name("VALUE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "VALUE: the value corresponding to the indicated key (see JavaDocs)");
 
     private SystemSessioninfo(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

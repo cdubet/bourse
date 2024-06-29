@@ -53,7 +53,7 @@ public class SystemVersioncolumns extends TableImpl<Record> {
      * <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.COLUMN_NAME</code>. column
      * name
      */
-    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "column name");
+    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "column name");
 
     /**
      * The column
@@ -67,7 +67,7 @@ public class SystemVersioncolumns extends TableImpl<Record> {
      * <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.TYPE_NAME</code>. Data
      * source dependent type name
      */
-    public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), SQLDataType.VARCHAR(128), this, "Data source dependent type name");
+    public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "Data source dependent type name");
 
     /**
      * The column
@@ -103,21 +103,21 @@ public class SystemVersioncolumns extends TableImpl<Record> {
      * <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.TABLE_CAT</code>. table
      * catalog
      */
-    public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), SQLDataType.VARCHAR(128), this, "table catalog");
+    public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "table catalog");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.TABLE_SCHEM</code>. table
      * schema
      */
-    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "table schema");
+    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "table schema");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_VERSIONCOLUMNS.TABLE_NAME</code>. simple
      * table name
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "simple table name");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "simple table name");
 
     private SystemVersioncolumns(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

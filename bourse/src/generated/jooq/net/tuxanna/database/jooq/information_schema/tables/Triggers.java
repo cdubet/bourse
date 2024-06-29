@@ -17,7 +17,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -45,91 +44,91 @@ public class Triggers extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_CATALOG</code>.
      */
-    public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_SCHEMA</code>.
      */
-    public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.TRIGGER_NAME</code>.
      */
-    public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.EVENT_MANIPULATION</code>.
      */
-    public final TableField<Record, String> EVENT_MANIPULATION = createField(DSL.name("EVENT_MANIPULATION"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> EVENT_MANIPULATION = createField(DSL.name("EVENT_MANIPULATION"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.EVENT_OBJECT_CATALOG</code>.
      */
-    public final TableField<Record, String> EVENT_OBJECT_CATALOG = createField(DSL.name("EVENT_OBJECT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> EVENT_OBJECT_CATALOG = createField(DSL.name("EVENT_OBJECT_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.EVENT_OBJECT_SCHEMA</code>.
      */
-    public final TableField<Record, String> EVENT_OBJECT_SCHEMA = createField(DSL.name("EVENT_OBJECT_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> EVENT_OBJECT_SCHEMA = createField(DSL.name("EVENT_OBJECT_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.EVENT_OBJECT_TABLE</code>.
      */
-    public final TableField<Record, String> EVENT_OBJECT_TABLE = createField(DSL.name("EVENT_OBJECT_TABLE"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> EVENT_OBJECT_TABLE = createField(DSL.name("EVENT_OBJECT_TABLE"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_ORDER</code>.
      */
-    public final TableField<Record, Long> ACTION_ORDER = createField(DSL.name("ACTION_ORDER"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> ACTION_ORDER = createField(DSL.name("ACTION_ORDER"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_CONDITION</code>.
      */
-    public final TableField<Record, String> ACTION_CONDITION = createField(DSL.name("ACTION_CONDITION"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> ACTION_CONDITION = createField(DSL.name("ACTION_CONDITION"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_STATEMENT</code>.
      */
-    public final TableField<Record, String> ACTION_STATEMENT = createField(DSL.name("ACTION_STATEMENT"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> ACTION_STATEMENT = createField(DSL.name("ACTION_STATEMENT"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_ORIENTATION</code>.
      */
-    public final TableField<Record, String> ACTION_ORIENTATION = createField(DSL.name("ACTION_ORIENTATION"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> ACTION_ORIENTATION = createField(DSL.name("ACTION_ORIENTATION"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_TIMING</code>.
      */
-    public final TableField<Record, String> ACTION_TIMING = createField(DSL.name("ACTION_TIMING"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> ACTION_TIMING = createField(DSL.name("ACTION_TIMING"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_REFERENCE_OLD_TABLE</code>.
      */
-    public final TableField<Record, String> ACTION_REFERENCE_OLD_TABLE = createField(DSL.name("ACTION_REFERENCE_OLD_TABLE"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ACTION_REFERENCE_OLD_TABLE = createField(DSL.name("ACTION_REFERENCE_OLD_TABLE"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_REFERENCE_NEW_TABLE</code>.
      */
-    public final TableField<Record, String> ACTION_REFERENCE_NEW_TABLE = createField(DSL.name("ACTION_REFERENCE_NEW_TABLE"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ACTION_REFERENCE_NEW_TABLE = createField(DSL.name("ACTION_REFERENCE_NEW_TABLE"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_REFERENCE_OLD_ROW</code>.
      */
-    public final TableField<Record, String> ACTION_REFERENCE_OLD_ROW = createField(DSL.name("ACTION_REFERENCE_OLD_ROW"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ACTION_REFERENCE_OLD_ROW = createField(DSL.name("ACTION_REFERENCE_OLD_ROW"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGERS.ACTION_REFERENCE_NEW_ROW</code>.
      */
-    public final TableField<Record, String> ACTION_REFERENCE_NEW_ROW = createField(DSL.name("ACTION_REFERENCE_NEW_ROW"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ACTION_REFERENCE_NEW_ROW = createField(DSL.name("ACTION_REFERENCE_NEW_ROW"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TRIGGERS.CREATED</code>.
      */
-    public final TableField<Record, OffsetDateTime> CREATED = createField(DSL.name("CREATED"), SQLDataType.TIMESTAMPWITHTIMEZONE(6), this, "");
+    public final TableField<Record, OffsetDateTime> CREATED = createField(DSL.name("CREATED"), net.tuxanna.database.jooq.information_schema.Domains.TIME_STAMP.getDataType(), this, "");
 
     private Triggers(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

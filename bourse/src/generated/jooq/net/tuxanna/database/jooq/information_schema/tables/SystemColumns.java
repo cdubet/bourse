@@ -44,25 +44,25 @@ public class SystemColumns extends TableImpl<Record> {
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMNS.TABLE_CAT</code>.
      * catalog in which the table containing the column is defined
      */
-    public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), SQLDataType.VARCHAR(128), this, "catalog in which the table containing the column is defined");
+    public final TableField<Record, String> TABLE_CAT = createField(DSL.name("TABLE_CAT"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "catalog in which the table containing the column is defined");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMNS.TABLE_SCHEM</code>.
      * schema in which the table containing the column is defined
      */
-    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "schema in which the table containing the column is defined");
+    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "schema in which the table containing the column is defined");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMNS.TABLE_NAME</code>.
      * simple name of the table containing the column
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "simple name of the table containing the column");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "simple name of the table containing the column");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMNS.COLUMN_NAME</code>.
      * simple name of the column
      */
-    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "simple name of the column");
+    public final TableField<Record, String> COLUMN_NAME = createField(DSL.name("COLUMN_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "simple name of the column");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMNS.DATA_TYPE</code>. SQL
@@ -78,7 +78,7 @@ public class SystemColumns extends TableImpl<Record> {
      * HSQLDB-specific data type name; this is the canonical name used in CREATE
      * TABLE and ALTER TABLE statements.
      */
-    public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), SQLDataType.VARCHAR(128), this, "the HSQLDB-specific data type name; this is the canonical name used in CREATE TABLE and ALTER TABLE statements.");
+    public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "the HSQLDB-specific data type name; this is the canonical name used in CREATE TABLE and ALTER TABLE statements.");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMNS.COLUMN_SIZE</code>.
@@ -122,13 +122,13 @@ public class SystemColumns extends TableImpl<Record> {
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMNS.REMARKS</code>.
      * explanitory comment describing the column (may be NULL)
      */
-    public final TableField<Record, String> REMARKS = createField(DSL.name("REMARKS"), SQLDataType.VARCHAR(65536), this, "explanitory comment describing the column (may be NULL)");
+    public final TableField<Record, String> REMARKS = createField(DSL.name("REMARKS"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "explanitory comment describing the column (may be NULL)");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMNS.COLUMN_DEF</code>.
      * default value (may be NULL)
      */
-    public final TableField<Record, String> COLUMN_DEF = createField(DSL.name("COLUMN_DEF"), SQLDataType.VARCHAR(65536), this, "default value (may be NULL)");
+    public final TableField<Record, String> COLUMN_DEF = createField(DSL.name("COLUMN_DEF"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "default value (may be NULL)");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMNS.SQL_DATA_TYPE</code>.
@@ -166,26 +166,26 @@ public class SystemColumns extends TableImpl<Record> {
      * column nullable?: { YES (might allow) | NO (definitely not)  | ''
      * (unknown) }
      */
-    public final TableField<Record, String> IS_NULLABLE = createField(DSL.name("IS_NULLABLE"), SQLDataType.VARCHAR(3), this, "is column nullable?: { YES (might allow) | NO (definitely not)  | '' (unknown) }");
+    public final TableField<Record, String> IS_NULLABLE = createField(DSL.name("IS_NULLABLE"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "is column nullable?: { YES (might allow) | NO (definitely not)  | '' (unknown) }");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMNS.SCOPE_CATALOG</code>.
      */
-    public final TableField<Record, String> SCOPE_CATALOG = createField(DSL.name("SCOPE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SCOPE_CATALOG = createField(DSL.name("SCOPE_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMNS.SCOPE_SCHEMA</code>.
      * schema of table that is the scope of a reference attribute (NULL if the
      * DATA_TYPE isn't REF)
      */
-    public final TableField<Record, String> SCOPE_SCHEMA = createField(DSL.name("SCOPE_SCHEMA"), SQLDataType.VARCHAR(128), this, "schema of table that is the scope of a reference attribute (NULL if the DATA_TYPE isn't REF)");
+    public final TableField<Record, String> SCOPE_SCHEMA = createField(DSL.name("SCOPE_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "schema of table that is the scope of a reference attribute (NULL if the DATA_TYPE isn't REF)");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_COLUMNS.SCOPE_TABLE</code>.
      * table name that this the scope of a reference attribute (NULL if the
      * DATA_TYPE isn't REF)
      */
-    public final TableField<Record, String> SCOPE_TABLE = createField(DSL.name("SCOPE_TABLE"), SQLDataType.VARCHAR(128), this, "table name that this the scope of a reference attribute (NULL if the DATA_TYPE isn't REF)");
+    public final TableField<Record, String> SCOPE_TABLE = createField(DSL.name("SCOPE_TABLE"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "table name that this the scope of a reference attribute (NULL if the DATA_TYPE isn't REF)");
 
     /**
      * The column
@@ -199,13 +199,13 @@ public class SystemColumns extends TableImpl<Record> {
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_COLUMNS.IS_AUTOINCREMENT</code>.
      */
-    public final TableField<Record, String> IS_AUTOINCREMENT = createField(DSL.name("IS_AUTOINCREMENT"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_AUTOINCREMENT = createField(DSL.name("IS_AUTOINCREMENT"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_COLUMNS.IS_GENERATEDCOLUMN</code>.
      */
-    public final TableField<Record, String> IS_GENERATEDCOLUMN = createField(DSL.name("IS_GENERATEDCOLUMN"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_GENERATEDCOLUMN = createField(DSL.name("IS_GENERATEDCOLUMN"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     private SystemColumns(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

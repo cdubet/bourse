@@ -44,13 +44,13 @@ public class SystemSchemas extends TableImpl<Record> {
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS.TABLE_SCHEM</code>.
      * schema name
      */
-    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), SQLDataType.VARCHAR(128), this, "schema name");
+    public final TableField<Record, String> TABLE_SCHEM = createField(DSL.name("TABLE_SCHEM"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "schema name");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS.TABLE_CATALOG</code>.
      * catalog in which schema is defined
      */
-    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "catalog in which schema is defined");
+    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "catalog in which schema is defined");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_SCHEMAS.IS_DEFAULT</code>.

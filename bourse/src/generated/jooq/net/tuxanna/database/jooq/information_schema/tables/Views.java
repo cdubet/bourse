@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -43,53 +42,53 @@ public class Views extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.VIEWS.TABLE_CATALOG</code>.
      */
-    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEWS.TABLE_SCHEMA</code>.
      */
-    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEWS.TABLE_NAME</code>.
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEWS.VIEW_DEFINITION</code>.
      */
-    public final TableField<Record, String> VIEW_DEFINITION = createField(DSL.name("VIEW_DEFINITION"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> VIEW_DEFINITION = createField(DSL.name("VIEW_DEFINITION"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEWS.CHECK_OPTION</code>.
      */
-    public final TableField<Record, String> CHECK_OPTION = createField(DSL.name("CHECK_OPTION"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> CHECK_OPTION = createField(DSL.name("CHECK_OPTION"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEWS.IS_UPDATABLE</code>.
      */
-    public final TableField<Record, String> IS_UPDATABLE = createField(DSL.name("IS_UPDATABLE"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_UPDATABLE = createField(DSL.name("IS_UPDATABLE"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEWS.INSERTABLE_INTO</code>.
      */
-    public final TableField<Record, String> INSERTABLE_INTO = createField(DSL.name("INSERTABLE_INTO"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> INSERTABLE_INTO = createField(DSL.name("INSERTABLE_INTO"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEWS.IS_TRIGGER_UPDATABLE</code>.
      */
-    public final TableField<Record, String> IS_TRIGGER_UPDATABLE = createField(DSL.name("IS_TRIGGER_UPDATABLE"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_TRIGGER_UPDATABLE = createField(DSL.name("IS_TRIGGER_UPDATABLE"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.VIEWS.IS_TRIGGER_DELETABLE</code>.
      */
-    public final TableField<Record, String> IS_TRIGGER_DELETABLE = createField(DSL.name("IS_TRIGGER_DELETABLE"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_TRIGGER_DELETABLE = createField(DSL.name("IS_TRIGGER_DELETABLE"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.VIEWS.IS_TRIGGER_INSERTABLE_INTO</code>.
      */
-    public final TableField<Record, String> IS_TRIGGER_INSERTABLE_INTO = createField(DSL.name("IS_TRIGGER_INSERTABLE_INTO"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_TRIGGER_INSERTABLE_INTO = createField(DSL.name("IS_TRIGGER_INSERTABLE_INTO"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     private Views(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

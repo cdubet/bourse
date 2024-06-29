@@ -45,7 +45,7 @@ public class SystemTypeinfo extends TableImpl<Record> {
      * HSQLDB-specific data type name; this is the canonical name used in CREATE
      * TABLE and ALTER TABLE statements.
      */
-    public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), SQLDataType.VARCHAR(128), this, "the HSQLDB-specific data type name; this is the canonical name used in CREATE TABLE and ALTER TABLE statements.");
+    public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "the HSQLDB-specific data type name; this is the canonical name used in CREATE TABLE and ALTER TABLE statements.");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TYPEINFO.DATA_TYPE</code>. SQL
@@ -76,7 +76,7 @@ public class SystemTypeinfo extends TableImpl<Record> {
      * example, a single quotation mark (') for character data types; NULL for
      * data types where a literal prefix is not applicable
      */
-    public final TableField<Record, String> LITERAL_PREFIX = createField(DSL.name("LITERAL_PREFIX"), SQLDataType.VARCHAR(65536), this, "the character or characters used to prefix a literal of this type; for example, a single quotation mark (') for character data types; NULL for data types where a literal prefix is not applicable");
+    public final TableField<Record, String> LITERAL_PREFIX = createField(DSL.name("LITERAL_PREFIX"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "the character or characters used to prefix a literal of this type; for example, a single quotation mark (') for character data types; NULL for data types where a literal prefix is not applicable");
 
     /**
      * The column
@@ -85,7 +85,7 @@ public class SystemTypeinfo extends TableImpl<Record> {
      * example, a single quotation mark (') for character data types; NULL for
      * data types where a literal suffix is not applicable
      */
-    public final TableField<Record, String> LITERAL_SUFFIX = createField(DSL.name("LITERAL_SUFFIX"), SQLDataType.VARCHAR(65536), this, "the character or characters used to terminate a literal of this type; for example, a single quotation mark (') for character data types; NULL for data types where a literal suffix is not applicable");
+    public final TableField<Record, String> LITERAL_SUFFIX = createField(DSL.name("LITERAL_SUFFIX"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "the character or characters used to terminate a literal of this type; for example, a single quotation mark (') for character data types; NULL for data types where a literal suffix is not applicable");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TYPEINFO.CREATE_PARAMS</code>.
@@ -99,7 +99,7 @@ public class SystemTypeinfo extends TableImpl<Record> {
      * value is NULL if there are no parameters for the data type definition;
      * for example, INTEGER.
      */
-    public final TableField<Record, String> CREATE_PARAMS = createField(DSL.name("CREATE_PARAMS"), SQLDataType.VARCHAR(65536), this, "A list of keywords, separated by commas, corresponding to each parameter that may be specified in parentheses when issuing DDL relative to the data type.  The keywords in the list, in the language of the current Locale, may be any of the following:  length, precision, scale.  They appear in the order that the syntax requires that they be used.  For example, CREATE_PARAMS for DECIMAL with an English locale would be \"precision,scale\"; CREATE_PARAMS for VARCHAR would be \"length\".  The value is NULL if there are no parameters for the data type definition; for example, INTEGER.");
+    public final TableField<Record, String> CREATE_PARAMS = createField(DSL.name("CREATE_PARAMS"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "A list of keywords, separated by commas, corresponding to each parameter that may be specified in parentheses when issuing DDL relative to the data type.  The keywords in the list, in the language of the current Locale, may be any of the following:  length, precision, scale.  They appear in the order that the syntax requires that they be used.  For example, CREATE_PARAMS for DECIMAL with an English locale would be \"precision,scale\"; CREATE_PARAMS for VARCHAR would be \"length\".  The value is NULL if there are no parameters for the data type definition; for example, INTEGER.");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TYPEINFO.NULLABLE</code>. NULL
@@ -155,7 +155,7 @@ public class SystemTypeinfo extends TableImpl<Record> {
      * is not supported.  This name is intended for display only, such as in
      * dialog boxes
      */
-    public final TableField<Record, String> LOCAL_TYPE_NAME = createField(DSL.name("LOCAL_TYPE_NAME"), SQLDataType.VARCHAR(128), this, "Localized version of the name of the data type; NULL if a localized name is not supported.  This name is intended for display only, such as in dialog boxes");
+    public final TableField<Record, String> LOCAL_TYPE_NAME = createField(DSL.name("LOCAL_TYPE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "Localized version of the name of the data type; NULL if a localized name is not supported.  This name is intended for display only, such as in dialog boxes");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_TYPEINFO.MINIMUM_SCALE</code>.

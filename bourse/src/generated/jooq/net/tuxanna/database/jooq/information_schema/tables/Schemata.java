@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -43,40 +42,40 @@ public class Schemata extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SCHEMATA.CATALOG_NAME</code>.
      */
-    public final TableField<Record, String> CATALOG_NAME = createField(DSL.name("CATALOG_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> CATALOG_NAME = createField(DSL.name("CATALOG_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SCHEMATA.SCHEMA_NAME</code>.
      */
-    public final TableField<Record, String> SCHEMA_NAME = createField(DSL.name("SCHEMA_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SCHEMA_NAME = createField(DSL.name("SCHEMA_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SCHEMATA.SCHEMA_OWNER</code>.
      */
-    public final TableField<Record, String> SCHEMA_OWNER = createField(DSL.name("SCHEMA_OWNER"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SCHEMA_OWNER = createField(DSL.name("SCHEMA_OWNER"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SCHEMATA.DEFAULT_CHARACTER_SET_CATALOG</code>.
      */
-    public final TableField<Record, String> DEFAULT_CHARACTER_SET_CATALOG = createField(DSL.name("DEFAULT_CHARACTER_SET_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> DEFAULT_CHARACTER_SET_CATALOG = createField(DSL.name("DEFAULT_CHARACTER_SET_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SCHEMATA.DEFAULT_CHARACTER_SET_SCHEMA</code>.
      */
-    public final TableField<Record, String> DEFAULT_CHARACTER_SET_SCHEMA = createField(DSL.name("DEFAULT_CHARACTER_SET_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> DEFAULT_CHARACTER_SET_SCHEMA = createField(DSL.name("DEFAULT_CHARACTER_SET_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SCHEMATA.DEFAULT_CHARACTER_SET_NAME</code>.
      */
-    public final TableField<Record, String> DEFAULT_CHARACTER_SET_NAME = createField(DSL.name("DEFAULT_CHARACTER_SET_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> DEFAULT_CHARACTER_SET_NAME = createField(DSL.name("DEFAULT_CHARACTER_SET_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SCHEMATA.SQL_PATH</code>.
      */
-    public final TableField<Record, String> SQL_PATH = createField(DSL.name("SQL_PATH"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> SQL_PATH = createField(DSL.name("SQL_PATH"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     private Schemata(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

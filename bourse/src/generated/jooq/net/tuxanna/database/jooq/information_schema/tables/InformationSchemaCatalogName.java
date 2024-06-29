@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -46,7 +45,7 @@ public class InformationSchemaCatalogName extends TableImpl<Record> {
      * <code>INFORMATION_SCHEMA.INFORMATION_SCHEMA_CATALOG_NAME.CATALOG_NAME</code>.
      * catalog name
      */
-    public final TableField<Record, String> CATALOG_NAME = createField(DSL.name("CATALOG_NAME"), SQLDataType.VARCHAR(128), this, "catalog name");
+    public final TableField<Record, String> CATALOG_NAME = createField(DSL.name("CATALOG_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "catalog name");
 
     private InformationSchemaCatalogName(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

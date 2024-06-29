@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -43,65 +42,65 @@ public class Tables extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.TABLES.TABLE_CATALOG</code>.
      */
-    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_CATALOG = createField(DSL.name("TABLE_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TABLES.TABLE_SCHEMA</code>.
      */
-    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_SCHEMA = createField(DSL.name("TABLE_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TABLES.TABLE_NAME</code>.
      */
-    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TABLE_NAME = createField(DSL.name("TABLE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TABLES.TABLE_TYPE</code>.
      */
-    public final TableField<Record, String> TABLE_TYPE = createField(DSL.name("TABLE_TYPE"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> TABLE_TYPE = createField(DSL.name("TABLE_TYPE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TABLES.SELF_REFERENCING_COLUMN_NAME</code>.
      */
-    public final TableField<Record, String> SELF_REFERENCING_COLUMN_NAME = createField(DSL.name("SELF_REFERENCING_COLUMN_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> SELF_REFERENCING_COLUMN_NAME = createField(DSL.name("SELF_REFERENCING_COLUMN_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TABLES.REFERENCE_GENERATION</code>.
      */
-    public final TableField<Record, String> REFERENCE_GENERATION = createField(DSL.name("REFERENCE_GENERATION"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> REFERENCE_GENERATION = createField(DSL.name("REFERENCE_GENERATION"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TABLES.USER_DEFINED_TYPE_CATALOG</code>.
      */
-    public final TableField<Record, String> USER_DEFINED_TYPE_CATALOG = createField(DSL.name("USER_DEFINED_TYPE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> USER_DEFINED_TYPE_CATALOG = createField(DSL.name("USER_DEFINED_TYPE_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TABLES.USER_DEFINED_TYPE_SCHEMA</code>.
      */
-    public final TableField<Record, String> USER_DEFINED_TYPE_SCHEMA = createField(DSL.name("USER_DEFINED_TYPE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> USER_DEFINED_TYPE_SCHEMA = createField(DSL.name("USER_DEFINED_TYPE_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TABLES.USER_DEFINED_TYPE_NAME</code>.
      */
-    public final TableField<Record, String> USER_DEFINED_TYPE_NAME = createField(DSL.name("USER_DEFINED_TYPE_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> USER_DEFINED_TYPE_NAME = createField(DSL.name("USER_DEFINED_TYPE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TABLES.IS_INSERTABLE_INTO</code>.
      */
-    public final TableField<Record, String> IS_INSERTABLE_INTO = createField(DSL.name("IS_INSERTABLE_INTO"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_INSERTABLE_INTO = createField(DSL.name("IS_INSERTABLE_INTO"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TABLES.IS_TYPED</code>.
      */
-    public final TableField<Record, String> IS_TYPED = createField(DSL.name("IS_TYPED"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_TYPED = createField(DSL.name("IS_TYPED"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.TABLES.COMMIT_ACTION</code>.
      */
-    public final TableField<Record, String> COMMIT_ACTION = createField(DSL.name("COMMIT_ACTION"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> COMMIT_ACTION = createField(DSL.name("COMMIT_ACTION"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     private Tables(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

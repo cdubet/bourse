@@ -44,25 +44,25 @@ public class SystemUdts extends TableImpl<Record> {
      * The column <code>INFORMATION_SCHEMA.SYSTEM_UDTS.TYPE_CAT</code>. type's
      * catalog
      */
-    public final TableField<Record, String> TYPE_CAT = createField(DSL.name("TYPE_CAT"), SQLDataType.VARCHAR(128), this, "type's catalog");
+    public final TableField<Record, String> TYPE_CAT = createField(DSL.name("TYPE_CAT"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "type's catalog");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_UDTS.TYPE_SCHEM</code>. type's
      * schema
      */
-    public final TableField<Record, String> TYPE_SCHEM = createField(DSL.name("TYPE_SCHEM"), SQLDataType.VARCHAR(128), this, "type's schema");
+    public final TableField<Record, String> TYPE_SCHEM = createField(DSL.name("TYPE_SCHEM"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "type's schema");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_UDTS.TYPE_NAME</code>. type's
      * DBMS name
      */
-    public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), SQLDataType.VARCHAR(128), this, "type's DBMS name");
+    public final TableField<Record, String> TYPE_NAME = createField(DSL.name("TYPE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "type's DBMS name");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_UDTS.CLASS_NAME</code>. type's
      * Java class name
      */
-    public final TableField<Record, String> CLASS_NAME = createField(DSL.name("CLASS_NAME"), SQLDataType.VARCHAR(65536), this, "type's Java class name");
+    public final TableField<Record, String> CLASS_NAME = createField(DSL.name("CLASS_NAME"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "type's Java class name");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_UDTS.DATA_TYPE</code>. type
@@ -75,7 +75,7 @@ public class SystemUdts extends TableImpl<Record> {
      * The column <code>INFORMATION_SCHEMA.SYSTEM_UDTS.REMARKS</code>.
      * explanatory comment on the user defined type
      */
-    public final TableField<Record, String> REMARKS = createField(DSL.name("REMARKS"), SQLDataType.VARCHAR(65536), this, "explanatory comment on the user defined type");
+    public final TableField<Record, String> REMARKS = createField(DSL.name("REMARKS"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "explanatory comment on the user defined type");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SYSTEM_UDTS.BASE_TYPE</code>. type

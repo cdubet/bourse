@@ -45,7 +45,7 @@ public class SystemConnectionProperties extends TableImpl<Record> {
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES.NAME</code>.
      */
-    public final TableField<Record, String> NAME = createField(DSL.name("NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> NAME = createField(DSL.name("NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
@@ -57,13 +57,13 @@ public class SystemConnectionProperties extends TableImpl<Record> {
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES.DEFAULT_VALUE</code>.
      */
-    public final TableField<Record, String> DEFAULT_VALUE = createField(DSL.name("DEFAULT_VALUE"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> DEFAULT_VALUE = createField(DSL.name("DEFAULT_VALUE"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SYSTEM_CONNECTION_PROPERTIES.DESCRIPTION</code>.
      */
-    public final TableField<Record, String> DESCRIPTION = createField(DSL.name("DESCRIPTION"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> DESCRIPTION = createField(DSL.name("DESCRIPTION"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     private SystemConnectionProperties(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

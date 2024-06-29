@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -43,37 +42,37 @@ public class SqlFeatures extends TableImpl<Record> {
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_FEATURES.FEATURE_ID</code>.
      */
-    public final TableField<Record, String> FEATURE_ID = createField(DSL.name("FEATURE_ID"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> FEATURE_ID = createField(DSL.name("FEATURE_ID"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_FEATURES.FEATURE_NAME</code>.
      */
-    public final TableField<Record, String> FEATURE_NAME = createField(DSL.name("FEATURE_NAME"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> FEATURE_NAME = createField(DSL.name("FEATURE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_FEATURES.SUB_FEATURE_ID</code>.
      */
-    public final TableField<Record, String> SUB_FEATURE_ID = createField(DSL.name("SUB_FEATURE_ID"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> SUB_FEATURE_ID = createField(DSL.name("SUB_FEATURE_ID"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_FEATURES.SUB_FEATURE_NAME</code>.
      */
-    public final TableField<Record, String> SUB_FEATURE_NAME = createField(DSL.name("SUB_FEATURE_NAME"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> SUB_FEATURE_NAME = createField(DSL.name("SUB_FEATURE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_FEATURES.IS_SUPPORTED</code>.
      */
-    public final TableField<Record, String> IS_SUPPORTED = createField(DSL.name("IS_SUPPORTED"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_SUPPORTED = createField(DSL.name("IS_SUPPORTED"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_FEATURES.IS_VERIFIED_BY</code>.
      */
-    public final TableField<Record, String> IS_VERIFIED_BY = createField(DSL.name("IS_VERIFIED_BY"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> IS_VERIFIED_BY = createField(DSL.name("IS_VERIFIED_BY"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.SQL_FEATURES.COMMENTS</code>.
      */
-    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     private SqlFeatures(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

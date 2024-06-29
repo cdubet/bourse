@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -45,31 +44,31 @@ public class SqlImplementationInfo extends TableImpl<Record> {
      * The column
      * <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.IMPLEMENTATION_INFO_ID</code>.
      */
-    public final TableField<Record, Long> IMPLEMENTATION_INFO_ID = createField(DSL.name("IMPLEMENTATION_INFO_ID"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> IMPLEMENTATION_INFO_ID = createField(DSL.name("IMPLEMENTATION_INFO_ID"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.IMPLEMENTATION_INFO_NAME</code>.
      */
-    public final TableField<Record, String> IMPLEMENTATION_INFO_NAME = createField(DSL.name("IMPLEMENTATION_INFO_NAME"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> IMPLEMENTATION_INFO_NAME = createField(DSL.name("IMPLEMENTATION_INFO_NAME"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.INTEGER_VALUE</code>.
      */
-    public final TableField<Record, Long> INTEGER_VALUE = createField(DSL.name("INTEGER_VALUE"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> INTEGER_VALUE = createField(DSL.name("INTEGER_VALUE"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.CHARACTER_VALUE</code>.
      */
-    public final TableField<Record, String> CHARACTER_VALUE = createField(DSL.name("CHARACTER_VALUE"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> CHARACTER_VALUE = createField(DSL.name("CHARACTER_VALUE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.SQL_IMPLEMENTATION_INFO.COMMENTS</code>.
      */
-    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> COMMENTS = createField(DSL.name("COMMENTS"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     private SqlImplementationInfo(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

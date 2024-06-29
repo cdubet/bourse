@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -45,215 +44,215 @@ public class UserDefinedTypes extends TableImpl<Record> {
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.USER_DEFINED_TYPE_CATALOG</code>.
      */
-    public final TableField<Record, String> USER_DEFINED_TYPE_CATALOG = createField(DSL.name("USER_DEFINED_TYPE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> USER_DEFINED_TYPE_CATALOG = createField(DSL.name("USER_DEFINED_TYPE_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.USER_DEFINED_TYPE_SCHEMA</code>.
      */
-    public final TableField<Record, String> USER_DEFINED_TYPE_SCHEMA = createField(DSL.name("USER_DEFINED_TYPE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> USER_DEFINED_TYPE_SCHEMA = createField(DSL.name("USER_DEFINED_TYPE_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.USER_DEFINED_TYPE_NAME</code>.
      */
-    public final TableField<Record, String> USER_DEFINED_TYPE_NAME = createField(DSL.name("USER_DEFINED_TYPE_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> USER_DEFINED_TYPE_NAME = createField(DSL.name("USER_DEFINED_TYPE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.USER_DEFINED_TYPE_CATEGORY</code>.
      */
-    public final TableField<Record, String> USER_DEFINED_TYPE_CATEGORY = createField(DSL.name("USER_DEFINED_TYPE_CATEGORY"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> USER_DEFINED_TYPE_CATEGORY = createField(DSL.name("USER_DEFINED_TYPE_CATEGORY"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.IS_INSTANTIABLE</code>.
      */
-    public final TableField<Record, String> IS_INSTANTIABLE = createField(DSL.name("IS_INSTANTIABLE"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_INSTANTIABLE = createField(DSL.name("IS_INSTANTIABLE"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.IS_FINAL</code>.
      */
-    public final TableField<Record, String> IS_FINAL = createField(DSL.name("IS_FINAL"), SQLDataType.VARCHAR(3), this, "");
+    public final TableField<Record, String> IS_FINAL = createField(DSL.name("IS_FINAL"), net.tuxanna.database.jooq.information_schema.Domains.YES_OR_NO.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.ORDERING_FORM</code>.
      */
-    public final TableField<Record, String> ORDERING_FORM = createField(DSL.name("ORDERING_FORM"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ORDERING_FORM = createField(DSL.name("ORDERING_FORM"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.ORDERING_CATEGORY</code>.
      */
-    public final TableField<Record, String> ORDERING_CATEGORY = createField(DSL.name("ORDERING_CATEGORY"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ORDERING_CATEGORY = createField(DSL.name("ORDERING_CATEGORY"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.ORDERING_ROUTINE_CATALOG</code>.
      */
-    public final TableField<Record, String> ORDERING_ROUTINE_CATALOG = createField(DSL.name("ORDERING_ROUTINE_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ORDERING_ROUTINE_CATALOG = createField(DSL.name("ORDERING_ROUTINE_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.ORDERING_ROUTINE_SCHEMA</code>.
      */
-    public final TableField<Record, String> ORDERING_ROUTINE_SCHEMA = createField(DSL.name("ORDERING_ROUTINE_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ORDERING_ROUTINE_SCHEMA = createField(DSL.name("ORDERING_ROUTINE_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.ORDERING_ROUTINE_NAME</code>.
      */
-    public final TableField<Record, String> ORDERING_ROUTINE_NAME = createField(DSL.name("ORDERING_ROUTINE_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> ORDERING_ROUTINE_NAME = createField(DSL.name("ORDERING_ROUTINE_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.REFERENCE_TYPE</code>.
      */
-    public final TableField<Record, String> REFERENCE_TYPE = createField(DSL.name("REFERENCE_TYPE"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> REFERENCE_TYPE = createField(DSL.name("REFERENCE_TYPE"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.DATA_TYPE</code>.
      */
-    public final TableField<Record, String> DATA_TYPE = createField(DSL.name("DATA_TYPE"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> DATA_TYPE = createField(DSL.name("DATA_TYPE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.CHARACTER_MAXIMUM_LENGTH</code>.
      */
-    public final TableField<Record, Long> CHARACTER_MAXIMUM_LENGTH = createField(DSL.name("CHARACTER_MAXIMUM_LENGTH"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> CHARACTER_MAXIMUM_LENGTH = createField(DSL.name("CHARACTER_MAXIMUM_LENGTH"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.CHARACTER_OCTET_LENGTH</code>.
      */
-    public final TableField<Record, Long> CHARACTER_OCTET_LENGTH = createField(DSL.name("CHARACTER_OCTET_LENGTH"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> CHARACTER_OCTET_LENGTH = createField(DSL.name("CHARACTER_OCTET_LENGTH"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.CHARACTER_SET_CATALOG</code>.
      */
-    public final TableField<Record, String> CHARACTER_SET_CATALOG = createField(DSL.name("CHARACTER_SET_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> CHARACTER_SET_CATALOG = createField(DSL.name("CHARACTER_SET_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.CHARACTER_SET_SCHEMA</code>.
      */
-    public final TableField<Record, String> CHARACTER_SET_SCHEMA = createField(DSL.name("CHARACTER_SET_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> CHARACTER_SET_SCHEMA = createField(DSL.name("CHARACTER_SET_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.CHARACTER_SET_NAME</code>.
      */
-    public final TableField<Record, String> CHARACTER_SET_NAME = createField(DSL.name("CHARACTER_SET_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> CHARACTER_SET_NAME = createField(DSL.name("CHARACTER_SET_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.COLLATION_CATALOG</code>.
      */
-    public final TableField<Record, String> COLLATION_CATALOG = createField(DSL.name("COLLATION_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> COLLATION_CATALOG = createField(DSL.name("COLLATION_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.COLLATION_SCHEMA</code>.
      */
-    public final TableField<Record, String> COLLATION_SCHEMA = createField(DSL.name("COLLATION_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> COLLATION_SCHEMA = createField(DSL.name("COLLATION_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.COLLATION_NAME</code>.
      */
-    public final TableField<Record, String> COLLATION_NAME = createField(DSL.name("COLLATION_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> COLLATION_NAME = createField(DSL.name("COLLATION_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.NUMERIC_PRECISION</code>.
      */
-    public final TableField<Record, Long> NUMERIC_PRECISION = createField(DSL.name("NUMERIC_PRECISION"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> NUMERIC_PRECISION = createField(DSL.name("NUMERIC_PRECISION"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.NUMERIC_PRECISION_RADIX</code>.
      */
-    public final TableField<Record, Long> NUMERIC_PRECISION_RADIX = createField(DSL.name("NUMERIC_PRECISION_RADIX"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> NUMERIC_PRECISION_RADIX = createField(DSL.name("NUMERIC_PRECISION_RADIX"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.NUMERIC_SCALE</code>.
      */
-    public final TableField<Record, Long> NUMERIC_SCALE = createField(DSL.name("NUMERIC_SCALE"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> NUMERIC_SCALE = createField(DSL.name("NUMERIC_SCALE"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.DATETIME_PRECISION</code>.
      */
-    public final TableField<Record, Long> DATETIME_PRECISION = createField(DSL.name("DATETIME_PRECISION"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> DATETIME_PRECISION = createField(DSL.name("DATETIME_PRECISION"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.INTERVAL_TYPE</code>.
      */
-    public final TableField<Record, String> INTERVAL_TYPE = createField(DSL.name("INTERVAL_TYPE"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> INTERVAL_TYPE = createField(DSL.name("INTERVAL_TYPE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.INTERVAL_PRECISION</code>.
      */
-    public final TableField<Record, Long> INTERVAL_PRECISION = createField(DSL.name("INTERVAL_PRECISION"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> INTERVAL_PRECISION = createField(DSL.name("INTERVAL_PRECISION"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.SOURCE_DTD_IDENTIFIER</code>.
      */
-    public final TableField<Record, String> SOURCE_DTD_IDENTIFIER = createField(DSL.name("SOURCE_DTD_IDENTIFIER"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> SOURCE_DTD_IDENTIFIER = createField(DSL.name("SOURCE_DTD_IDENTIFIER"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.REF_DTD_IDENTIFIER</code>.
      */
-    public final TableField<Record, String> REF_DTD_IDENTIFIER = createField(DSL.name("REF_DTD_IDENTIFIER"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> REF_DTD_IDENTIFIER = createField(DSL.name("REF_DTD_IDENTIFIER"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.DECLARED_DATA_TYPE</code>.
      */
-    public final TableField<Record, String> DECLARED_DATA_TYPE = createField(DSL.name("DECLARED_DATA_TYPE"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> DECLARED_DATA_TYPE = createField(DSL.name("DECLARED_DATA_TYPE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.DECLARED_NUMERIC_PRECISION</code>.
      */
-    public final TableField<Record, Long> DECLARED_NUMERIC_PRECISION = createField(DSL.name("DECLARED_NUMERIC_PRECISION"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> DECLARED_NUMERIC_PRECISION = createField(DSL.name("DECLARED_NUMERIC_PRECISION"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.DECLARED_NUMERIC_SCALE</code>.
      */
-    public final TableField<Record, Long> DECLARED_NUMERIC_SCALE = createField(DSL.name("DECLARED_NUMERIC_SCALE"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> DECLARED_NUMERIC_SCALE = createField(DSL.name("DECLARED_NUMERIC_SCALE"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.MAXIMUM_CARDINALITY</code>.
      */
-    public final TableField<Record, Long> MAXIMUM_CARDINALITY = createField(DSL.name("MAXIMUM_CARDINALITY"), SQLDataType.BIGINT, this, "");
+    public final TableField<Record, Long> MAXIMUM_CARDINALITY = createField(DSL.name("MAXIMUM_CARDINALITY"), net.tuxanna.database.jooq.information_schema.Domains.CARDINAL_NUMBER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.EXTERNAL_NAME</code>.
      */
-    public final TableField<Record, String> EXTERNAL_NAME = createField(DSL.name("EXTERNAL_NAME"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> EXTERNAL_NAME = createField(DSL.name("EXTERNAL_NAME"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.EXTERNAL_LANGUAGE</code>.
      */
-    public final TableField<Record, String> EXTERNAL_LANGUAGE = createField(DSL.name("EXTERNAL_LANGUAGE"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> EXTERNAL_LANGUAGE = createField(DSL.name("EXTERNAL_LANGUAGE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.USER_DEFINED_TYPES.JAVA_INTERFACE</code>.
      */
-    public final TableField<Record, String> JAVA_INTERFACE = createField(DSL.name("JAVA_INTERFACE"), SQLDataType.VARCHAR(65536), this, "");
+    public final TableField<Record, String> JAVA_INTERFACE = createField(DSL.name("JAVA_INTERFACE"), net.tuxanna.database.jooq.information_schema.Domains.CHARACTER_DATA.getDataType(), this, "");
 
     private UserDefinedTypes(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);

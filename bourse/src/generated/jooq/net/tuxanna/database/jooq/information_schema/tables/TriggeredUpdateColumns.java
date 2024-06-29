@@ -15,7 +15,6 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
 import org.jooq.impl.DSL;
-import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
 
 
@@ -45,43 +44,43 @@ public class TriggeredUpdateColumns extends TableImpl<Record> {
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.TRIGGER_CATALOG</code>.
      */
-    public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_CATALOG = createField(DSL.name("TRIGGER_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.TRIGGER_SCHEMA</code>.
      */
-    public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_SCHEMA = createField(DSL.name("TRIGGER_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.TRIGGER_NAME</code>.
      */
-    public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> TRIGGER_NAME = createField(DSL.name("TRIGGER_NAME"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.EVENT_OBJECT_CATALOG</code>.
      */
-    public final TableField<Record, String> EVENT_OBJECT_CATALOG = createField(DSL.name("EVENT_OBJECT_CATALOG"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> EVENT_OBJECT_CATALOG = createField(DSL.name("EVENT_OBJECT_CATALOG"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.EVENT_OBJECT_SCHEMA</code>.
      */
-    public final TableField<Record, String> EVENT_OBJECT_SCHEMA = createField(DSL.name("EVENT_OBJECT_SCHEMA"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> EVENT_OBJECT_SCHEMA = createField(DSL.name("EVENT_OBJECT_SCHEMA"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.EVENT_OBJECT_TABLE</code>.
      */
-    public final TableField<Record, String> EVENT_OBJECT_TABLE = createField(DSL.name("EVENT_OBJECT_TABLE"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> EVENT_OBJECT_TABLE = createField(DSL.name("EVENT_OBJECT_TABLE"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     /**
      * The column
      * <code>INFORMATION_SCHEMA.TRIGGERED_UPDATE_COLUMNS.EVENT_OBJECT_COLUMN</code>.
      */
-    public final TableField<Record, String> EVENT_OBJECT_COLUMN = createField(DSL.name("EVENT_OBJECT_COLUMN"), SQLDataType.VARCHAR(128), this, "");
+    public final TableField<Record, String> EVENT_OBJECT_COLUMN = createField(DSL.name("EVENT_OBJECT_COLUMN"), net.tuxanna.database.jooq.information_schema.Domains.SQL_IDENTIFIER.getDataType(), this, "");
 
     private TriggeredUpdateColumns(Name alias, Table<Record> aliased) {
         this(alias, aliased, null);
