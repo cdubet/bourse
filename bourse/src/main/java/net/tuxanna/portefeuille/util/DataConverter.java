@@ -3,30 +3,49 @@ package net.tuxanna.portefeuille.util;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import net.tuxanna.portefeuille.dataFeed.TickerI;
+import net.tuxanna.portefeuille.dataFeed.TickerI.TypeOfItem;
 import net.tuxanna.portefeuille.database.ShareDB;
 
 public class DataConverter
 {
 
 	private static final Logger logger = LogManager.getLogger(DataConverter.class);
-	static public String  convertIsShareToString(boolean isShare)
+	
+	static public String  convertIsShareToString(TypeOfItem typeOfItem)
 	{
-		if (isShare)
+		switch (typeOfItem)
 		{
+		case TYPE_SHARE:
+			return "Y";
+		case TYPE_SICAV:
+			return "N";
+		case TYPE_TRACKER:
+			return "T";
+		default:
+			logger.error("unknown type"+typeOfItem);
 			return "Y";
 		}
-		return "N";
 	}
 	
-	static public boolean convertIsShare(char isShareChar)
+	static public TypeOfItem convertIsShare(char isShareChar)
 	{
 		if ((isShareChar=='y') || (isShareChar=='Y'))
 		{
-			return true;
+			return TickerI.TypeOfItem.TYPE_SHARE;
+		}
+		if ((isShareChar=='n') || (isShareChar=='N'))
+		{
+			return TickerI.TypeOfItem.TYPE_SICAV;
+		}
+		if ((isShareChar=='t') || (isShareChar=='T'))
+		{
+			return TickerI.TypeOfItem.TYPE_TRACKER;
 		}
 		else
 		{
-			return false;
+			logger.error("unknown type "+isShareChar);
+			return TickerI.TypeOfItem.TYPE_SHARE;
 		}
 	}
 	

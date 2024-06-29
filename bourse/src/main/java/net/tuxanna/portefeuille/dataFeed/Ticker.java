@@ -4,18 +4,18 @@ public class Ticker implements TickerI
 {
 	private String symbol;
 	
-	public Ticker(String symbol, boolean isShare)
+	public Ticker(String symbol, TypeOfItem typeOfItem)
 	{
 		super();
 		this.symbol = symbol;
-		this.isShare = isShare;
+		this.typeOfItem = typeOfItem;
 	}
 
-	private boolean isShare;
+	private TypeOfItem typeOfItem;
 	
 	public Ticker()
 	{
-		isShare=true;
+		typeOfItem=TypeOfItem.TYPE_SHARE;
 		symbol="";
 	}
 
@@ -27,9 +27,9 @@ public class Ticker implements TickerI
 	}
 
 	@Override
-	public boolean isShare()
+	public TypeOfItem getTypeOfItem()
 	{
-		return isShare;
+		return typeOfItem;
 	}
 
 	public void setSymbol(String symbol)
@@ -37,15 +37,15 @@ public class Ticker implements TickerI
 		this.symbol = symbol;
 	}
 
-	public void setShare(boolean isShare)
+	public void setShare(TypeOfItem val)
 	{
-		this.isShare = isShare;
+		this.typeOfItem = val;
 	}
 
 	@Override
 	public String toString()
 	{
-		return "Ticker [symbol=" + symbol + ", isShare=" + isShare + "]";
+		return "Ticker [symbol=" + symbol + ", typeOfItem=" + typeOfItem + "]";
 	}
 
 	@Override

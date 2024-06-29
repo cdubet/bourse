@@ -34,7 +34,7 @@ public class BoursoramaQuotationProvider implements QuotationProviderI
 
 	private static final String BOURSORAMA_SHARE_WEB_PAGE="https://www.boursorama.com/cours/";
 	private static final String BOURSORAMA_SICAV_WEB_PAGE="https://www.boursorama.com/bourse/opcvm/cours/";
-	private static final String BOURSORAMA_TRACKER_PAGE="https://www.boursorama.com/bourse/trackers/cours/";
+	private static final String BOURSORAMA_TRACKER_WEB_PAGE="https://www.boursorama.com/bourse/trackers/cours/";
 	
 	private List<TickerI> listOfTickers;
 	private int nbThreadsForWebDownload;
@@ -116,7 +116,7 @@ public class BoursoramaQuotationProvider implements QuotationProviderI
 		parser.setDocProvider(new JsoupDocumentProviderFromString(htmlBody));
 		Quote quote=new Quote();
 
-		if (parser.parse(ticker.isShare(),quote))
+		if (parser.parse(ticker.getTypeOfItem(),quote))
 		{
 			return new TickerAndQuote(ticker,quote);
 		}
@@ -134,15 +134,21 @@ public class BoursoramaQuotationProvider implements QuotationProviderI
 
 		String url;	
 
-		if (ticker.isShare())
+		switch (ticker.getTypeOfItem())
 		{
+		case TYPE_SHARE:
 			//make something like https://www.boursorama.com/cours/2aRO/
 			url=BOURSORAMA_SHARE_WEB_PAGE+ticker.getSymbol()+"/";
-		}
-		else
-		{
+			break;
+		case TYPE_SICAV:
 			//make something like  https://www.boursorama.com/bourse/opcvm/cours/0P0000WXIZ/
-			url=BOURSORAMA_SICAV_WEB_PAGE+ticker.getSymbol()+"/";	
+			url=BOURSORAMA_SICAV_WEB_PAGE+ticker.getSymbol()+"/";
+			break;
+		case TYPE_TRACKER:
+			url=BOURSORAMA_TRACKER_WEB_PAGE+ticker.getSymbol()+"/";
+			break;
+		default:
+			return null;
 		}
 		try
 		{

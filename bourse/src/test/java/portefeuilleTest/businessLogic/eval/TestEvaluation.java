@@ -243,7 +243,7 @@ public class TestEvaluation
 			for (ShareDB shareDb:listShares)
 			{
 				String tickerSymbol=shareDb.getTicker();
-				boolean isShare=shareDb.isShare();
+				TickerI.TypeOfItem isShare=shareDb.getTypeOfItem();
 				Ticker ticker=new Ticker(tickerSymbol , isShare);
 				listTicker.add(ticker);
 			}

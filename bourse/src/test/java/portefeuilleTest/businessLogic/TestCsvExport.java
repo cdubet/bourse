@@ -14,6 +14,7 @@ import org.junit.Test;
 
 import net.tuxanna.portefeuille.Quote;
 import net.tuxanna.portefeuille.business_logic.util.ShareToQuotations;
+import net.tuxanna.portefeuille.dataFeed.TickerI;
 import net.tuxanna.portefeuille.database.QuoteDB;
 import net.tuxanna.portefeuille.database.ShareDB;
 import net.tuxanna.portefeuille.database.ShareDB.Currency;
@@ -71,11 +72,11 @@ public class TestCsvExport
 		List<ShareDB> listShares=new ArrayList<ShareDB>();
 
 		final int SHARE_ID_1=1;
-		ShareDB share1=new ShareDB(SHARE_ID_1,"name1", "ticker1",Currency.EURO,true /*isShare*/);
+		ShareDB share1=new ShareDB(SHARE_ID_1,"name1", "ticker1",Currency.EURO,TickerI.TypeOfItem.TYPE_SHARE);
 		listShares.add(share1);
 
 		final int SHARE_ID_2=2;
-		ShareDB share2=new ShareDB(SHARE_ID_2,"name2", "ticker2",Currency.EURO,true /*isShare*/);
+		ShareDB share2=new ShareDB(SHARE_ID_2,"name2", "ticker2",Currency.EURO,TickerI.TypeOfItem.TYPE_SHARE);
 		listShares.add(share2);
 
 		{

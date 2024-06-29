@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.After;
 import org.junit.Test;
 
+import net.tuxanna.portefeuille.dataFeed.TickerI;
 import net.tuxanna.portefeuille.database.QuoteDB;
 import net.tuxanna.portefeuille.database.SearchLimitedNumberOfQuote;
 import net.tuxanna.portefeuille.database.ShareDB;
@@ -37,7 +38,7 @@ public class TestSearch
 					"not matter", 
 					"not matter",
 					ShareDB.Currency.EURO, //does not matter
-					true //does not matter
+					TickerI.TypeOfItem.TYPE_SHARE //does not matter
 					);
 			SearchLimitedNumberOfQuote search=new SearchLimitedNumberOfQuote(share, 5);
 			List<QuoteDB> listQuote=new ArrayList<QuoteDB>();

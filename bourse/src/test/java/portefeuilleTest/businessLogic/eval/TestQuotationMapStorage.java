@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import net.tuxanna.portefeuille.business_logic.eval.QuotationMapStorage;
 import net.tuxanna.portefeuille.business_logic.eval.ShareIdAndDate;
+import net.tuxanna.portefeuille.dataFeed.TickerI;
 import net.tuxanna.portefeuille.database.ShareDB;
 
 public class TestQuotationMapStorage
@@ -35,11 +36,11 @@ public class TestQuotationMapStorage
 		cal.set(Calendar.MILLISECOND, 125);
 
 		Date testTime = cal.getTime();
-		ShareDB share=new ShareDB(ID_SHARE_1,"share1","sh1",ShareDB.Currency.EURO,true);
+		ShareDB share=new ShareDB(ID_SHARE_1,"share1","sh1",ShareDB.Currency.EURO,TickerI.TypeOfItem.TYPE_SHARE);
 		ShareIdAndDate key1=new ShareIdAndDate(share,testTime);
 		mapToTest.add(key1, NEW_PRICE_SHARE_1);
 
-		ShareDB share2=new ShareDB(ID_SHARE_2,"share2","sh2",ShareDB.Currency.EURO,true);
+		ShareDB share2=new ShareDB(ID_SHARE_2,"share2","sh2",ShareDB.Currency.EURO,TickerI.TypeOfItem.TYPE_SHARE);
 		ShareIdAndDate key2=new ShareIdAndDate(share2,testTime);
 		mapToTest.add(key2, NEW_PRICE_SHARE_2);
 

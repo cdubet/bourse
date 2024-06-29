@@ -302,7 +302,7 @@ public class Database implements DatabaseI
 				shareDb.setId(shareRecord.get(Shares.SHARES.IDSHARE));
 				shareDb.setName(shareRecord.get(Shares.SHARES.NAME));
 				shareDb.setCurrency(DataConverter.convertToCurrency(shareRecord.get(Shares.SHARES.CURRENCY).charAt(0)));
-				shareDb.setIsShare(DataConverter.convertIsShare(shareRecord.get(Shares.SHARES.IS_SHARE).charAt(0)));
+				shareDb.setTypeOfItem(shareRecord.get(Shares.SHARES.IS_SHARE).charAt(0));
 				shareDb.setTicker(shareRecord.get(Shares.SHARES.TICKER));
 
 				listShares.add(shareDb);
@@ -587,7 +587,7 @@ public class Database implements DatabaseI
 				create.insertInto(Shares.SHARES).
 				set(Shares.SHARES.NAME,share.getName() ).
 				set(Shares.SHARES.TICKER,share.getTicker() ).
-				set(Shares.SHARES.IS_SHARE,DataConverter.convertIsShareToString(share.isShare()) ).
+				set(Shares.SHARES.IS_SHARE,DataConverter.convertIsShareToString(share.getTypeOfItem()) ).
 				set(Shares.SHARES.CURRENCY,DataConverter.convertCurrencyToString(share.getCurrency()) ).
 				execute();
 
@@ -1303,7 +1303,7 @@ public class Database implements DatabaseI
 				shareDb.setId(shareRecord.get(Shares.SHARES.IDSHARE));
 				shareDb.setName(shareRecord.get(Shares.SHARES.NAME));
 				shareDb.setCurrency(DataConverter.convertToCurrency(shareRecord.get(Shares.SHARES.CURRENCY).charAt(0)));
-				shareDb.setIsShare(DataConverter.convertIsShare(shareRecord.get(Shares.SHARES.IS_SHARE).charAt(0)));
+				shareDb.setTypeOfItem(shareRecord.get(Shares.SHARES.IS_SHARE).charAt(0));
 				shareDb.setTicker(shareRecord.get(Shares.SHARES.TICKER));
 
 				listShares.add(shareDb);
