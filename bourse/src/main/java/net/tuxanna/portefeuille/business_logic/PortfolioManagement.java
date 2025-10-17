@@ -51,11 +51,13 @@ public class PortfolioManagement
 	private DatabaseI database;
 	private ClockI clock; //get system, time (fixed data for junit)
 
-	private TopWorst5 todayChange;
-	private TopWorst5 yesterdayChange;
-	private TopWorst5 weekChange;
-	private TopWorst5 monthChange;
-
+	private TopWorst todayChange;
+	private TopWorst yesterdayChange;
+	private TopWorst weekChange;
+	private TopWorst monthChange;
+	private TopWorst oneYearChange;
+	private TopWorst twoYearChange;
+	
 	private QuotationMapStorage quotationMapStorage=new QuotationMapStorage();
 
 	//allow to find the name associate to the id
@@ -81,11 +83,13 @@ public class PortfolioManagement
 	{
 		quotationProvider=null; //TODO make class dummy instead to allow test without the setters
 		database=null;
-		todayChange=new TopWorst5();
-		yesterdayChange=new TopWorst5();
-		weekChange=new TopWorst5();
-		monthChange=new TopWorst5();
-
+		todayChange=new TopWorst();
+		yesterdayChange=new TopWorst();
+		weekChange=new TopWorst();
+		monthChange=new TopWorst();
+		oneYearChange=new TopWorst();
+		twoYearChange=new TopWorst();
+		
 		listOfShareOrderManagement.add(new SellManagement());
 		clock=new RealClock();
 	}
@@ -104,9 +108,9 @@ public class PortfolioManagement
 		buildYesterdayChange(listSharesWithIndicationToUseOrNot,listOfQuotationsDB);
 		buildWeekChange(listSharesWithIndicationToUseOrNot,listOfQuotationsDB);
 		buildMonthChange(listSharesWithIndicationToUseOrNot,listOfQuotationsDB);
+		buildOneYearChange(listSharesWithIndicationToUseOrNot,listOfQuotationsDB);
+		buildTwoYearChange(listSharesWithIndicationToUseOrNot,listOfQuotationsDB);
 	}
-
-
 
 	public boolean exportQuoteCsv(File csvFile)
 	{
@@ -232,7 +236,7 @@ public class PortfolioManagement
 
 		ArrayList<QuoteVariation> listQuotationVariation=new ArrayList<>(listOfQuotationsDB.size());
 		buildQuotationVariation(listShares, listOfQuotationsDB, newDateBefore, listQuotationVariation,true /* addComparisonWithLastWeek*/);
-		yesterdayChange=new TopWorst5(listQuotationVariation);			
+		yesterdayChange=new TopWorst(7 /* 7 biggest changes*/,listQuotationVariation);			
 	}
 
 	private void buildWeekChange(List<Share> listShares,ShareToQuotations listOfQuotationsDB)
@@ -242,7 +246,7 @@ public class PortfolioManagement
 
 		ArrayList<QuoteVariation> listQuotationVariation=new ArrayList<>(listOfQuotationsDB.size());
 		buildQuotationVariation(listShares, listOfQuotationsDB, newDateBefore, listQuotationVariation,false/* addComparisonWithLastWeek*/);
-		weekChange=new TopWorst5(listQuotationVariation);			
+		weekChange=new TopWorst(7 /* 7 biggest changes*/,listQuotationVariation);			
 	}
 
 	private java.util.Date getDateOneWeekBefore()
@@ -268,10 +272,39 @@ public class PortfolioManagement
 
 		ArrayList<QuoteVariation> listQuotationVariation=new ArrayList<>(listOfQuotationsDB.size());
 		buildQuotationVariation(listShares, listOfQuotationsDB, newDateBefore, listQuotationVariation,true /* addComparisonWithLastWeek*/);
-		monthChange=new TopWorst5(listQuotationVariation);	
-		
+		monthChange=new TopWorst(10 /* 10 biggest changes*/,listQuotationVariation);		
 	}
+	
+	private void buildOneYearChange(List<Share> listShares,ShareToQuotations listOfQuotationsDB)
+	{
+		//first get the quotation for yesterday
+		Date now=clock.getNow();
+		Calendar cal = Calendar.getInstance(); // creates calendar
+		cal.setTime(now); // sets it to now 
 
+		cal.add(Calendar.YEAR, -1);
+		java.util.Date newDateBefore=skipWeekEnd(cal);
+
+		ArrayList<QuoteVariation> listQuotationVariation=new ArrayList<>(listOfQuotationsDB.size());
+		buildQuotationVariation(listShares, listOfQuotationsDB, newDateBefore, listQuotationVariation,false /* addComparisonWithLastWeek*/);
+		oneYearChange=new TopWorst(10 /* 10 biggest changes*/,listQuotationVariation);	
+	}
+	
+	private void buildTwoYearChange(List<Share> listShares,ShareToQuotations listOfQuotationsDB)
+	{
+		//first get the quotation for yesterday
+		Date now=clock.getNow();
+		Calendar cal = Calendar.getInstance(); // creates calendar
+		cal.setTime(now); // sets it to now 
+
+		cal.add(Calendar.YEAR, -2);
+		java.util.Date newDateBefore=skipWeekEnd(cal);
+
+		ArrayList<QuoteVariation> listQuotationVariation=new ArrayList<>(listOfQuotationsDB.size());
+		buildQuotationVariation(listShares, listOfQuotationsDB, newDateBefore, listQuotationVariation,false /* addComparisonWithLastWeek*/);
+		oneYearChange=new TopWorst(10 /* 10 biggest changes*/,listQuotationVariation);	
+	}
+	
 	private boolean buildQuotationVariation(List<Share> listShares,
 			ShareToQuotations listOfQuotationsDB,
 			java.util.Date newDateBefore,
@@ -384,7 +417,7 @@ public class PortfolioManagement
 				}
 			}
 		}
-		todayChange=new TopWorst5(listQuotationVariation);
+		todayChange=new TopWorst(7 /* 7 biggest changes*/,listQuotationVariation);
 	}
 
 	public boolean getLatestQuotationFromInternetAndStoreThem(List<ShareDB> listShares,ShareToQuotations listOfQuotationsDB)
@@ -486,49 +519,49 @@ public class PortfolioManagement
 	}
 
 
-	public TopWorst5 getTodayChange()
+	public TopWorst getTodayChange()
 	{
 		return todayChange;
 	}
 
 
-	public void setTodayChange(TopWorst5 todayChange)
+	public void setTodayChange(TopWorst todayChange)
 	{
 		this.todayChange = todayChange;
 	}
 
 
-	public TopWorst5 getYesterdayChange()
+	public TopWorst getYesterdayChange()
 	{
 		return yesterdayChange;
 	}
 
 
-	public void setYesterdayChange(TopWorst5 yesterdayChange)
+	public void setYesterdayChange(TopWorst yesterdayChange)
 	{
 		this.yesterdayChange = yesterdayChange;
 	}
 
 
-	public TopWorst5 getWeekChange()
+	public TopWorst getWeekChange()
 	{
 		return weekChange;
 	}
 
 
-	public void setWeekChange(TopWorst5 weekChange)
+	public void setWeekChange(TopWorst weekChange)
 	{
 		this.weekChange = weekChange;
 	}
 
 
-	public TopWorst5 getMonthChange()
+	public TopWorst getMonthChange()
 	{
 		return monthChange;
 	}
 
 
-	public void setMonthChange(TopWorst5 monthChange)
+	public void setMonthChange(TopWorst monthChange)
 	{
 		this.monthChange = monthChange;
 	}
@@ -556,12 +589,16 @@ public class PortfolioManagement
 		yesterdayChange.setTitle("yesterday");
 		weekChange.setTitle("week");
 		monthChange.setTitle("month");
-
+		oneYearChange.setTitle("1 year");
+		twoYearChange.setTitle("2 years");
+		
 		listReportToPrint.add(todayChange);
 		listReportToPrint.add(yesterdayChange);
 		listReportToPrint.add(weekChange);
 		listReportToPrint.add(monthChange);
-
+		listReportToPrint.add(oneYearChange);
+		listReportToPrint.add(twoYearChange);
+		
 		for (ShareOrderManagementI order : listOfShareOrderManagement)
 		{
 			order.addResultToNotify(listReportToPrint);

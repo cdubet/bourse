@@ -20,7 +20,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import net.tuxanna.portefeuille.business_logic.PortfolioManagement;
-import net.tuxanna.portefeuille.business_logic.TopWorst5;
+import net.tuxanna.portefeuille.business_logic.TopWorst;
 import net.tuxanna.portefeuille.database.Database;
 import portefeuilleTest.database.util.RamDatabaseForTest;
 
@@ -93,7 +93,7 @@ public class TestPortfolioManagement17Oct2016
 	{
 		boolean res=testPortfolio.update();
 		assertTrue(res);
-		TopWorst5 topWorstIntraDay = testPortfolio.getTodayChange();
+		TopWorst topWorstIntraDay = testPortfolio.getTodayChange();
 		logger.debug(topWorstIntraDay.toString());
 		/*
 		 * we should have
@@ -126,7 +126,7 @@ QuoteVariation [name=name2, oldPrice=3.4, newPrice=3.9, variation=14.70588235294
 		
 		///////////////////////////////////////////////////////////
 		// check top/worst last day
-		TopWorst5 topWorstLastDay = testPortfolio.getYesterdayChange();
+		TopWorst topWorstLastDay = testPortfolio.getYesterdayChange();
 		logger.debug(topWorstLastDay.toString());
 		assertEquals(topWorstLastDay.getWorst5().size(),5);
 		assertEquals(topWorstLastDay.getWorst5().get(0).getName(), "name1");

@@ -10,7 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import net.tuxanna.portefeuille.business_logic.QuoteVariation;
-import net.tuxanna.portefeuille.business_logic.TopWorst5;
+import net.tuxanna.portefeuille.business_logic.TopWorst;
 import net.tuxanna.portefeuille.business_logic.eval.Evaluation;
 import net.tuxanna.portefeuille.business_logic.eval.EvaluationStorage;
 import net.tuxanna.portefeuille.business_logic.util.ListOfOperations;
@@ -90,7 +90,7 @@ public class TestHtmlGeneration
 			listQuotationVariation.add(var1);
 		}
 
-		TopWorst5 topWorst=new TopWorst5(listQuotationVariation);
+		TopWorst topWorst=new TopWorst(5 /* 5 biggest changes*/,listQuotationVariation);
 		topWorst.setTitle("tst title");
 		String htmlStr=topWorst.toHtml();
 		// TODO check the output instead of sending mail
@@ -100,7 +100,7 @@ public class TestHtmlGeneration
 		ArrayList<ReportI> report=new ArrayList<ReportI>();
 		report.add(topWorst);
 
-		TopWorst5 topWorst2=new TopWorst5(listQuotationVariation);
+		TopWorst topWorst2=new TopWorst(5 /* 5 biggest changes*/,listQuotationVariation);
 		topWorst2.setTitle("tst title2");
 		report.add(topWorst2);
 

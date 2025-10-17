@@ -26,7 +26,7 @@ import picocli.CommandLine.ParameterException;
 
 public class Portefeuille   implements Runnable  {
 
-	private static final String VERSION="1.10.1";
+	private static final String VERSION="1.10.2";
 	private static final Logger logger = LogManager.getLogger(Portefeuille.class);
 
 	@Option(names={"-create"}, description="create database", required=false)  

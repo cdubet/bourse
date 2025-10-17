@@ -10,53 +10,54 @@ import com.googlecode.jatl.Html;
 
 import net.tuxanna.portefeuille.util.ReportI;
 
-public class TopWorst5 implements ReportI
+public class TopWorst implements ReportI
 {
-	private ArrayList<QuoteVariation> top5;
-	private ArrayList<QuoteVariation> worst5;
+	private ArrayList<QuoteVariation> top;
+	private ArrayList<QuoteVariation> worst;
 	private String title; //used only when report is printed
 	
-	private final int SIZE_TOP_WORST= 5;
+	private int sizeTopWorst;
 	
-	public TopWorst5()
+	public TopWorst()
 	{
 		super();
-		top5=new ArrayList<QuoteVariation>(0); //just to allow empty usage 
-		worst5=new ArrayList<QuoteVariation>(0);
-
+		top=new ArrayList<QuoteVariation>(0); //just to allow empty usage 
+		worst=new ArrayList<QuoteVariation>(0);
+		sizeTopWorst=5;
 	}
 
-	public TopWorst5(ArrayList<QuoteVariation> listQuotationVariation)
+	public TopWorst(int newSizeTopWorst,ArrayList<QuoteVariation> listQuotationVariation)
 	{
+		sizeTopWorst=newSizeTopWorst;		
 		Collections.sort(listQuotationVariation);
-		top5=new ArrayList<QuoteVariation> (SIZE_TOP_WORST);
-		worst5=new ArrayList<QuoteVariation> (SIZE_TOP_WORST);
+		top=new ArrayList<QuoteVariation> (sizeTopWorst);
+		worst=new ArrayList<QuoteVariation> (sizeTopWorst);
 		
-		for (int i=0; i<listQuotationVariation.size() && i<SIZE_TOP_WORST;i++ )
+		for (int i=0; i<listQuotationVariation.size() && i<sizeTopWorst;i++ )
 		{
-			top5.add(listQuotationVariation.get(i));
+			top.add(listQuotationVariation.get(i));
 		}
 		
-		for (int i=listQuotationVariation.size()-1, addedItems=0; i>=0 && addedItems<SIZE_TOP_WORST ;i--,addedItems++ )
+		for (int i=listQuotationVariation.size()-1, addedItems=0; i>=0 && addedItems<sizeTopWorst ;i--,addedItems++ )
 		{
-			worst5.add(listQuotationVariation.get(i));
+			worst.add(listQuotationVariation.get(i));
 		}
 	}
 
 	public ArrayList<QuoteVariation> getTop5()
 	{
-		return top5;
+		return top;
 	}
 
 	public ArrayList<QuoteVariation> getWorst5()
 	{
-		return worst5;
+		return worst;
 	}
 
 	@Override
 	public String toString()
 	{
-		return "TopWorst5 [top5=" + top5 + "\nworst5=" + worst5 + "]";
+		return "TopWorst5 [top=" + top + "\nworst=" + worst + "]";
 	}
 
 	@Override
@@ -72,11 +73,11 @@ public class TopWorst5 implements ReportI
 
 			
 			//get the header, same for all items
-			if (top5.size() !=0)
+			if (top.size() !=0)
 			{
 				table().width("100%").height("100%").border("#000000");
 				thead().tr();
-				List<String> header=top5.get(0).getHeaderForReport();
+				List<String> header=top.get(0).getHeaderForReport();
 				for (Iterator<String> iterator = header.iterator(); iterator.hasNext();)
 				{
 					String string = (String) iterator.next();
@@ -86,9 +87,9 @@ public class TopWorst5 implements ReportI
 				
 				tbody();
 				
-				for (int i = 0; i < top5.size(); i++) {
+				for (int i = 0; i < top.size(); i++) {
 					tr();
-					List<String> lineInTable=top5.get(i).getContentForReport();
+					List<String> lineInTable=top.get(i).getContentForReport();
 					for (Iterator<String> iterator = lineInTable.iterator(); iterator.hasNext();)
 					{
 						String string = (String) iterator.next();
@@ -103,11 +104,11 @@ public class TopWorst5 implements ReportI
 
 			
 			//worst 5
-			if (worst5.size() !=0)
+			if (worst.size() !=0)
 			{
 				table().width("100%").height("100%").border("#000000");
 				thead().tr();
-				List<String> header=worst5.get(0).getHeaderForReport();
+				List<String> header=worst.get(0).getHeaderForReport();
 				for (Iterator<String> iterator = header.iterator(); iterator.hasNext();)
 				{
 					String string = (String) iterator.next();
@@ -117,9 +118,9 @@ public class TopWorst5 implements ReportI
 				
 				tbody();
 				
-				for (int i = 0; i < worst5.size(); i++) {
+				for (int i = 0; i < worst.size(); i++) {
 					tr();
-					List<String> lineInTable=worst5.get(i).getContentForReport();
+					List<String> lineInTable=worst.get(i).getContentForReport();
 					for (Iterator<String> iterator = lineInTable.iterator(); iterator.hasNext();)
 					{
 						String string = (String) iterator.next();
@@ -145,6 +146,11 @@ public class TopWorst5 implements ReportI
 	public void setTitle(String title)
 	{
 		this.title = title;
+	}
+
+	public void setSizeTopWorst(int sizeTopWorst)
+	{
+		this.sizeTopWorst = sizeTopWorst;
 	}
 
 
