@@ -55,7 +55,8 @@ public class MailNotifier implements PortfolioNotifierI
 				message.append(reportI.toHtml());
 			}
 			email.setHtmlMsg(message.toString());
-			email.addTo(mailParameters.getMailTo());
+			String[] arrayAddresses = mailParameters.getMailTo().split(",");
+			email.addTo(arrayAddresses);
 			email.send();
 		}
 		catch (EmailException e)
